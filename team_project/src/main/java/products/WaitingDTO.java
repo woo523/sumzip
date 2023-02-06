@@ -3,9 +3,9 @@ package products;
 import java.sql.Timestamp;
 
 public class WaitingDTO {
-	private int wno;
-	private int pno;
-	private int no2;
+	private int wno; //대기번호
+	private int pno; //상품번호
+	private int no2; //유저번호
 	private Timestamp wdate;
 	
 	public int getWno() {
