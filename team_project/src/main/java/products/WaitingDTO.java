@@ -7,6 +7,7 @@ public class WaitingDTO {
 	private int pno;
 	private int no2;
 	private Timestamp wdate;
+	
 	public int getWno() {
 		return wno;
 	}
@@ -31,6 +32,5 @@ public class WaitingDTO {
 	public void setWdate(Timestamp wdate) {
 		this.wdate = wdate;
 	}
-	
 	
 }
