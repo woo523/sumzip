@@ -95,4 +95,5 @@ public class UserDTO {
 	public void setUtype(int utype) {
 		this.utype = utype;
 	}
+	
 }
