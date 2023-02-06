@@ -2,12 +2,12 @@ package board;
 
 import java.sql.Timestamp;
 
-public class ReplyDTO {
-   private int rno;
-   private int no;
-   private int bno;
-   private String riply;
-   private Timestamp rdate;
+public class ReplyDTO { // 댓글 클래스
+   private int rno; // 댓글번호
+   private int no; // 댓글 단 유저번호
+   private int bno; // 공지사항번호
+   private String riply; // 댓글 내용
+   private Timestamp rdate; // 댓글 단 시간
    
    public int getRno() {
 	   return rno;

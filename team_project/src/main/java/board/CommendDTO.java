@@ -2,13 +2,14 @@ package board;
 
 import java.sql.Timestamp;
 
-public class CommendDTO {
-	private int cno;
-	private int bno;
-	private int no;
-	private int rno;
-	private String commend;
-	private Timestamp cdate;
+public class CommendDTO { // 대댓글 클래스
+	private int cno; // 대댓글 번호
+	private int bno; // 공지사항 번호
+	private int no; // 대댓글 단 유저번호
+	private int rno; // 댓글 번호
+	private String commend; // 대댓글 내용
+	private Timestamp cdate; // 대댓글 단 시간
+	
 	public int getCno() {
 		return cno;
 	}
