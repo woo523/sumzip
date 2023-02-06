@@ -1,5 +1,67 @@
 package member;
 
-public class ReviewDTO {
+import java.sql.Timestamp;
 
+public class ReviewDTO {
+	
+	private String rtitle;
+	private String rcontent;
+	private String rstar;
+	private Timestamp rdate;
+	private int rcount;
+	private String rpic1;
+	private String rpic2;
+	private String rpic3;
+	
+	
+	public String getRtitle() {
+		return rtitle;
+	}
+	public void setRtitle(String rtitle) {
+		this.rtitle = rtitle;
+	}
+	public String getRcontent() {
+		return rcontent;
+	}
+	public void setRcontent(String rcontent) {
+		this.rcontent = rcontent;
+	}
+	public String getRstar() {
+		return rstar;
+	}
+	public void setRstar(String rstar) {
+		this.rstar = rstar;
+	}
+	public Timestamp getRdate() {
+		return rdate;
+	}
+	public void setRdate(Timestamp rdate) {
+		this.rdate = rdate;
+	}
+	public int getRcount() {
+		return rcount;
+	}
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
+	}
+	public String getRpic1() {
+		return rpic1;
+	}
+	public void setRpic1(String rpic1) {
+		this.rpic1 = rpic1;
+	}
+	public String getRpic2() {
+		return rpic2;
+	}
+	public void setRpic2(String rpic2) {
+		this.rpic2 = rpic2;
+	}
+	public String getRpic3() {
+		return rpic3;
+	}
+	public void setRpic3(String rpic3) {
+		this.rpic3 = rpic3;
+	}
+	
+	
 }
