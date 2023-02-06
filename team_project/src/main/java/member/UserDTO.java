@@ -6,8 +6,7 @@ public class UserDTO {
 	private int no; // 유저번호
 	private String uname; // 이름
 	private String id; // 아이디
-	private String pass1; // 비밀번호
-	private int pass2; // 비밀번호확인
+	private String pass; // 비밀번호 
 	private Timestamp birth; // 생년월일
 	private String tel; // 전화번호
 	private String address1; // 주소
@@ -35,18 +34,13 @@ public class UserDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPass1() {
-		return pass1;
+	public String getPass() {
+		return pass;
 	}
-	public void setPass1(String pass1) {
-		this.pass1 = pass1;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
-	public int getPass2() {
-		return pass2;
-	}
-	public void setPass2(int pass2) {
-		this.pass2 = pass2;
-	}
+	
 	public Timestamp getBirth() {
 		return birth;
 	}
