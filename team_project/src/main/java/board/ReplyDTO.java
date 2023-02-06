@@ -1,4 +1,4 @@
-package reply;
+package board;
 
 public class ReplyDTO {
 

@@ -1,4 +1,4 @@
-package sales;
+package products;
 
 public class SalesDTO {
 

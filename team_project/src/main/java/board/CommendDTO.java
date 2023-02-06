@@ -1,4 +1,4 @@
-package commend;
+package board;
 
 public class CommendDTO {
 

@@ -1,4 +1,4 @@
-package review;
+package member;
 
 public class ReviewDTO {
 

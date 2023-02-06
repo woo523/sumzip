@@ -1,4 +1,4 @@
-package appointment;
+package products;
 
 public class AppointmentDTO {
 

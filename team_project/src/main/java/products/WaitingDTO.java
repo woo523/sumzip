@@ -1,4 +1,4 @@
-package waiting;
+package products;
 
 public class WaitingDTO {
 
