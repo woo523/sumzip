@@ -4,14 +4,14 @@ import java.sql.Timestamp;
 
 public class ReviewDTO {
 	
-	private String rtitle;
-	private String rcontent;
-	private String rstar;
-	private Timestamp rdate;
-	private int rcount;
-	private String rpic1;
-	private String rpic2;
-	private String rpic3;
+	private String rtitle;		// 리뷰제목
+	private String rcontent;	// 리뷰내용
+	private String rstar;		// 별점
+	private Timestamp rdate;	// 등록날짜
+	private int rcount;			// 뷰카운트
+	private String rpic1;		// 리뷰사진1
+	private String rpic2;		// 리뷰사진2
+	private String rpic3;		// 리뷰사진3
 	
 	
 	public String getRtitle() {
