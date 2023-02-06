@@ -1,18 +1,18 @@
 package products;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class SalesDTO {
-	private int sno;
-	private int ano;
-	private int pno;
-	private int no2;
-	private Timestamp sdate;
-	private Date indate;
-	private Date outdate;
-	private int sprice;
-	private int scount;
+	private int sno; //판매번호
+	private int ano; //예약번호
+	private int pno; //상품번호
+	private int no2; //유저번호
+	private Timestamp sdate; //판매일자
+	private Date indate; //입실일
+	private Date outdate; //퇴실일(몇박)
+	private int sprice; //총가격
+	private int scount; //뷰카운트
+	
 	public int getSno() {
 		return sno;
 	}

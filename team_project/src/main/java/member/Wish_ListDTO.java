@@ -1,8 +1,8 @@
 package member;
 
 public class Wish_ListDTO {
-	private int no;
-	private int pno;
+	private int no; //유저번호
+	private int pno; //상품번호
 	public int getNo() {
 		return no;
 	}
