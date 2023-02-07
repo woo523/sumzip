@@ -5,14 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>review.jsp</title>
+<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
 <script type="text/javascript">
-	const drawStar = (target) => {
-		document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
-	}
+	$(document).ready(function() {
+		
+		$("p.a").click(function() {
+			$(this).parent().children("a").removeClass("on");
+			$(this).addClass("on").preAll("a").addClass("on");
+			return false;
+		});
+		
+	});
 	
-	const drawStar = (target) => {
-		$(`.star span`).css({width:`${target.value * 10}%` });
-	}
+	
 </script>
 </head>
 
@@ -45,12 +50,16 @@
 		
 		<!-- 	별점(동적) -->
 		<div id="Stars">
-			<h3>???만족하셨나요?</h3>
-			<span class="star">
-			⭐⭐⭐⭐⭐
-			<span>*****</span>
-<!-- 		<input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10"> -->
-			</span>
+			<h3>??? 만족하셨나요?</h3>
+			
+			<p class="star_rating">
+				⭐⭐⭐⭐⭐
+				<a href="#" class="on">별</a>
+				<a href="#" class="on">⭐</a>
+				<a href="#" class="on">★</a>
+				<a href="#">★</a>
+				<a href="#">★</a>
+			</p>
 		</div>
 		
 		<!-- 	후기를 남겨주세요 -->
@@ -84,6 +93,22 @@
 		width: 700px;
 		height: 1024px;
 	}
+	
+	.star_rating {font-size:0; letter-spacing: -4px;}
+	
+	.star_rating a {
+		font_size:22px;
+		letter-spacing: 0;
+		display: inline-block;
+		color: #ccc;
+		text-decoration: none;
+	}
+	
+	.star_rating a:first-child {margin-left: 0;}
+	.star_rating a.on {color: yellow;}
+	
+}
+	
 </style>
 </body>
 </html>

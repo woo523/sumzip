@@ -1,3 +1,4 @@
+<%@page import="member.ReviewDAO"%>
 <%@page import="member.ReviewDTO"%>
 <%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,8 +21,8 @@
  	dto.setRdate(rdate);
  	
  	// 리턴X insertReview()
- 	// ReviewDAO dao = new ReviewDAO();
- 	// dao.insertReview(dto);
+ 	ReviewDAO dao = new ReviewDAO();
+ 	dao.insertReview(dto);
  	
  	response.sendRedirect("myList.jsp");
 	
