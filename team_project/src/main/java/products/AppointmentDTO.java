@@ -21,7 +21,7 @@ public class AppointmentDTO {
 	public void setPno(int pno) {
 		this.pno = pno;
 	}
-	public int getno() {
+	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {

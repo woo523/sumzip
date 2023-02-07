@@ -31,10 +31,10 @@ public class SalesDTO {
 	public void setPno(int pno) {
 		this.pno = pno;
 	}
-	public int getno() {
+	public int getNo() {
 		return no;
 	}
-	public void setno(int no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 	public Timestamp getSdate() {
