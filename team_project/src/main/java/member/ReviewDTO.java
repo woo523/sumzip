@@ -4,16 +4,37 @@ import java.sql.Timestamp;
 
 public class ReviewDTO {
 	
+	private int rno;		// 리뷰번호
+	private int no;			// 유저번호
+	private int pno;		// 상품번호
 	private String rtitle;		// 리뷰제목
 	private String rcontent;	// 리뷰내용
 	private String rstar;		// 별점
 	private Timestamp rdate;	// 등록날짜
-	private int rcount;			// 뷰카운트
+	private int rcount;		// 뷰카운트
 	private String rpic1;		// 리뷰사진1
 	private String rpic2;		// 리뷰사진2
 	private String rpic3;		// 리뷰사진3
 	
 	
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public int getPno() {
+		return pno;
+	}
+	public void setPno(int pno) {
+		this.pno = pno;
+	}
 	public String getRtitle() {
 		return rtitle;
 	}
