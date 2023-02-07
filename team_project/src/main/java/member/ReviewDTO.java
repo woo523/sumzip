@@ -11,7 +11,7 @@ public class ReviewDTO {
 	private String rcontent;	// 리뷰내용
 	private String rstar;		// 별점
 	private Timestamp rdate;	// 등록날짜
-	private int rcount;			// 뷰카운트
+	private int rcount;		// 뷰카운트
 	private String rpic1;		// 리뷰사진1
 	private String rpic2;		// 리뷰사진2
 	private String rpic3;		// 리뷰사진3
