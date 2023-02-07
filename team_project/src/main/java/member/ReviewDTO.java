@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 
 public class ReviewDTO {
 	
-	private int rno;			// 리뷰번호
-	private int no;				// 유저번호
-	private int pno;			// 상품번호
+	private int rno;		// 리뷰번호
+	private int no;			// 유저번호
+	private int pno;		// 상품번호
 	private String rtitle;		// 리뷰제목
 	private String rcontent;	// 리뷰내용
 	private String rstar;		// 별점
