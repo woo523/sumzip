@@ -21,11 +21,11 @@ public class AppointmentDTO {
 	public void setPno(int pno) {
 		this.pno = pno;
 	}
-	public int getNo2() {
-		return no2;
+	public int getno() {
+		return no;
 	}
-	public void setNo2(int no2) {
-		this.no2 = no2;
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public int getAstatus() {
 		return astatus;
