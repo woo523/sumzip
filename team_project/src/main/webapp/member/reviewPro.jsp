@@ -9,11 +9,21 @@
 	String rtitle = request.getParameter("subject");
 	String rstar = request.getParameter("star");
 	String rcontent = request.getParameter("content");
-	int readcount = 0;
+	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
 	
 	ReviewDTO dto = new ReviewDTO();
-// 	dto.set
+ 	dto.setRtitle(rtitle);
+ 	dto.setRstar(rstar);
+ 	dto.setRcontent(rcontent);
+ 	dto.setRcount(rcount);
+ 	dto.setRdate(rdate);
+ 	
+ 	// 리턴X insertReview()
+ 	// ReviewDAO dao = new ReviewDAO();
+ 	// dao.insertReview(dto);
+ 	
+ 	response.sendRedirect("myList.jsp");
 	
 
 %>
