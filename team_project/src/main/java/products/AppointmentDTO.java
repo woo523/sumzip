@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class AppointmentDTO {
 	private int ano; //예약번호
 	private int pno; //상품번호
-	private int no2; //유저번호
+	private int no; //유저번호
 	private int astatus; //예약상태
 	private Timestamp adate; //예약일자
 	

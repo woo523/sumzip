@@ -6,7 +6,7 @@ public class SalesDTO {
 	private int sno; //판매번호
 	private int ano; //예약번호
 	private int pno; //상품번호
-	private int no2; //유저번호
+	private int no; //유저번호
 	private Timestamp sdate; //판매일자
 	private Date indate; //입실일
 	private Date outdate; //퇴실일(몇박)
