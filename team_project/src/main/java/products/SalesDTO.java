@@ -6,7 +6,7 @@ public class SalesDTO {
 	private int sno; //판매번호
 	private int ano; //예약번호
 	private int pno; //상품번호
-	private int no2; //유저번호
+	private int no; //유저번호
 	private Timestamp sdate; //판매일자
 	private Date indate; //입실일
 	private Date outdate; //퇴실일(몇박)
@@ -31,11 +31,11 @@ public class SalesDTO {
 	public void setPno(int pno) {
 		this.pno = pno;
 	}
-	public int getNo2() {
-		return no2;
+	public int getNo() {
+		return no;
 	}
-	public void setNo2(int no2) {
-		this.no2 = no2;
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public Timestamp getSdate() {
 		return sdate;
