@@ -24,10 +24,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    
-	
 </head>
-
 
 <body>
     <!-- Page Preloder -->
@@ -273,9 +270,6 @@
                         <h4>Travel Plan</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna.</p>
-			                            <p>
-										    <button id="check_module" type="button">import</button>
-										</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -449,8 +443,6 @@
         </div>
     </section>
     <!-- Home Room Section End -->
-    
-    
 
     <!-- Testimonial Section Begin -->
     <section class="testimonial-section spad">
