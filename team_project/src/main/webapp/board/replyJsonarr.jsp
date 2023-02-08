@@ -1,5 +1,6 @@
-<%-- <%@page import="org.json.simple.JSONObject"%> --%>
-<%-- <%@page import="org.json.simple.JSONArray"%> --%>
+
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.ReplyDTO"%>
 <%@page import="java.util.List"%>
@@ -9,21 +10,21 @@
 <%
 int bno=1;
 ReplyDAO dao=new ReplyDAO();
-List<ReplyDTO> replyList=dao.getReplyList(bno);
+List<ReplyDTO> replylist=dao.getReplyList(bno);
 
-// JSONArray arr = new JSONArray();
+JSONArray arr = new JSONArray();
 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
-for(int i=0;i<replyList.size();i++){
-ReplyDTO dto=replyList.get(i);
+for(int i=0;i<replylist.size();i++){
+ReplyDTO dto=replylist.get(i);
 
-// JSONObject object= new JSONObject();
-// object.put("no", dto.getNo());
-// object.put("riply", dto.getRiply());
-// object.put("rdate", dateFormat.format(dto.getRdate()));
-//  배열한칸에 json 저장
-// arr.add(object);
+JSONObject object= new JSONObject();
+object.put("no", dto.getNo());
+object.put("riply", dto.getRiply());
+object.put("rdate", dateFormat.format(dto.getRdate()));
+// 배열한칸에 json 저장
+arr.add(object);
  }
 
 %>
 
-<%-- <%=arr%> --%>
+<%=arr%>

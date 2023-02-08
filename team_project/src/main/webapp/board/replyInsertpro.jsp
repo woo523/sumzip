@@ -24,7 +24,6 @@ dto.setRdate(rdate);
 ReplyDAO dao = new ReplyDAO();
 dao.insertReply(dto);
 
-// 글목록 list.jsp
 response.sendRedirect("BoardDetail.jsp");
 
 %>
