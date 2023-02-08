@@ -8,16 +8,17 @@
 
 <script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
 <script type="text/javascript">
+
  $(document).ready(function(){
 	 $.ajax({
-	        url: "replyJsonarr.jsp",
-	        dataType : "json",
-	        success: function (arr) {	          
-		$.each(arr,function(index, item){
-			$('table').append('<tr><td>'+item.riply+'\</td><td>'+item.rdate+'</td></tr>');
-		});// each
-	        } // success
-	 }); // ajax
+			url:"replyJsonarr.jsp",
+			dataType:"json",
+			success:function(arr){
+				$.each(arr,function(index,item){
+					$('table').append('<tr><td>'+item.riply+'</td><td>'+item.rdate+'</td></tr>');
+				});// each
+			}// success
+		}); //ajax
 	 }); // ready
 
  </script>

@@ -66,14 +66,15 @@ public class ReplyDAO {
 		ArrayList<ReplyDTO> replylist = new ArrayList<>();
 		try {
 			con = getConnection();
-			String sql = "select * from reply where bno =? order by num desc";
+			String sql = "select * from reply where bno =? order by rno desc";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bno);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				ReplyDTO dto = new ReplyDTO();
 				dto.setRno(rs.getInt("rno"));
 				dto.setNo(rs.getInt("no"));
-				dto.setBno(rs.getInt(bno));
+				dto.setBno(rs.getInt("bno"));
 				dto.setRiply(rs.getString("riply"));
 				dto.setRdate(rs.getTimestamp("rdate"));
 				// 바구니의 주소값을 배열 한칸에 저장
