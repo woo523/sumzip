@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
+ 
  	$(document).ready(function(){
- 		
+ 	 		
 	$('#join').submit(function(){
 	if($('.id').val()==""){
 		alert("아이디를 입력하세요.");
@@ -35,6 +36,12 @@
 		$('.pass2').focus();
 		return false;
 	}
+	
+	if ( ! (document.joinform.pass.value.length >= 8 && document.joinform.pass.value.length <= 16)) {
+			alert("비밀번호 8 ~ 16자 사이로 입력해주세요");
+			document.joinform.pass.focus();
+			return false;
+		}
 	
 	// class="name"
 	if($('.name').val()==""){
@@ -149,7 +156,7 @@
 </head>
 <body>
 	<article>
-		<form action="joinPro.jsp" id="join" method="post">
+		<form action="joinPro.jsp" name="joinform" id="join" method="post">
 			<fieldset>
 				<legend>회원가입</legend>
 				회원유형
@@ -187,7 +194,7 @@
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons">
-				<input type="submit" value="가입하기" class="submit"> 
+				<input type="submit" value="가입하기" class="submit" onclick="fun1()"> 
 				<input type="reset" value="초기화하기" class="cancel">
 			</div>
 		</form>
