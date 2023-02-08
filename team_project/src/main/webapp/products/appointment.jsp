@@ -1,13 +1,16 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" --%>
-<%--     pageEncoding="UTF-8"%> --%>
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!-- <meta charset="UTF-8"> -->
-<!-- <title>products/appointment</title> -->
-<!-- </head> -->
-<!-- <body> -->
-<%-- <% --%>
+<%@page import="member.UserDAO"%>
+<%@page import="member.UserDTO"%>
+<%@page import="products.SalesDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>products/appointment</title>
+</head>
+<body>
+<%
 
 // String id=(String)session.getAttribute("id");
 // if(id==null){
@@ -19,8 +22,8 @@
 // SalesDTO dto2=dao2.getSalesList(id);
 
 
-<%-- %> --%>
-<!-- <h1>예약</h1> -->
+%>
+<h1>예약</h1>
 <!-- <form action="appointmentPro.jsp" method="post"> -->
 <!-- <h2>예약자 정보</h2> -->
 <%-- 예약자명 : <input type="text" name="uname" value="<%=dto.getUname%>" readonly><br> --%>
@@ -36,7 +39,7 @@
 <%-- 퇴실일 : <input type="text" name="outdate" value="<%=dto.getOutdate%>" readonly><br> --%>
 <%-- 총가격 : <input type="text" name="sprice" value="<%=dto.getSprice%>" readonly><br> --%>
 
-<!-- <input type="submit" value="결제하기"> -->
-<!-- </form> -->
-<!-- </body> -->
-<!-- </html> -->
+<input type="submit" value="결제하기">
+</form>
+</body>
+</html>
