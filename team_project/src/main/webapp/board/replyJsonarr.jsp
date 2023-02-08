@@ -18,6 +18,7 @@ for(int i=0;i<replylist.size();i++){
 ReplyDTO dto=replylist.get(i);
 
 JSONObject object= new JSONObject();
+object.put("rno", dto.getRno());
 object.put("no", dto.getNo());
 object.put("riply", dto.getRiply());
 object.put("rdate", dateFormat.format(dto.getRdate()));
