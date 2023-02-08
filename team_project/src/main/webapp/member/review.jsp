@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		$("p.a").click(function() {
+		$("p.star_rating a").click(function() {
 			$(this).parent().children("a").removeClass("on");
 			$(this).addClass("on").preAll("a").addClass("on");
 			return false;
@@ -24,16 +24,16 @@
 <body>
 <!-- 리뷰 작성 페이지 -->
 <%
-// 	String id = (String)session.getAttribute("id");
-	// 아이디 없으면 로그인 페이지로 이동
-// 	if(id == null) {
+	String id = (String)session.getAttribute("id");
+// 	아이디 없으면 로그인 페이지로 이동
+	if(id == null) {
 		%>
-<!-- 		<script type="text/javascript"> -->
-<!--  			alert("로그인을 해주세요"); -->
-<!-- 		</script> -->
+		<script type="text/javascript">
+  			alert("로그인을 해주세요");
+ 		</script>
 		<%
-// 		response.sendRedirect("login.jsp");
-// 	}
+		response.sendRedirect("login.jsp");
+	}
 %>
 <div class="container">
 	<!-- 헤더 들어가는 곳 -->
@@ -53,9 +53,8 @@
 			<h3>??? 만족하셨나요?</h3>
 			
 			<p class="star_rating">
-				⭐⭐⭐⭐⭐
-				<a href="#" class="on">별</a>
-				<a href="#" class="on">⭐</a>
+				<a href="#" class="on">★</a>
+				<a href="#" class="on">★</a>
 				<a href="#" class="on">★</a>
 				<a href="#">★</a>
 				<a href="#">★</a>
@@ -94,7 +93,7 @@
 		height: 1024px;
 	}
 	
-	.star_rating {font-size:0; letter-spacing: -4px;}
+/* 	.star_rating {font-size:0; letter-spacing: -4px;} */
 	
 	.star_rating a {
 		font_size:22px;

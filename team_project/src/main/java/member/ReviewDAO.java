@@ -26,18 +26,7 @@ public class ReviewDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			con = getConnection();
 			
-			String sql = "insert into review values(?, ?, ?, ?, ?)";
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, dto.getRtitle());
-			pstmt.setString(2, dto.getRstar());
-			pstmt.setString(3, dto.getRcontent());
-			pstmt.setInt(4, dto.getRcount());
-			pstmt.setTimestamp(5, dto.getRdate());
-			
-			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
