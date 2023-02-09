@@ -69,16 +69,16 @@
 <body>
 <!-- 리뷰 작성 페이지 -->
 <%
-	String id = (String)session.getAttribute("id");
+// 	String id = (String)session.getAttribute("id");
 	// 아이디 없으면 로그인 페이지로 이동
-	if(id == null) {
+// 	if(id == null) {
 		%>
-		<script type="text/javascript">
- 			alert("로그인을 해주세요");
-		</script>
+<!-- 		<script type="text/javascript"> -->
+<!--   			alert("로그인을 해주세요"); -->
+<!-- 		</script> -->
 		<%
-		response.sendRedirect("login.jsp");
-	}
+// 		response.sendRedirect("login.jsp");C
+// 	}
 %>
 <div class="container">
 	<!-- 헤더 들어가는 곳 -->
@@ -168,7 +168,7 @@
 		z-index: 10;
 		width: 60px;
 		height: 60px;
-		background-image: url('../img/icon/starrate.png');
+		background-image: url('../img/starrate.png');
 		background-repeat: no-repeat;
 		background-size: 60px 60px;
 		cursor: pointer;
