@@ -51,6 +51,10 @@
 
 	function formCheck() {
 		// submit 버튼을 누르면 onsubmit에 의해 formCheck() 함수 호출
+		if(document.querySelector('.title').value.length == 0) {
+			alert("제목을 입력하세요");
+			document.reviewForm.title.focus();
+		}
 		// 별점 선택 안했으면 메시지 표시, 체크된 값을 배열 형태로 받아서 length 확인
 		if(document.querySelectorAll('input[name="rating"]:checked').length==0) {
 			alert("만족도를 선택해주세요.");
@@ -59,9 +63,18 @@
 		// 리뷰 5자 미만이면 메시지 표시
 		if(document.querySelector('#review_textarea').value.length < 5) {
 			alert(" 5자 이상으로 작성해 주세요.");
+			document.reviewForm.content.focus();
 			return false;
 		}
+		// 작성 여부 확인
+		if(!confirm("작성하시겠습니까?")) {
+			return false;	// 폼 전송 X
+		} else 
+			return true;	// 폼 전송
+		
 	}
+	
+
 	
 
 </script>
@@ -77,7 +90,7 @@
 <!--   			alert("로그인을 해주세요"); -->
 <!-- 		</script> -->
 		<%
-// 		response.sendRedirect("login.jsp");C
+// 		response.sendRedirect("login.jsp");
 // 	}
 %>
 <div class="container">
@@ -88,7 +101,7 @@
 		
 	<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
 		<div>
-		글제목 : <input type="text" name="title">
+		글제목 : <input type="text" name="title" class="title">
 		</div>
 		
 		<!-- 별점 -->
@@ -113,7 +126,8 @@
 		<!-- 	후기를 남겨주세요 -->
 		<div class="review_contents">
 			<h3>후기를 남겨주세요.</h3>
-			<textarea name="content" id="review_textarea" rows="10" cols="30"></textarea>
+			<textarea name="content" id="review_textarea" rows="10" cols="30" 
+					  placeholder="후기를 남겨주세요! 사장님께 큰 도움이 됩니다."></textarea>
 		</div>
 			
 		<p>
@@ -123,7 +137,7 @@
 		</p>
 		
 		<div id="Buttons">
-			<input type="reset" id="cancel" value="취소">
+			<input type="reset" value="취소" class="cancelButton" id="cancel" >
 			<input type="submit" value="작성하기" class="submitButton" id="submit">
 		</div>
 		

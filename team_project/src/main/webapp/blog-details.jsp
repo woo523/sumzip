@@ -252,6 +252,7 @@
                                 <a href="#"><i class="fa fa-youtube-play"></i></a>
                             </div>
                         </div>
+                        
                         <div class="comment-option">
                             <h4>2 Comments</h4>
                             <div class="single-comment-item first-comment">
@@ -297,6 +298,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="leave-comment">
                             <h4>Leave A Comment</h4>
                             <form action="#" class="comment-form">
@@ -315,6 +317,7 @@
                                 </div>
                             </form>
                         </div>
+                        
                     </div>
                 </div>
             </div>
