@@ -165,12 +165,12 @@
     </header>
     <!-- Header End -->
 
-    <!-- Blog Details Hero Section Begin -->
-    <section class="review-details-hero set-bg" data-setbg="img/review/blog-details/blog-details-hero.jpg">
+    <!-- Review Details Hero Section Begin -->
+    <section class="blog-details-hero set-bg" data-setbg="img/review/review-details/review-details-hero.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="rv-hero-text">
+                    <div class="bd-hero-text">
                         <span>Travel Trip & Camping</span>
                         <h2>Cdc Issues Health Alert Notice For Travelers To Usa From Hon</h2>
                         <ul>
@@ -182,9 +182,9 @@
             </div>
         </div>
     </section>
-    <!-- Blog Details Hero End -->
+    <!-- Review Details Hero End -->
 
-    <!-- Blog Details Section Begin -->
+    <!-- Review Details Section Begin -->
     <section class="blog-details-section">
         <div class="container">
             <div class="row">
@@ -209,13 +209,13 @@
                         </div>
                         <div class="bd-pic">
                             <div class="bp-item">
-                                <img src="img/blog/blog-details/blog-details-1.jpg" alt="">
+                                <img src="img/review/review-details/review-details-1.jpg" alt="">
                             </div>
                             <div class="bp-item">
-                                <img src="img/blog/blog-details/blog-details-2.jpg" alt="">
+                                <img src="img/review/review-details/review-details-2.jpg" alt="">
                             </div>
                             <div class="bp-item">
-                                <img src="img/blog/blog-details/blog-details-3.jpg" alt="">
+                                <img src="img/review/review-details/review-details-3.jpg" alt="">
                             </div>
                         </div>
                         <div class="bd-more-text">
@@ -253,11 +253,11 @@
                             </div>
                         </div>
                         
-                        <div class="comment-option">
+                        <div class="review-option">
                             <h4>Reviews</h4>
-                            <div class="single-comment-item first-comment">
+                            <div class="single-review-item first-review">
                                  <div class="sc-author">
-                                     <img src="img/blog/blog-details/avatar/avatar-1.jpg" alt="">
+                                     <img src="img/review/review-details/avatar/avatar-1.jpg" alt="">
                                  </div>
                                 <div class="sc-text">
                                     <span>27 Aug 2019</span>
@@ -267,16 +267,16 @@
                                         dolore magnam.</p>
                                 </div>
                                 <div class="ratings"> <!-- ???? -->
-			                        <img src="../img/icon/yellowStar.png" alt="">
-			                        <img src="../img/icon/yellowStar.png" alt="">
-			                        <img src="../img/icon/yellowStar.png" alt="">
-			                        <img src="../img/icon/yellowStar.png" alt="">
+			                        <img src="img/yellowStar.png" alt="">
+			                        <img src="img/yellowStar.png" alt="">
+			                        <img src="img/yellowStar.png" alt="">
+			                        <img src="img/yellowStar.png" alt="">
 			                    </div>
-                            </div>
+                            </div> <!-- 첫번째 리뷰 -->
                             
-                            <div class="single-comment-item second-comment ">
+                            <div class="single-review-item second-review">
                                 <div class="sc-author">
-                                    <img src="img/blog/blog-details/avatar/avatar-3.jpg" alt="">
+                                    <img src="img/review/review-details/avatar/avatar-3.jpg" alt="">
                                 </div>
                                 <div class="sc-text">
                                     <span>27 Aug 2019</span>
@@ -286,7 +286,7 @@
                                         dolore magnam.</p>
                                 </div>
                             </div>
-                        </div>	<!-- 두번째 코멘트 -->
+                        </div>	<!-- 두번째 리뷰 -->
                         
                         <div class="leave-comment">
                             <h4>Add Review</h4>
@@ -326,7 +326,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/blog-1.jpg">
+                    <div class="blog-item set-bg" data-setbg="img/review/review-1.jpg">
                         <div class="bi-text">
                             <span class="b-tag">Travel Trip</span>
                             <h4><a href="#">Tremblant In Canada</a></h4>
@@ -335,7 +335,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/blog-2.jpg">
+                    <div class="blog-item set-bg" data-setbg="img/review/review-2.jpg">
                         <div class="bi-text">
                             <span class="b-tag">Camping</span>
                             <h4><a href="#">Choosing A Static Caravan</a></h4>
@@ -344,7 +344,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/blog-3.jpg">
+                    <div class="blog-item set-bg" data-setbg="img/review/review-3.jpg">
                         <div class="bi-text">
                             <span class="b-tag">Event</span>
                             <h4><a href="#">Copper Canyon</a></h4>

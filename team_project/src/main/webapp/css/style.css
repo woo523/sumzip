@@ -1844,14 +1844,14 @@ ul, ol {
   Review Details Hero Section
 ----------------------------*/
 
-.review-details-hero {
+.blog-details-hero {
 	height: 530px;
 	padding-top: 165px;
 }
-.rv-hero-text {
+.bd-hero-text {
 	text-align: center;
 }
-.rv-hero-text span {
+.bd-hero-text span {
 	font-size: 12px;
 	color: #ffffff;
 	background: #dfa974;
@@ -1862,24 +1862,24 @@ ul, ol {
 	padding: 4px 16px;
 	border-radius: 2px;
 }
-.rv-hero-text h2 {
+.bd-hero-text h2 {
 	font-size: 44px;
 	color: #ffffff;
 	line-height: 54px;
 	margin-top: 30px;
 	margin-bottom: 12px;
 }
-.rv-hero-text ul li {
+.bd-hero-text ul li {
 	list-style: none;
 	font-size: 14px;
 	color: #dfa974;
 	margin-right: 35px;
 	display: inline-block;
 }
-.rv-hero-text ul li:last-child {
+.bd-hero-text ul li:last-child {
 	margin-right: 0;
 }
-.rv-hero-text ul li.r-time {
+.bd-hero-text ul li.b-time {
 	text-transform: uppercase;
 }
 /*---------------------
@@ -1969,20 +1969,20 @@ ul, ol {
 	color: #707079;
 	margin-left: 30px;
 }
-.blog-details-text .comment-option {
+.blog-details-text .review-option {
 	margin-bottom: 75px;
 }
-.blog-details-text .comment-option h4 {
+.blog-details-text .review-option h4 {
 	color: #19191a;
 	margin-bottom: 35px;
 }
-.blog-details-text .comment-option .single-comment-item {
+.blog-details-text .review-option .single-review-item {
 	margin-bottom: 30px;
 }
-.blog-details-text .comment-option .single-comment-item.first-comment .sc-text {
+.blog-details-text .review-option .single-review-item.first-review .sc-text {
 	padding-left: 22px;
 }
-.blog-details-text .comment-option .single-comment-item.first-comment .sc-text:before {
+.blog-details-text .review-option .single-review-item.first-review .sc-text:before {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -1991,14 +1991,10 @@ ul, ol {
 	background: #ebebeb;
 	content: "";
 }
-.blog-details-text .comment-option .single-comment-item.reply-comment {
-	padding-left: 120px;
-	margin-bottom: 52px;
-}
-.blog-details-text .comment-option .single-comment-item.second-comment .sc-text {
+.blog-details-text .review-option .single-review-item.second-review .sc-text {
 	padding-left: 22px;
 }
-.blog-details-text .comment-option .single-comment-item.second-comment .sc-text:before {
+.blog-details-text .review-option .single-review-item.second-review .sc-text:before {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -2007,36 +2003,36 @@ ul, ol {
 	background: #ebebeb;
 	content: "";
 }
-.blog-details-text .comment-option .single-comment-item .sc-author {
+.blog-details-text .review-option .single-comment-item .sc-author {
 	float: left;
 	margin-right: 28px;
 }
-.blog-details-text .comment-option .single-comment-item .sc-author img {
+.blog-details-text .review-option .single-review-item .sc-author img {
 	height: 70px;
 	width: 70px;
 	border-radius: 50%;
 }
-.blog-details-text .comment-option .single-comment-item .sc-text {
+.blog-details-text .review-option .single-review-item .sc-text {
 	display: table;
 	position: relative;
 }
-.blog-details-text .comment-option .single-comment-item .sc-text span {
+.blog-details-text .review-option .single-review-item .sc-text span {
 	font-size: 12px;
 	color: #dfa974;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
-.blog-details-text .comment-option .single-comment-item .sc-text h5 {
+.blog-details-text .review-option .single-review-item .sc-text h5 {
 	font-size: 20px;
 	color: #19191a;
 	margin-top: 4px;
 	margin-bottom: 8px;
 }
-.blog-details-text .comment-option .single-comment-item .sc-text p {
+.blog-details-text .review-option .single-review-item .sc-text p {
 	color: #707079;
 	margin-bottom: 18px;
 }
-.blog-details-text .comment-option .single-comment-item .sc-text a {
+.blog-details-text .review-option .single-review-item .sc-text a {
 	display: inline-block;
 	color: #19191a;
 	font-size: 14px;
@@ -2051,7 +2047,7 @@ ul, ol {
 	transition: all 0.3s;
 	margin-right: 10px;
 }
-.blog-details-text .comment-option .single-comment-item .sc-text a:hover {
+.blog-details-text .review-option .single-review-item .sc-text a:hover {
 	background: #dfa974;
 	color: #ffffff;
 	border-color: #dfa974;
