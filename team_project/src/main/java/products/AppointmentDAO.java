@@ -20,6 +20,36 @@ public class AppointmentDAO {
 		return con;
 	}
 	
+	public void insertAppointment(AppointmentDTO dto) {
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try {
+			// 예외가 발생할 가능성이 높은 명령(1~4단계)
+			// 1~2 단계
+			con=getConnection();
+			// 3단계 SQL구문 만들어서 실행할 준비(insert)
+			String sql="insert into Appointment(ano,pno,no,astatus,adate) values(?,?,?,?,?)";
+			pstmt=con.prepareStatement(sql);
+			// ? 채워넣기
+			pstmt.setInt(1, dto.getAno());  
+			pstmt.setInt(2, dto.getPno()); 
+			pstmt.setInt(3, dto.getNo());
+			pstmt.setInt(4, dto.getAstatus());
+			pstmt.setTimestamp(5, dto.getAdate());
+			// 4단계 SQL구문을 실행(insert,update,delete)
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// 예외가 발생하면 처리하는 곳
+			e.printStackTrace();
+		}finally {
+			// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return;
+	}//insertAppointment() 메서드
+	
 		public ArrayList<AppointmentDTO> getUserAppointmentList(int no){
 			ArrayList<AppointmentDTO> AppointmentList=new ArrayList<AppointmentDTO>();
 			Connection con =null;
