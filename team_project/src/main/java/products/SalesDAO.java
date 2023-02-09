@@ -30,7 +30,7 @@ public class SalesDAO {
 			con=getConnection();
 			
 			//3단계 SQL구문 만들어서 실행할 준비(select 조건 where id=?)
-			String sql="select * from Saless where id=?";
+			String sql="select * from Sales where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 

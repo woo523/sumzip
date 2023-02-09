@@ -18,21 +18,20 @@ ArrayList<AppointmentDTO> appointmentList=dao.getAdminAppointmentList();
 
 %>
 <table border="1">
-<tr><td>유저번호</td><td>예약번호</td><td>상품번호</td><td>예약상태</td><td>예약일자</td></tr>
+<tr><td>유저번호</td><td>예약번호</td><td>상품번호</td><td>예약상태</td><td>예약일자</td><td>예약취소</td></tr>
 <%
  for(int i=0;i<appointmentList.size();i++){
- 	//배열 한칸에 내용 가져오기 
+ 	//배열 한칸에 내용 가져오기
  	AppointmentDTO dto=appointmentList.get(i);
 	%>
 <tr><td><%=dto.getNo()%></td>
     <td><%=dto.getAno()%></td>
     <td><%=dto.getPno()%></td>
     <td><%=dto.getAstatus()%></td>
-    <td><%=dto.getAdate()%></td></tr>    
+    <td><%=dto.getAdate()%></td>
+    <td><a href="appointManagePro.jsp">예약취소</a></td></tr>    
 	<%
 }
 %>
-<a href="waiting.jsp">예약대기 페이지 가기</a><br>
-
 </body>
 </html>
