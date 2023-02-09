@@ -23,4 +23,5 @@ dao.updateReply(dto);
 
 <script>
 window.close();
+
 </script>
