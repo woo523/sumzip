@@ -12,6 +12,9 @@
 	<form action="loginPro.jsp" id="join" method="post">
 		<fieldset>
 			<legend>섬집 Login</legend>
+			회원유형
+				<input type="radio" name="ra" value="일반회원" checked>일반회원
+		  		<input type="radio" name="ra" value="사장님">사장님<br>
 
 			<input type="text" name="id" placeholder="아이디를 입력하세요"><br>
 
@@ -108,7 +111,9 @@
 	</form>
 
 	<nav id="sub_menu">
-		<a href="#">회원가입</a> <a href="#">ID/비번찾기</a> <a href="#">비밀번호재설정</a>
+		<a href="join.jsp">회원가입</a><span class="p-2"> | </span> 
+		<a href="#">ID/비번찾기</a><span class="p-2"> | </span>
+		<a href="#">비밀번호재설정</a>
 
 	</nav>
 </body>
