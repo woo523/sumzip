@@ -11,7 +11,7 @@
     pageEncoding="UTF-8"%>
 <%
 int bno=1;
-String id = "hong1234";
+
 ReplyDAO dao=new ReplyDAO();
 List<ReplyDTO> replylist=dao.getReplyList(bno);
 
@@ -20,13 +20,17 @@ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 for(int i=0;i<replylist.size();i++){
 ReplyDTO dto=replylist.get(i);
 
+UserDAO udao = new UserDAO();
+UserDTO udto = udao.getUserNo(dto.getNo());
+
 
 JSONObject object= new JSONObject();
 object.put("rno", dto.getRno());
 object.put("no", dto.getNo());
 object.put("riply", dto.getRiply());
 object.put("rdate", dateFormat.format(dto.getRdate()));
-object.put("id",id);
+object.put("id", udto.getId());
+// object.put("id", id);
 // 배열한칸에 json 저장
 arr.add(object);
  }

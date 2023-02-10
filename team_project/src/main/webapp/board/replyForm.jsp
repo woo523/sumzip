@@ -35,7 +35,7 @@
 				$.each(arr,function(index,item){
 					$('.comment1').append('<div><span>'+item.rdate+'</span><h5>'+item.id+'</h5><p>'+item.riply+
 					'</p><a href="replyUpdateForm.jsp?rno='+item.rno+
-					'" target="blank" class="comment-btn">수정</a><a href="replyDeletePro.jsp?rno='+item.rno+'" class="comment-btn">삭제</a></div>');
+					'"class="comment-btn">수정</a><a href="replyDeletePro.jsp?rno='+item.rno+'" class="comment-btn">삭제</a></div>');
 
 				});// each
 			}// success
@@ -93,34 +93,6 @@ int count = rdao.countReply(); // 댓글 개수 계산
                                 <div class="sc-text">
                                 <div class="comment1">
                                 </div>
-                                </div>
-                            </div>
-                            <div class="single-comment-item reply-comment">
-                                <div class="sc-author">
-                                    <img src="img/blog/blog-details/avatar/avatar-2.jpg" alt="">
-                                </div>
-                                <div class="sc-text">
-                                    <span>27 Aug 2019</span>
-                                    <h5>Brandon Kelley</h5>
-                                    <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                        adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et
-                                        dolore magnam.</p>
-                                    <a href="#" class="comment-btn like-btn">Like</a>
-                                    <a href="#" class="comment-btn reply-btn">Reply</a>
-                                </div>
-                            </div>
-                            <div class="single-comment-item second-comment ">
-                                <div class="sc-author">
-                                    <img src="img/blog/blog-details/avatar/avatar-3.jpg" alt="">
-                                </div>
-                                <div class="sc-text">
-                                    <span>27 Aug 2019</span>
-                                    <h5>Brandon Kelley</h5>
-                                    <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                        adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et
-                                        dolore magnam.</p>
-                                    <a href="#" class="comment-btn">Like</a>
-                                    <a href="#" class="comment-btn">Reply</a>
                                 </div>
                             </div>
                         </div>

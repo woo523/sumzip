@@ -166,6 +166,46 @@ public class UserDAO {
 			return dto;
 		}//getUser()
 		
+		
+		public UserDTO getUserNo(int no) { // no로 회원정보 찾기
+			UserDTO dto=null;
+			Connection con =null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				con=getConnection();
+				
+				String sql="select * from users where no=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, no);
+				rs=pstmt.executeQuery();
+
+				if(rs.next()){
+					dto=new UserDTO();
+					dto.setNo(rs.getInt("no"));
+					dto.setUname(rs.getString("uname"));
+					dto.setId(rs.getString("id"));
+					dto.setPass(rs.getString("pass"));
+					dto.setBirth(rs.getString("birth"));
+					dto.setTel(rs.getString("tel"));
+					dto.setAddress1(rs.getString("address1"));
+					dto.setAddress2(rs.getString("address2"));
+					dto.setPostnum(rs.getInt("postnum"));
+					dto.setEmail(rs.getString("email"));
+					dto.setJoindate(rs.getTimestamp("joindate"));
+					dto.setUtype(rs.getInt("utype"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(rs!=null) try { rs.close();} catch (Exception e2) {}
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+			return dto;
+		}//getUserNo()
+		
+		
 		public UserDTO findId(String uname, String email) {
 			UserDTO dto=null;
 			Connection con =null;
