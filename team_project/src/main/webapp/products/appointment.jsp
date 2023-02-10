@@ -15,16 +15,17 @@
 <jsp:include page="../inc/header.jsp" />
 <!-- 헤더파일들어가는 곳 -->
 <%
-String id= "jung123";
-// String id=(String)session.getAttribute("id");
-// if(id==null){
-// 	response.sendRedirect("../member/login.jsp ");
-// }
+
+// String id= "jung123";
+
+String id=(String)session.getAttribute("id");
+if(id==null){
+	response.sendRedirect("../member/login.jsp ");
+}
 UserDAO dao=new UserDAO();
 UserDTO dto=dao.getUser(id);
 SalesDAO dao2=new SalesDAO();
-SalesDTO dto2=dao2.getSales(id);
-
+SalesDTO dto2=dao2.getSales(dto.getNo());
 
 %>
 <h1>예약</h1>
@@ -35,9 +36,9 @@ SalesDTO dto2=dao2.getSales(id);
 이메일 : <input type="text" name="email" value="<%=dto.getEmail()%>" readonly><br>
 <h2>예약정보 확인</h2>
 유저번호 : <input type="text" name="no" value="<%=dto.getNo()%>" readonly><br>
-판매번호 : <input type="text" name="sno" value="<%=dto2.getSno()%>" readonly><br>
-상품번호 : <input type="text" name="pno" value="<%=dto2.getPno()%>" readonly><br>
 예약번호 : <input type="text" name="ano" value="<%=dto2.getAno()%>" readonly><br>
+상품번호 : <input type="text" name="pno" value="<%=dto2.getPno()%>" readonly><br>
+판매번호 : <input type="text" name="sno" value="<%=dto2.getSno()%>" readonly><br>
 예약한 날짜 : <input type="text" name="sdate" value="<%=dto2.getSdate()%>" readonly><br>
 입실일 : <input type="text" name="indate" value="<%=dto2.getIndate()%>" readonly><br>
 퇴실일 : <input type="text" name="outdate" value="<%=dto2.getOutdate()%>" readonly><br>
