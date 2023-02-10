@@ -136,6 +136,7 @@ public class UserDAO {
 		
 					dto.setUname(rs.getString("uname"));
 					dto.setEmail(rs.getString("email"));
+					dto.setId(rs.getString("Id"));
 				}
 					
 			} catch (Exception e) {

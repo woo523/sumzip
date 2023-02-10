@@ -15,12 +15,12 @@ function id_search() {
 		 }
 
 		 if (frm.email.value.length < 1) {
-			  alert("이메일을 정확하게 입력해주세요");
+			  alert("이메일을 입력해주세요");
 			  return;
 		 }
 
 	 frm.method = "post";
-	 frm.action = "findIdResult.jsp"; //넘어간화면
+	 frm.action = "findIdPro.jsp"; //넘어간화면
 	 frm.submit();  
 	 }
 </script>

@@ -9,7 +9,7 @@
  String email = request.getParameter("email");
      
 UserDAO dao = new UserDAO();
-UserDTO dto = dao.findId(uname, email); //아이디를 디비에서 가져옴..실패시 널
+UserDTO dto = dao.findId(uname, email); 
  
  
 %>
@@ -22,7 +22,7 @@ UserDTO dto = dao.findId(uname, email); //아이디를 디비에서 가져옴..�
       <div class = "container">
       	<div class = "found-success">
 	      <h4>  회원님의 아이디는 </h4>  
-	      <div class ="found-id"><%=dto%></div>
+	      <div class ="found-id"><%=dto.getId()%></div>
 	      <h4>  입니다 </h4>
 	     </div>
 	     <div class = "found-login">
