@@ -95,6 +95,7 @@
 %>
 <div class="container">
 	<!-- 헤더 들어가는 곳 -->
+	<jsp:include page="../inc/head.jsp" />
 	
 	<article>
 	<!-- 펜션 정보 가져오는 곳..?-->
