@@ -21,7 +21,7 @@ public class SalesDAO {
 	}
 		
 	public SalesDTO getSales(String id) {
-		SalesDTO dto=null;
+		SalesDTO dto2=null;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -42,16 +42,16 @@ public class SalesDAO {
 			if(rs.next()){
 				//next() 다음행 => 리턴값 데이터 있으면 true/ 아이디 일치
 				// 바구니 객체생성 => 기억장소 할당
-				dto=new SalesDTO();
+				dto2=new SalesDTO();
 				// set메서드호출 바구니에 디비에서 가져온 값 저장
-				dto.setSno(rs.getInt("sno"));
-				dto.setAno(rs.getInt("ano"));
-				dto.setPno(rs.getInt("pno"));
-				dto.setSdate(rs.getTimestamp("sdate"));
-				dto.setIndate(rs.getDate("indate"));
-				dto.setOutdate(rs.getDate("outdate"));
-				dto.setSprice(rs.getInt("sprice"));
-				dto.setScount(rs.getInt("scount"));	
+				dto2.setSno(rs.getInt("sno"));
+				dto2.setAno(rs.getInt("ano"));
+				dto2.setPno(rs.getInt("pno"));
+				dto2.setSdate(rs.getTimestamp("sdate"));
+				dto2.setIndate(rs.getDate("indate"));
+				dto2.setOutdate(rs.getDate("outdate"));
+				dto2.setSprice(rs.getInt("sprice"));
+				dto2.setScount(rs.getInt("scount"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,6 +61,6 @@ public class SalesDAO {
 			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
 			if(con!=null) try { con.close();} catch (Exception e2) {}
 		}
-		return dto;
+		return dto2;
 	}//getSales()
 }
