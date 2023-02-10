@@ -149,6 +149,8 @@
         }).open();
     }
 </script>
+
+
 </head>
 <body>
 	<article>
@@ -156,8 +158,8 @@
 			<fieldset>
 				<legend>회원가입</legend>
 				회원유형
-				<input type="radio" name="ra" value="일반회원" checked>일반회원
-		  		<input type="radio" name="ra" value="사장님">사장님<br>
+				<input type="radio" name="utype" value="1">일반회원
+		  		<input type="radio" name="utype" value="2">사장님<br>
 				<label>아이디</label> <input type="text" name="id" class="id">
 				<input type="button" value="중복확인" class="dup"><br>
 				<label></label>
@@ -181,11 +183,11 @@
 				<label>전화번호</label> 
 				<input type="text" name="tel" class="tel"><br>
 				<label>주소</label>
-				<input type="text" id="sample4_postcode" name="address" class="address" placeholder="우편번호">
+				<input type="text" id="sample4_postcode" name="postnum" class="postnum" placeholder="우편번호">
 				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" id="sample4_roadAddress" class="address" placeholder="도로명주소">				
+				<input type="text" id="sample4_roadAddress" class="address1" placeholder="도로명주소" name="address1">				
 				<span id="guide" style="color:#999;display:none"></span><br>
-				<input type="text" id="sample4_detailAddress" class="address2" placeholder="상세주소">
+				<input type="text" id="sample4_detailAddress" class="address2" placeholder="상세주소" name="address2">
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons">

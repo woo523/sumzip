@@ -12,9 +12,11 @@ String uname=request.getParameter("uname");
 String birth = request.getParameter("birth");
 Timestamp joindate=new Timestamp(System.currentTimeMillis());
 String email=request.getParameter("email");
+int postnum=Integer.parseInt(request.getParameter("postnum"));
 String address1=request.getParameter("address1");
 String address2=request.getParameter("address2");
 String tel=request.getParameter("tel");
+int utype=Integer.parseInt(request.getParameter("utype"));
 UserDTO dto = new UserDTO();
  
 dto.setId(id);
@@ -23,9 +25,11 @@ dto.setUname(uname);
 dto.setBirth(birth);
 dto.setJoindate(joindate);
 dto.setEmail(email);
+dto.setPostnum(postnum);
 dto.setAddress1(address1);
 dto.setAddress2(address2);
 dto.setTel(tel);
+dto.setUtype(utype);
 
 UserDAO dao = new UserDAO();
 dao.insertUser(dto);
