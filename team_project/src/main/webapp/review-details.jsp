@@ -292,7 +292,7 @@
             </div>
         </div>
     </section>
-    <!-- Blog Details Section End -->
+    <!-- Review Details Section End -->
 
     <!-- Recommend Blog Section Begin -->
     <section class="recommend-blog-section spad">

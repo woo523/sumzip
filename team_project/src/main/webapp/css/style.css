@@ -1982,27 +1982,9 @@ ul, ol {
 .blog-details-text .review-option .single-review-item.first-review .sc-text {
 	padding-left: 22px;
 }
-/* .blog-details-text .review-option .single-review-item.first-review .sc-text:before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 1px;
-	height: 255px;
-	background: #ebebeb;
-	content: "";
-} */
 .blog-details-text .review-option .single-review-item.second-review .sc-text {
 	padding-left: 22px;
 }
-/* .blog-details-text .review-option .single-review-item.second-review .sc-text:before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 1px;
-	height: 100px;
-	background: #ebebeb;
-	content: "";
-} */
 .blog-details-text .review-option .single-review-item .sc-author {
 	float: left;
 	margin-right: 28px;
