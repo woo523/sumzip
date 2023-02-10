@@ -9,5 +9,6 @@ ReplyDAO dao=new ReplyDAO();
 
 dao.deleteReply(rno);
 
-response.sendRedirect("BoardDetail.jsp");
+response.sendRedirect("replyForm.jsp");
+
 %>

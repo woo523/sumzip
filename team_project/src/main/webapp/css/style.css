@@ -1716,15 +1716,15 @@ ul, ol {
 .blog-details-text .comment-option .single-comment-item.first-comment .sc-text {
 	padding-left: 22px;
 }
-.blog-details-text .comment-option .single-comment-item.first-comment .sc-text:before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 1px;
-	height: 500px;
-	background: #ebebeb;
-	content: "";
-}
+/* .blog-details-text .comment-option .single-comment-item.first-comment .sc-text:before { */
+/* 	position: absolute; */
+/* 	left: 0; */
+/* 	top: 0; */
+/* 	width: 1px; */
+/* 	height: 500px; */
+/* 	background: #ebebeb; */
+/* 	content: ""; */
+/* } */
 .blog-details-text .comment-option .single-comment-item.reply-comment {
 	padding-left: 120px;
 	margin-bottom: 52px;

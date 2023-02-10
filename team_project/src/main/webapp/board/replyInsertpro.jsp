@@ -27,6 +27,6 @@ dto.setRdate(rdate);
 ReplyDAO dao = new ReplyDAO();
 dao.insertReply(dto);
 
-response.sendRedirect("test.jsp");
+response.sendRedirect("replyForm.jsp");
 
 %>
