@@ -266,12 +266,12 @@
                                         adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et
                                         dolore magnam.</p>
                                 </div>
-                                <div class="ratings"> <!-- ???? -->
+                                <!-- <div class="ratings"> 리뷰페이지에서 클릭한 별 개수 가져와서 출력하기
 			                        <img src="img/yellowStar.png" alt="">
 			                        <img src="img/yellowStar.png" alt="">
 			                        <img src="img/yellowStar.png" alt="">
 			                        <img src="img/yellowStar.png" alt="">
-			                    </div>
+			                    </div> -->
                             </div> <!-- 첫번째 리뷰 -->
                             
                             <div class="single-review-item second-review">
@@ -287,26 +287,6 @@
                                 </div>
                             </div>
                         </div>	<!-- 두번째 리뷰 -->
-                        
-                        <div class="leave-comment">
-                            <h4>Add Review</h4>
-                            <form action="#" class="comment-form">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <input type="text" placeholder="Name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="text" placeholder="Email">
-                                    </div>
-                                    <div class="col-lg-12 text-center">
-                                        <input type="text" placeholder="Website">
-                                        <textarea placeholder="Messages"></textarea>
-                                        <button type="submit" class="site-btn">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>	<!-- 코멘트 남기기 -->
-                        
                     </div>
                 </div>
             </div>

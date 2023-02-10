@@ -30,10 +30,20 @@ public class ReviewDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into review(no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3) "
-					   + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			// num 구하기
+			int num = 1;
+			String sql = "select max(num) from review";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				num = rs.getInt("max(num)") + 1;
+			}
+			
+			sql = "insert into review(rno, no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3) "
+			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
+			pstmt.setInt(1, num);  // 상품번호
 			pstmt.setInt(2, dto.getNo()); // 유저번호
 			pstmt.setInt(3, dto.getPno()); // 상품번호
 			pstmt.setString(4, dto.getRtitle());
@@ -52,6 +62,7 @@ public class ReviewDAO {
 		} finally {
 			if(con != null) try {con.close();} catch (Exception e2) {}
 			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
 		}
 		
 	} // insertReview()
