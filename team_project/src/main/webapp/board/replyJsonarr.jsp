@@ -1,4 +1,6 @@
 
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -17,6 +19,7 @@ JSONArray arr = new JSONArray();
 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 for(int i=0;i<replylist.size();i++){
 ReplyDTO dto=replylist.get(i);
+
 
 JSONObject object= new JSONObject();
 object.put("rno", dto.getRno());
