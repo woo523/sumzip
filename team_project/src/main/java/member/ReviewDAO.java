@@ -30,20 +30,20 @@ public class ReviewDAO {
 		try {
 			con = getConnection();
 			
-			// num 구하기
-			int num = 1;
-			String sql = "select max(num) from review";
+			// rno 구하기
+			int rno = 1;
+			String sql = "select max(rno) from review";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				num = rs.getInt("max(num)") + 1;
+				rno = rs.getInt("max(rno)") + 1;
 			}
 			
 			sql = "insert into review(rno, no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3) "
 			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, num);  // 상품번호
+			pstmt.setInt(1, rno);  // 상품번호
 			pstmt.setInt(2, dto.getNo()); // 유저번호
 			pstmt.setInt(3, dto.getPno()); // 상품번호
 			pstmt.setString(4, dto.getRtitle());
