@@ -1,4 +1,5 @@
 package products;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -67,5 +68,6 @@ public class SalesDTO {
 	public void setScount(int scount) {
 		this.scount = scount;
 	}
+	
 	
 }

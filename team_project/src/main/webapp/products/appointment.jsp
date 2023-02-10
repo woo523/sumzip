@@ -11,12 +11,15 @@
 <title>products/appointment</title>
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더파일들어가는 곳 -->
 <%
-
-String id=(String)session.getAttribute("id");
-if(id==null){
-	response.sendRedirect("../member/login.jsp ");
-}
+String id= "jung123";
+// String id=(String)session.getAttribute("id");
+// if(id==null){
+// 	response.sendRedirect("../member/login.jsp ");
+// }
 UserDAO dao=new UserDAO();
 UserDTO dto=dao.getUser(id);
 SalesDAO dao2=new SalesDAO();
@@ -42,5 +45,8 @@ SalesDTO dto2=dao2.getSales(id);
 
 <input type="submit" value="예약하기">
 </form>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>
