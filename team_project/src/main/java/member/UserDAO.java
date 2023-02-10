@@ -49,6 +49,7 @@ public class UserDAO {
 					dto.setPass(rs.getString("pass"));
 					dto.setUname(rs.getString("uname"));
 					dto.setJoindate(rs.getTimestamp("joindate"));
+					dto.setUtype(rs.getInt("utype"));
 				}else{
 					
 				}	

@@ -46,7 +46,7 @@
 									%>
 									<div id="login">♥<%=id %> 님♥ |
 													<a href="../member/logout.jsp">Logout</a>	|
-													<a href="../member/mypage_u.jsp">Mypage</a></div>		
+													<a href="../member/myPage_u.jsp">Mypage</a></div>		
 									<% 
 								}else{
 									%>
