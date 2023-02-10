@@ -10,6 +10,9 @@
 <title>products/appointNow</title>
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더파일들어가는 곳 -->
 <h1>숙소 예약 현황 (관리자용)</h1>
 <h1>예약중인펜션</h1>
 <%
@@ -33,5 +36,8 @@ ArrayList<AppointmentDTO> appointmentList=dao.getAdminAppointmentList();
 	<%
 }
 %>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>

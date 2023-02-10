@@ -12,12 +12,16 @@
 <title>products/appointManage</title>
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더파일들어가는 곳 -->
 <h1>예약관리</h1>
 <%
-String id=(String)session.getAttribute("id");
-if(id==null){
-	response.sendRedirect("../member/login.jsp");
-}
+// String id=(String)session.getAttribute("id");
+// if(id==null){
+// 	response.sendRedirect("../member/login.jsp");
+// }
+String id= "jung123";
 // ProductDAO dao=new ProductDAO();
 // ProductDTO dto=dao.getProductList(pno);
 UserDAO dao=new UserDAO();
@@ -44,5 +48,8 @@ for(int i=0;i<appointmentList.size();i++){
 %>
 </table>
 <a href="../member/mypage.jsp">마이페이지로 돌아가기</a><br>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>

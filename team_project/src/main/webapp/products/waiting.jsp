@@ -10,7 +10,10 @@
 <title>products/waiting</title>
 </head>
 <body>
-<h1>예약대기</h1>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더파일들어가는 곳 -->
+<h1>예약대기(보류)</h1>
 <%
 WaitingDAO dao=new WaitingDAO();
 ArrayList<WaitingDTO> WaitingList=dao.getWaitingList();
@@ -30,5 +33,8 @@ for(int i=0;i<WaitingList.size();i++){
 }
 %>
 </table>
+<!-- 푸터 들어가는 곳 -->
+<%-- <jsp:include page="../inc/.jsp" /> --%>
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>

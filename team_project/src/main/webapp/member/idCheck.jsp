@@ -1,13 +1,13 @@
 <%@page import="member.UserDTO"%>
-<%@page import="member.MemberDAO"%>
+<%@page import="member.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 String id=request.getParameter("id");
 
-MemberDAO dao=new MemberDAO();
+UserDAO dao=new UserDAO();
 
-UserDTO dto = dao.getMember(id);
+UserDTO dto = dao.getUser(id);
 
 String result="";
 

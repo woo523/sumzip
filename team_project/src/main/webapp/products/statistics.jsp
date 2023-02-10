@@ -7,6 +7,9 @@
 <title>products/statistics</title>
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더파일들어가는 곳 -->
 <h1>통계 (관리자용)</h1>
 <%
 // MemberDAO dao=new MemberDAO();
@@ -32,5 +35,8 @@
 
 %>
 </table>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>
