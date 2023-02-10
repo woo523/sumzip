@@ -16,7 +16,7 @@
 		$('.id').focus();
 		return false;
 	}
-	
+
 	// class="pass"
 	if($('.pass').val()==""){
 		alert("비밀번호를 입력하세요.");

@@ -7,7 +7,7 @@ public class UserDTO {
 	private String uname; // 이름
 	private String id; // 아이디
 	private String pass; // 비밀번호 
-	private Timestamp birth; // 생년월일
+	private String birth; // 생년월일
 	private String tel; // 전화번호
 	private String address1; // 주소
 	private String address2; // 주소(상셰)
@@ -41,10 +41,10 @@ public class UserDTO {
 		this.pass = pass;
 	}
 	
-	public Timestamp getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Timestamp birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getTel() {

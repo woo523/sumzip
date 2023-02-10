@@ -26,7 +26,7 @@ public void insertMember(UserDTO dto) {
 		pstmt.setString(1, dto.getId());
 		pstmt.setString(2, dto.getPass());
 		pstmt.setString(3, dto.getUname());
-		pstmt.setTimestamp(4, dto.getBirth());
+		pstmt.setString(4, dto.getBirth());
 		pstmt.setString(5, dto.getEmail());
 		pstmt.setString(6, dto.getAddress1());
 		pstmt.setString(7, dto.getTel());
@@ -61,7 +61,7 @@ public UserDTO getMember(String id) {
 			dto.setId(rs.getString("id"));
 			dto.setPass(rs.getString("pass"));
 			dto.setUname(rs.getString("name"));
-			dto.setBirth(rs.getTimestamp("birth"));
+			dto.setBirth(rs.getString("birth"));
 			dto.setEmail(rs.getString("email"));
 			dto.setAddress1(rs.getString("address"));
 			dto.setTel(rs.getString("tel"));
