@@ -112,7 +112,7 @@
 
 	<nav id="sub_menu">
 		<a href="join.jsp">회원가입</a><span class="p-2"> | </span> 
-		<a href="#">ID/비번찾기</a><span class="p-2"> | </span>
+		<a href="findId.jsp">ID/비번찾기</a><span class="p-2"> | </span>
 		<a href="#">비밀번호재설정</a>
 
 	</nav>

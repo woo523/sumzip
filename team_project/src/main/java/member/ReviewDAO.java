@@ -25,15 +25,15 @@ public class ReviewDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
 			con = getConnection();
 			
-			String sql = "insert into review(rno, no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3) "
+			String sql = "insert into review(no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3) "
 					   + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, dto.getRno());	// 리뷰번호
 			pstmt.setInt(2, dto.getNo()); // 유저번호
 			pstmt.setInt(3, dto.getPno()); // 상품번호
 			pstmt.setString(4, dto.getRtitle());
