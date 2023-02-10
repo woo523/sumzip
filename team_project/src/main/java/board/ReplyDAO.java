@@ -158,5 +158,28 @@ public class ReplyDAO {
 		
 	} // 댓글 삭제
 	
+	public int countReply() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int countReply = 0;
+		try {
+			con = getConnection();
+			String sql = "select count(*) from reply";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				countReply=rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+		if(con!=null)try {con.close();} catch (Exception e2) {}
+		if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
+		if(rs!=null)try {rs.close();} catch (Exception e2) {}
+		}
+		
+		return countReply;
+	} // 댓글 갯수 계산
 
 }

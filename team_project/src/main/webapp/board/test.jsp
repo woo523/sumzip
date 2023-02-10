@@ -57,12 +57,12 @@ int bno=1;
 // UserDTO dto = dao.getUser(id);
 // int no = dto.getNo();
 int no=1;
-String id="hello";
+String id="hong1234";
 UserDAO dao = new UserDAO();
 UserDTO dto = dao.getUser(id);
 ReplyDAO rdao = new ReplyDAO();
 
-//int count = rdao.countReply(); // 댓글 개수 계산
+int count = rdao.countReply(); // 댓글 개수 계산
 
 %>
    <section class="blog-details-section">
@@ -72,13 +72,13 @@ ReplyDAO rdao = new ReplyDAO();
                     <div class="blog-details-text">
                        <div class="leave-comment">
                             <h4>댓글 쓰기</h4>
-                            <form action="#" class="comment-form">
+                            <form action="replyInsertpro.jsp" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
                                     </div>
                                     <div class="col-lg-12 text-center">
-                                        <textarea placeholder="댓글을 입력하세요"></textarea>
+                                        <textarea placeholder="댓글을 입력하세요" name="riply"></textarea>
                                         <button type="submit" class="site-btn">댓글 쓰기</button>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@ ReplyDAO rdao = new ReplyDAO();
                         </div>
                         <div class="comment-option">
 <!-- 댓글 갯수 -->
-<%--                             <h4><%=count%> Comments</h4>  --%>
+                            <h4><%=count%> Comments</h4> 
                             
                             <div class="single-comment-item first-comment">
                                 
