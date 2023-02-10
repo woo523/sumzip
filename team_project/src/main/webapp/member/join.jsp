@@ -44,9 +44,9 @@
 		}
 	
 	// class="name"
-	if($('.name').val()==""){
+	if($('.uname').val()==""){
 		alert("이름을 입력하세요.");
-		$('.name').focus();
+		$('.uname').focus();
 		return false;
 	}
 	
@@ -140,11 +140,7 @@
                     var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
                     guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
                     guideTextBox.style.display = 'block';
-
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
+    
                 } else {
                     guideTextBox.innerHTML = '';
                     guideTextBox.style.display = 'none';
@@ -171,7 +167,7 @@
 				<label>비밀번호 재확인</label> 
 				<input type="password" name="pass2" class="pass2"><br> 
 				<label>이름</label>
-				<input type="text" name="name" class="name"><br> 
+				<input type="text" name="uname" class="uname"><br> 
 				성별
 				<select name="gender">
 					<option value="남">남</option>
@@ -185,12 +181,11 @@
 				<label>전화번호</label> 
 				<input type="text" name="tel" class="tel"><br>
 				<label>주소</label>
-				<input type="text" id="sample4_postcode" class="address" placeholder="우편번호">
+				<input type="text" id="sample4_postcode" name="address" class="address" placeholder="우편번호">
 				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-				<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+				<input type="text" id="sample4_roadAddress" class="address" placeholder="도로명주소">				
 				<span id="guide" style="color:#999;display:none"></span><br>
-				<input type="text" id="sample4_detailAddress" placeholder="상세주소">
+				<input type="text" id="sample4_detailAddress" class="address2" placeholder="상세주소">
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons">
