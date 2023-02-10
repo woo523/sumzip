@@ -261,5 +261,36 @@ public class UserDAO {
 				if (con != null)try {con.close();} catch (Exception e2) {}
 			}
 		}// updateUser()
+		
+		public void mypageUser(UserDTO mypageDto) {
+			Connection con =null;
+			PreparedStatement pstmt2=null;
+			try {
+				//1,2 디비연결 메서드
+				con=getConnection();
+				// if next() 다음행 => 리턴값 데이터 있으면 true => 아이디 비밀번호 일치
+				// => 3단계 pstmt2 SQL구문 만들어서 실행할 준비 (update set name=? where id=?)
+				String sql2="mypage users set uname=?, pass=?, tel=?, email=?, address1=?, address2=? where id =?";
+				pstmt2=con.prepareStatement(sql2);
+				//? 채워넣기
+				pstmt2.setString(1, mypageDto.getUname());//set 문자열(1번째 물음표, 값 name)
+				pstmt2.setString(2, mypageDto.getPass());
+				pstmt2.setString(3, mypageDto.getTel());
+				pstmt2.setString(4, mypageDto.getEmail());
+				pstmt2.setString(5, mypageDto.getAddress1());
+				pstmt2.setString(5, mypageDto.getAddress2());
+				pstmt2.setString(6, mypageDto.getId());  //set 문자열 (2번째 물음표, 값 id)
+				
+				// 4단계 SQL구문을 실행(insert,update,delete)
+				pstmt2.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+				if(pstmt2!=null) try { pstmt2.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}//mypageUser()
 
 }
