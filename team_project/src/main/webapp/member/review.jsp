@@ -134,7 +134,7 @@
 				</div>
 					
 				<div>
-					<button type="button" name="rpic1" class="btn btn-outline-success">사진 첨부</button>
+					<button type="button" name="rpic1" class="btn btn-outline-success">사진 첨부 (0/3)</button>
 				</div>
 				
 				<div id="Buttons">
