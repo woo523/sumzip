@@ -238,7 +238,7 @@ public class UserDAO {
 				
 				con = getConnection();
 				
-				String sql2 = "delete from members where id=?";
+				String sql2 = "delete from users where id=?";
 				pstmt2 = con.prepareStatement(sql2);
 				
 				pstmt2.setString(1, id);

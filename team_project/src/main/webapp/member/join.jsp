@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  
@@ -153,10 +154,14 @@
 
 </head>
 <body>
+<div id="wrap">
+		<!-- 헤더들어가는 곳 -->
+		<jsp:include page="../inc/header.jsp" />
+		<!-- 헤더들어가는 곳 -->
 	<article>
 		<form action="joinPro.jsp" name="joinform" id="join" method="post">
 			<fieldset>
-				<legend>회원가입</legend>
+				<legend>Join</legend>
 				회원유형
 				<input type="radio" name="utype" value="1">일반회원
 		  		<input type="radio" name="utype" value="2">사장님<br>
@@ -193,6 +198,7 @@
 			<div id="buttons">
 				<input type="submit" value="가입하기" class="submit" onclick="fun1()"> 
 				<input type="reset" value="초기화하기" class="cancel">
+				<jsp:include page="../inc/footer.jsp" />
 			</div>
 		</form>
 	</article>
