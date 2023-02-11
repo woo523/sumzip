@@ -81,16 +81,16 @@
 <body>
 <!-- 리뷰 작성 페이지 -->
 <%
-// 	String id = (String)session.getAttribute("id");
+ 	String id = (String)session.getAttribute("id");
 	// 아이디 없으면 로그인 페이지로 이동
-// 	if(id == null) {
+	if(id == null) {
 		%>
-<!-- 		<script type="text/javascript"> -->
-<!--   			alert("로그인을 해주세요"); -->
-<!-- 		</script> -->
+		<script type="text/javascript">
+   			alert("로그인을 해주세요");
+ 		</script> -->
 		<%
-// 		response.sendRedirect("login.jsp");
-// 	}
+		response.sendRedirect("login.jsp");
+	}
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -161,7 +161,6 @@
   		font-family: 'NanumSquareNeo';
  		max-width: 750px;
  		margin: 0 auto;
- 		background-color: #fff;
  		height: 100%;
  		padding: 20px;
  		box-sizing: border-box;
@@ -194,6 +193,8 @@
  	}
  	.reviewContainer #reviewForm .review_contents textarea{
   		width: 100%;
+		padding: 10px;
+		box-sizing: border-box;
   		height: 250px;
   		resize: none;
  	}

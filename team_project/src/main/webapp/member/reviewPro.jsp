@@ -7,10 +7,11 @@
 	
 	request.setCharacterEncoding("UTF-8");
 	
-	// 임시 데이터
 	int no = 1;
 	int pno = 1;
 	
+// 	int no = Integer.parseInt(request.getParameter("no"));
+// 	int pno = Integer.parseInt(request.getParameter("pno")); 
 	String rtitle = request.getParameter("title");
 // 	String rstar = request.getParameter("star");
 	String rcontent = request.getParameter("content");
@@ -18,15 +19,14 @@
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
 	
 	ReviewDTO dto = new ReviewDTO();
+	dto.setNo(no);
+	dto.setPno(pno);
  	dto.setRtitle(rtitle);
 //  	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
  	dto.setRcount(rcount);
  	dto.setRdate(rdate);
- 	
- 	dto.setNo(no);
- 	dto.setPno(pno);
- 	
+ 
  	// 리턴X insertReview()
  	ReviewDAO dao = new ReviewDAO();
  	dao.insertReview(dto);
