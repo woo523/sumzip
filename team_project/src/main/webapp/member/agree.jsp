@@ -31,7 +31,7 @@ function fun2() {
 </head>
 <style>
 *{margin: 0;padding: 0;box-sizing: border-box}
-body{background-color: #f5f6f7;}
+body{background-color: #C5E1A5;}
 ul>li{list-style: none}
 a{text-decoration: none;}
 .clearfix::after{content: "";display: block;clear: both;}
@@ -39,13 +39,13 @@ a{text-decoration: none;}
 ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 .checkBox,.checkBox>ul{position: relative;}
 .checkBox>ul>li{float: left;}
-.checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: #119208;}
+.checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: #888;}
 .checkBox>ul>li:nth-child(2){position: absolute;top: 50%;right: 30px;margin-top: -12px;}
-.checkBox textarea{width: 96%;height: 90px; margin: 0 2%;background-color: #f7f7f7;color: #888; border: none;}
+.checkBox textarea{width: 96%;height: 115px; margin: 0 2%;background-color: #f7f7f7;color: #888; border: none;}
 .footBtwrap{margin-top: 15px;}
 .footBtwrap>li{float: left;width: 50%;height: 60px;}
 .footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 18px;text-align: center;line-height: 60px;}
-.fpmgBt1{background-color: #5A5A5A;color:#888; font-weight: bold;}
+.fpmgBt1{background-color: #5A5A5A;color:#FFFFFF; font-weight: bold;}
 .fpmgBt2{background-color: #119208;color: #FFFFFF; font-weight: bold;}
 .logo{width: 500px;margin: 0 auto;}
 a{color:#FFFFFF;}
@@ -62,10 +62,8 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
   	<li class="checkBox check01">
   	
   <ul class="clearfix">
-    <li></li>
-     <li class="checkAllBtn">
-      
-   </ul>
+
+  </ul>
    </li>
     <li class="checkBox check02">
         <ul class="clearfix">
@@ -132,8 +130,8 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
                 </li>
             </ul>
             <ul class="footBtwrap clearfix">
-            	<input type="button" value="비동의" onclick="fun2()">
-  				<input type="button" value="동의" onclick="fun1()"> 
+            	<li><button type="button" class="fpmgBt1" onclick="fun2()">비동의</button></li>
+                <li><button type="button" class="fpmgBt2" onclick="fun1()">동의</button></li> 
             </ul>
         </form>
 </body>

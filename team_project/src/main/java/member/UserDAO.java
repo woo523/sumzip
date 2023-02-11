@@ -242,11 +242,11 @@ public class UserDAO {
 				pstmt2 = con.prepareStatement(sql2);
 				
 				pstmt2.setString(1, id);
-				
 				pstmt2.executeUpdate();
 				
 			} catch (Exception e) {
-				e.printStackTrace(); 
+				e.printStackTrace();
+				
 			} finally {
 				if (pstmt2 != null) try {pstmt2.close();} catch (Exception e2) {}
 				if (con != null) try {con.close();} catch (Exception e2) {}

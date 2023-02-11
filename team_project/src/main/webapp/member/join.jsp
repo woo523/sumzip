@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  
@@ -98,7 +102,7 @@
 			if(result.trim()=="중복확인"){
 				$('.divresult').html(result).css("color","red");	
 			}else{
-				$('.divresult').html(result).css("color","blue");	
+				$('.divresult').html(result).css("color","green");	
 			}			
 		}
 	});
@@ -151,7 +155,32 @@
     }
 </script>
 
+<style>
+body {
+  background: #C5E1A5;
+}
+form {
+  width: 60%;
+  margin: 60px auto;
+  background: #efefef;
+  padding: 60px 120px 80px 120px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
 
+.label-txt {
+  position: absolute;
+  top: -1.6em;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  color: rgb(120,120,120);
+  transition: ease .3s;
+}
+
+</style>
 </head>
 <body>
 <div id="wrap">
@@ -161,13 +190,12 @@
 	<article>
 		<form action="joinPro.jsp" name="joinform" id="join" method="post">
 			<fieldset>
-				<legend>Join</legend>
-				회원유형
-				<input type="radio" name="utype" value="1">일반회원
+				<legend>회원가입</legend>		
+				<input type="radio" name="utype" value="1">일반회원	 
 		  		<input type="radio" name="utype" value="2">사장님<br>
-				<label>아이디</label> <input type="text" name="id" class="id">
+				<label>아이디</label> 
+				<input type="text" name="id" class="id">
 				<input type="button" value="중복확인" class="dup"><br>
-				<label></label>
 				<div class="divresult"> </div><br> 
 				<label>비밀번호</label> 
 				<input type="password" name="pass" class="pass"><br> 
@@ -196,11 +224,13 @@
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons">
+			
 				<input type="submit" value="가입하기" class="submit" onclick="fun1()"> 
 				<input type="reset" value="초기화하기" class="cancel">
-				<jsp:include page="../inc/footer.jsp" />
+				
 			</div>
 		</form>
 	</article>
+	<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
