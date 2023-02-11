@@ -32,8 +32,8 @@
 		<!-- 헤더들어가는 곳 -->
 		<nav id="sidebar">
 			<ul>
-				<li><a href="myPage_u.jsp">내 정보 조회</a></li>
-				<li><a href="myList.jsp">내 이용목록</a></li>
+				<li><a href="myPage_user.jsp">내 정보 조회</a></li>
+				<li><a href="#">내 이용목록</a></li>
 				<li><a href="../products/appointManage.jsp">예약관리</a></li>
 				<li><a href="#">찜 목록</a></li>
 				<li><a href="#">회원탈퇴</a></li>

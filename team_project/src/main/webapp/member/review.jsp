@@ -73,6 +73,8 @@
 				return true;	// 폼 전송
 			
 		}
+		
+
 	</script>
 </head>
 
@@ -123,7 +125,11 @@
 				<!-- 	후기를 남겨주세요 -->
 				<div class="review_contents">
 					<h3>후기를 남겨주세요.</h3>
-					<textarea name="content" id="review_textarea" rows="10" cols="20" 
+					<div class="contentTextLengthWarp">
+						<p class="textCount">0자</p>
+						<p class="textTotal">/300자</p>
+					</div>
+					<textarea name="content" id="review_textarea" maxlength="300"
 							  placeholder="다녀오신 펜션의 후기를 남겨주세요! 사장님께 큰 도움이 됩니다."></textarea>
 				</div>
 					
@@ -187,7 +193,8 @@
   		padding: 20px 0 0 0px;
  	}
  	.reviewContainer #reviewForm .review_contents textarea{
-  		widows: 100%;
+  		width: 100%;
+  		height: 250px;
   		resize: none;
  	}
 	
