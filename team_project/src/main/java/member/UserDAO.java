@@ -9,6 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+
 public class UserDAO {
 		public Connection getConnection() throws Exception{			
 			Context init=new InitialContext();
@@ -65,20 +66,6 @@ public class UserDAO {
 		}//userCheck()
 		
 		public void insertUser(UserDTO dto) {
-			System.out.println("MemberDAO insertMember()");
-			System.out.println("MemberDTO 바구니 전달받은 주소 : " + dto);
-			System.out.println("바구니주소에서 가져온 아이디 : " + dto.getId());
-			System.out.println("바구니주소에서 가져온 비밀번호 : " + dto.getPass());
-			System.out.println("바구니주소에서 가져온 이름 : " + dto.getUname());
-			System.out.println("바구니주소에서 가져온 생년월일 : " + dto.getBirth());
-			System.out.println("바구니주소에서 가져온 이메일 : " + dto.getEmail());
-			System.out.println("바구니주소에서 가져온 주소1 : " + dto.getAddress1());
-			System.out.println("바구니주소에서 가져온 주소2 : " + dto.getAddress2());
-			System.out.println("바구니주소에서 가져온 휴대폰번호 : " + dto.getTel());
-			System.out.println("바구니주소에서 가져온 포스트 : " + dto.getPostnum());
-			System.out.println("바구니주소에서 가져온 번호 : " + dto.getNo());
-			System.out.println("바구니주소에서 가져온 가입날짜 : " + dto.getJoindate());
-			System.out.println("바구니주소에서 가져온 유형 : " + dto.getUtype());
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs=null;
@@ -248,20 +235,19 @@ public class UserDAO {
 			Connection con = null;
 			PreparedStatement pstmt2 = null;
 			try {
-				// 1,2 디비연결 메서드
+				
 				con = getConnection();
-				// 3단계
+				
 				String sql2 = "delete from members where id=?";
 				pstmt2 = con.prepareStatement(sql2);
-				// ?채워넣기
-				pstmt2.setString(1, id); // set 문자열(1번째 물음표, 값 id)
-				// => 4단계 SQL구문을 실행(insert,update,delete)
+				
+				pstmt2.setString(1, id);
+				
 				pstmt2.executeUpdate();
-				// => 세션값 초기화
+				
 			} catch (Exception e) {
-				e.printStackTrace(); // 에러처리
+				e.printStackTrace(); 
 			} finally {
-				// 예외 상관없이 마무리 작업 => 객체생성한 기억장소 해제
 				if (pstmt2 != null) try {pstmt2.close();} catch (Exception e2) {}
 				if (con != null) try {con.close();} catch (Exception e2) {}
 			}
@@ -270,34 +256,27 @@ public class UserDAO {
 		public void updateUser(UserDTO updateDto) {
 			Connection con = null;
 			PreparedStatement pstmt2 = null;
-			// 1,2단계 디비연결 메서드 호출
+		
 			try {
 				con = getConnection();
 
-				// if next() 다음행 => 리턴값 데이터 있으면 true => 아이디 비밀번호 일치
-				// => 3단계 pstmt2 SQL구문 만들어서 실행할 준비 (update set name=? where id=?)
-				// => 4단계 SQL구문을 실행(update)
-				String sql2 = "update members set pass=? uname=?, email=?, address1=?, address2=?, tel=? where id=?";
+				String sql2 = "update users set pass=?, uname=?, email=?, address1=?, address2=?, postnum=?, tel=? where id=?";
 				pstmt2 = con.prepareStatement(sql2);
-				//? 채워넣기
-				pstmt2.setString(1, updateDto.getId());
-				pstmt2.setString(2, updateDto.getPass());
-				pstmt2.setString(3, updateDto.getUname());
-				pstmt2.setString(4, updateDto.getBirth());
-				pstmt2.setString(5, updateDto.getEmail());
-				pstmt2.setString(6, updateDto.getAddress1());
-				pstmt2.setString(7, updateDto.getAddress2());
-				pstmt2.setString(8, updateDto.getTel());
+				//? 채워넣기				
+				pstmt2.setString(1, updateDto.getPass());
+				pstmt2.setString(2, updateDto.getUname());
+				pstmt2.setString(3, updateDto.getEmail());
+				pstmt2.setString(4, updateDto.getAddress1());
+				pstmt2.setString(5, updateDto.getAddress2());
+				pstmt2.setInt(6, updateDto.getPostnum());
+				pstmt2.setString(7, updateDto.getTel());
+				pstmt2.setString(8, updateDto.getId());
 				
-
-				
-				// 4단계 SQL구문을 실행(insert,update,delete)
 				pstmt2.executeUpdate();
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				// 예외 상관없이 마무리 작업 => 객체생성한 기억장소 해제
 				if (pstmt2 != null) try {pstmt2.close();} catch (Exception e2) {}
 				if (con != null)try {con.close();} catch (Exception e2) {}
 			}
