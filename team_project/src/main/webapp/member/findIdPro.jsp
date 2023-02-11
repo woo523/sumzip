@@ -13,6 +13,9 @@ UserDTO dto = dao.findId(uname, email);
  
  
 %>
+<div id="wrap">
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
 
   <form name="idsearch" method="post">
       <%
@@ -45,4 +48,7 @@ UserDTO dto = dao.findId(uname, email);
        <%
   }
  %> 
-      </form>
+ </form>
+ <jsp:include page="../inc/footer.jsp" />
+</div>
+      
