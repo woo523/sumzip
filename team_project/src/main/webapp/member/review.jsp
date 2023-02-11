@@ -1,36 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html>
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
-	<title>review.JSP</title>
 	<meta charset="UTF-8">
+	<title>review.JSP</title>
 	
 	<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
-	
-    <meta name="description" content="Sona Template">
-    <meta name="keywords" content="Sona, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	
-	
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-	
 	<script type="text/javascript">
 		// 별점 마킹 모듈 프로토타입으로 생성
 		function Rating(){};
@@ -71,21 +48,20 @@
 	// 			review.value = review.value.substr(0,10);
 	// 		}
 	// 	});
+
 		
-	
 		function formCheck() {
 			// submit 버튼을 누르면 onsubmit에 의해 formCheck() 함수 호출
-			if(document.querySelector('.title').value.length == 0) {
-				alert("제목을 입력하세요");
+			if(document.querySelector('.reviewTitleText').value.length == 0) {
+				alert("한줄평을 작성해주세요.");
 				document.reviewForm.title.focus();
-			}
+				return false;
 			// 별점 선택 안했으면 메시지 표시, 체크된 값을 배열 형태로 받아서 length 확인
-			if(document.querySelectorAll('input[name="rating"]:checked').length==0) {
+			} else if(document.querySelectorAll('input[name="rating"]:checked').length==0) {
 				alert("만족도를 선택해주세요.");
 				return false;
-			}
 			// 리뷰 5자 미만이면 메시지 표시
-			if(document.querySelector('#review_textarea').value.length < 5) {
+			} else if(document.querySelector('#review_textarea').value.length < 5) {
 				alert(" 5자 이상으로 작성해 주세요.");
 				document.reviewForm.content.focus();
 				return false;
@@ -97,6 +73,8 @@
 				return true;	// 폼 전송
 			
 		}
+		
+
 	</script>
 </head>
 
@@ -114,109 +92,122 @@
 // 		response.sendRedirect("login.jsp");
 // 	}
 %>
-<div class="container">
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
+ 	
+	<div class="reviewContainer">
+		<fieldset>
+			펜션정보를 가지고 올까요 말까요?
+		</fieldset>
+		<article>
+			<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
+				<div class="reviewTitle">
+				한줄평 : <input type="text" name="title" class="reviewTitleText">
+				</div>
+				<!-- 별점 -->
+				<div id="reviewStars">
+					<h3>다녀오신 장소는 만족하셨나요?</h3>
+					<div class="star_rating">
+						<!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
+						<input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점">
+						<label for="rating1"></label>
+						<input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2점">
+						<label for="rating2"></label>
+						<input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="3점">
+						<label for="rating3"></label>
+						<input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="4점">
+						<label for="rating4"></label>
+						<input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
+						<label for="rating5"></label>
+					</div>
+				</div>
+
+				<!-- 	후기를 남겨주세요 -->
+				<div class="review_contents">
+					<h3>후기를 남겨주세요.</h3>
+					<div class="contentTextLengthWarp">
+						<p class="textCount">0자</p>
+						<p class="textTotal">/300자</p>
+					</div>
+					<textarea name="content" id="review_textarea" maxlength="300"
+							  placeholder="다녀오신 펜션의 후기를 남겨주세요! 사장님께 큰 도움이 됩니다."></textarea>
+				</div>
+					
+				<div>
+					<button type="button" name="rpic1" class="btn btn-outline-success">사진 첨부 (0/3)</button>
+				</div>
+				
+				<div id="Buttons">
+					<button type="reset" class="btn btn-dark">취소</button>
+					<button type="submit" class="btn btn-success" id="submit">작성하기</button>
+				</div>
+				
+			</form>
+		</article>
+	</div>
 	
-	<article>
-	<!-- 펜션 정보 가져오는 곳..?-->
-		
-	<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
-		<div>
-		글제목 : <input type="text" name="title" class="title">
-		</div>
-		
-		<!-- 별점 -->
-		<div id="reviewStars">
-			<h3>??? 만족하셨나요?</h3>
-			
-			<div class="star_rating">
-				<!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
-				<input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점">
-				<label for="rating1"></label>
-				<input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2점">
-				<label for="rating2"></label>
-				<input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="3점">
-				<label for="rating3"></label>
-				<input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="4점">
-				<label for="rating4"></label>
-				<input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
-				<label for="rating5"></label>
-			</div>
-		</div>
-		
-		<!-- 	후기를 남겨주세요 -->
-		<div class="review_contents">
-			<h3>후기를 남겨주세요.</h3>
-			<textarea name="content" id="review_textarea" rows="10" cols="30" 
-					  placeholder="후기를 남겨주세요! 사장님께 큰 도움이 됩니다."></textarea>
-		</div>
-			
-		<p>
-			<button type="button" name="rpic1"> 사진 첨부1 </button>
-			<button type="button" name="rpic2"> 사진 첨부2 </button>
-			<button type="button" name="rpic3"> 사진 첨부3 </button>
-		</p>
-		
-		<div id="Buttons">
-			<input type="reset" value="취소" class="cancelButton" id="cancel" >
-			<input type="submit" value="작성하기" class="submitButton" id="submit">
-		</div>
-		
-	</form>
-	</article>
-	
+	<!-- footer -->
 	<jsp:include page="../inc/footer.jsp" />
 	
-</div>
 
+</body>
 <style>
-/* 	.container{ */
-/* 		max-width: 480px; */
-/* 		margin: 0 auto; */
-/* 		background-color: #fff; */
-/* 		height: 100%; */
-/* 		padding: 20px; */
-/* 		box-sizing: border-box; */
-/* 	} */
-	
-	#reviewForm textarea{
-		width: 100%;
-		padding: 10px;
-		box-sizing: border-box;
+	.reviewContainer h3 {
+		font-family: 'NanumSquareNeoBold';
+		margin: 10px;
 	}
 	
-	.star_rating .rate_radio {
-		position: relative;
-		display: inline-block;
-		z-index: 20;
-		opacity: 0.001;
-		width: 60px;
-		height: 60px;
-		background-color: #fff;
-		cursor: pointer;
-		vertical-align: top;
-		display: none;
-	}
+  	fieldset, article {
+  		font-family: 'NanumSquareNeo';
+ 		max-width: 750px;
+ 		margin: 0 auto;
+ 		background-color: #fff;
+ 		height: 100%;
+ 		padding: 20px;
+ 		box-sizing: border-box;
+ 	}
 	
-	.star_rating .rate_radio + label {
-		position: relative;
-		display: inline-block;
-		margin-left: -4px;
-		z-index: 10;
-		width: 60px;
-		height: 60px;
-		background-image: url('../img/starrate.png');
-		background-repeat: no-repeat;
-		background-size: 60px 60px;
-		cursor: pointer;
-		background-color: #f0f0f0;
+	.reviewContainer #reviewForm .reviewTitle {
+		margin: 10px 0 10px 0 auto;
+		padding-bottom: 20px;
+		text-align: center;
+		font-size: 20px;
+		font-weight: bold;
 	}
+	.reviewContainer #reviewForm .reviewTitleText {
+		width: 500px;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+ 	
+ 	.reviewContainer #reviewForm #reviewStars {
+ 		display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+ 		margin: 10px 0px 10px 0px;
+ 		padding: 30px;
+ 	}
+ 	.reviewContainer #reviewForm .review_contents {
+  		padding: 20px 0 0 0px;
+ 	}
+ 	.reviewContainer #reviewForm .review_contents textarea{
+  		width: 100%;
+  		height: 250px;
+  		resize: none;
+ 	}
 	
-	.star_rating .rate_radio:checked + label {
-		background-color: #FCC419;
-	}
+  	.reviewContainer #reviewForm #Buttons {
+		text-align: right;
+ 		padding: 20px 0px 20px 0px;
+ 	}
+ 	
+ 	.reviewContainer #reviewForm .btn {
+ 		display: inline-block;
+ 		width: 150px;
+ 		height: 50px;
+ 	}
 	
 </style>
-</body>
 </html>

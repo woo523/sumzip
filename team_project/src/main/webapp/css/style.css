@@ -22,8 +22,9 @@
 6.  Services Section
 7.  Testimonial Section
 8.  Blog Section
-9.  Contact
-10.  Footer Style
+9.  Review Section
+10.  Contact
+11.  Footer Style
 
 -------------------------------------------------------------------*/
 
@@ -2013,6 +2014,42 @@ ul, ol {
 .blog-details-text .review-option .single-review-item .sc-text p {
 	color: #707079;
 	margin-bottom: 18px;
+}
+	#reviewForm textarea{
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.star_rating .rate_radio {
+	position: relative;
+	display: inline-block;
+	z-index: 20;
+	opacity: 0.001;
+	width: 60px;
+	height: 60px;
+	background-color: #fff;
+	cursor: pointer;
+	vertical-align: top;
+	display: none;
+}
+
+.star_rating .rate_radio + label {
+	position: relative;
+	display: inline-block;
+	margin-left: -4px;
+	z-index: 10;
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/starrate.png');
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	cursor: pointer;
+	background-color: #f0f0f0;
+}
+
+.star_rating .rate_radio:checked + label {
+	background-color: #FCC419;
 }
 /*---------------------
   Recommend Blog
