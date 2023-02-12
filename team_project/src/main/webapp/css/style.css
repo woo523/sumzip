@@ -2015,11 +2015,6 @@ ul, ol {
 	color: #707079;
 	margin-bottom: 18px;
 }
-	#reviewForm textarea{
-	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-}
 
 .star_rating .rate_radio {
 	position: relative;

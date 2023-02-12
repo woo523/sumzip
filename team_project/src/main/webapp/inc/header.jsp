@@ -67,7 +67,7 @@
 								}else{
 									%>
 									<div id="login"><a href="../member/login.jsp">Login</a> |
-													<a href="../member/join.jsp">Join</a></div>	
+													<a href="../member/agree.jsp">Join</a></div>	
 									<%
 								}
 							%>
@@ -90,12 +90,12 @@
                     <div class="col-lg-10">
                         <div class="nav-menu">
                             <nav class="mainmenu">
-                                <ul>
-                                    <li class="active"><a href="../index.jsp">Home</a></li>
+                                <ul> 
                                     <li><a href="#">지역별 조회</a></li>
                                     <li><a href="#">테마별 조회</a></li>
                                     <li><a href="#">추천 펜션</a></li>
                                     <li><a href="../board/boardList.jsp">공지사항</a></li>
+                                    <li><a href="../qna/qnaList.jsp">Q&A</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
