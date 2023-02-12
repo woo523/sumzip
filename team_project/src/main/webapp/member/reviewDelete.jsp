@@ -1,12 +1,13 @@
+<%@page import="member.ReviewDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>reviewDelete.jsp</title>
-</head>
-<body>
-
-</body>
-</html>
+<%
+	// reviewDelete.jsp
+	int rno = Integer.parseInt(request.getParameter("rno"));
+	
+	ReviewDAO rdao = new ReviewDAO();
+	
+	// rdao.deleteReview(rno);
+	
+	response.sendRedirect("myList.jsp");
+%>

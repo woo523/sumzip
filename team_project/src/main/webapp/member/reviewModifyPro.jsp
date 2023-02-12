@@ -7,6 +7,10 @@
 <title>reviewModifyPro.jsp</title>
 </head>
 <body>
-
+<%
+	
+	
+	
+%>
 </body>
 </html>
