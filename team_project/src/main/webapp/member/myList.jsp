@@ -62,7 +62,7 @@
  				String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
  				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
  				
- 				Date appointOutdate = formatter.parse("2023-02-17");	// 임시 체크아웃 날짜
+ 				Date appointOutdate = formatter.parse("2023-02-05");	// 임시 체크아웃 날짜
  				Date today = new Date(formatter.parse(todayfm).getTime());
  				
  				System.out.println("appointOutdate: " + formatter.format(appointOutdate));
@@ -74,9 +74,9 @@
  					System.out.println("appointOutdate is after today");
  				} else if(result <= 0){
  					System.out.println("appointOutdate is before today");
- 					%>
+  					%>
  					<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
- 					<%
+  					<%
  				} 
  				
  			} catch(ParseException ex) {
@@ -84,14 +84,24 @@
  			}
 			
 			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화
-// 			AppointmentDAO apdao = new AppointmentDAO();
-// 			ArrayList<AppointmentDTO> apdto = apdao.getUserAppointmentList(no);
-			
-// 			if(apdto.getAstatus().value == 4) {
-				%>
-<!-- 				<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button> -->
-				<%
-// 			}
+			try {
+				int no = (int)session.getAttribute("no");
+				
+				AppointmentDAO apdao = new AppointmentDAO();
+				ArrayList<AppointmentDTO> appointList = apdao.getUserAppointmentList(no);
+				
+				for(int i = 0; i < appointList.size(); i++) {
+					AppointmentDTO apdto = appointList.get(i);
+					
+					if(apdto.getAstatus() == 4) {
+						%>
+						<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
+						<%
+					}
+				}
+			} catch(Exception e) {
+				e.printStackTrace();	
+			}
 
 	 	} else {
 			%>
