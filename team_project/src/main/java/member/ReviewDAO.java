@@ -44,7 +44,7 @@ public class ReviewDAO {
 			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, rno);  // 상품번호
+			pstmt.setInt(1, rno);  // 게시글번호
 			pstmt.setInt(2, dto.getNo()); // 유저번호
 			pstmt.setInt(3, dto.getPno()); // 상품번호
 			pstmt.setString(4, dto.getRtitle());

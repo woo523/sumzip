@@ -13,8 +13,7 @@
 	int pno = 1;
 	
 	String id = request.getParameter("id");
-// 	int no = Integer.parseInt(request.getParameter("no"));
-// 	int pno = Integer.parseInt(request.getParameter("pno")); 
+ 
 	String rtitle = request.getParameter("title");
 // 	String rstar = request.getParameter("star");
 	String rcontent = request.getParameter("content");
