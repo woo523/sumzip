@@ -40,7 +40,7 @@ public class ReviewDAO {
 				rno = rs.getInt("max(rno)") + 1;
 			}
 			
-			sql = "insert into review(rno, no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3) "
+			sql = "insert into review(rno, no, pno, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3)"
 			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
@@ -135,10 +135,32 @@ public class ReviewDAO {
 			if(con != null) try {con.close();} catch (Exception e2) {}
 			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
 		}
+		
 	} // updateReview()
 	
 	// deleteReview()
-	
+	public void deleteReview(int rno) {
+		System.out.println("ReviewDAO deleteReview()");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "delete from review where rno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rno);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+		}
+		
+	} // deleteReview()
 	
 
 }

@@ -76,8 +76,6 @@
 				return true;	// 폼 전송
 			
 		}
-		
-
 	</script>
 </head>
 
