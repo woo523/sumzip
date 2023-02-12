@@ -65,7 +65,7 @@
 				return false;
 			// 리뷰 5자 미만이면 메시지 표시
 			} else if(document.querySelector('#review_textarea').value.length < 5) {
-				alert(" 5자 이상으로 작성해 주세요.");
+				alert("5자 이상으로 작성해 주세요.");
 				document.reviewForm.content.focus();
 				return false;
 			}
@@ -76,8 +76,6 @@
 				return true;	// 폼 전송
 			
 		}
-		
-
 	</script>
 </head>
 
@@ -94,12 +92,6 @@
 		<%
 		response.sendRedirect("login.jsp");
 	}
-	
-	UserDAO udao = new UserDAO();
-	UserDTO udto = udao.getUser(id);
-	
-	ReviewDTO rdto = new ReviewDTO();
-	rdto.setNo(udto.getNo());
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />

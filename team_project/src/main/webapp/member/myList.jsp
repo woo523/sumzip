@@ -112,6 +112,8 @@
 			response.sendRedirect("login.jsp");
  		}
 		%>
+		<button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button>
+		<button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button>
 	</form>
 	
 	<!-- footer -->
