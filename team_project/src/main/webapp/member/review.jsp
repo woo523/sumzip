@@ -1,3 +1,6 @@
+<%@page import="member.ReviewDTO"%>
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -87,10 +90,16 @@
 		%>
 		<script type="text/javascript">
    			alert("로그인을 해주세요");
- 		</script> -->
+ 		</script>
 		<%
 		response.sendRedirect("login.jsp");
 	}
+	
+	UserDAO udao = new UserDAO();
+	UserDTO udto = udao.getUser(id);
+	
+	ReviewDTO rdto = new ReviewDTO();
+	rdto.setNo(udto.getNo());
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />

@@ -1,3 +1,4 @@
+<%@page import="java.text.ParseException"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
@@ -54,37 +55,35 @@
 		<%
 		String id = (String)session.getAttribute("id");
 		
-	  	if(id == null) {
- 		// 아이디 값이 없으면 후기 작성 버튼 비활성화
- 		%>
- 		<script>
-  			function buttonHide() {
-   				document.getElementById("reviewBtn").style.display="none";
-   			}
-  		</script>
- 		<%
-	 	} else {
-			// 아이디 값 있음
-			// 현재 날짜가 퇴실일보다 이전일 경우, 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화
-			String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+	  	if(id != null) {
+	  		// 아이디 값 있음
+ 			// 현재 날짜가 퇴실일보다 이전일 경우 후기 작성 버튼 비활성화
+ 			try {
+ 				String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+ 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+ 				
+ 				Date appointOutdate = formatter.parse("2023-02-17");	// 임시 체크아웃 날짜
+ 				Date today = new Date(formatter.parse(todayfm).getTime());
+ 				
+ 				System.out.println("appointOutdate: " + formatter.format(appointOutdate));
+ 				System.out.println("today : " + formatter.format(today));
+ 				
+ 				int result = appointOutdate.compareTo(today);
+ 				
+ 				if(result > 0) {
+ 					System.out.println("appointOutdate is after today");
+ 				} else if(result <= 0){
+ 					System.out.println("appointOutdate is before today");
+ 					%>
+ 					<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
+ 					<%
+ 				} 
+ 				
+ 			} catch(ParseException ex) {
+ 				ex.printStackTrace();
+ 			}
 			
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-			Date appointOutdate = new Date(2023, 2, 17);
-			Date today = new Date(formatter.parse(todayfm).getTime());
-			
-			int result = appointOutdate.compareTo(today);
-			
-			if(result > 0) {
-				// 후기 작성 불가능
-				System.out.println("appoint가 today보다 큼");
-			} else {
-				// 후기 작성 가능
-				System.out.println("today가 appoint보다 큼");
-				%>
-				<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
-				<%
-			}
-			
+			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화
 // 			AppointmentDAO apdao = new AppointmentDAO();
 // 			ArrayList<AppointmentDTO> apdto = apdao.getUserAppointmentList(no);
 			
@@ -93,10 +92,16 @@
 <!-- 				<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button> -->
 				<%
 // 			}
-		
+
+	 	} else {
+			%>
+			<script type="text/javascript">
+	   			alert("로그인을 해주세요");
+	 		</script>
+			<%
+			response.sendRedirect("login.jsp");
  		}
 		%>
-		
 	</form>
 	
 	<!-- footer -->
