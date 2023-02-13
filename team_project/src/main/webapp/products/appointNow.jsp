@@ -16,6 +16,9 @@
 <h1>숙소 예약 현황 (관리자용)</h1>
 <h1>예약중인펜션</h1>
 <%
+// String id=admin;
+// String id=(String)session.getAttribute("id");
+// if(id=="admin"){
 AppointmentDAO dao=new AppointmentDAO();
 ArrayList<AppointmentDTO> appointmentList=dao.getAdminAppointmentList();
 
@@ -32,10 +35,16 @@ ArrayList<AppointmentDTO> appointmentList=dao.getAdminAppointmentList();
     <td><%=dto.getPno()%></td>
     <td><%=dto.getAstatus()%></td>
     <td><%=dto.getAdate()%></td>
-    <td><a href="appointManagePro.jsp">예약취소</a></td></tr>    
-	<%
-}
+    <td><a href="appointNowPro.jsp?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
+<%
+    }
 %>
+<%-- 	<% --%>
+<!-- // } -->
+<!-- // }else { -->
+<!-- // 	response.sendRedirect("../member/login.jsp"); -->
+<!-- // } -->
+<!-- %> -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->
