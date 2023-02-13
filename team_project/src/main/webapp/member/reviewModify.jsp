@@ -83,7 +83,7 @@
 </head>
 
 <body>
-<!-- 리뷰 작성 페이지 -->
+<!-- 리뷰 수정 페이지 -->
 <%
 //  	String id = (String)session.getAttribute("id");
 	// 아이디 없으면 로그인 페이지로 이동

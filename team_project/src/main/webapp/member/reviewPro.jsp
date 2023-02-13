@@ -9,25 +9,26 @@
 	
 	request.setCharacterEncoding("UTF-8");
 
-// 	int no = 1;
+	int no = 1;
 	int pno = 1;
 	
 	String id = request.getParameter("id");
  
 	String rtitle = request.getParameter("title");
-// 	String rstar = request.getParameter("star");
+	String rstar = request.getParameter("rating");
 	String rcontent = request.getParameter("content");
 	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
 	
-	UserDAO udao = new UserDAO();
-	UserDTO udto = udao.getUser(id);
+// 	UserDAO udao = new UserDAO();
+// 	UserDTO udto = udao.getUser(id);
 	
 	ReviewDTO dto = new ReviewDTO();
-	dto.setNo(udto.getNo());
+// 	dto.setNo(udto.getNo());
+	dto.setNo(no);
 	dto.setPno(pno);
  	dto.setRtitle(rtitle);
-//  	dto.setRstar(rstar);
+ 	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
  	dto.setRcount(rcount);
  	dto.setRdate(rdate);

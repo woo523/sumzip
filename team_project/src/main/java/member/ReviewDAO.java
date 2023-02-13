@@ -19,6 +19,7 @@ public class ReviewDAO {
 		return con;
 	}
 	
+	// 후기 등록
 	// insertReview()
 	public void insertReview(ReviewDTO dto) {
 		System.out.println("ReviewDAO insertReview()");
@@ -48,7 +49,7 @@ public class ReviewDAO {
 			pstmt.setInt(2, dto.getNo()); // 유저번호
 			pstmt.setInt(3, dto.getPno()); // 상품번호
 			pstmt.setString(4, dto.getRtitle());
-			pstmt.setString(5, "*****");	// 별점 길이 값 받아오기...
+			pstmt.setString(5, dto.getRstar());	// 별점 길이 값 받아오기...
 			pstmt.setString(6, dto.getRcontent());
 			pstmt.setInt(7, dto.getRcount());
 			pstmt.setTimestamp(8, dto.getRdate());
@@ -68,6 +69,7 @@ public class ReviewDAO {
 		
 	} // insertReview()
 	
+	// 후기 내용 받아오기
 	// getReview()
 	public ReviewDTO getReview(int rno) {
 		System.out.println("ReviewDTO getReview()");
@@ -110,6 +112,7 @@ public class ReviewDAO {
 	
 	} // getReview()
 	
+	// 후기 수정
 	// updateReview()
 	public void updateReview(ReviewDTO rdto) {
 		System.out.println("ReviewDAO updateReivew()");
@@ -138,6 +141,7 @@ public class ReviewDAO {
 		
 	} // updateReview()
 	
+	// 후기 삭제
 	// deleteReview()
 	public void deleteReview(int rno) {
 		System.out.println("ReviewDAO deleteReview()");

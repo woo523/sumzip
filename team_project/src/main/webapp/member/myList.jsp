@@ -55,7 +55,7 @@
 		<%
 		String id = (String)session.getAttribute("id");
 		
-	  	if(id != null) {
+// 	  	if(id != null) {
 	  		// 아이디 값 있음
  			// 현재 날짜가 퇴실일보다 이전일 경우 후기 작성 버튼 비활성화
  			try {
@@ -83,7 +83,7 @@
  				ex.printStackTrace();
  			}
 			
-			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화
+			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화 (해결중)
 			try {
 				int no = (int)session.getAttribute("no");
 				
@@ -103,14 +103,14 @@
 				e.printStackTrace();	
 			}
 
-	 	} else {
+// 	 	} else {
 			%>
-			<script type="text/javascript">
+<!-- 			<script type="text/javascript">
 	   			alert("로그인을 해주세요");
-	 		</script>
+	 		</script> -->
 			<%
-			response.sendRedirect("login.jsp");
- 		}
+// 			response.sendRedirect("login.jsp");
+//  		}
 		%>
 		<button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button>
 		<button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button>

@@ -41,18 +41,20 @@
 			});
 		});
 		
-		// 후기 작성 글자수 초과 체크 이벤트 리스너 (해결중)
-	// 	document.querySelector('#review_textarea').addEventListener('keydown', function() {
-	// 		// 리뷰 400자 초과 안되게 자동 자름
-	// 		let review = document.querySelector('#review_textarea');
-	// 		let lengthCheck = /^.{10,}$/;
-	// 		if(lengthCheck.test(review.value)){
-	// 			// 400자 초과 컷
-	// 			review.value = review.value.substr(0,10);
-	// 		}
-	// 	});
+		// 후기 작성 글자수 초과 체크
+		$(document).ready(function() {
+			// 글자수 세기
+			$('#review_textarea').on('keyup', function() {
+				$('.textCount').html("("+$(this).val().length+" / 300)");
+				
+				// 글자수 제한
+				if($(this).val().length > 300) {
+					$(this).val($(this).val().substring(0, 300));
+					$('.textCount').html("(300 / 300)");
+				}
+			});
+		});
 
-		
 		function formCheck() {
 			// submit 버튼을 누르면 onsubmit에 의해 formCheck() 함수 호출
 			if(document.querySelector('.reviewTitleText').value.length == 0) {
@@ -126,12 +128,9 @@
 				<!-- 	후기를 남겨주세요 -->
 				<div class="review_contents">
 					<h3>후기를 남겨주세요.</h3>
-					<div class="contentTextLengthWarp">
-						<p class="textCount">0자</p>
-						<p class="textTotal">/300자</p>
-					</div>
 					<textarea name="content" id="review_textarea" maxlength="300"
 							  placeholder="다녀오신 펜션의 후기를 남겨주세요! 사장님께 큰 도움이 됩니다."></textarea>
+					<p class="textCount">(0 / 300)</p>
 				</div>
 					
 				<div>
@@ -198,6 +197,9 @@
 		box-sizing: border-box;
   		height: 250px;
   		resize: none;
+ 	}
+ 	.reviewContainer #reviewForm .review_contents .textCount {
+ 		text-align: right;
  	}
 	
   	.reviewContainer #reviewForm #Buttons {
