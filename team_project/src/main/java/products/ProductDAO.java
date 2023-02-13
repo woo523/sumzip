@@ -101,7 +101,7 @@ import member.UserDTO;
 				while(rs.next()) {
 					ProductDTO dto=new ProductDTO();
 
-					dto.setPno(rs.getInt("bno"));
+					dto.setPno(rs.getInt("pno"));
 					dto.setNo(rs.getInt("no"));
 					dto.setPname(rs.getString("pname"));
 					dto.setPaddress(rs.getString("paddress"));
@@ -150,7 +150,7 @@ import member.UserDTO;
 				rs=pstmt.executeQuery();
 				
 				while(rs.next()) {
-					dto.setPno(rs.getInt("bno"));
+					dto.setPno(rs.getInt("pno"));
 					dto.setNo(rs.getInt("no"));
 					dto.setPname(rs.getString("pname"));
 					dto.setPaddress(rs.getString("paddress"));

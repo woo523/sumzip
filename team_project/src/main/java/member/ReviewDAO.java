@@ -113,6 +113,7 @@ public class ReviewDAO {
 	
 	} // getReview()
 	
+	// ReviewCheck()
 	public boolean ReviewCheck(int no, int pno) {
 		System.out.println("ReviewDTO ReviewCheck()");
 		
@@ -133,7 +134,9 @@ public class ReviewDAO {
 			
 			if(rs.next()) {
 			 reviewcheck= true;
-			} reviewcheck= false;
+			} else {
+				reviewcheck= false;
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
