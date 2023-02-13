@@ -109,7 +109,7 @@
 			<li>펜션이름 : <%=adto.getNo()%></li>
 			<li>숙박일자 : <%=adto.getAdate() %></li>
 			
-			<!-- 후기 작성했으면 버튼 활성화 -->
+			<!-- 후기 작성했으면 버튼 활성화dd -->
 <%			ReviewDAO rdao = new ReviewDAO();
 			if(rdao.ReviewCheck(no, adto.getPno())){		%>
 			<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
