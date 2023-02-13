@@ -38,7 +38,8 @@ if(id!=null){
 	    <td><%=dto2.getPno()%></td>
 	    <td><%=dto2.getAstatus()%></td>
 	    <td><%=dto2.getAdate()%></td>
-	    <td><a href="appointManagePro.jsp?num=<%=dto2.getAno()%>">예약취소</a></td></tr>    
+	    <td><a href="appointManagePro.jsp?num=<%=dto2.getAno()%>">예약취소</a></td></tr>
+<!-- 	    예약취소버튼 이미지로 -->
 		<%
 	}
 	%>

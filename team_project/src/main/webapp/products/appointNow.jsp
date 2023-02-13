@@ -33,9 +33,9 @@
 	<tr><td><%=dto.getNo()%></td>
 	    <td><%=dto.getAno()%></td>
 	    <td><%=dto.getPno()%></td>
-	    <td><%=dto.getAstatus()%></td>
+	    <td><input type="text" name="astatus" value="<%=dto.getAstatus()%>"></td>
 	    <td><%=dto.getAdate()%></td>
-	    <td><a href="appointNowPro.jsp?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
+	    <td><a href="appointNowDelete.jsp?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
 	   <%
 	   }
 	%>
