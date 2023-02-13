@@ -7,6 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>myPage_u</title>
+<style type="text/css">
+#sidebar{
+ 	width: 250px; 
+   	height: 1000px;   
+/*  	background-color: #98FD5D;  */
+	float: left;
+}
+</style>
 </head>
 <body>
 	<%
@@ -22,11 +30,11 @@
 		<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/header.jsp" />
 		<!-- 헤더들어가는 곳 -->
-		<nav id="sub_menu">
+		<nav id="sidebar">
 			<ul>
-				<li><a href="myPage_u.jsp">내 정보 조회</a></li>
-				<li><a href="#">내 이용목록</a></li>
-				<li><a href="#">예약관리</a></li>
+				<li><a href="myPage_user.jsp">내 정보 조회</a></li>
+				<li><a href="myList.jsp">내 이용목록</a></li>
+				<li><a href="../products/appointManage.jsp">예약관리</a></li>
 				<li><a href="#">찜 목록</a></li>
 				<li><a href="#">회원탈퇴</a></li>
 			</ul>
@@ -82,7 +90,13 @@
 									value="<%=dto.getAddress1()%>" readonly> <input
 									type="text" name="adrress2" value="<%=dto.getAddress2()%>"
 									readonly>
-							</div>
+							</div>		
+						</div>
+						
+						<div class="btnChange">
+							<a href="updateForm.jsp"><input type="button" name="user_modify"
+								value="회원정보 수정"></a> <a href="pwModify.jsp"><input
+								type="button" name="pw_modify" value="비밀번호 수정"></a>
 						</div>
 					</form>
 				</div>
@@ -90,11 +104,8 @@
 		</div>
 	</div>
 
-	<div class="btnChange">
-		<a href="updateForm.jsp"><input type="button" name="user_modify"
-			value="회원정보 수정"></a> <a href="pwModify.jsp"><input
-			type="button" name="pw_modify" value="비밀번호 수정"></a>
-	</div>
-
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>

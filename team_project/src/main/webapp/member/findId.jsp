@@ -26,6 +26,9 @@ function id_search() {
 </script>
 </head>
 <body>
+<div id="wrap">
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
 <form name="idfindscreen" method = "POST">
 			<div class = "search-title">
 				<h3>아이디찾기</h3>
@@ -47,5 +50,8 @@ function id_search() {
 		<input type="button" name="cancle" value="취소" onClick="history.back()">
  	</div>
  </form>
+ 
+ <jsp:include page="../inc/footer.jsp" />
+</div>
 </body>
 </html>

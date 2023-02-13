@@ -19,9 +19,6 @@ ReplyDAO dao=new ReplyDAO();
 // updateBoard(dto) 메서드 호출
 dao.updateReply(dto);
 
+response.sendRedirect("replyForm.jsp");
+
 %>
-
-<script>
-window.close();
-
-</script>

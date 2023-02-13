@@ -15,11 +15,9 @@
 		<h1>Login</h1>
 		<form action="loginPro.jsp" id="join" method="post">
 			<fieldset>
-				<legend>섬집 Login</legend>
-				회원유형 <input type="radio" name="ra" value="일반회원" checked>일반회원
-				<input type="radio" name="ra" value="사장님">사장님<br> <input
-					type="text" name="id" placeholder="아이디를 입력하세요"><br> <input
-					type="password" name="pass" placeholder="비밀번호를 입력하세요"><br>
+				
+				<input type="text" name="id" placeholder="아이디를 입력하세요"><br> 
+				<input type="password" name="pass" placeholder="비밀번호를 입력하세요"><br>
 				<input type="submit" value="로그인" class="submit"><br>
 				<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 				<a href="javascript:void(0)"> <img
@@ -55,8 +53,8 @@
 
 
 				<!-- 아래와같이 아이디를 꼭 써준다. -->
-				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <img
-					src="/team_project/img/login/naver_login.png">
+				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> 
+				<img src="/team_project/img/login/naver_login.png" width="182">
 				</a>
 
 				<!-- 네이버 스크립트 -->
@@ -101,7 +99,7 @@
 					}
 					function closePopUp() {
 						testPopUp.close();
-					}}
+					}
 				</script>
 
 			</fieldset>
@@ -112,6 +110,8 @@
 			<a href="join.jsp">회원가입</a><span class="p-2"> | </span> <a
 				href="findId.jsp">ID찾기</a><span class="p-2"> | </span> <a href="#">비밀번호찾기</a>
 		</nav>
+		
+		<jsp:include page="../inc/footer.jsp" />
 	</div>
 </body>
 </html>

@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -42,16 +44,30 @@
                         <div class="tn-right">
                             <%
 								String id=(String)session.getAttribute("id");
+                            	UserDAO dao = new UserDAO();
+                        		// MemberDTO dto = getMember(id) 메서드호출
+                        		UserDTO dto = dao.getUser(id);
+
 								if(id!=null){
+									if(dto.getUtype()==1){
 									%>
-									<div id="login">♥<%=id %> 님♥ |
-													<a href="../member/logout.jsp">Logout</a>	|
-													<a href="../member/mypage_u.jsp">Mypage</a></div>		
-									<% 
+										<div id="login">♥<%=id %> 님♥ |
+										<a href="../member/logout.jsp">Logout</a>	|
+										<a href="../member/myPage_user.jsp">Mypage</a></div>
+										<% 
+									}else if(dto.getUtype()==2){
+										%>
+										<div id="login">♥<%=id %> 님♥ |
+										<a href="../member/logout.jsp">Logout</a>	|
+										<a href="../member/myPage_owner.jsp">Mypage</a></div>
+										<%
+									}
+									%>
+								 <%
 								}else{
 									%>
 									<div id="login"><a href="../member/login.jsp">Login</a> |
-													<a href="../member/join.jsp">Join</a></div>	
+													<a href="../member/agree.jsp">Join</a></div>	
 									<%
 								}
 							%>
@@ -74,12 +90,12 @@
                     <div class="col-lg-10">
                         <div class="nav-menu">
                             <nav class="mainmenu">
-                                <ul>
-                                    <li class="active"><a href="../index.jsp">Home</a></li>
+                                <ul> 
                                     <li><a href="#">지역별 조회</a></li>
                                     <li><a href="#">테마별 조회</a></li>
                                     <li><a href="#">추천 펜션</a></li>
                                     <li><a href="../board/boardList.jsp">공지사항</a></li>
+                                    <li><a href="../qna/qnaList.jsp">Q&A</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
