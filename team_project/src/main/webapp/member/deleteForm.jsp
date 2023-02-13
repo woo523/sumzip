@@ -7,12 +7,13 @@
 <title>member/deleteForm.jsp</title>
 </head>
 <body>
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/header.jsp" />
-		<!-- 헤더들어가는 곳 -->
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
+
 <h1>회원탈퇴</h1>
 <%
-String id=(String)session.getAttribute("id"); 
+String id=(String)session.getAttribute("id"); //다운캐스팅 형변환
 %>
 <form action="deletePro.jsp" method="post" id="delete" name="deleteform">
 아이디 : <input type="text" name="id" value="<%=id%>" readonly><br>

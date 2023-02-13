@@ -21,13 +21,8 @@ dto.setQcontent(content);
 dto.setQcount(qcount);
 dto.setQdate(qdate);
 
-// 패키지 board 파일이름 BoardDAO  
-// 리턴할형없음 insertBoard(BoardDTO dto) 메서드 정의
-// BoardDAO 객체생성
 QnaDAO dao=new QnaDAO();
-// insertBoard(dto) 메서드 호출 => 첫번째 ? pstmt.setInt(1, 1);
 dao.insertQna(dto);
 
-// 글목록 list.jsp
 response.sendRedirect("qnaList.jsp");
 %>
