@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<%
+<%
 String id=(String)session.getAttribute("id");
 if(id==null){
 	response.sendRedirect("../member/login.jsp");

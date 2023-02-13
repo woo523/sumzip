@@ -9,6 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import board.BoardDTO;
+
 public class QnaDAO {
 private Connection getConnection() throws Exception {
 		
@@ -100,6 +102,45 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	}
 	return qnaList;
 }// getQnaList()
+
+public QnaDTO getQna(int no) { // 기준값 num
+	System.out.println("QnaDAO getQna()");
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs=null;
+	QnaDTO dto=null;
+	try {
+		// 1~2단계
+		con = getConnection();
+		// 3 sql
+		String sql = "select * from Qna where no=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, no);
+		// 4
+		rs=pstmt.executeQuery();
+		// 5
+		while (rs.next()) { 
+			// 하나의 글의 바구니에 저장
+			dto = new QnaDTO();
+			dto.setNo(rs.getInt("no"));
+			dto.setQno(rs.getInt("qno"));
+			dto.setQtitle(rs.getString("qtitle"));
+			dto.setQcontent(rs.getString("qcontent"));
+			dto.setQcount(rs.getInt("qcount"));
+			dto.setQpw(rs.getInt("qpw"));
+			dto.setQtype(rs.getString("qtype"));
+			dto.setQdate(rs.getTimestamp("qdate"));
+					}
+			} catch (Exception e) {
+					e.printStackTrace(); // 에러처리
+			} finally {
+			// 예외 상관없이 마무리 작업 => 객체생성한 기억장소 해제
+			if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+			if (con != null) try {con.close();} catch (Exception e2) {}
+			if (rs != null) try {rs.close();} catch (Exception e2) {}
+	}
+	return dto;
+}
 }
 
 
