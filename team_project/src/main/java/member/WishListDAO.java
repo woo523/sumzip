@@ -22,7 +22,7 @@ public void insertWish(WishListDTO dto) {
 	try {
 		con = getConnection();
 		
-		String sql = "insert into WishList(no,pno) values(?,?)";
+		String sql = "insert into Wish_List(no,pno) values(?,?)";
 		pstmt = con.prepareStatement(sql);
 		
 		pstmt.setInt(1, dto.getNo());
@@ -45,7 +45,7 @@ public void deleteWish(WishListDTO dto) {
 	try {
 		con = getConnection();
 		
-		String sql = "delete from WishList where pno=?";
+		String sql = "delete from Wish_List where pno=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, dto.getPno());
 		
@@ -60,16 +60,16 @@ public void deleteWish(WishListDTO dto) {
 	return;
 	}	
 
-public ArrayList<WishListDTO> getWishArrayList(String id) {
+public ArrayList<WishListDTO> getWishArrayList(int pno) {
 	ArrayList<WishListDTO> wishArrayList = new ArrayList<WishListDTO>();
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try {
 		con = getConnection();
-		String sql = "select * from WishList where id=?";
+		String sql = "select * from Wish_List where id=?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, id);
+		pstmt.setInt(1, pno);
 
 		rs = pstmt.executeQuery();
 
