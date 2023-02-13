@@ -1,3 +1,5 @@
+<%@page import="products.ProductDTO"%>
+<%@page import="products.ProductDAO"%>
 <%@page import="member.ReviewDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
@@ -54,7 +56,6 @@
 		
 	<form name="myListForm" action="" id="myList" method="get">
 		<h3>내 이용 내역</h3>
-
 		<%
 	  	if(id != null) {
 	  		// 아이디 값 있음
@@ -100,22 +101,30 @@
  		}
 		%>
 		
-		<% AppointmentDAO adao = new AppointmentDAO();
-	ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
-	for(int i = 0 ; i<userappointmentlist.size();i++){
-	AppointmentDTO adto = userappointmentlist.get(i);
-%>
+		<%  
+		AppointmentDAO adao = new AppointmentDAO();
+		ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
+		for(int i = 0 ; i < userappointmentlist.size(); i++){
+			AppointmentDTO adto = userappointmentlist.get(i);
+			ProductDAO pdao = new ProductDAO();
+			ProductDTO pdto = pdao.getProduct(adto.getNo());
+		%>
 		<ul>
-			<li>펜션이름 : <%=adto.getNo()%></li>
+			<li>펜션이름 : <%=pdto.getPname()%></li>
 			<li>숙박일자 : <%=adto.getAdate() %></li>
-			
-			<!-- 후기 작성했으면 버튼 활성화dd -->
-<%			ReviewDAO rdao = new ReviewDAO();
-			if(rdao.ReviewCheck(no, adto.getPno())){		%>
-			<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
-			<li><button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
-			<%} else{%>
-		  <li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li> <%} %>
+
+			<!-- 후기 작성했으면 버튼 활성화 -->
+			<%			
+				ReviewDAO rdao = new ReviewDAO();
+				if(rdao.ReviewCheck(no, adto.getPno())) {		
+			%>
+				<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
+				<li><button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
+			<%
+			} else{
+			%>
+			<!-- else if 체크인 날짜 이후에 작성하기 버튼 활성화 시키기 -->
+		  	<li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li> <%} %>
 			
 		</ul>			
 		<%} %>

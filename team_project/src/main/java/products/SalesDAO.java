@@ -63,4 +63,45 @@ public class SalesDAO {
 		}
 		return dto;
 	}//getSales()
+	
+	public ArrayList<SalesDTO> getSalesList(){
+		ArrayList<SalesDTO> SalesList=new ArrayList<SalesDTO>();
+		Connection con =null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			//1,2 디비연결 메서드
+			con=getConnection();
+			//3단계 SQL구문 만들어서 실행할 준비(select)
+			String sql="select * from Sales";
+			pstmt=con.prepareStatement(sql);
+			//4단계 SQL구문을 실행(select) => 결과 저장
+			rs=pstmt.executeQuery();	
+			//5단계	//조건이 true 실행문=> 다음행 데이터 있으면 true 
+			//     =>  열접근 => 한 명 정보 SalesDTO 저장 => 배열한칸 저장 
+			while(rs.next()) {
+				// SalesDTO 객체생성
+				SalesDTO dto=new SalesDTO();
+				// set메서드 호출 <= 열접근
+				dto.setSno(rs.getInt("sno"));
+				dto.setAno(rs.getInt("ano"));
+				dto.setPno(rs.getInt("pno"));
+				dto.setSdate(rs.getTimestamp("sdate"));
+				dto.setIndate(rs.getDate("indate"));
+				dto.setOutdate(rs.getDate("outdate"));
+				dto.setSprice(rs.getInt("sprice"));
+				dto.setScount(rs.getInt("scount"));
+				// 배열 한칸에 회원정보주소 저장
+				SalesList.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return SalesList;
+	}//getSalesList()
 }

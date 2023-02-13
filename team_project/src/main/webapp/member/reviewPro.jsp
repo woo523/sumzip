@@ -10,7 +10,7 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	// 임시 데이터
-	int pno = 1;
+	int pno = 100;
 	
 	String id = (String)session.getAttribute("id");
 	
