@@ -159,18 +159,20 @@ public class ReplyDAO {
 		
 	} // 댓글 삭제
 	
-	public int countReply() {
+	public int countReply(int bno) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int countReply = 0;
 		try {
 			con = getConnection();
-			String sql = "select count(*) from reply";
-			pstmt=con.prepareStatement(sql);
+			String sql = "select count(*) from reply where bno = ? union select count(*) from commend where bno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.setInt(2, bno);
 			rs=pstmt.executeQuery();
-			if(rs.next()) {
-				countReply=rs.getInt("count(*)");
+			while(rs.next()) {
+				countReply+=rs.getInt("count(*)");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

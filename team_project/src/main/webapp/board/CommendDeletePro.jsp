@@ -1,7 +1,8 @@
-<%@page import="board.ReplyDTO"%>
-<%@page import="board.ReplyDAO"%>
+<%@page import="board.CommendDTO"%>
+<%@page import="board.CommendDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%
 
 //String id=(String)session.getAttribute("id");
@@ -10,22 +11,22 @@
 //int no = dto.getNo();
 int no = 1; // 임시값
 
-int rno=Integer.parseInt(request.getParameter("rno"));
-ReplyDAO rdao=new ReplyDAO();
-ReplyDTO rdto=rdao.getReply(rno);
+int cno=Integer.parseInt(request.getParameter("cno"));
+CommendDAO cdao=new CommendDAO();
+CommendDTO cdto=cdao.getCommend(cno);
 
 
-if(rdto.getNo()!=no){
+if(cdto.getNo()!=no){
 %>
 <script>
-	alert("본인 댓글만 삭제가능합니다");
+	alert("본인 답댓글만 삭제가능합니다");
 	history.back();
 </script>
 <%
 } else{
 
-ReplyDAO dao=new ReplyDAO();
-dao.deleteReply(rno);
+CommendDAO dao=new CommendDAO();
+dao.deleteCommend(cno);
 response.sendRedirect("replyForm.jsp");
 }
 %>

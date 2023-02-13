@@ -8,26 +8,29 @@
 <%
 	
 	request.setCharacterEncoding("UTF-8");
-
-// 	int no = 1;
+	
+	// 임시 데이터
 	int pno = 1;
 	
-	String id = request.getParameter("id");
- 
+	String id = (String)session.getAttribute("id");
+	
 	String rtitle = request.getParameter("title");
-// 	String rstar = request.getParameter("star");
+	String rstar = request.getParameter("rating");
 	String rcontent = request.getParameter("content");
 	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
 	
+	// 로그인 후 id, no 값 가져오기
 	UserDAO udao = new UserDAO();
 	UserDTO udto = udao.getUser(id);
+	int no = udto.getNo();
 	
+	// dto 저장
 	ReviewDTO dto = new ReviewDTO();
-	dto.setNo(udto.getNo());
+	dto.setNo(no);
 	dto.setPno(pno);
  	dto.setRtitle(rtitle);
-//  	dto.setRstar(rstar);
+ 	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
  	dto.setRcount(rcount);
  	dto.setRdate(rdate);

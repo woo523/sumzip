@@ -9,13 +9,13 @@
 	
 	int rno = Integer.parseInt(request.getParameter("rno"));
 	String rtitle = request.getParameter("title");
-// 	String rstar = request.getParameter("rstar"); 
+	String rstar = request.getParameter("rstar"); 
 	String rcontent = request.getParameter("content");
 	
 	ReviewDTO rdto = new ReviewDTO();
 	rdto.setRno(rno);
 	rdto.setRtitle(rtitle);
-// 	rdto.setRstar(rstar); 
+	rdto.setRstar(rstar); 
 	rdto.setRcontent(rcontent);
 	
 	ReviewDAO rdao = new ReviewDAO();

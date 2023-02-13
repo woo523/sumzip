@@ -19,9 +19,6 @@
 
 				</fieldset>
 			</form>
-			<nav id="sub_menu">
-			<a href="findId.jsp">ID찾기</a><span class="p-2"> | </span> <a href="#pfindPass">비밀번호찾기</a>
-		</nav>
 	</div>
 </body>
 </html>

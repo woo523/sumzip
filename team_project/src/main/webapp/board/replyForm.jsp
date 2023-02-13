@@ -1,3 +1,7 @@
+<%@page import="board.CommendDTO"%>
+<%@page import="board.CommendDAO"%>
+<%@page import="board.ReplyDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="board.ReplyDAO"%>
 <%@page import="member.UserDAO"%>
 <%@page import="member.UserDTO"%>
@@ -24,26 +28,26 @@
     <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
 
-<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript" src="../script/jquery-3.6.3.js"></script> -->
+<!-- <script type="text/javascript"> -->
 
- $(document).ready(function(){
-	 $.ajax({
-			url:"replyJsonarr.jsp",
-			dataType:"json",
-			success:function(arr){
-				$.each(arr,function(index,item){
-					$('.comment1').append('<div><span>'+item.rdate+'</span><h5>'+item.id+'</h5><p>'+item.riply+
-					'</p><a href="replyUpdateForm.jsp?rno='+item.rno+
-					'"class="comment-btn">수정</a><a href="replyDeletePro.jsp?rno='+item.rno+'" class="comment-btn">삭제</a></div>');
+<!--   $(document).ready(function(){ -->
+<!--  	 $.ajax({ -->
+<!--  			url:"replyJsonarr.jsp", -->
+<!--  			dataType:"json", -->
+<!--  			success:function(arr){ -->
+<!--  				$.each(arr,function(index,item){ -->
+<!--  					$('.comment1').append('<div><span>'+item.rdate+'</span><h5>'+item.id+'</h5><p>'+item.riply+ -->
+<!--  					'</p><a href="replyUpdateForm.jsp?rno='+item.rno+ -->
+<!--  					'"class="comment-btn">수정</a><a href="replyDeletePro.jsp?rno='+item.rno+'" class="comment-btn">삭제</a></div>'); -->
 
-				});// each
-			}// success
-		}); //ajax	// 댓글 리스트
+<!--  				});// each -->
+<!--  			}// success -->
+<!--  		}); //ajax	// 댓글 리스트 -->
 
- }); // ready
+<!--   }); // ready -->
 
- </script>
+<!--  </script> -->
 
 
 
@@ -51,22 +55,26 @@
 <body>
 <%
 //int bno = Integer.parseInt(request.getParameter("bno"));
-int bno=1;
+int bno=1; // 임시값
 //String id=(String)session.getAttribute("id");
 // UserDAO dao = new UserDAO();
 // UserDTO dto = dao.getUser(id);
 // int no = dto.getNo();
-int no=1;
-String id="hong1234";
+int no=1; // 임시값
+String id="hong1234"; // 임시값
 UserDAO dao = new UserDAO();
 UserDTO dto = dao.getUser(id);
 ReplyDAO rdao = new ReplyDAO();
 
-int count = rdao.countReply(); // 댓글 개수 계산
+int count = rdao.countReply(bno); // 댓글 개수 계산
+
+ArrayList<ReplyDTO> replylist = rdao.getReplyList(bno);
+
+CommendDAO cdao = new CommendDAO();
 
 %>
    <section class="blog-details-section">
-        <div class="container">
+        <div class="conainer">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="blog-details-text">
@@ -87,16 +95,44 @@ int count = rdao.countReply(); // 댓글 개수 계산
                         <div class="comment-option">
 <!-- 댓글 갯수 -->
                             <h4><%=count%> Comments</h4> 
-                            
-                            <div class="single-comment-item first-comment">
-                                
-                                <div class="sc-text">
-                                <div class="comment1">
-                                </div>
-                                </div>
-                            </div>
-                        </div>
 
+<!-- 댓글 리스트 -->                       
+                            <div class="single-comment-item first-comment">                             
+                                <div class="sc-text">
+								<% for(int i=0;i<replylist.size();i++){ 
+									ReplyDTO rdto = replylist.get(i);
+									dto = dao.getUserNo(rdto.getNo());
+									%>
+									<div><span><%=rdto.getRdate()%></span>
+	                                <h5><%=dto.getId()%></h5>
+	                                <p><%=rdto.getRiply()%></p>
+	                                <a href="CommendForm.jsp?rno=<%=rdto.getRno()%>"class="comment-btn">답댓글</a>
+	                                <a href="replyUpdateForm.jsp?rno=<%=rdto.getRno()%>&no=<%=rdto.getNo()%>"class="comment-btn">수정</a>
+	                                <a href="replyDeletePro.jsp?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a></div><Br>				
+<!-- 대댓글 리스트 -->
+									<%			
+									ArrayList<CommendDTO> commendlist = cdao.getCommendList(rdto.getRno());
+									for(int j=0;j<commendlist.size();j++){
+										CommendDTO cdto = commendlist.get(j);
+										if(rdto.getRno()==cdto.getRno()){
+											dto = dao.getUserNo(cdto.getNo());
+									if(j==0){%>
+								<Br><div class="single-comment-item reply-comment"><%}%>
+                                <div class="sc-text">
+                                    <span><%=cdto.getCdate()%></span>
+                                    <h5><%=dto.getId()%></h5>
+                                    <p><%=cdto.getCommend()%></p>
+                                    <a href="CommendUpdateForm.jsp?cno=<%=cdto.getCno()%>&no=<%=cdto.getNo()%>" class="comment-btn like-btn">수정</a>
+                                    <a href="CommendDeletePro.jsp?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a>
+                                </div>
+                                <%if(j==commendlist.size()-1){%>
+                                </div>
+
+										<%}}}} %>
+                            
+						        </div>  
+							</div>
+						</div>
                     </div>
                 </div>
             </div>

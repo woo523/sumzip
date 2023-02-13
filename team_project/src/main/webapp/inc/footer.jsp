@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!-- Footer Section Begin -->
-    <footer class="footer-section">
+    <footer class="footer-section" style="position: fixed; width: 100%; left: 0; bottom: 0;">
         <div class="container">
             <div class="footer-text">
                 <div class="row">

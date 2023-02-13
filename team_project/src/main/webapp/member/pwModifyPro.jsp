@@ -16,6 +16,7 @@ String pass=request.getParameter("pass");
 // 수정할 내용을 바구니 객체생성 => 바구니에 저장
 UserDTO modifyPassDto=new UserDTO();
 
+modifyPassDto.setId(id);
 modifyPassDto.setPass(pass);
 // MemberDAO 객체생성
 UserDAO dao=new UserDAO();

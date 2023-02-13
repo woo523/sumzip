@@ -1,3 +1,4 @@
+<%@page import="board.CommendDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
 <%@page import="board.ReplyDTO"%>
@@ -34,27 +35,11 @@
 
 int bno=1; // 임시값
 int no=1; // 임시값
-
-
-int rno=Integer.parseInt(request.getParameter("rno"));
-ReplyDAO rdao=new ReplyDAO();
-ReplyDTO rdto=rdao.getReply(rno);
-
-int runo=Integer.parseInt(request.getParameter("no"));
-
 UserDAO dao = new UserDAO();
-UserDTO dto = dao.getUserNo(runo);
+UserDTO dto = dao.getUserNo(no);
 String id = dto.getId();
 
-
-if(rdto.getNo()!=no){
-%>
-<script>
-	alert("본인 댓글만 수정가능합니다");
-	history.back();
-</script>
-<%
-}
+int rno=Integer.parseInt(request.getParameter("rno"));
 %>
 
 
@@ -67,17 +52,18 @@ if(rdto.getNo()!=no){
                 <div class="col-lg-10 offset-lg-1">
                     <div class="blog-details-text">
                        <div class="leave-comment">
-                            <h4>댓글 수정</h4>
-                            <form action="replyUpdatePro.jsp?rno=<%=rno%>" method ="post" class="comment-form">
+                            <h4>답댓글 작성</h4>
+                            <form action="CommendInsert.jsp" method ="post" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
-                                        <input type="hidden" name="no" value="<%=runo%>">
-										<input type="hidden" name="bno" value="<%=rdto.getBno()%>">
+                                        <input type="hidden" name="no" value="<%=no%>">
+										<input type="hidden" name="bno" value="<%=bno%>">
+										<input type="hidden" name="rno" value="<%=rno%>">
                                     </div>
                                     <div class="col-lg-12 text-center">
-                                        <textarea name="riply"><%=rdto.getRiply() %></textarea>
-                                        <button type="submit" class="site-btn">댓글 수정</button>
+                                        <textarea name="commend" placeholder="답댓글을 입력하세요"></textarea>
+                                        <button type="submit" class="site-btn">답댓글 쓰기</button>
                                     </div>
                                 </div>
                             </form>
