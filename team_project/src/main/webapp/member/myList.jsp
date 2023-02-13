@@ -84,24 +84,24 @@
  			}
 			
 			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화 (해결중)
-			try {
-				int no = (int)session.getAttribute("no");
+// 			try {
+// 				int no = (int)session.getAttribute("no");
 				
-				AppointmentDAO apdao = new AppointmentDAO();
-				ArrayList<AppointmentDTO> appointList = apdao.getUserAppointmentList(no);
+// 				AppointmentDAO apdao = new AppointmentDAO();
+// 				ArrayList<AppointmentDTO> appointList = apdao.getUserAppointmentList(no);
 				
-				for(int i = 0; i < appointList.size(); i++) {
-					AppointmentDTO apdto = appointList.get(i);
+// 				for(int i = 0; i < appointList.size(); i++) {
+// 					AppointmentDTO apdto = appointList.get(i);
 					
-					if(apdto.getAstatus() == 4) {
+// 					if(apdto.getAstatus() == 4) {
 						%>
-						<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
-						<%
-					}
-				}
-			} catch(Exception e) {
-				e.printStackTrace();	
-			}
+<!-- 						<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button> -->
+ 						<%
+// 					}
+// 				}
+// 			} catch(Exception e) {
+// 				e.printStackTrace();	
+// 			}
 
 // 	 	} else {
 			%>

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="member.ReviewDTO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
@@ -85,6 +86,8 @@
 <!-- 리뷰 작성 페이지 -->
 <%
  	String id = (String)session.getAttribute("id");
+	
+	
 	// 아이디 없으면 로그인 페이지로 이동
 	if(id == null) {
 		%>
@@ -94,6 +97,7 @@
 		<%
 		response.sendRedirect("login.jsp");
 	}
+	
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
