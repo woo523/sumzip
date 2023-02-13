@@ -79,6 +79,7 @@ CommendDAO cdao = new CommendDAO();
                 <div class="col-lg-10 offset-lg-1">
                     <div class="blog-details-text">
                        <div class="leave-comment">
+<!-- 댓글쓰기 폼 -->
                             <h4>댓글 쓰기</h4>
                             <form action="replyInsertpro.jsp" class="comment-form">
                                 <div class="row">
@@ -107,8 +108,9 @@ CommendDAO cdao = new CommendDAO();
 	                                <h5><%=dto.getId()%></h5>
 	                                <p><%=rdto.getRiply()%></p>
 	                                <a href="CommendForm.jsp?rno=<%=rdto.getRno()%>"class="comment-btn">답댓글</a>
+	                                <%if(no==rdto.getNo()){ %>
 	                                <a href="replyUpdateForm.jsp?rno=<%=rdto.getRno()%>&no=<%=rdto.getNo()%>"class="comment-btn">수정</a>
-	                                <a href="replyDeletePro.jsp?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a></div><Br>				
+	                                <a href="replyDeletePro.jsp?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
 <!-- 대댓글 리스트 -->
 									<%			
 									ArrayList<CommendDTO> commendlist = cdao.getCommendList(rdto.getRno());
@@ -122,8 +124,9 @@ CommendDAO cdao = new CommendDAO();
                                     <span><%=cdto.getCdate()%></span>
                                     <h5><%=dto.getId()%></h5>
                                     <p><%=cdto.getCommend()%></p>
+                                    <%if(no==cdto.getNo()){ %>
                                     <a href="CommendUpdateForm.jsp?cno=<%=cdto.getCno()%>&no=<%=cdto.getNo()%>" class="comment-btn like-btn">수정</a>
-                                    <a href="CommendDeletePro.jsp?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a>
+                                    <a href="CommendDeletePro.jsp?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
                                 </div>
                                 <%if(j==commendlist.size()-1){%>
                                 </div>

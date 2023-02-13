@@ -1,3 +1,4 @@
+<%@page import="member.ReviewDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
 <%@page import="java.text.ParseException"%>
@@ -53,11 +54,7 @@
 		
 	<form name="myListForm" action="" id="myList" method="get">
 		<h3>내 이용 내역</h3>
-		<ul>
-			<li>펜션이름</li>
-			<li>숙박일자</li>
-		</ul>
-		
+
 		<%
 	  	if(id != null) {
 	  		// 아이디 값 있음
@@ -85,9 +82,7 @@
  	 					System.out.println("appointOutdate is after today");
  	 				} else if(resultOut <= 0){
  	 					System.out.println("appointOutdate is before today");
- 	  					%>
- 	 					<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
- 	  					<%
+ 	  		
  	 				} 
  				}
  				
@@ -104,9 +99,26 @@
 			response.sendRedirect("login.jsp");
  		}
 		%>
-		<!-- 후기 작성했으면 버튼 활성화 -->
-		<button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button>
-		<button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button>
+		
+		<% AppointmentDAO adao = new AppointmentDAO();
+	ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
+	for(int i = 0 ; i<userappointmentlist.size();i++){
+	AppointmentDTO adto = userappointmentlist.get(i);
+%>
+		<ul>
+			<li>펜션이름 : <%=adto.getNo()%></li>
+			<li>숙박일자 : <%=adto.getAdate() %></li>
+			
+			<!-- 후기 작성했으면 버튼 활성화 -->
+<%			ReviewDAO rdao = new ReviewDAO();
+			if(rdao.ReviewCheck(no, adto.getPno())){		%>
+			<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
+			<li><button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
+			<%} else{%>
+		  <li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li> <%} %>
+			
+		</ul>			
+		<%} %>
 	</form>
 	
 	<!-- footer -->
