@@ -150,6 +150,7 @@ import member.UserDTO;
 				rs=pstmt.executeQuery();
 				
 				while(rs.next()) {
+					dto = new ProductDTO();
 					dto.setPno(rs.getInt("pno"));
 					dto.setNo(rs.getInt("no"));
 					dto.setPname(rs.getString("pname"));
