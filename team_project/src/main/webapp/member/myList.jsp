@@ -49,6 +49,9 @@
 	// 판매정보 => 퇴실일
 	SalesDAO salesdao = new SalesDAO();
 	SalesDTO salesdto = salesdao.getSales(no);
+	
+	// 후기 작성 여부 확인
+	
 
 %>
 	<!-- header -->
@@ -56,41 +59,45 @@
 		
 	<form name="myListForm" action="" id="myList" method="get">
 		<h3>내 이용 내역</h3>
+		
 		<%
 	  	if(id != null) {
 	  		// 아이디 값 있음
 	  		// 예약완료 상태 => 입실일 기준으로 판별
  			// 현재 날짜가 퇴실일보다 이전일 경우 후기 작성 버튼 비활성화
- 			try {
- 				String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
-//  				String outdatefm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(salesdto.getOutdate()));
- 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//  			try {
+//  				String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+// //  				String outdatefm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(salesdto.getOutdate()));
+//  				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
  				
- 				Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
-//  				Date appointIndate = salesdto.getIndate();
- 				Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
- 				Date today = new Date(formatter.parse(todayfm).getTime());
+//  				Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
+// //  				Date appointIndate = salesdto.getIndate();
+//  				Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
+//  				Date today = new Date(formatter.parse(todayfm).getTime());
  				
- 				System.out.println("appointIndate: " + formatter.format(appointIndate));
- 				System.out.println("appointOutdate: " + formatter.format(appointOutdate));
- 				System.out.println("today : " + formatter.format(today));
+//  				System.out.println("appointIndate: " + formatter.format(appointIndate));
+//  				System.out.println("appointOutdate: " + formatter.format(appointOutdate));
+//  				System.out.println("today : " + formatter.format(today));
  				
- 				int resultIn = appointIndate.compareTo(today);
- 				int resultOut = appointOutdate.compareTo(today);
+//  				int resultIn = appointIndate.compareTo(today);
+//  				int resultOut = appointOutdate.compareTo(today);
  				
- 				if(resultIn < 0) {
- 					System.out.println("appointIndate is before today");
- 					if(resultOut > 0) {
- 	 					System.out.println("appointOutdate is after today");
- 	 				} else if(resultOut <= 0){
- 	 					System.out.println("appointOutdate is before today");
- 	  		
- 	 				} 
- 				}
+//  				if(resultIn < 0) {
+//  					// 입실일이 지나면 예약완료 상태로 대신함 = 후기 작성 가능
+//  					System.out.println("appointIndate is before today");
+//  					if(resultOut > 0) {
+//  						// 후기 작성 불가
+//  	 					System.out.println("appointOutdate is after today");
+//  	 				} else if(resultOut <= 0){
+//  	 					// 후기 작성 가능
+//  	 					System.out.println("appointOutdate is before today");
+ 	  					
+//  	 				} 
+//  				}
  				
- 			} catch(ParseException ex) {
- 				ex.printStackTrace();
- 			}
+//  			} catch(ParseException ex) {
+//  				ex.printStackTrace();
+//  			}
 
 	 	} else {
 			%>
@@ -117,11 +124,47 @@
 
 			<!-- 후기 작성했으면 버튼 활성화 -->
 			<%			
-				ReviewDAO rdao = new ReviewDAO();
-				if(rdao.ReviewCheck(no, adto.getPno())) {		
+			ReviewDAO rdao = new ReviewDAO();
+			if(id != null) {
+				// 후기 작성 확인 메서드
+				// 리뷰작성한 경우, 입실일이 지나고 퇴실일도 지난 경우 후기 수정, 삭제 버튼 활성화
+				if(rdao.ReviewCheck(no, adto.getPno())) {
+					String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+					
+					Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
+					Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
+					Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
+					
+					System.out.println("appointIndate: " + formatter.format(appointIndate));
+					System.out.println("appointOutdate: " + formatter.format(appointOutdate));
+					System.out.println("today : " + formatter.format(today));
+					
+					int resultIn = appointIndate.compareTo(today);
+					int resultOut = appointOutdate.compareTo(today);
+					
+					if(resultIn < 0) {
+						// 입실일이 지나면 예약완료 상태로 대신함 = 후기 작성 가능
+						System.out.println("appointIndate is before today");
+						
+						if(resultOut > 0) {
+							// 퇴실일 지나기전 후기 작성 불가
+							System.out.println("appointOutdate is after today");
+						} else if(resultOut <= 0){
+							// 후기 작성 가능
+							System.out.println("appointOutdate is before today");
+							%>
+							<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
+							<li><button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
+							<%
+						}
+					}
+				} 
+			}
+				if(rdao.ReviewCheck(no, adto.getPno())) {	
 			%>
-				<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
-				<li><button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
+				
+				
 			<%
 			} else{
 			%>
