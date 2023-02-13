@@ -1,3 +1,4 @@
+<%@page import="member.ReviewDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
 <%@page import="java.text.ParseException"%>
@@ -53,76 +54,71 @@
 		
 	<form name="myListForm" action="" id="myList" method="get">
 		<h3>내 이용 내역</h3>
-		<table border="1">
-			<tr>
-				<td>글번호</td>
-				<td>아이디</td>
-				<td>글제목</td>
-				<td>작성날짜</td>
-<!-- 				<td>펜션이름</td> -->
-<!-- 				<td>숙박일자</td> -->
-			</tr>
-		</table>
+
 		<%
-// 	  	if(id != null) {
+	  	if(id != null) {
 	  		// 아이디 값 있음
+	  		// 예약완료 상태 => 입실일 기준으로 판별
  			// 현재 날짜가 퇴실일보다 이전일 경우 후기 작성 버튼 비활성화
  			try {
  				String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 //  				String outdatefm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(salesdto.getOutdate()));
  				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
  				
- 				Date appointOutdate = formatter.parse("2023-02-05"); // 임시 체크아웃 날짜
+ 				Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
+ 				Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
  				Date today = new Date(formatter.parse(todayfm).getTime());
  				
+ 				System.out.println("appointIndate: " + formatter.format(appointIndate));
  				System.out.println("appointOutdate: " + formatter.format(appointOutdate));
  				System.out.println("today : " + formatter.format(today));
  				
- 				int result = appointOutdate.compareTo(today);
+ 				int resultIn = appointIndate.compareTo(today);
+ 				int resultOut = appointOutdate.compareTo(today);
  				
- 				if(result > 0) {
- 					System.out.println("appointOutdate is after today");
- 				} else if(result <= 0){
- 					System.out.println("appointOutdate is before today");
-  					%>
- 					<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
-  					<%
- 				} 
+ 				if(resultIn < 0) {
+ 					System.out.println("appointIndate is before today");
+ 					if(resultOut > 0) {
+ 	 					System.out.println("appointOutdate is after today");
+ 	 				} else if(resultOut <= 0){
+ 	 					System.out.println("appointOutdate is before today");
+ 	  		
+ 	 				} 
+ 				}
  				
  			} catch(ParseException ex) {
  				ex.printStackTrace();
  			}
-			
-			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화 (해결중)
-			try {
-				AppointmentDAO apdao = new AppointmentDAO();
-				ArrayList<AppointmentDTO> appointList = apdao.getUserAppointmentList(no);
-				
-				for(int i = 0; i < appointList.size(); i++) {
-					AppointmentDTO apdto = appointList.get(i);
-					
-					if(apdto.getAstatus() == 4) {
-						%>
-						<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
- 						<%
-					}
-				}
-			} catch(Exception e) {
-				e.printStackTrace();	
-			}
 
-// 	 	} else {
+	 	} else {
 			%>
-<!-- 			<script type="text/javascript">
+ 			<script type="text/javascript">
 	   			alert("로그인을 해주세요");
-	 		</script> -->
+	 		</script>
 			<%
-// 			response.sendRedirect("login.jsp");
-//  		}
+			response.sendRedirect("login.jsp");
+ 		}
 		%>
-		<!-- 후기 작성했으면 버튼 활성화 -->
-		<button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button>
-		<button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button>
+		
+		<% AppointmentDAO adao = new AppointmentDAO();
+	ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
+	for(int i = 0 ; i<userappointmentlist.size();i++){
+	AppointmentDTO adto = userappointmentlist.get(i);
+%>
+		<ul>
+			<li>펜션이름 : <%=adto.getNo()%></li>
+			<li>숙박일자 : <%=adto.getAdate() %></li>
+			
+			<!-- 후기 작성했으면 버튼 활성화dd -->
+<%			ReviewDAO rdao = new ReviewDAO();
+			if(rdao.ReviewCheck(no, adto.getPno())){		%>
+			<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button></li>
+			<li><button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
+			<%} else{%>
+		  <li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li> <%} %>
+			
+		</ul>			
+		<%} %>
 	</form>
 	
 	<!-- footer -->

@@ -113,32 +113,40 @@ public class ReviewDAO {
 	
 	} // getReview()
 	
-//	public ArrayList<ReviewDTO> getReviewList() {
-//		System.out.println("ReviewDAO getReviewList()");
-//		
-//		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
-//		
-//		Connection con = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		try {
-//			con = getConnection();
-//			
-//			String sql = "select * from review order by rno desc";
-//			pstmt = con.prepareStatement(sql);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				ReviewDTO rdto = new ReviewDTO();
-//				rdto.setRno(rs.getInt("rno"));
-//				
-//			}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//	}
+	public boolean ReviewCheck(int no, int pno) {
+		System.out.println("ReviewDTO ReviewCheck()");
+		
+		ReviewDTO rdto = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean reviewcheck = true;
+		try {
+			con = getConnection();
+			
+			String sql = "select * from review where no = ? and pno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, pno);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			 reviewcheck= true;
+			} reviewcheck= false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
+		}
+		return reviewcheck;
+
+	
+	} // ReviewCheck()
 	
 	// 후기 수정
 	// updateReview()

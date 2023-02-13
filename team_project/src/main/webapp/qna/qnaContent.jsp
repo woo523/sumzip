@@ -12,12 +12,12 @@
 <%
 // http://localhost:8080/webproject/board/content.jsp?num=2
 // request에 저장된 num 파라미터값 가져오기
-int num=Integer.parseInt(request.getParameter("num"));
+int no=Integer.parseInt(request.getParameter("no"));
 // BoardDAO 객체생성
 QnaDAO dao=new QnaDAO();
 // 리턴할형 BoardDTO getBoard(int num) 메서드 정의
 // BoardDTO dto = dao.getBoard(num) 메서드 호출
-QnaDTO dto = dao.getQna(num);  
+QnaDTO dto = dao.getQna(no);  
 // 세션값 가져오기
 String id=(String)session.getAttribute("id");
 %>
@@ -25,7 +25,7 @@ String id=(String)session.getAttribute("id");
 <table border="1">
 	<tr><td>글번호</td><td><%=dto.getNo() %></td></tr>
 	<tr><td>작성자</td><td><%=dto.getQno() %></td></tr>
-	<tr><td>글쓴날짜</td><td><%=dto.getQdate() %></td></tr>
+	<tr><td>글쓴날짜</td><td><%=dto.getQdate() %></td></tr> 
 	<tr><td>조회수</td><td><%=dto.getQcount() %></td></tr>
 	<tr><td>글제목</td><td><%=dto.getQtitle() %></td></tr>
 	<tr><td>글내용</td><td><%=dto.getQcontent() %></td></tr>

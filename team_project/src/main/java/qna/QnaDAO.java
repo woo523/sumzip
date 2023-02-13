@@ -21,6 +21,7 @@ private Connection getConnection() throws Exception {
 	} // 디비연결
 
 public void insertQna(QnaDTO dto) {
+	System.out.println("insertQna QnaDTO()");
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -103,7 +104,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	return qnaList;
 }// getQnaList()
 
-public QnaDTO getQna(int no) { // 기준값 num
+public QnaDTO getQna(int no) {
 	System.out.println("QnaDAO getQna()");
 	Connection con = null;
 	PreparedStatement pstmt = null;
@@ -141,6 +142,33 @@ public QnaDTO getQna(int no) { // 기준값 num
 	}
 	return dto;
 }
+public int getQnaCount() {
+	System.out.println("insertQna QnaDTO()");
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs=null;
+	int count=0;
+	try {
+		// 1~2단계
+		con = getConnection();
+		// 3 sql
+		String sql = "select count(*) from qna";
+		pstmt = con.prepareStatement(sql);
+		// 4
+		rs=pstmt.executeQuery();
+		// 5
+		if(rs.next()) { 
+		count=rs.getInt("count(*)");
+		}			
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+		if (con != null) try {con.close();} catch (Exception e2) {}
+		if (rs != null) try {rs.close();} catch (Exception e2) {}
+	}
+	return count;
+}// getQnaCount()
 }
 
 

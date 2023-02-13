@@ -77,7 +77,7 @@ if(cdto.getNo()!=no){
                                     </div>
                                     <div class="col-lg-12 text-center">
                                         <textarea name="commend"><%=cdto.getCommend() %></textarea>
-                                        <button type="submit" class="site-btn">댓글 수정</button>
+                                        <button type="submit" class="site-btn">답댓글 수정</button>
                                     </div>
                                 </div>
                             </form>
