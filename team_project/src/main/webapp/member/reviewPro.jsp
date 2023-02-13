@@ -10,12 +10,9 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	// 임시 데이터
-// 	int no = 1;
 	int pno = 1;
 	
-	String id = request.getParameter("id");
-//  	String id = "cha123"; 
-	System.out.println("로그인 session값 : " + id);
+	String id = (String)session.getAttribute("id");
 	
 	String rtitle = request.getParameter("title");
 	String rstar = request.getParameter("rating");
@@ -23,14 +20,13 @@
 	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
 	
-	// 로그인 후 id 값 가져오기
+	// 로그인 후 id, no 값 가져오기
 	UserDAO udao = new UserDAO();
 	UserDTO udto = udao.getUser(id);
 	int no = udto.getNo();
 	
 	// dto 저장
 	ReviewDTO dto = new ReviewDTO();
-// 	dto.setNo(udto.getNo());
 	dto.setNo(no);
 	dto.setPno(pno);
  	dto.setRtitle(rtitle);

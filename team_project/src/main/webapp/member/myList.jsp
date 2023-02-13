@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.text.ParseException"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DateFormat"%>
@@ -34,11 +36,16 @@
 
 <body>
 <%
+	// 아이디 세션 값
+	String id = (String)session.getAttribute("id");
+	// 유저정보 no 값
+	UserDAO udao = new UserDAO();
+	UserDTO udto = udao.getUser(id);
+	int no = udto.getNo();
 	
-// 	// 판매정보 => 펜션정보 & 퇴실일
+	// 판매정보 => 퇴실일
 // 	SalesDAO salesdao = new SalesDAO();
-// 	SalesDTO salesdto = new SalesDTO();
-// 	SalesDTO salesdto = salesdao.getSales(no);	
+// 	SalesDTO salesdto = salesdao.getSales(no);
 
 %>
 	<!-- header -->
@@ -53,16 +60,15 @@
 			</tr>
 		</table>
 		<%
-		String id = (String)session.getAttribute("id");
-		
 // 	  	if(id != null) {
 	  		// 아이디 값 있음
  			// 현재 날짜가 퇴실일보다 이전일 경우 후기 작성 버튼 비활성화
  			try {
  				String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+//  				String outdatefm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(salesdto.getOutdate()));
  				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
  				
- 				Date appointOutdate = formatter.parse("2023-02-05");	// 임시 체크아웃 날짜
+ 				Date appointOutdate = formatter.parse("2023-02-05"); // 임시 체크아웃 날짜
  				Date today = new Date(formatter.parse(todayfm).getTime());
  				
  				System.out.println("appointOutdate: " + formatter.format(appointOutdate));
@@ -84,24 +90,22 @@
  			}
 			
 			// 예약완료 상태가 아닌 경우 후기 작성 버튼 비활성화 (해결중)
-// 			try {
-// 				int no = (int)session.getAttribute("no");
+			try {
+				AppointmentDAO apdao = new AppointmentDAO();
+				ArrayList<AppointmentDTO> appointList = apdao.getUserAppointmentList(no);
 				
-// 				AppointmentDAO apdao = new AppointmentDAO();
-// 				ArrayList<AppointmentDTO> appointList = apdao.getUserAppointmentList(no);
-				
-// 				for(int i = 0; i < appointList.size(); i++) {
-// 					AppointmentDTO apdto = appointList.get(i);
+				for(int i = 0; i < appointList.size(); i++) {
+					AppointmentDTO apdto = appointList.get(i);
 					
-// 					if(apdto.getAstatus() == 4) {
+					if(apdto.getAstatus() == 4) {
 						%>
-<!-- 						<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button> -->
+						<button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button>
  						<%
-// 					}
-// 				}
-// 			} catch(Exception e) {
-// 				e.printStackTrace();	
-// 			}
+					}
+				}
+			} catch(Exception e) {
+				e.printStackTrace();	
+			}
 
 // 	 	} else {
 			%>
