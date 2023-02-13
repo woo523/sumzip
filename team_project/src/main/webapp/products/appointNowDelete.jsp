@@ -6,12 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>products/appointNowPro</title>
+<title>products/appointNowDelete</title>
 </head>
 <body>
 <%
 int num=Integer.parseInt(request.getParameter("num"));
-
 AppointmentDAO dao=new AppointmentDAO();
 AppointmentDTO dto=dao.AppointmentCheck(num);
 // AppointmentDTO dto=(AppointmentDTO)request.getAttribute("dto");

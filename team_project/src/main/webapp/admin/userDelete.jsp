@@ -3,8 +3,7 @@
 <%@page import="member.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC
-"-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +17,6 @@ String id=request.getParameter("id");
 UserDAO dao=new UserDAO();
 UserDTO dto=dao.idCheck(id);
 
-// AppointmentDTO dto=(AppointmentDTO)request.getAttribute("dto");
 
 if(dto != null){
 	// id,pass 일치
@@ -37,9 +35,6 @@ if(dto != null){
     </script>
     <%
 }
-
-
-
 %>
 </body>
 </html>

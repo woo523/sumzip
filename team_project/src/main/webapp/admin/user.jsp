@@ -32,11 +32,12 @@ int endRow =startRow+pageSize-1;
 
 String id=(String)session.getAttribute("id");
 ArrayList<UserDTO> userList =dao.getUserList(startRow, pageSize);
+
 %>
 <h1>user list</h1>
 <form action="userDelete.jsp" id="user_delete" method="post">
 <table border="1">
-<tr><td>이름</td><td>아이디</td><td>비밀번호</td>
+<tr><td>이름</td><td>아이디</td>
 	<td>생일</td><td>주소</td><td>이메일</td>
 	<td>가입날짜</td><td>회원삭제</td></tr>
 <%
@@ -46,7 +47,7 @@ for(int i=0;i<userList.size();i++){
 	UserDTO dto=userList.get(i);
 	%>
 	<tr><td><%=dto.getUname() %></td><td><%=dto.getId() %></td>
-	<td><%=dto.getPass() %></td><td><%=dto.getBirth() %></td>
+	<td><%=dto.getBirth() %></td>
 	<td><%=dto.getAddress1() %> | <%=dto.getAddress2() %></td>
 	<td><%=dto.getEmail() %></td><td><%=dto.getJoindate() %></td>
 	<td><a href="userDelete.jsp?id=<%=dto.getId()%>">회원삭제</a></td></tr>
@@ -103,7 +104,6 @@ if(endPage < pageCount){
 }
 %>
 
-<input type="submit" value="회원삭제"></td>
 </form>
 </body>
 </html>

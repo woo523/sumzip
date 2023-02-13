@@ -449,7 +449,7 @@ public class UserDAO {
 				pstmt.setString(1, id);
 				
 				//4단계 SQL구문을 실행(select) => 결과 저장
-				pstmt.executeQuery();      
+				pstmt.executeUpdate();      
 		           
 		    }catch(Exception e){           
 		    	e.printStackTrace();         

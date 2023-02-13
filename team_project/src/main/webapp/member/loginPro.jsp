@@ -19,7 +19,7 @@ if(dto !=null){
 //                                          뒤로이동
 	%>
 	<script type="text/javascript">
- 		alert("아이디 또는 비밀번호를 잘 못 입력했습니다");
+ 		alert("아이디 또는 비밀번호를 잘 못 입력하였습니다");
  		history.back();
 	</script>
 	<% 
