@@ -13,7 +13,7 @@ UserDTO dto=dao.userCheck(id, pass);
                          
 if(dto !=null){
 	session.setAttribute("id",id);
-	response.sendRedirect("adminboard.jsp");
+	response.sendRedirect("user.jsp");
 }else{
 // dto null 이면 아이디 비밀번호 틀림 => 자바스크립트 "아이디 비밀번호 틀림"
 //                                          뒤로이동
