@@ -4,20 +4,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+//request 한글처리
 request.setCharacterEncoding("utf-8");
 
+int qno=Integer.parseInt(request.getParameter("qno"));
 int no=Integer.parseInt(request.getParameter("no"));
-String qtilte=request.getParameter("qtilte");
-String content=request.getParameter("content");
+String qtilte=request.getParameter("qtitle");
+String qtype=request.getParameter("qtype");
+int qstatus=Integer.parseInt(request.getParameter("qstatus"));
 int qcount=0;
 Timestamp qdate=new Timestamp(System.currentTimeMillis());
 
 
 QnaDTO dto=new QnaDTO();
-// set메서드 호출해서 값 저장
+
+dto.setNo(qno);
 dto.setNo(no);
 dto.setQtitle(qtilte);
-dto.setQcontent(content);
+dto.setQtype(qtype);
+dto.setQstatus(qstatus);
 dto.setQcount(qcount);
 dto.setQdate(qdate);
 

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>qna/qnaList.jsp</title>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -26,8 +26,9 @@ if(pageNum==null){
 }
 // apgeNum => 숫자변경
 int currentPage=Integer.parseInt(pageNum);
-
+//시작하는 행번호 구하기
 int startRow=(currentPage-1)*pageSize+1;
+//끝나는 행번호 구하기
 int endRow=startRow+pageSize-1;
 
 ArrayList<QnaDTO> qnaList = dao.getQnaList(startRow, pageSize); 
@@ -44,20 +45,19 @@ for(int i=0;i<qnaList.size();i++){
 	QnaDTO dto= qnaList.get(i);
 	%>
 	<tr><td><%=dto.getQno() %></td>
-			<td><%=dto.getNo() %></td>
-			<td><%=dto.getQtype() %></td>
-			<td><%=dto.getQtitle() %></td>
-			<td><%=dto.getQstatus() %></td>			
-			<td><%=dto.getQdate() %></td>
-			<td><%=dto.getQadate() %></td></tr>	
-			<td><%=dto.getQcount() %></td>
+		<td><%=dto.getNo() %></td>
+		<td><%=dto.getQtype() %></td>
+		<td><a href="question.jsp?no=<%=dto.getNo() %>"><%=dto.getQtitle() %></a></td>
+		<td><%=dto.getQstatus() %></td>			
+		<td><%=dto.getQdate() %></td>
+		<td><%=dto.getQadate() %></td>
+		<td><%=dto.getQcount() %></td></tr>	
 	<%
 }
 %>
 </table>
 <div id="table_search">
-<input type="text" name="search" class="input_box">
-<input type="button" value="search" class="btn">
+<input type="button" value="글쓰기" class="write"><br>
 </div>
 	<%
 // 한화면에 보여줄 페이지 개수 설정
@@ -78,20 +78,20 @@ if(endPage > pageCount){
 // 10페이지 이전
 if(startPage > pageBlock){
 	%>
- 	<a href="list.jsp?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
+ 	<a href="qnaList.jsp?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
 	<%
 }
 
 for(int i=startPage;i<=endPage;i++){
 	%>
-	<a href="list.jsp?pageNum=<%=i %>"><%=i %></a>
+	<a href="qnaList.jsp?pageNum=<%=i %>"><%=i %></a>
 	<%
 }
 
 // 10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="list.jsp?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]</a>
+	<a href="qnaList.jsp?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]</a>
 		<%
 }
 %>	

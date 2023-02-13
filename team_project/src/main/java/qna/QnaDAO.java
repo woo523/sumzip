@@ -12,8 +12,7 @@ import javax.sql.DataSource;
 import board.BoardDTO;
 
 public class QnaDAO {
-private Connection getConnection() throws Exception {
-		
+private Connection getConnection() throws Exception {	
 		Context init = new InitialContext();
 		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
 		Connection con = ds.getConnection();
@@ -73,7 +72,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	try {
 		con=getConnection();
 
-		String sql="select * from qna order by num desc limit ?, ?";
+		String sql="select * from qna order by no desc limit ?, ?";
 		pstmt=con.prepareStatement(sql);
 		pstmt.setInt(1, startRow-1);
 		pstmt.setInt(2, pageSize);
@@ -85,6 +84,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 			QnaDTO dto=new QnaDTO();
 			dto.setNo(rs.getInt("no"));
 			dto.setQno(rs.getInt("qno"));
+			dto.setQstatus(rs.getInt("qstatus"));
 			dto.setQtitle(rs.getString("qtitle"));
 			dto.setQcontent(rs.getString("qcontent"));
 			dto.setQcount(rs.getInt("qcount"));
@@ -141,7 +141,54 @@ public QnaDTO getQna(int no) {
 			if (rs != null) try {rs.close();} catch (Exception e2) {}
 	}
 	return dto;
-}
+}// getQna()
+
+	public void updateQna(QnaDTO dto) {
+		System.out.println("QnaDAO updateQna()");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			// 1~2단계
+			con = getConnection();
+			// 3 sql
+			String sql = "update qna set title=?, content=? where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getQtitle());
+			pstmt.setString(2, dto.getQcontent());
+			pstmt.setInt(3, dto.getNo());
+		
+			pstmt.executeUpdate();		
+		} catch (Exception e) {
+			e.printStackTrace(); 
+		} finally {
+			
+			if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+			if (con != null) try {con.close();} catch (Exception e2) {}
+		}
+	}// updateQna()
+	
+	public void deleteQna(int no) {
+		System.out.println("QnaDAO deleteQna()");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			
+			con = getConnection();
+			
+			String sql = "delete from qna where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+		
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace(); // 에러처리
+		} finally {
+			
+			if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+			if (con != null) try {con.close();} catch (Exception e2) {}
+		}	
+	}// deleteQna()
+
 public int getQnaCount() {
 	System.out.println("insertQna QnaDTO()");
 	Connection con = null;
