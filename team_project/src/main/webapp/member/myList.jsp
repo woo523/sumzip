@@ -47,8 +47,8 @@
 	int no = udto.getNo();
 	
 	// 판매정보 => 퇴실일
-// 	SalesDAO salesdao = new SalesDAO();
-// 	SalesDTO salesdto = salesdao.getSales(no);
+	SalesDAO salesdao = new SalesDAO();
+	SalesDTO salesdto = salesdao.getSales(no);
 
 %>
 	<!-- header -->
@@ -67,6 +67,7 @@
  				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
  				
  				Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
+//  				Date appointIndate = salesdto.getIndate();
  				Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
  				Date today = new Date(formatter.parse(todayfm).getTime());
  				
@@ -107,10 +108,11 @@
 		for(int i = 0 ; i < userappointmentlist.size(); i++){
 			AppointmentDTO adto = userappointmentlist.get(i);
 			ProductDAO pdao = new ProductDAO();
-			ProductDTO pdto = pdao.getProduct(adto.getNo());
+			ProductDTO pdto = pdao.getProduct(adto.getPno());
 		%>
 		<ul>
-			<li>펜션이름 : <%=pdto.getPname()%></li>
+<%-- 			<li>펜션이름 : <%=adto.getPno() %></li> --%>
+			<li>펜션이름 : <%=pdto.getPname() %></li>
 			<li>숙박일자 : <%=adto.getAdate() %></li>
 
 			<!-- 후기 작성했으면 버튼 활성화 -->
