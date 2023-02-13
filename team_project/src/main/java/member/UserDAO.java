@@ -403,6 +403,7 @@ public class UserDAO {
 				String sql="select * from users where id=?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setString(1, id);
+				
 				//4단계 SQL구문을 실행(select) => 결과 저장
 				rs=pstmt.executeQuery();
 				//5단계 결과를 출력, 데이터 담기 (select)
@@ -419,6 +420,8 @@ public class UserDAO {
 					dto.setId(rs.getString("id"));
 					dto.setPass(rs.getString("pass"));
 					dto.setUname(rs.getString("uname"));
+					dto.setEmail(rs.getString("email"));
+					dto.setTel(rs.getString("tel"));
 					dto.setJoindate(rs.getTimestamp("joindate"));
 					dto.setUtype(rs.getInt("utype"));
 				}else{
