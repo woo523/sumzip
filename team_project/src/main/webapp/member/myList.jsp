@@ -67,7 +67,6 @@
  				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
  				
  				Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
- 				appointIndate = 
  				Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
  				Date today = new Date(formatter.parse(todayfm).getTime());
  				
