@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class BoardDTO {
 	private int bno;         //공지사항번호
-	private int no;          //유저번호
+	private int no;          //유저이름
 	private String btitle;   //제목
 	private String bcontent; //내용
 	private int bcount;      //뷰카운트

@@ -1,6 +1,6 @@
 package products;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class ProductDTO {
 
