@@ -14,6 +14,7 @@
 	
 	String id = (String)session.getAttribute("id");
 	
+	int rno = Integer.parseInt(request.getParameter("rno"));
 	String rtitle = request.getParameter("title");
 	String rstar = request.getParameter("rating");
 	String rcontent = request.getParameter("content");
@@ -27,6 +28,7 @@
 	
 	// dto 저장
 	ReviewDTO dto = new ReviewDTO();
+	dto.setRno(rno);
 	dto.setNo(no);
 	dto.setPno(pno);
  	dto.setRtitle(rtitle);

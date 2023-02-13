@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -111,6 +112,33 @@ public class ReviewDAO {
 		return rdto;
 	
 	} // getReview()
+	
+//	public ArrayList<ReviewDTO> getReviewList() {
+//		System.out.println("ReviewDAO getReviewList()");
+//		
+//		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+//		
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		try {
+//			con = getConnection();
+//			
+//			String sql = "select * from review order by rno desc";
+//			pstmt = con.prepareStatement(sql);
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				ReviewDTO rdto = new ReviewDTO();
+//				rdto.setRno(rs.getInt("rno"));
+//				
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//	}
 	
 	// 후기 수정
 	// updateReview()
