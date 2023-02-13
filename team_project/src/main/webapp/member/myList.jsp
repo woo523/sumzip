@@ -114,37 +114,37 @@
 		ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
 		for(int i = 0 ; i < userappointmentlist.size(); i++){
 			AppointmentDTO adto = userappointmentlist.get(i);
+			
 			ProductDAO pdao = new ProductDAO();
 			ProductDTO pdto = pdao.getProduct(adto.getPno());
 		%>
 		<ul>
-<%-- 			<li>펜션이름 : <%=adto.getPno() %></li> --%>
+<%-- 		<li>펜션이름 : <%=adto.getPno() %></li> --%>
 			<li>펜션이름 : <%=pdto.getPname() %></li>
 			<li>숙박일자 : <%=adto.getAdate() %></li>
 
-			<!-- 후기 작성했으면 버튼 활성화 -->
+			<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 			<%			
 			ReviewDAO rdao = new ReviewDAO();
+			String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			
+			Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
+			Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
+			Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
+			
+			System.out.println("appointIndate: " + formatter.format(appointIndate));
+			System.out.println("appointOutdate: " + formatter.format(appointOutdate));
+			System.out.println("today : " + formatter.format(today));
+			
+			int resultIn = appointIndate.compareTo(today);
+			int resultOut = appointOutdate.compareTo(today);
+			
 			if(id != null) {
-				// 후기 작성 확인 메서드
-				// 리뷰작성한 경우, 입실일이 지나고 퇴실일도 지난 경우 후기 수정, 삭제 버튼 활성화
-				if(rdao.ReviewCheck(no, adto.getPno())) {
-					String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					
-					Date appointIndate = formatter.parse("2023-02-15"); // 임시 체크인 날짜
-					Date appointOutdate = formatter.parse("2023-02-17"); // 임시 체크아웃 날짜
-					Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
-					
-					System.out.println("appointIndate: " + formatter.format(appointIndate));
-					System.out.println("appointOutdate: " + formatter.format(appointOutdate));
-					System.out.println("today : " + formatter.format(today));
-					
-					int resultIn = appointIndate.compareTo(today);
-					int resultOut = appointOutdate.compareTo(today);
-					
+				// 후기 작성 여부 확인
+				if(rdao.checkReview(no, adto.getPno()) == true) {
+					// 입실일이 지나면 예약완료 상태로 갈음
 					if(resultIn < 0) {
-						// 입실일이 지나면 예약완료 상태로 대신함 = 후기 작성 가능
 						System.out.println("appointIndate is before today");
 						
 						if(resultOut > 0) {
@@ -159,20 +159,34 @@
 							<%
 						}
 					}
-				} 
-			}
-				if(rdao.ReviewCheck(no, adto.getPno())) {	
-			%>
-				
-				
-			<%
-			} else{
-			%>
-			<!-- else if 체크인 날짜 이후에 작성하기 버튼 활성화 시키기 -->
-		  	<li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li> <%} %>
-			
-		</ul>			
-		<%} %>
+				} else {
+					// rdao.checkReview(no, adto.getPno()) == false
+					if(resultIn < 0) {
+						System.out.println("appointIndate is before today");
+						
+						if(resultOut > 0) {
+							// 퇴실일 지나기전 후기 작성 불가
+							System.out.println("appointOutdate is after today");
+						} else if(resultOut <= 0){
+							// 후기 작성 가능
+							System.out.println("appointOutdate is before today");
+							%>
+							<li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li>
+							<%
+						}
+					}
+				} // rdao.checkReview(no, adto.getPno())
+			} else {
+				%>
+	 			<script type="text/javascript">
+	   				alert("로그인을 해주세요");
+	 			</script>
+				<%
+				response.sendRedirect("login.jsp");
+			} // id 확인 메서드
+		} // userappointmentlist
+	%>
+		</ul>
 	</form>
 	
 	<!-- footer -->

@@ -113,15 +113,16 @@ public class ReviewDAO {
 	
 	} // getReview()
 	
-	// ReviewCheck()
-	public boolean ReviewCheck(int no, int pno) {
+	// checkReview()
+	public boolean checkReview(int no, int pno) {
 		System.out.println("ReviewDTO ReviewCheck()");
 		
 		ReviewDTO rdto = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		boolean reviewcheck = true;
+		
+		boolean checkReview = true;
 		try {
 			con = getConnection();
 			
@@ -133,9 +134,9 @@ public class ReviewDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-			 reviewcheck= true;
+				checkReview = true;
 			} else {
-				reviewcheck= false;
+				checkReview = false;
 			}
 			
 		} catch (Exception e) {
@@ -146,8 +147,7 @@ public class ReviewDAO {
 			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
 			if(rs != null) try {rs.close();} catch (SQLException e) {}
 		}
-		return reviewcheck;
-
+		return checkReview;
 	
 	} // ReviewCheck()
 	
