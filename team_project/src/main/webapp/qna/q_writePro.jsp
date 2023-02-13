@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="qna.QnaDAO"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.sql.Timestamp"%>
@@ -6,25 +8,32 @@
 <%
 //request 한글처리
 request.setCharacterEncoding("utf-8");
+String id=(String)session.getAttribute("id");
+UserDAO udao=new UserDAO();
+UserDTO udto=udao.getUser(id);
 
-int qno=Integer.parseInt(request.getParameter("qno"));
-int no=Integer.parseInt(request.getParameter("no"));
+String qtype = "";
+if(udto.getUtype()==1){
+	 qtype = "회원";
+}else{
+	qtype = "운영자";
+}
+
 String qtilte=request.getParameter("qtitle");
-String qtype=request.getParameter("qtype");
-int qstatus=Integer.parseInt(request.getParameter("qstatus"));
 int qcount=0;
 Timestamp qdate=new Timestamp(System.currentTimeMillis());
-
+String qcontent=request.getParameter("qcontent");
 
 QnaDTO dto=new QnaDTO();
 
-dto.setNo(qno);
-dto.setNo(no);
+dto.setNo(udto.getNo());
 dto.setQtitle(qtilte);
 dto.setQtype(qtype);
-dto.setQstatus(qstatus);
+dto.setQstatus(0);
 dto.setQcount(qcount);
 dto.setQdate(qdate);
+dto.setQcontent(qcontent);
+
 
 QnaDAO dao=new QnaDAO();
 dao.insertQna(dto);

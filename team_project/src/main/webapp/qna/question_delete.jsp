@@ -8,7 +8,6 @@ int no=Integer.parseInt(request.getParameter("no"));
 // BoardDAO 객체생성
 QnaDAO dao=new QnaDAO();
 
-// deleteBoard(num) 메서드 호출
 dao.deleteQna(no);
 // list.jsp 이동
 response.sendRedirect("qnaList.jsp");

@@ -57,7 +57,7 @@ for(int i=0;i<qnaList.size();i++){
 %>
 </table>
 <div id="table_search">
-<input type="button" value="글쓰기" class="write"><br>
+<input type="button" value="글쓰기" class="write" onclick="location.href='q_writeForm.jsp'"><br>
 </div>
 	<%
 // 한화면에 보여줄 페이지 개수 설정

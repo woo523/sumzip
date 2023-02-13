@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,10 +14,14 @@ String id=(String)session.getAttribute("id");
 if(id==null){
 	response.sendRedirect("../member/login.jsp");
 }
+
+
 %>
+
 <h1>글쓰기</h1>
 <form action="q_writePro.jsp" method="post"> 
 <table border="1">
+
 <tr><td>글쓴이</td>
 	<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
 <tr><td>글제목</td>
