@@ -1,14 +1,14 @@
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
-<%@page import="board.ReplyDTO"%>
-<%@page import="board.ReplyDAO"%>
+<%@page import="board.CommendDTO"%>
+<%@page import="board.CommendDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>댓글수정</title>
+<title>대댓글 수정</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
@@ -36,21 +36,21 @@ int bno=1; // 임시값
 int no=1; // 임시값
 
 
-int rno=Integer.parseInt(request.getParameter("rno"));
-ReplyDAO rdao=new ReplyDAO();
-ReplyDTO rdto=rdao.getReply(rno);
+int cno=Integer.parseInt(request.getParameter("cno"));
+CommendDAO cdao=new CommendDAO();
+CommendDTO cdto=cdao.getCommend(cno);
 
-int runo=Integer.parseInt(request.getParameter("no"));
+int cuno=Integer.parseInt(request.getParameter("no"));
 
 UserDAO dao = new UserDAO();
-UserDTO dto = dao.getUserNo(runo);
+UserDTO dto = dao.getUserNo(cuno);
 String id = dto.getId();
 
 
-if(rdto.getNo()!=no){
+if(cdto.getNo()!=no){
 %>
 <script>
-	alert("본인 댓글만 수정가능합니다");
+	alert("본인 답댓글만 수정가능합니다");
 	history.back();
 </script>
 <%
@@ -67,16 +67,16 @@ if(rdto.getNo()!=no){
                 <div class="col-lg-10 offset-lg-1">
                     <div class="blog-details-text">
                        <div class="leave-comment">
-                            <h4>댓글 수정</h4>
-                            <form action="replyUpdatePro.jsp?rno=<%=rno%>" method ="post" class="comment-form">
+                            <h4>답댓글 수정</h4>
+                            <form action="CommendUpdatePro.jsp?cno=<%=cno%>" method ="post" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
-                                        <input type="hidden" name="no" value="<%=runo%>">
-										<input type="hidden" name="bno" value="<%=rdto.getBno()%>">
+                                        <input type="hidden" name="no" value="<%=cuno%>">
+										<input type="hidden" name="bno" value="<%=cdto.getBno()%>">
                                     </div>
                                     <div class="col-lg-12 text-center">
-                                        <textarea name="riply"><%=rdto.getRiply() %></textarea>
+                                        <textarea name="commend"><%=cdto.getCommend() %></textarea>
                                         <button type="submit" class="site-btn">댓글 수정</button>
                                     </div>
                                 </div>
@@ -92,4 +92,3 @@ if(rdto.getNo()!=no){
 
 </body>
 </html>
-
