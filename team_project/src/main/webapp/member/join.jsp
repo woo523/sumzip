@@ -231,6 +231,6 @@ form {
 			</div>
 		</form>
 	</article>
-	<jsp:include page="../inc/footer.jsp" />
+<%-- 	<jsp:include page="../inc/footer.jsp" /> --%>
 </body>
 </html>

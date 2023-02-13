@@ -52,7 +52,7 @@
 				</script>
 
 
-				<!-- 아래와같이 아이디를 꼭 써준다. -->
+				
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> 
 				<img src="/team_project/img/login/naver_login.png" width="182">
 				</a>

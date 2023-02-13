@@ -436,6 +436,32 @@ public class UserDAO {
 				if(con!=null) try { con.close();} catch (Exception e2) {}
 			}
 			return dto;
-		}//userCheck()
+		}//idCheck()
+		
+		public void delUserlist(String id){
+			Connection con =null;
+			PreparedStatement pstmt=null;
+		    
+		    try{//실행
+		    	con = getConnection();
+		    	String sql="delete from users where id=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				
+				//4단계 SQL구문을 실행(select) => 결과 저장
+				pstmt.executeQuery();      
+		           
+		    }catch(Exception e){           
+		    	e.printStackTrace();         
+		    }finally{          
+		    	// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+		    	if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+		    }      
+		   
+		    
+		 }// delUserlist  
+				
+		
 
 }

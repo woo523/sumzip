@@ -11,10 +11,11 @@
  <script type="text/javascript">
  	// jQurery 준비 => 대상.함수()
  	$(document).ready(function(){
-//  		alert("준비");
+
 		//submit 버튼을 클릭했을때 이벤트 onsubmit()
-		// id="join" 폼태그 표시 => 전송
+		// id="pass_modify" 폼태그 표시 => 전송
 		$('#pass_modify').submit(function(){
+			
 			if($('.pass').val()==""){
 				alert("비밀번호 입력하세요");
 				$('.pass').focus();
@@ -26,14 +27,14 @@
 				return false;
 			}
 			
-			if($('.pass').val()!=$('pass2').val()){
-				alert("비밀번호 틀림");
+			if($('.pass').val() != $('.pass2').val()){
+				alert("비밀번호가 일치하지 않습니다.");
 				$('.pass2').focus();
 				return false;
 			}
-		}
+		});
 	});
-	});
+	
 
 </script>
 </head>
@@ -58,7 +59,7 @@ UserDTO dto=dao.getUser(id);
 			<label>새 비밀번호</label>: <input type="password" name="pass" class="pass" ><br>
 			<label>비밀번호 재확인</label>: <input type="password" name="pass2" class="pass2"><br>
 			<div id="buttons">
-			<input type="submit" value="변경" class="submit">
+			<input type="submit" value="변경" class="submit" >
 			<input type="reset" value="취소" class="cancel">
 			</div>
 		</div>
