@@ -16,11 +16,24 @@
 <%
 //BoardDAO 객체 생성
 QnaDAO dao=new QnaDAO();
-// 리턴할형 ArrayList<BoardDTO> getBoardList() 메서드 정의
-// ArrayList<BoardDTO> boardList = dao.getBoardList() 메서드 호출
-ArrayList<QnaDTO> qnaList = dao.getQnaList();
+
+int pageSize=10;
+
+String pageNum=request.getParameter("pageNum");
+if(pageNum==null){
+	// => 페이지 번호가 없으면 1페이지 설정
+	pageNum="1";
+}
+// apgeNum => 숫자변경
+int currentPage=Integer.parseInt(pageNum);
+
+int startRow=(currentPage-1)*pageSize+1;
+int endRow=startRow+pageSize-1;
+
+ArrayList<QnaDTO> qnaList = dao.getQnaList(startRow, pageSize); 
 %>
-<h1>board/list.jsp</h1>
+
+<h1>Qna/qnaList.jsp</h1>
 <table border="1">
 <tr><td>글번호</td><td>글쓴이</td><td>글제목</td>
 	<td>글쓴날짜</td><td>조회수</td></tr>
