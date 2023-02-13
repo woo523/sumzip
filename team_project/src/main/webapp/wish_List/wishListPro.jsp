@@ -11,8 +11,11 @@
 </head>
 <body>
 <!-- 장바구니 추가하면 한 행 추가하기-->
-String no = request.getParameter("no");
-String pno = request.getParameter("pno");
+
+<%
+int pno=3;
+int no = Integer.parseint(session.getAttribute("no"));
+%>
 
 
 </body>
