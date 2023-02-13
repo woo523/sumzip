@@ -23,6 +23,7 @@
 	ArrayList<AppointmentDTO> appointmentList=dao.getAdminAppointmentList();
 
 	%>
+	<form action="appointNowUpdate.jsp" method="post">
 	<table border="1">
 	<tr><td>유저번호</td><td>예약번호</td><td>상품번호</td><td>예약상태</td><td>예약일자</td><td>예약취소</td></tr>
 	<%
@@ -30,15 +31,17 @@
 	 	//배열 한칸에 내용 가져오기
 	 	AppointmentDTO dto=appointmentList.get(i);
 		%>
-	<tr><td><%=dto.getNo()%></td>
-	    <td><%=dto.getAno()%></td>
-	    <td><%=dto.getPno()%></td>
+	<tr><td><input type="text" name="no" value="<%=dto.getNo()%>"></td>
+	    <td><input type="text" name="ano" value="<%=dto.getAno()%>"></td>
+	    <td><input type="text" name="pno" value="<%=dto.getPno()%>"></td>
 	    <td><input type="text" name="astatus" value="<%=dto.getAstatus()%>"></td>
-	    <td><%=dto.getAdate()%></td>
+	    <td><input type="text" name="adate" value="<%=dto.getAdate()%>"></td>
 	    <td><a href="appointNowDelete.jsp?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
 	   <%
 	   }
 	%>
+	</table>
+	</form>
 <%-- <% --%>
 // 	}
 // }else {

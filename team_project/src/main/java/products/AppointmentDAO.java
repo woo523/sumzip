@@ -260,4 +260,30 @@ public class AppointmentDAO {
 		return count;
 		
 	}
+	
+	public void updateAppointment(AppointmentDTO dto) {
+		Connection con =null;
+		PreparedStatement pstmt=null;
+		try {
+			//1,2 디비연결 메서드
+			con=getConnection();
+			// if next() 다음행 => 리턴값 데이터 있으면 true => 아이디 비밀번호 일치
+			// => 3단계 pstmt2 SQL구문 만들어서 실행할 준비 (update set name=? where id=?)
+			String sql="update Appointment set astatus=? where ano=?";
+			pstmt=con.prepareStatement(sql);
+			//? 채워넣기
+			pstmt.setInt(1, dto.getAstatus()); //set 문자열(1번째 물음표, 값 name)
+			pstmt.setInt(2, dto.getAno());  
+			System.out.println(dto.getAstatus());
+			// 4단계 SQL구문을 실행(insert,update,delete)
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+	}//updateAppointment()
 }
