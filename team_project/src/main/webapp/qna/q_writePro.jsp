@@ -21,6 +21,7 @@ if(udto.getUtype()==1){
 	qtype = "운영자";
 }
 
+int qpw=0000;
 String qtitle=request.getParameter("qtitle");
 int qcount=0;
 Timestamp qdate=new Timestamp(System.currentTimeMillis());
@@ -28,11 +29,13 @@ String qcontent=request.getParameter("qcontent");
 
 QnaDTO dto=new QnaDTO();
 
+
 dto.setNo(udto.getNo());
 dto.setQtitle(qtitle);
-dto.setQtype(qtype);
+dto.setQtype("1");
 dto.setQstatus(0);
 dto.setQcount(qcount);
+dto.setQpw(qpw);
 dto.setQdate(qdate);
 dto.setQcontent(qcontent);
 

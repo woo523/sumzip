@@ -28,10 +28,10 @@ if(id==null){
 
 <h1>글쓰기</h1>
 <form action="q_writePro.jsp" method="post"> 
+<input type="hidden" name="no" value="<%=no%>">
 <table border="1">
 
 <tr><td>작성자</td>
-<input type="hidden" name="no" value="<%=no%>">
 	<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
 <tr><td>제목</td>
 	<td><input type="text" name="qtitle"></td></tr>
