@@ -10,15 +10,15 @@
 </head>
 <body>
 <%
-int no=Integer.parseInt(request.getParameter("no"));
+int qno=Integer.parseInt(request.getParameter("qno"));
 
 QnaDAO dao=new QnaDAO();
 
-QnaDTO dto = dao.getQna(no); 
+QnaDTO dto = dao.getQna(qno); 
 %>
 <h1>글수정</h1>
-<form action="a_update_Pro.jsp" method="post"> 
-<input type="hidden" name="no" value="<%=dto.getNo() %>">
+<form action="q_update_Pro.jsp" method="post"> 
+<input type="hidden" name="qno" value="<%=qno %>">
 <table border="1">
 	<tr><td>작성자번호</td>
 	<td><input type="text" name="no" value="<%=dto.getNo() %>" readonly></td></tr>

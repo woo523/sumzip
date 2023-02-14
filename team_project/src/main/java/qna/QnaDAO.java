@@ -104,7 +104,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	return qnaList;
 }// getQnaList()
 
-public QnaDTO getQna(int no) {
+public QnaDTO getQna(int qno) {
 	System.out.println("QnaDAO getQna()");
 	Connection con = null;
 	PreparedStatement pstmt = null;
@@ -114,9 +114,9 @@ public QnaDTO getQna(int no) {
 		// 1~2단계
 		con = getConnection();
 		// 3 sql
-		String sql = "select * from Qna where no=?";
+		String sql = "select * from Qna where qno=?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, no);
+		pstmt.setInt(1, qno);
 		// 4
 		rs=pstmt.executeQuery();
 		// 5
@@ -151,11 +151,11 @@ public QnaDTO getQna(int no) {
 			// 1~2단계
 			con = getConnection();
 			// 3 sql
-			String sql = "update qna set title=?, content=? where no=?";
+			String sql = "update qna set qtitle=?, qcontent=? where qno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getQtitle());
 			pstmt.setString(2, dto.getQcontent());
-			pstmt.setInt(3, dto.getNo());
+			pstmt.setInt(3, dto.getQno());
 		
 			pstmt.executeUpdate();		
 		} catch (Exception e) {

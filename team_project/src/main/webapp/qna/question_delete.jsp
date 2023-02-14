@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-// request => num 피라미터 => 변수저장
+// request => no 피라미터 => 변수저장
 int no=Integer.parseInt(request.getParameter("no"));
 
 // BoardDAO 객체생성
