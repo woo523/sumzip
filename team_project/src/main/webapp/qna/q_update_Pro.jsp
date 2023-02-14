@@ -12,7 +12,7 @@ String qcontent=request.getParameter("qcontent");
 // BoardDTO 객체생성
 QnaDTO dto=new QnaDTO();
 // set메서드 호출 num, name, subject, content 저장
-dto.setNo(qno);
+dto.setQno(qno);
 dto.setQtitle(qtitle);
 dto.setQcontent(qcontent);
 

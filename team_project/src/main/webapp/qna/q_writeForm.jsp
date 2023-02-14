@@ -10,13 +10,15 @@
 </head>
 <body>
 <%
-int uno=Integer.parseInt(request.getParameter("uno"));
-UserDAO rdao=new UserDAO();
-UserDTO rdto=rdao.getUserNo(uno);
-
-int runo=Integer.parseInt(request.getParameter("no"));
-
 String id=(String)session.getAttribute("id");
+
+UserDAO rdao=new UserDAO();
+UserDTO rdto=rdao.getUser(id);
+int no = rdto.getNo();
+
+
+
+
 if(id==null){
 	response.sendRedirect("../member/login.jsp");
 }
@@ -29,7 +31,7 @@ if(id==null){
 <table border="1">
 
 <tr><td>작성자</td>
-<input type="hidden" name="no" value="<%=uno%>">
+<input type="hidden" name="no" value="<%=no%>">
 	<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
 <tr><td>제목</td>
 	<td><input type="text" name="qtitle"></td></tr>

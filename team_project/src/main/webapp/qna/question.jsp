@@ -44,7 +44,7 @@ UserDTO udto = udao.getUserNo(no);
 	<input type="button" value="글수정" 
 	onclick="location.href='q_update_Form.jsp?qno=<%=dto.getQno()%>'">
 	<input type="button" value="글삭제" 
-	onclick="location.href='q_delete_Form.jsp?qno=<%=dto.getQno()%>'">
+	onclick="location.href='question_delete.jsp?qno=<%=dto.getQno()%>'">
 	<%
 		}
 	}

@@ -39,17 +39,15 @@ public void insertQna(QnaDTO dto) {
 		if(rs.next()) {
 			qno=rs.getInt("max(qno)")+1;
 		}
-		sql="insert into qna(qno, no, qtitle, qcontent, qcount, qpw, qtype, qdate) values(?,?,?,?,?,?,?,?)";
-		pstmt=con.prepareStatement(sql);
+		sql="insert into qna(qno, no, qtitle, qcontent, qcount, qpw, qtype, qdate) values(?,?,?,?,?,?,?)";
 
 		pstmt.setInt(1, qno);  
 		pstmt.setInt(2, dto.getNo()); 
 		pstmt.setString(3, dto.getQtitle());
 		pstmt.setString(4, dto.getQcontent());
-		pstmt.setInt(5, dto.getQcount());
-		pstmt.setInt(6, dto.getQpw());
-		pstmt.setString(7, dto.getQtype());
-		pstmt.setTimestamp(8, dto.getQdate());
+		pstmt.setInt(5, dto.getQcount());		
+		pstmt.setString(6, dto.getQtype());
+		pstmt.setTimestamp(7, dto.getQdate());
 
 		pstmt.executeUpdate();
 		
@@ -60,7 +58,6 @@ public void insertQna(QnaDTO dto) {
 		if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
 		if(con!=null) try { con.close();} catch (Exception e2) {}
 	}
-	return;
 }//insertQna() 
 
 public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
@@ -167,7 +164,7 @@ public QnaDTO getQna(int qno) {
 		}
 	}// updateQna()
 	
-	public void deleteQna(int no) {
+	public void deleteQna(int qno) {
 		System.out.println("QnaDAO deleteQna()");
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -175,9 +172,9 @@ public QnaDTO getQna(int qno) {
 			
 			con = getConnection();
 			
-			String sql = "delete from qna where no=?";
+			String sql = "delete from qna where qno=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
+			pstmt.setInt(1, qno);
 		
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -190,7 +187,7 @@ public QnaDTO getQna(int qno) {
 	}// deleteQna()
 
 public int getQnaCount() {
-	System.out.println("insertQna QnaDTO()");
+	System.out.println("getQnaCount QnaDTO()");
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs=null;
