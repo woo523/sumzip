@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="qna.QnaDAO"%>
@@ -32,13 +33,14 @@ int startRow=(currentPage-1)*pageSize+1;
 int endRow=startRow+pageSize-1;
 
 ArrayList<QnaDTO> qnaList = dao.getQnaList(startRow, pageSize); 
+SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 %>
 
 <article>
 <h3>Q&A</h3>
-<table border="1">
-<tr><td>글번호</td><td>작성자</td><td>질문유형</td><td>제목</td><td>답변상태</td>
-	<td>글쓴날짜</td><td>답변날짜</td><td>조회수</td></tr>
+	<table border="1">
+		<tr><td>글번호</td><td>작성자</td><td>질문유형</td><td>제목</td>
+		<td>글쓴날짜</td><td>답변상태</td><td>조회수</td></tr>
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => BoardDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
@@ -48,10 +50,9 @@ for(int i=0;i<qnaList.size();i++){
 		<td><%=dto.getNo() %></td>
 		<td><%=dto.getQtype() %></td>
 		<td><a href="question.jsp?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
-		<td><%=dto.getQstatus() %></td>			
-		<td><%=dto.getQdate() %></td>
-		<td><%=dto.getQadate() %></td>
-		<td><%=dto.getQcount() %></td></tr>	
+		<td><%=dateFormat.format(dto.getQdate()) %></td>
+		<td><%=dto.getQstatus() %></td>	
+		<td><%=dto.getQcount()%></td></tr>	
 	<%
 }
 %>

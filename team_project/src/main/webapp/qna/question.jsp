@@ -12,13 +12,13 @@
 </head>
 <body>
 <%
-// http://localhost:8080/webproject/board/content.jsp?num=2
 // request에 저장된 num 파라미터값 가져오기
 int qno=Integer.parseInt(request.getParameter("qno"));
-// BoardDAO 객체생성
+// QnaDAO 객체생성
 QnaDAO dao=new QnaDAO();
-// 리턴할형 BoardDTO getBoard(int num) 메서드 정의
-// BoardDTO dto = dao.getBoard(num) 메서드 호출
+
+
+// QnaDTO dto = dao.getQna(no) 메서드 호출
 QnaDTO dto = dao.getQna(qno);  
 // 세션값 가져오기
 String id=(String)session.getAttribute("id");

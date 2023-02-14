@@ -19,6 +19,7 @@ private Connection getConnection() throws Exception {
 		return con;
 	} // 디비연결
 
+// 질문 등록
 public void insertQna(QnaDTO dto) {
 	System.out.println("insertQna QnaDTO()");
 	Connection con = null;
@@ -26,11 +27,10 @@ public void insertQna(QnaDTO dto) {
 	ResultSet rs = null;
 	
 	try {
-		
 		con = getConnection();
 
+		// qno 구하기
 		int qno=1;
-
 		String sql = "select max(qno) from qna";
 		pstmt = con.prepareStatement(sql);
 		// 4
@@ -41,14 +41,14 @@ public void insertQna(QnaDTO dto) {
 		}
 		sql="insert into qna(qno, no, qtitle, qpw, qcontent, qcount, qtype, qdate) values(?,?,?,?,?,?,?,?)";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, qno);  
-		pstmt.setInt(2, dto.getNo()); 
-		pstmt.setString(3, dto.getQtitle());
-		pstmt.setInt(4, dto.getQpw());
-		pstmt.setString(5, dto.getQcontent());
-		pstmt.setInt(6, dto.getQcount());		
+		pstmt.setInt(1, qno); // 질문글번호 
+		pstmt.setInt(2, dto.getNo()); // 유저번호
+		pstmt.setString(3, dto.getQtitle()); // 질문제목
+		pstmt.setInt(4, dto.getQpw()); 
+		pstmt.setString(5, dto.getQcontent()); // 질문글
+		pstmt.setInt(6, dto.getQcount()); // 조회수	
 		pstmt.setString(7, dto.getQtype());
-		pstmt.setTimestamp(8, dto.getQdate());
+		pstmt.setTimestamp(8, dto.getQdate()); // 질문날짜
 		
 
 		pstmt.executeUpdate();
@@ -62,6 +62,7 @@ public void insertQna(QnaDTO dto) {
 	}
 }//insertQna() 
 
+// 질문리스트
 public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	System.out.println("QnaDAO getQnaList()");
 	Connection con=null;
@@ -103,6 +104,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	return qnaList;
 }// getQnaList()
 
+// 질문 내용 받아오기
 public QnaDTO getQna(int qno) {
 	System.out.println("QnaDAO getQna()");
 	Connection con = null;
@@ -142,14 +144,14 @@ public QnaDTO getQna(int qno) {
 	return dto;
 }// getQna()
 
+	// 질문 수정
 	public void updateQna(QnaDTO dto) {
 		System.out.println("QnaDAO updateQna()");
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
-			// 1~2단계
 			con = getConnection();
-			// 3 sql
+			
 			String sql = "update qna set qtitle=?, qcontent=? where qno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getQtitle());
@@ -166,6 +168,7 @@ public QnaDTO getQna(int qno) {
 		}
 	}// updateQna()
 	
+	// 질문 삭제
 	public void deleteQna(int qno) {
 		System.out.println("QnaDAO deleteQna()");
 		Connection con = null;
@@ -188,6 +191,7 @@ public QnaDTO getQna(int qno) {
 		}	
 	}// deleteQna()
 
+	// 
 public int getQnaCount() {
 	System.out.println("getQnaCount QnaDTO()");
 	Connection con = null;
@@ -195,14 +199,13 @@ public int getQnaCount() {
 	ResultSet rs=null;
 	int count=0;
 	try {
-		// 1~2단계
 		con = getConnection();
-		// 3 sql
+
 		String sql = "select count(*) from qna";
 		pstmt = con.prepareStatement(sql);
-		// 4
+		
 		rs=pstmt.executeQuery();
-		// 5
+		
 		if(rs.next()) { 
 		count=rs.getInt("count(*)");
 		}			
@@ -216,6 +219,7 @@ public int getQnaCount() {
 	return count;
 }// getQnaCount()
 
+//조회수 메서드
 public void qCount() {
 	System.out.println("qCount QnaDTO()");
 	Connection con = null;
@@ -240,8 +244,29 @@ public void qCount() {
 		if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
 		if(con!=null) try { con.close();} catch (Exception e2) {}
 	}
-}
+}// qCount()
 
+// 조회수 업데이트 메서드
+public void updateQcount(QnaDTO dto) {
+	System.out.println("updateQcount()");
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	try {
+		// 1~2단계
+		con = getConnection();
+		// 3 sql
+		String sql = "update qna set qcount=? where qno=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, dto.getQcount());
+		pstmt.setInt(2, dto.getQno());
+	
+		pstmt.executeUpdate();		
+	} catch (Exception e) {
+		e.printStackTrace(); 
+	} finally {
+		if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+		if (con != null) try {con.close();} catch (Exception e2) {}
+	}
+} //updateQcount()
 }
-
 

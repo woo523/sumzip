@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  
- 	$(document).ready(function(){
+$(document).ready(function(){
  	 		
 	$('#join').submit(function(){
 	if($('.id').val()==""){
@@ -110,6 +110,8 @@
 		
  }); //준비
  </script>
+ 
+ <!-- 주소값 api -->
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample4_execDaumPostcode() {
