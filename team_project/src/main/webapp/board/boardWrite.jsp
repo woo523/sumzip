@@ -57,13 +57,13 @@ if(id==null){
 
       <tr>
 
-      	<td><input type="text" class="form-control" placeholder="글 제목" name="contentTitle" maxlength="40"></td>
+      	<td><input type="text" class="form-control" placeholder="글 제목" name="btitle" maxlength="40"></td>
 
       </tr>
 
       <tr>
 
-      	<td><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="contentDetail" maxlength="1024" style="height: 400px;"></textarea></td>
+      	<td><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="bcontent" maxlength="1024" style="height: 400px;"></textarea></td>
 
       </tr>
 

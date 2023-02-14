@@ -47,7 +47,7 @@ for(int i=0;i<qnaList.size();i++){
 	<tr><td><%=dto.getQno() %></td>
 		<td><%=dto.getNo() %></td>
 		<td><%=dto.getQtype() %></td>
-		<td><a href="question.jsp?no=<%=dto.getNo() %>"><%=dto.getQtitle() %></a></td>
+		<td><a href="question.jsp?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dto.getQstatus() %></td>			
 		<td><%=dto.getQdate() %></td>
 		<td><%=dto.getQadate() %></td>
@@ -96,6 +96,6 @@ if(endPage < pageCount){
 }
 %>	
 </article>		
-<jsp:include page="../inc/footer.jsp" />		
+	
 </body>
 </html>

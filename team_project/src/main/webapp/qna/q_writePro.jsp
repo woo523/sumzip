@@ -8,9 +8,11 @@
 <%
 //request 한글처리
 request.setCharacterEncoding("utf-8");
+
 String id=(String)session.getAttribute("id");
 UserDAO udao=new UserDAO();
 UserDTO udto=udao.getUser(id);
+
 
 String qtype = "";
 if(udto.getUtype()==1){
@@ -19,7 +21,7 @@ if(udto.getUtype()==1){
 	qtype = "운영자";
 }
 
-String qtilte=request.getParameter("qtitle");
+String qtitle=request.getParameter("qtitle");
 int qcount=0;
 Timestamp qdate=new Timestamp(System.currentTimeMillis());
 String qcontent=request.getParameter("qcontent");
@@ -27,7 +29,7 @@ String qcontent=request.getParameter("qcontent");
 QnaDTO dto=new QnaDTO();
 
 dto.setNo(udto.getNo());
-dto.setQtitle(qtilte);
+dto.setQtitle(qtitle);
 dto.setQtype(qtype);
 dto.setQstatus(0);
 dto.setQcount(qcount);
@@ -40,3 +42,4 @@ dao.insertQna(dto);
 
 response.sendRedirect("qnaList.jsp");
 %>
+

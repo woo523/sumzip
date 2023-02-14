@@ -11,6 +11,14 @@
 <body>
 <%
 String id=(String)session.getAttribute("id");
+
+UserDAO rdao=new UserDAO();
+UserDTO rdto=rdao.getUser(id);
+int no = rdto.getNo();
+
+
+
+
 if(id==null){
 	response.sendRedirect("../member/login.jsp");
 }
@@ -22,11 +30,12 @@ if(id==null){
 <form action="q_writePro.jsp" method="post"> 
 <table border="1">
 
-<tr><td>글쓴이</td>
+<tr><td>작성자</td>
+<input type="hidden" name="no" value="<%=no%>">
 	<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
-<tr><td>글제목</td>
+<tr><td>제목</td>
 	<td><input type="text" name="qtitle"></td></tr>
-<tr><td>글내용</td>
+<tr><td>내용</td>
 	<td><textarea name="qcontent" rows="10" cols="20"></textarea></td></tr>
 <tr><td colspan="2"><input type="submit" value="글쓰기"></td></tr>
 </table>

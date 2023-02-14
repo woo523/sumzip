@@ -87,21 +87,20 @@
 <body>
 <!-- 리뷰 수정 페이지 -->
 <%
-//  	String id = (String)session.getAttribute("id");
+ 	String id = (String)session.getAttribute("id");
 	// 아이디 없으면 로그인 페이지로 이동
-// 	if(id == null) {
+	if(id == null) {
 		%>
-<!-- 		<script type="text/javascript">
-   			alert("로그인을 해주세요");
- 		</script> -->
+		<script type="text/javascript"> -->
+    			alert("로그인을 해주세요"); -->
+  		</script>
 		<%
-// 		response.sendRedirect("login.jsp");
-// 	}
-	
-	int rno = Integer.parseInt(request.getParameter("rno"));
+		response.sendRedirect("login.jsp");
+	}
+	int ano = Integer.parseInt(request.getParameter("ano"));
 	
 	ReviewDAO rdao = new ReviewDAO();
-	ReviewDTO rdto = rdao.getReview(rno);
+	ReviewDTO rdto = rdao.getReview(ano);
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -112,6 +111,7 @@
 		</fieldset>
 		<article>
 			<form name="reviewForm" action="reviewModifyPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
+				<input type="hidden" name="ano" value="<%=ano %>">
 				<input type="hidden" name="rno" value="<%=rdto.getRno() %>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText" value="<%=rdto.getRtitle() %>">
@@ -156,7 +156,7 @@
 	</div>
 	
 	<!-- footer -->
-	<jsp:include page="../inc/footer.jsp" />
+<%-- 	<jsp:include page="../inc/footer.jsp" /> --%>
 	
 
 </body>

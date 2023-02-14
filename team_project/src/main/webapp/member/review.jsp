@@ -58,12 +58,13 @@
 
 		function formCheck() {
 			// submit 버튼을 누르면 onsubmit에 의해 formCheck() 함수 호출
+			// title 비어있으면 메시지 표시
 			if(document.querySelector('.reviewTitleText').value.length == 0) {
 				alert("한줄평을 작성해주세요.");
 				document.reviewForm.title.focus();
 				return false;
 			// 별점 선택 안했으면 메시지 표시, 체크된 값을 배열 형태로 받아서 length 확인
-			} else if(document.querySelectorAll('input[name="rating"]:checked').length==0) {
+			} else if(document.querySelectorAll('input[name="rating[]"]:checked').length < 1) {
 				alert("만족도를 선택해주세요.");
 				return false;
 			// 리뷰 5자 미만이면 메시지 표시
@@ -98,6 +99,8 @@
 		response.sendRedirect("login.jsp");
 	}
 	
+	int ano = Integer.parseInt(request.getParameter("ano"));
+	
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -108,6 +111,7 @@
 		</fieldset>
 		<article>
 			<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
+				<input type="hidden" name="ano" value="<%=ano%>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText">
 				</div>
@@ -116,15 +120,15 @@
 					<h3>다녀오신 장소는 만족하셨나요?</h3>
 					<div class="star_rating">
 						<!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
-						<input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점">
+						<input type="checkbox" name="rating[]" id="rating1" value="1" class="rate_radio" title="1점">
 						<label for="rating1"></label>
-						<input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2점">
+						<input type="checkbox" name="rating[]" id="rating2" value="2" class="rate_radio" title="2점">
 						<label for="rating2"></label>
-						<input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="3점">
+						<input type="checkbox" name="rating[]" id="rating3" value="3" class="rate_radio" title="3점">
 						<label for="rating3"></label>
-						<input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="4점">
+						<input type="checkbox" name="rating[]" id="rating4" value="4" class="rate_radio" title="4점">
 						<label for="rating4"></label>
-						<input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
+						<input type="checkbox" name="rating[]" id="rating5" value="5" class="rate_radio" title="5점">
 						<label for="rating5"></label>
 					</div>
 				</div>
