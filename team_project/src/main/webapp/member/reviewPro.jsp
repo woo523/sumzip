@@ -1,3 +1,5 @@
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="products.AppointmentDTO"%>
 <%@page import="products.AppointmentDAO"%>
 <%@page import="member.UserDTO"%>
@@ -16,13 +18,19 @@
 	
 	String id = (String)session.getAttribute("id");
 	
-	int ano = Integer.parseInt(request.getParameter("ano"));
+	String uploadPath = request.getRealPath("/upload");
+	System.out.println(uploadPath);
+	int maxSize = 10*1024*1024;
+	MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 	
-	String rtitle = request.getParameter("title");
-// 	String rstar[] = ()request.getParameter("rating[]"); 
-	String rcontent = request.getParameter("content");
+	int ano = Integer.parseInt(multi.getParameter("ano"));
+	
+	String rtitle = multi.getParameter("title");
+	String rstar = multi.getParameter("rating"); 
+	String rcontent = multi.getParameter("content");
 	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
+	String rpic1 = multi.getFilesystemName("rpic1");
 	
 	// 로그인 후 id, no 값 가져오기
 	UserDAO udao = new UserDAO();
@@ -35,10 +43,11 @@
 	dto.setPno(pno);
 	dto.setAno(ano);
  	dto.setRtitle(rtitle);
-//  	dto.setRstar(rstar);
+ 	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
  	dto.setRcount(rcount);
  	dto.setRdate(rdate);
+ 	dto.setRpic1(rpic1);
  
  	// 리턴X insertReview()
  	ReviewDAO dao = new ReviewDAO();

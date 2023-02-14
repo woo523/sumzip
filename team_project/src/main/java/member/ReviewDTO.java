@@ -17,7 +17,6 @@ public class ReviewDTO {
 	private String rpic2;		// 리뷰사진2
 	private String rpic3;		// 리뷰사진3
 
-	
 	public int getRno() {
 		return rno;
 	}
