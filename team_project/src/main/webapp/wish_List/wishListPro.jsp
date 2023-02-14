@@ -13,8 +13,15 @@
 <!-- 장바구니 추가하면 한 행 추가하기-->
 
 <%
-int pno=3;
-int no = Integer.parseint(session.getAttribute("no"));
+WishListDAO WishListDAO = new WishListDAO();
+ArrayList<Jjim> list = WishListDAO.getJjim(userID, bbsID);
+int result = 0;
+if (list.isEmpty()){
+	result = WishListDAO.write(userID, bbsID);
+}
+else{
+	result = WishListDAO.delete(userID, bbsID);
+}
 %>
 
 
