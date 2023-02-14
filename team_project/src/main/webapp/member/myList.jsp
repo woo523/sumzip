@@ -67,10 +67,8 @@
 			
 			ProductDAO pdao = new ProductDAO();
 			ProductDTO pdto = pdao.getProduct(adto.getPno());
-// 			ProductDTO pdto = pdao.getProduct(100);
 		%>
 		<ul>
-<%-- 			<li>펜션이름 : <%=adto.getPno() %></li> --%>
 			<li>펜션이름 : <%=pdto.getPname() %></li>
 			<li>예약일자 : <%=adto.getAdate() %></li>
 			<li>숙박일자 : <%=salesdto.getIndate() %> ~ <%=salesdto.getOutdate() %></li>
@@ -82,7 +80,9 @@
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			
 			Date appointIndate = formatter.parse("2023-02-01"); // 임시 체크인 날짜
+			// Date appointIndate = salesdto.getIndate();
 			Date appointOutdate = formatter.parse("2023-02-05"); // 임시 체크아웃 날짜
+			// Date appointOutdate = salesdto.getOutdate();
 			Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
 			
 			System.out.println("appointIndate: " + formatter.format(appointIndate));
@@ -94,7 +94,7 @@
 			
 			if(id != null) {
 				// 후기 작성 여부 확인
-				if(rdao.checkReview(no, adto.getPno()) == true) {
+				if(rdao.checkReview(adto.getAno()) == true) {
 					// 입실일이 지나면 예약완료 상태로 갈음
 					if(resultIn < 0) {
 						System.out.println("appointIndate is before today");
@@ -106,8 +106,8 @@
 							// 후기 작성 가능
 							System.out.println("appointOutdate is before today");
 							%>
-							<li><button type="button" onclick="location.href='reviewModify.jsp'">후기 수정하기</button>
-								<button type="button" onclick="location.href='reviewDelete.jsp'">후기 삭제하기</button></li>
+							<li><button type="button" onclick="location.href='reviewModify.jsp?ano=<%=adto.getAno()%>'">후기 수정하기</button>
+								<button type="button" onclick="location.href='reviewDelete.jsp?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
 							<%
 						}
 					}
@@ -123,11 +123,11 @@
 							// 후기 작성 가능
 							System.out.println("appointOutdate is before today");
 							%>
-							<li><button type="button" id="reviewBtn" onclick="location.href='review.jsp'">이용 후기 작성하기</button></li>
+							<li><button type="button" id="reviewBtn" onclick="location.href='review.jsp?ano=<%=adto.getAno() %>'">이용 후기 작성하기</button></li>
 							<%
 						}
 					}
-				} // rdao.checkReview(no, adto.getPno())
+				} // rdao.checkReview(no, adto.getPno()) 
 			} else {
 				%>
 	 			<script type="text/javascript">

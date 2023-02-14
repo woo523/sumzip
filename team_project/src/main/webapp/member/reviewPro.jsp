@@ -1,3 +1,5 @@
+<%@page import="products.AppointmentDTO"%>
+<%@page import="products.AppointmentDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
 <%@page import="member.ReviewDAO"%>
@@ -14,6 +16,8 @@
 	
 	String id = (String)session.getAttribute("id");
 	
+	int ano = Integer.parseInt(request.getParameter("ano"));
+	
 	String rtitle = request.getParameter("title");
 	String rstar = request.getParameter("rating");
 	String rcontent = request.getParameter("content");
@@ -29,6 +33,7 @@
 	ReviewDTO dto = new ReviewDTO();
 	dto.setNo(no);
 	dto.setPno(pno);
+	dto.setAno(ano);
  	dto.setRtitle(rtitle);
  	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
