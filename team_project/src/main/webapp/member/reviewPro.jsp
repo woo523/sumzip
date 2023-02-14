@@ -19,7 +19,7 @@
 	int ano = Integer.parseInt(request.getParameter("ano"));
 	
 	String rtitle = request.getParameter("title");
-	String rstar = request.getParameter("rating");
+// 	String rstar[] = ()request.getParameter("rating[]"); 
 	String rcontent = request.getParameter("content");
 	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
@@ -35,7 +35,7 @@
 	dto.setPno(pno);
 	dto.setAno(ano);
  	dto.setRtitle(rtitle);
- 	dto.setRstar(rstar);
+//  	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
  	dto.setRcount(rcount);
  	dto.setRdate(rdate);
