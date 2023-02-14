@@ -37,7 +37,7 @@ if(id != null){
 	if(id.equals(dto.getNo())){
 		%>
 <input type="button" value="글수정"
- onclick="location.href='updateForm.jsp?bno=<%=dto.getBno() %>'">
+ onclick="location.href='updateForm.jsp?bno=<%=dto.getBno()%>'">
  <input type="button" value="글삭제"
  onclick="location.href='deletePro.jsp?bno=<%=dto.getBno()%>'">		
 		<%
