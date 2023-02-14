@@ -39,15 +39,17 @@ public void insertQna(QnaDTO dto) {
 		if(rs.next()) {
 			qno=rs.getInt("max(qno)")+1;
 		}
-		sql="insert into qna(qno, no, qtitle, qcontent, qcount, qpw, qtype, qdate) values(?,?,?,?,?,?,?)";
-
+		sql="insert into qna(qno, no, qtitle, qpw, qcontent, qcount, qtype, qdate) values(?,?,?,?,?,?,?,?)";
+		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, qno);  
 		pstmt.setInt(2, dto.getNo()); 
 		pstmt.setString(3, dto.getQtitle());
-		pstmt.setString(4, dto.getQcontent());
-		pstmt.setInt(5, dto.getQcount());		
-		pstmt.setString(6, dto.getQtype());
-		pstmt.setTimestamp(7, dto.getQdate());
+		pstmt.setInt(4, dto.getQpw());
+		pstmt.setString(5, dto.getQcontent());
+		pstmt.setInt(6, dto.getQcount());		
+		pstmt.setString(7, dto.getQtype());
+		pstmt.setTimestamp(8, dto.getQdate());
+		
 
 		pstmt.executeUpdate();
 		
@@ -213,6 +215,33 @@ public int getQnaCount() {
 	}
 	return count;
 }// getQnaCount()
+
+public void qCount() {
+	System.out.println("qCount QnaDTO()");
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	try {
+		con = getConnection();
+
+		int qno=1;
+
+		String sql = "select max(qcount) from qna";
+		pstmt = con.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		if(rs.next()) {
+			qno=rs.getInt("max(qcount)")+1;
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		if(rs!=null) try { rs.close();} catch (Exception e2) {}
+		if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+		if(con!=null) try { con.close();} catch (Exception e2) {}
+	}
+}
+
 }
 
 

@@ -110,7 +110,7 @@
 			펜션정보를 가지고 올까요 말까요?
 		</fieldset>
 		<article>
-			<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
+			<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()" entype="multiple/form-data">
 				<input type="hidden" name="ano" value="<%=ano%>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText">
@@ -142,7 +142,9 @@
 				</div>
 					
 				<div>
-					<button type="button" name="rpic1" class="btn btn-outline-success">사진 첨부 (0/3)</button>
+					<input type="file" name="rpic1" class="pic">
+					<input type="file" name="rpic2" class="pic">
+					<input type="file" name="rpic3" class="pic">
 				</div>
 				
 				<div id="Buttons">
@@ -208,6 +210,10 @@
  	.reviewContainer #reviewForm .review_contents .textCount {
  		text-align: right;
  	}
+	
+	.reviewContainer #reviewForm .pic {
+		margin: 5px 0px 5px 0px;	
+	}
 	
   	.reviewContainer #reviewForm #Buttons {
 		text-align: right;
