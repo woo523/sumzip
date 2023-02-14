@@ -98,6 +98,8 @@
 		response.sendRedirect("login.jsp");
 	}
 	
+	int ano = Integer.parseInt(request.getParameter("ano"));
+	
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -108,6 +110,7 @@
 		</fieldset>
 		<article>
 			<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
+				<input type="hidden" name="ano" value="<%=ano%>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText">
 				</div>

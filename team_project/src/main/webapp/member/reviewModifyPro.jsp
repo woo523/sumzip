@@ -7,6 +7,8 @@
 	
 	request.setCharacterEncoding("UTF-8");
 	
+	int ano = Integer.parseInt(request.getParameter("ano"));
+	
 	int rno = Integer.parseInt(request.getParameter("rno"));
 	String rtitle = request.getParameter("title");
 	String rstar = request.getParameter("rstar"); 

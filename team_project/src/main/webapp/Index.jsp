@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <!-- Breadcrumb Section Begin -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -35,6 +36,7 @@
                             <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
                         
                     </div>
+                   
                 </div>
                 <div class="col-lg-12">
                     <div class="load-more">
@@ -45,8 +47,8 @@
         </div>
     </section>
     <!-- Blog Section End -->
-
-
+    
+     
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

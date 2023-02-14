@@ -111,7 +111,7 @@
 				href="findId.jsp">ID찾기</a><span class="p-2"> | </span> <a href="#">비밀번호찾기</a>
 		</nav>
 		
-		<jsp:include page="../inc/footer.jsp" />
+<%-- 		<jsp:include page="../inc/footer.jsp" /> --%>
 	</div>
 </body>
 </html>

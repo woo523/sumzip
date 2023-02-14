@@ -7,6 +7,7 @@ public class ReviewDTO {
 	private int rno;		// 리뷰번호
 	private int no;			// 유저번호
 	private int pno;		// 상품번호
+	private int ano;		// 예약번호
 	private String rtitle;		// 리뷰제목
 	private String rcontent;	// 리뷰내용
 	private String rstar;		// 별점
@@ -15,7 +16,7 @@ public class ReviewDTO {
 	private String rpic1;		// 리뷰사진1
 	private String rpic2;		// 리뷰사진2
 	private String rpic3;		// 리뷰사진3
-	
+
 	
 	public int getRno() {
 		return rno;
@@ -34,6 +35,12 @@ public class ReviewDTO {
 	}
 	public void setPno(int pno) {
 		this.pno = pno;
+	}
+	public int getAno() {
+		return ano;
+	}
+	public void setAno(int ano) {
+		this.ano = ano;
 	}
 	public String getRtitle() {
 		return rtitle;
