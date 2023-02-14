@@ -4,12 +4,70 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="">
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="../css/stylebook.css">
 <title>Insert title here</title>
 </head>
 <body>
 <div id="wrap">
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
+
+   <!-- ##### Book Now Area Start ##### -->
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="book-now-form">
+                        <form action="#">
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                
+                                 <label for="date-in">입실일</label>
+                                <input type="text" class="date-input" id="date-in" readonly>
+                                                            </div>
+
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="select2">퇴실일</label>
+                                <input type="text" class="date-input" id="date-in" readonly>
+                            </div>
+
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="select3">인원 수</label>
+                                <select class="form-control" id="select3">
+                                  <option>1명</option>
+                                  <option>2명</option>
+                                  <option>3명</option>
+                                  <option>4명</option>
+                                  <option>5명</option>
+                                  <option>6명</option>
+                                  <option>7명</option>
+                                  <option>8명</option>
+                                  <option>9명</option>
+                                </select>
+                            </div>
+
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="select4">지역</label>
+                                <select class="form-control" id="select4">
+                                  <option>서귀포시</option>
+                                  <option>제주시</option>
+                                </select>
+                            </div>
+
+                            <!-- Button -->
+                            <button type="submit">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    <!-- ##### Book Now Area End ##### -->
+
+
 <!-- Breadcrumb Section Begin -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -50,70 +108,18 @@
     </section>
     <!-- Blog Section End -->
     
-     <!-- Hero Section Begin -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="hero-text">
-                        <h1>Sona A Luxury Hotel</h1>
-                        <p>Here are the best hotel booking sites, including recommendations for international
-                            travel and for finding low-priced hotel rooms.</p>
-                        <a href="#" class="primary-btn">Discover Now</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
-                    <div class="booking-form">
-                        <h3>Booking Your Hotel</h3>
-                        <form action="#">
-                            <div class="check-date">
-                                <label for="date-in">Check In:</label>
-                                <input type="text" class="date-input" id="date-in">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="check-date">
-                                <label for="date-out">Check Out:</label>
-                                <input type="text" class="date-input" id="date-out">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="select-option">
-                                <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">2 Adults</option>
-                                    <option value="">3 Adults</option>
-                                </select>
-                            </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="">1 Room</option>
-                                    <option value="">2 Room</option>
-                                </select>
-                            </div>
-                            <button type="submit">Check Availability</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="../img/hero/hero-1.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="../img/hero/hero-2.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="../img/hero/hero-3.jpg"></div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
 
 
-    <!-- Js Plugins -->
-    <script src="..js/jquery-3.3.1.min.js"></script>
-    <script src="..js/bootstrap.min.js"></script>
-    <script src="..js/jquery.magnific-popup.min.js"></script>
-    <script src="..js/jquery.nice-select.min.js"></script>
-    <script src="..js/jquery-ui.min.js"></script>
-    <script src="..js/jquery.slicknav.js"></script>
-    <script src="..js/owl.carousel.min.js"></script>
-    <script src="..js/main.js"></script>
+
+<!--     Js Plugins -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery.nice-select.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/jquery.slicknav.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/main.js"></script>
 
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
 </div>
