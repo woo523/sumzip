@@ -39,7 +39,8 @@ public void insertQna(QnaDTO dto) {
 		if(rs.next()) {
 			qno=rs.getInt("max(qno)")+1;
 		}
-		sql="insert into qna(qno, no, qtitle, qpw, qcontent, qcount, qtype, qdate) values(?,?,?,?,?,?,?,?)";
+		sql="insert into qna(qno, no, qtitle, qpw, qcontent, qcount, qtype, qdate) "
+				+ "values(?,?,?,?,?,?,?,?)";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, qno); // 질문글번호 
 		pstmt.setInt(2, dto.getNo()); // 유저번호
@@ -91,6 +92,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 			dto.setQpw(rs.getInt("qpw"));
 			dto.setQtype(rs.getString("qtype"));
 			dto.setQdate(rs.getTimestamp("qdate"));
+			dto.setQadate(rs.getTimestamp("qadate"));
 			
 			qnaList.add(dto);
 		}
@@ -128,10 +130,13 @@ public QnaDTO getQna(int qno) {
 			dto.setQno(rs.getInt("qno"));
 			dto.setQtitle(rs.getString("qtitle"));
 			dto.setQcontent(rs.getString("qcontent"));
+			dto.setAnswer(rs.getString("answer"));
 			dto.setQcount(rs.getInt("qcount"));
 			dto.setQpw(rs.getInt("qpw"));
 			dto.setQtype(rs.getString("qtype"));
 			dto.setQdate(rs.getTimestamp("qdate"));
+			dto.setQadate(rs.getTimestamp("qadate"));
+			dto.setQstatus(rs.getInt("qstatus"));
 					}
 			} catch (Exception e) {
 					e.printStackTrace(); // 에러처리
@@ -240,6 +245,50 @@ public void qCount(int qno) {
 	}
 	
 }
+// 답변 수정
+public void updateAnswer(QnaDTO dto) {
+	System.out.println("updateAnswer()");
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	try {
+		con = getConnection();
+		
+		String sql = "update qna set answer=? where qno=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, dto.getAnswer());
+		pstmt.setInt(2, dto.getQno());
+	
+		pstmt.executeUpdate();		
+	} catch (Exception e) {
+		e.printStackTrace(); 
+	} finally {
+		
+		if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+		if (con != null) try {con.close();} catch (Exception e2) {}
+	}
+}// updateQna()
 
+//질문 삭제
+	public void deleteAnswer(int qno) {
+		System.out.println("QnaDAO deleteAnswer()");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			
+			con = getConnection();
+			
+			String sql = "delete from qna where qno=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qno);
+		
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace(); // 에러처리
+		} finally {
+			
+			if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+			if (con != null) try {con.close();} catch (Exception e2) {}
+		}	
+	}// deleteQna()
 }
 

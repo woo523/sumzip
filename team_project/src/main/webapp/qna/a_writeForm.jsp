@@ -10,11 +10,17 @@
 </head>
 <body>
 <%
+//id값 받아오기
 String id=(String)session.getAttribute("id");
 
 UserDAO rdao=new UserDAO();
 UserDTO rdto=rdao.getUser(id);
 int no = rdto.getNo();
+
+//로그인 되어있지 않으면 로그인화면으로
+if(id==null){
+	response.sendRedirect("../member/login.jsp");
+}
 %>
 
 <h1>답변</h1>

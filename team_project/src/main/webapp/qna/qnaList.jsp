@@ -34,6 +34,9 @@ int endRow=startRow+pageSize-1;
 
 ArrayList<QnaDTO> qnaList = dao.getQnaList(startRow, pageSize); 
 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
+
+String qstatus = "";
+
 %>
 
 <article>
@@ -42,7 +45,7 @@ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 		<tr><td>글번호</td><td>작성자</td><td>질문유형</td><td>제목</td>
 		<td>글쓴날짜</td><td>답변상태</td><td>조회수</td></tr>
 <%
-//배열접근 => for => 배열 한칸에 내용 가져오기 => BoardDTO 저장 => 출력
+//배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
 	QnaDTO dto= qnaList.get(i);
 	%>
@@ -95,8 +98,8 @@ if(endPage < pageCount){
 	<a href="qnaList.jsp?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]</a>
 		<%
 }
-%>	
+%>
+
 </article>		
-	
 </body>
 </html>

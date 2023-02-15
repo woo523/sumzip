@@ -17,7 +17,7 @@ UserDAO rdao=new UserDAO();
 UserDTO rdto=rdao.getUser(id);
 int no = rdto.getNo();
 
-// 로그인 되어있지 않으면 로그인화면으로
+//로그인 되어있지 않으면 로그인화면으로
 if(id==null){
 	response.sendRedirect("../member/login.jsp");
 }
@@ -27,16 +27,15 @@ if(id==null){
 <h1>질문</h1>
 <form action="q_writePro.jsp" method="post"> 
 <input type="hidden" name="no" value="<%=no%>">
-<table border="1">
-
-<tr><td>작성자</td>
-	<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
-<tr><td>제목</td>
-	<td><input type="text" name="qtitle"></td></tr>
-<tr><td>내용</td>
-	<td><textarea name="qcontent" rows="10" cols="20"></textarea></td></tr>
-<tr><td colspan="2"><input type="submit" value="글쓰기"></td></tr>
-</table>
+	<table border="1">
+		<tr><td>작성자</td>
+			<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
+		<tr><td>제목</td>
+			<td><input type="text" name="qtitle"></td></tr>
+		<tr><td>내용</td>
+			<td><textarea name="qcontent" rows="10" cols="20"></textarea></td></tr>
+		<tr><td colspan="2"><input type="submit" value="글쓰기"></td></tr>
+	</table>
 </form>
 </body>
 </html>

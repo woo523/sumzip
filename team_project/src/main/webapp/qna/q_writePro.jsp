@@ -18,9 +18,7 @@ String qtitle=request.getParameter("qtitle");
 int qcount=0;
 Timestamp qdate=new Timestamp(System.currentTimeMillis());
 String qcontent=request.getParameter("qcontent");
-
 QnaDTO dto=new QnaDTO();
-
 
 dto.setNo(udto.getNo());
 dto.setQtitle(qtitle);

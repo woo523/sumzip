@@ -13,7 +13,7 @@
 <body>
 <%
 
-// request에 저장된 num 파라미터값 가져오기
+// request에 저장된 qno 파라미터값 가져오기
 int qno=Integer.parseInt(request.getParameter("qno"));
 // QnaDAO 객체생성
 QnaDAO dao=new QnaDAO();
@@ -52,6 +52,8 @@ UserDTO udto = udao.getUserNo(no);
 	%>
 	<input type="button" value="글목록" 
 	onclick="location.href='qnaList.jsp'">
+	<input type="button" value="답변확인" 
+	onclick="location.href='user_answer.jsp?qno=<%=dto.getQno() %>'">
 	</td></tr>
 </table>
 </body>
