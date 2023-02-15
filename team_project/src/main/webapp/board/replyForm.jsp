@@ -114,7 +114,7 @@ ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replyl
 									<div><span><%=rdto.getRdate()%></span>
 	                                <h5><%=udto.getId()%></h5>
 	                                <p><%=rdto.getRiply()%></p>
-	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">답댓글</a>
+	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>&bno=<%=bno%>"class="comment-btn">답댓글</a>
 	                                <%if(no==rdto.getNo()){ %>
 	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">수정</a>
 	                                <a href="BoardReplyDeletePro.bo?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
@@ -134,8 +134,8 @@ ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replyl
                                     <h5><%=udto.getId()%></h5>
                                     <p><%=cdto.getCommend()%></p>
                                     <%if(no==cdto.getNo()){ %>
-                                    <a href="CommendUpdateForm.bo?cno=<%=cdto.getCno()%>&no=<%=cdto.getNo()%>" class="comment-btn like-btn">수정</a>
-                                    <a href="CommendDeletePro.bo?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
+                                    <a href="BoardCommendUpdateForm.bo?cno=<%=cdto.getCno()%>" class="comment-btn like-btn">수정</a>
+                                    <a href="BoardCommendDeletePro.bo?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
                                 </div>
                                 <%if(j==commendlist.size()-1){%>
                                 </div>

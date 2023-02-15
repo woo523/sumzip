@@ -56,7 +56,7 @@ ReplyDTO rdto = (ReplyDTO)request.getAttribute("rdto");
 <jsp:include page="../inc/header.jsp" />
 
 
-
+<!-- 댓글 수정 폼 -->
    <section class="blog-details-section">
         <div class="conainer">
             <div class="row">

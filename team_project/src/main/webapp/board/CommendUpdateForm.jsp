@@ -14,16 +14,16 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/flaticon.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 <%
@@ -32,35 +32,29 @@
 //UserDTO dto = dao.getUser(id);
 //int no = dto.getNo();
 
-int bno=1; // 임시값
-int no=1; // 임시값
+// int bno=1; // 임시값
+// int no=1; // 임시값
 
 
-int cno=Integer.parseInt(request.getParameter("cno"));
-CommendDAO cdao=new CommendDAO();
-CommendDTO cdto=cdao.getCommend(cno);
+// int cno=Integer.parseInt(request.getParameter("cno"));
+// CommendDAO cdao=new CommendDAO();
+// CommendDTO cdto=cdao.getCommend(cno);
 
-int cuno=Integer.parseInt(request.getParameter("no"));
+// int cuno=Integer.parseInt(request.getParameter("no"));
 
-UserDAO dao = new UserDAO();
-UserDTO dto = dao.getUserNo(cuno);
-String id = dto.getId();
+// UserDAO dao = new UserDAO();
+// UserDTO dto = dao.getUserNo(cuno);
+// String id = dto.getId();
 
-
-if(cdto.getNo()!=no){
-%>
-<script>
-	alert("본인 답댓글만 수정가능합니다");
-	history.back();
-</script>
-<%
-}
+String id=(String)session.getAttribute("id");
+CommendDTO cdto = (CommendDTO)request.getAttribute("cdto");
 %>
 
+<!-- 헤더 들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
 
 
-
-
+<!-- 답댓글 수정 폼 -->
    <section class="blog-details-section">
         <div class="conainer">
             <div class="row">
@@ -68,12 +62,12 @@ if(cdto.getNo()!=no){
                     <div class="blog-details-text">
                        <div class="leave-comment">
                             <h4>답댓글 수정</h4>
-                            <form action="CommendUpdatePro.jsp?cno=<%=cno%>" method ="post" class="comment-form">
+                            <form action="BoardCommendUpdatePro.bo" method ="post" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
-                                        <input type="hidden" name="no" value="<%=cuno%>">
 										<input type="hidden" name="bno" value="<%=cdto.getBno()%>">
+										<input type="hidden" name="cno" value="<%=cdto.getCno()%>">
                                     </div>
                                     <div class="col-lg-12 text-center">
                                         <textarea name="commend"><%=cdto.getCommend() %></textarea>
