@@ -37,6 +37,8 @@ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 
 String qstatus = "";
 
+
+
 %>
 
 <article>
@@ -48,13 +50,18 @@ String qstatus = "";
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
 	QnaDTO dto= qnaList.get(i);
+	if(dto.getQstatus()==1){ 
+		qstatus = "답변완료";
+	}else{
+			qstatus="답변미등록";
+	}
 	%>
 	<tr><td><%=dto.getQno() %></td>
 		<td><%=dto.getNo() %></td>
 		<td><%=dto.getQtype() %></td>
 		<td><a href="question.jsp?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dateFormat.format(dto.getQdate()) %></td>
-		<td><%=dto.getQstatus() %></td>	
+		<td><%=qstatus%></td>	
 		<td><%=dto.getQcount()%></td></tr>	
 	<%
 }
