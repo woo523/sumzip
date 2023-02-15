@@ -66,7 +66,14 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}
+	   } else if(sPath.equals("/MemberDelete.me")) {
+			action = new MemberDelete();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   }
 		
 		
 		// ----------------------------------------------
