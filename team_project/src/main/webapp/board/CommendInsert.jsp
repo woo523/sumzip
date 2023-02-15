@@ -7,12 +7,12 @@
 <%
 
 request.setCharacterEncoding("utf-8");
-// int bno = Integer.parseInt(request.getParameter("bno"));
-// int no = Integer.parseInt(request.getParameter("no"));
+int bno = Integer.parseInt(request.getParameter("bno"));
+int no = Integer.parseInt(request.getParameter("no"));
 String commend = request.getParameter("commend");
 int rno = Integer.parseInt(request.getParameter("rno"));
-int bno=1; // 임시값
-int no=1; // 임시값
+// int bno=1; // 임시값
+// int no=1; // 임시값
 
 
 Timestamp cdate = new Timestamp(System.currentTimeMillis());
@@ -29,6 +29,6 @@ dto.setCdate(cdate);
 CommendDAO dao = new CommendDAO();
 dao.insertCommend(dto);
 
-response.sendRedirect("replyForm.jsp");
+response.sendRedirect("boardContent.jsp");
 
 %>

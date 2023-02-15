@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>board/boardContent.jsp</title>
+
 </head>
 <body>
 <%
@@ -20,7 +21,10 @@ BoardDTO dto=dao.getBoard(bno);
 
 String id=(String)session.getAttribute("id");
 %>
+<!-- 헤더 들어가는 곳 -->
+ 	<jsp:include page="../inc/header.jsp" />
 
+<!-- 공지사항 내용 -->
 <h2>글내용 [로그인 : <%=id %>]</h2>
 <table border="1">
 <tr><td>공지사항 번호</td><td><%=dto.getBno() %></td></tr>
@@ -45,6 +49,7 @@ if(id != null){
 }
 %>
 
+
 <input type="button" value="글목록"
  onclick="location.href='boardList.jsp'">
  <input type="button" value="글수정"
@@ -54,5 +59,12 @@ if(id != null){
  
  </td></tr>
  </table>
+ 
+<!-- 댓글 영역 들어가는 곳 -->
+ <jsp:include page="replyForm.jsp" />
+ 
+<!--  푸터 들어가는 곳 -->
+<%--  <jsp:include page="../inc/footer.jsp" /> --%>
+ 
 </body>
 </html>

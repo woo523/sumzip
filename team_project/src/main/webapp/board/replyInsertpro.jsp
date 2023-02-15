@@ -7,12 +7,12 @@
 <%
 
 request.setCharacterEncoding("utf-8");
-// int bno = Integer.parseInt(request.getParameter("bno"));
-// int no = Integer.parseInt(request.getParameter("no"));
+int bno = Integer.parseInt(request.getParameter("bno"));
+int no = Integer.parseInt(request.getParameter("no"));
 String riply = request.getParameter("riply");
 
-int bno=1;
-int no=1;
+// int bno=1;
+// int no=1;
 
 
 Timestamp rdate = new Timestamp(System.currentTimeMillis());
@@ -27,6 +27,8 @@ dto.setRdate(rdate);
 ReplyDAO dao = new ReplyDAO();
 dao.insertReply(dto);
 
-response.sendRedirect("replyForm.jsp");
-
 %>
+
+<script type="text/javascript">
+location.href="CommendUpdatePro.jsp?bno=<%=bno%>";
+</script>

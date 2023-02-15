@@ -54,16 +54,16 @@
 </head>
 <body>
 <%
-//int bno = Integer.parseInt(request.getParameter("bno"));
-int bno=1; // 임시값
-//String id=(String)session.getAttribute("id");
-// UserDAO dao = new UserDAO();
-// UserDTO dto = dao.getUser(id);
-// int no = dto.getNo();
-int no=1; // 임시값
-String id="hong1234"; // 임시값
+int bno = Integer.parseInt(request.getParameter("bno"));
+// int bno=1; // 임시값
+String id=(String)session.getAttribute("id");
 UserDAO dao = new UserDAO();
 UserDTO dto = dao.getUser(id);
+int no = dto.getNo();
+
+// int no=1; // 임시값
+// String id="hong123"; // 임시값
+
 ReplyDAO rdao = new ReplyDAO();
 
 int count = rdao.countReply(bno); // 댓글 개수 계산
@@ -86,6 +86,8 @@ CommendDAO cdao = new CommendDAO();
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
                                     </div>
+                                    <input type="hidden" name="bno" value="<%=bno%>" >
+                                    <input type="hidden" name="no" value="<%=no%>" >
                                     <div class="col-lg-12 text-center">
                                         <textarea placeholder="댓글을 입력하세요" name="riply"></textarea>
                                         <button type="submit" class="site-btn">댓글 쓰기</button>
