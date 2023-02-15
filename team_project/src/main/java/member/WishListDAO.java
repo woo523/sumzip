@@ -19,7 +19,7 @@ public class WishListDAO {
 		Connection con=ds.getConnection();
 		return con;
 	}
-public void insertWish(int pno) {
+public void insertWish(int no,int pno) {
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	WishListDTO dto = new WishListDTO();
@@ -29,8 +29,8 @@ public void insertWish(int pno) {
 		String sql = "insert into Wish_List(no,pno) values(?,?)";
 		pstmt = con.prepareStatement(sql);
 		
-		pstmt.setInt(1, dto.getNo());
-		pstmt.setInt(2, dto.getPno());
+		pstmt.setInt(1, no);
+		pstmt.setInt(2, pno);
 		
 		pstmt.executeUpdate();
 
@@ -43,16 +43,16 @@ public void insertWish(int pno) {
 	return;
 	}	
 
-public void deleteWish(int pno) {
+public void deleteWish(int no,int pno) {
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	WishListDTO dto = new WishListDTO();
 	try {
 		con = getConnection();
 		
-		String sql = "delete from Wish_List where pno=?";
+		String sql = "delete from Wish_List where no=? and pno=?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, dto.getPno());
+		pstmt.setInt(1, pno);
 		
 		pstmt.executeUpdate();
 

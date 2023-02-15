@@ -38,7 +38,7 @@ if(id!=null){
 		<td><%=d.getPname()%></td>
 		<td><%=d.getPprice()%></td>
 		<td><%=d.getPaddress()%></td>
-		<td><%=d.getPpic1()%></td>
+	
 	</tr>
 	<%
 		}
