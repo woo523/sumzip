@@ -13,7 +13,7 @@
 		<!-- 헤더들어가는 곳 -->
 
 		<h1>Login</h1>
-		<form action="loginPro.jsp" id="join" method="post">
+		<form action="MemberLoginPro.me" id="join" method="post">
 			<fieldset>
 				
 				<input type="text" name="id" placeholder="아이디를 입력하세요"><br> 

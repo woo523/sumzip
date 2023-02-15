@@ -32,16 +32,38 @@ public class BoardFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward=null;
 		
-		if(sPath.equals("/BoardReplyInsert.bo")) {
-			action = new BoardReplyInsert();
+		if(sPath.equals("/BoardList.bo")){
+			action = new BoardList();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(sPath.equals("/BoardContent.bo")) {
+			action = new BoardContent();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardReplyInsert.bo")) {
+			action = new BoardReplyInsert();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		}
 		
-		
+		if(forward!=null) {
+			if(forward.isRedirect()==true) {
+				response.sendRedirect(forward.getPath());
+			}else {
+				RequestDispatcher dispatcher=
+						request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response); // request값 들고감
+			}
+		}
 
 		
 	}

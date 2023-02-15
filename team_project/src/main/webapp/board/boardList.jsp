@@ -12,28 +12,36 @@
 <body>
 
 <%
-BoardDAO dao= new BoardDAO();
+// BoardDAO dao= new BoardDAO();
 
-// 한페이지에 보여줄 글 개수
-int pageSize=10;
+// // 한페이지에 보여줄 글 개수
+// int pageSize=10;
 
-String pageNum=request.getParameter("pageNum");
-if(pageNum==null){
-	 pageNum="1";
-	}
+// String pageNum=request.getParameter("pageNum");
+// if(pageNum==null){
+// 	 pageNum="1";
+// 	}
 
-int currentPage=Integer.parseInt(pageNum);
+// int currentPage=Integer.parseInt(pageNum);
 
-int startRow=(currentPage-1)*pageSize+1;
+// int startRow=(currentPage-1)*pageSize+1;
 
-int endRow= startRow+pageSize-1;
+// int endRow= startRow+pageSize-1;
 
-ArrayList<BoardDTO> boardList=dao.getBoardList(startRow, pageSize);
+// ArrayList<BoardDTO> boardList=dao.getBoardList(startRow, pageSize);
+
+ArrayList<BoardDTO> boardList = (ArrayList<BoardDTO>)request.getAttribute("boardList");
+int currentPage =(Integer)request.getAttribute("currentPage");
+int pageBlock =(Integer)request.getAttribute("pageBlock");
+int startPage =(Integer)request.getAttribute("startPage");
+int endPage =(Integer)request.getAttribute("endPage");
+int pageCount =(Integer)request.getAttribute("pageCount");
+
+
 %>
 
 <h3>board/boardList.jsp</h3>
-</tbody>
-</table>
+
 <table border="0" width="50%">
 <tbody><tr align="right">
 <td>
@@ -60,7 +68,7 @@ for(int i=0; i<boardList.size(); i++){
 <tr><td align="center"><%=dto.getBno() %></td>
 <td align="center"><%=dto.getNo() %></td>
     <td align="center">
-    <a href="boardContent.jsp?bno=<%=dto.getBno() %>">
+    <a href="BoardContent.bo?bno=<%=dto.getBno() %>">
     <%=dto.getBtitle() %>
     </a></td>
 <td align="center"><%=dto.getBdate() %></td>
@@ -84,45 +92,42 @@ for(int i=0; i<boardList.size(); i++){
 </tr>
 </tbody></table>
 </form>
-</tbody>
-</table>
-</form>
 
 <% 
-// 한 화면에 보여줄 페이지개수
-int pageBlock=10;
+// // 한 화면에 보여줄 페이지개수
+// int pageBlock=10;
 
-// 시작하는 페이지 번호
-int startPage=(currentPage-1)/pageBlock*pageBlock+1;
+// // 시작하는 페이지 번호
+// int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 
-// 끝나는 페이지 번호
-int endPage=startPage+pageBlock-1;
+// // 끝나는 페이지 번호
+// int endPage=startPage+pageBlock-1;
 
-// 전체글 개수를 정의한 getBoardCount()메서드 호출
-int count= dao.getBoardCount();
+// // 전체글 개수를 정의한 getBoardCount()메서드 호출
+// int count= dao.getBoardCount();
 
-// 전체페이지
-int pageCount=count/pageSize+(count%pageSize==0?0:1);
-if(endPage > pageCount){
-	endPage = pageCount;
-}
+// // 전체페이지
+// int pageCount=count/pageSize+(count%pageSize==0?0:1);
+// if(endPage > pageCount){
+// 	endPage = pageCount;
+// }
 
 
 if(startPage > pageBlock){
 	%>
-<a href="boardList.jsp?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
 }
 
 for(int i=startPage;i<=endPage;i++){
 	%>
-	<a href="boardList.jsp?pageNum=<%=i%>"><%=i %></a> 
+	<a href="BoardList.bo?pageNum=<%=i%>"><%=i %></a> 
 	<%
 }
 
 if(endPage < pageCount){
 	%>
-<a href="boardList.jsp?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+<a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
 }
 %>

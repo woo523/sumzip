@@ -33,6 +33,17 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("main/main.jsp");
 			forward.setRedirect(false);				
+		}else if(sPath.equals("/MemberLogin.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/login.jsp");
+			forward.setRedirect(false);	
+		}else if(sPath.equals("/MemberLoginPro.me")) {
+			action = new MemberLoginPro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(sPath.equals("/MemberReview.me")) {
 			action = new MemberReview();
 			try {
@@ -41,6 +52,7 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
 		
 		
 		
