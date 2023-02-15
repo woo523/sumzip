@@ -132,7 +132,7 @@
 							System.out.println("appointOutdate is before today");
 							%>
 							<li><button type="button" class="btn btn-outline-success" onclick="location.href='reviewModify.jsp?ano=<%=adto.getAno()%>'">후기 수정하기</button>
-								<button type="button" class="btn btn-outline-secondary" onclick="location.href='reviewDelete.jsp?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
+								<button type="button" class="btn btn-outline-secondary" onclick="location.href='MemberReviewDelete.me?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
 							<%
 						}
 					}

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import member.ReviewDAO;
 
-public class MemberDelete implements Action{
+public class MemberReviewDelete implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,7 +22,7 @@ public class MemberDelete implements Action{
 		//response.sendRedirect("myList.jsp");
 		ActionForward forward = new ActionForward();
 		forward.setPath("member/myList.jsp");
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		
 		return forward;
 	}
