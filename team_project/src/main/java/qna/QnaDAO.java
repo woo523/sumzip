@@ -219,54 +219,27 @@ public int getQnaCount() {
 	return count;
 }// getQnaCount()
 
-//조회수 메서드
-public void qCount() {
+// 조회수 증가
+public void qCount(int qno) {
 	System.out.println("qCount QnaDTO()");
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-	
 	try {
 		con = getConnection();
 
-		int qno=1;
-
-		String sql = "select max(qcount) from qna";
+		String sql = "update qna set qcount = qcount +1 where qno=?";
 		pstmt = con.prepareStatement(sql);
-		rs=pstmt.executeQuery();
-		if(rs.next()) {
-			qno=rs.getInt("max(qcount)")+1;
-		}
-	} catch (Exception e) {
-		e.printStackTrace();
-	}finally {
-		if(rs!=null) try { rs.close();} catch (Exception e2) {}
-		if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
-		if(con!=null) try { con.close();} catch (Exception e2) {}
-	}
-}// qCount()
-
-// 조회수 업데이트 메서드
-public void updateQcount(QnaDTO dto) {
-	System.out.println("updateQcount()");
-	Connection con = null;
-	PreparedStatement pstmt = null;
-	try {
-		// 1~2단계
-		con = getConnection();
-		// 3 sql
-		String sql = "update qna set qcount=? where qno=?";
-		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, dto.getQcount());
-		pstmt.setInt(2, dto.getQno());
-	
+		pstmt.setInt(1, qno);
+		
 		pstmt.executeUpdate();		
 	} catch (Exception e) {
-		e.printStackTrace(); 
+		e.printStackTrace();
 	} finally {
 		if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
 		if (con != null) try {con.close();} catch (Exception e2) {}
 	}
-} //updateQcount()
+	
+}
+
 }
 

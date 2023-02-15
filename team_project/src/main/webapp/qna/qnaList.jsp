@@ -15,7 +15,7 @@
 <jsp:include page="../inc/header.jsp" />
 <!-- 헤더들어가는 곳 -->
 <%
-//BoardDAO 객체 생성
+//QnaDAO 객체 생성
 QnaDAO dao=new QnaDAO();
 
 int pageSize=10;
