@@ -53,6 +53,27 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
+		}else if(sPath.equals("/BoardReplyUpdateForm.bo")) {
+			action = new BoardReplyUpdateForm();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}else if(sPath.equals("/BoardReplyUpdatePro.bo")) {
+			action = new BoardReplyUpdatePro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardReplyDeletePro.bo")) {
+			action = new BoardReplyDeletePro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward!=null) {

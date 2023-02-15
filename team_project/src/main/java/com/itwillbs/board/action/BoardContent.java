@@ -41,10 +41,11 @@ public class BoardContent implements Action{
 		request.setAttribute("replylist", replylist);
 		request.setAttribute("count", count);
 		request.setAttribute("no", no);
+		request.setAttribute("bno", bno);
 		
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("board/boardContent.jsp");
+		forward.setPath("board/boardContent.jsp?bno="+bno);
 		forward.setRedirect(false);
 		
 		return forward;

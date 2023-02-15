@@ -12,6 +12,7 @@ public class BoardReplyInsert implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("BoardReplyInsert excute()");
 		request.setCharacterEncoding("utf-8");
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		int no = Integer.parseInt(request.getParameter("no"));
@@ -29,10 +30,9 @@ public class BoardReplyInsert implements Action {
 		ReplyDAO dao = new ReplyDAO();
 		dao.insertReply(dto);
 		
-		request.setAttribute("bno", bno);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("BoardContent.bo");
+		forward.setPath("BoardContent.bo?bno="+bno+"");
 		forward.setRedirect(true);
 		
 		

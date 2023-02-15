@@ -116,7 +116,7 @@ ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replyl
 	                                <p><%=rdto.getRiply()%></p>
 	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">답댓글</a>
 	                                <%if(no==rdto.getNo()){ %>
-	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>&no=<%=rdto.getNo()%>"class="comment-btn">수정</a>
+	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">수정</a>
 	                                <a href="BoardReplyDeletePro.bo?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
 <!-- 대댓글 리스트 -->
 									<%	
