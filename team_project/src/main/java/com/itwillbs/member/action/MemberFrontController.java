@@ -24,50 +24,72 @@ public class MemberFrontController extends HttpServlet {
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MemberFrontController doProcess()");
+		
 		System.out.println("뽑은 가상주소 : " + request.getServletPath());
 		String sPath=request.getServletPath();
 		
 		Action action = null;
 		ActionForward forward=null;
+		
 		if(sPath.equals("/Main.me")) {
 			forward = new ActionForward();
 			forward.setPath("main/main.jsp");
 			forward.setRedirect(false);				
-		}else if(sPath.equals("/MemberLogin.me")) {
+		} else if(sPath.equals("/MemberLogin.me")) {
 			forward = new ActionForward();
 			forward.setPath("member/login.jsp");
 			forward.setRedirect(false);	
-		}else if(sPath.equals("/MemberLoginPro.me")) {
+			
+		} else if(sPath.equals("/MemberLoginPro.me")) {
 			action = new MemberLoginPro();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("/MemberReview.me")) {
+			
+		} else if(sPath.equals("/MemberReview.me")) {
 			action = new MemberReview();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+		} else if(sPath.equals("/MemberMyList.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/myList.jsp");
+			forward.setRedirect(false);
+			
+		} else if(sPath.equals("/MemberReview.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/review.jsp");
+			forward.setRedirect(false);	
+			
+		} else if(sPath.equals("/MemberReviewPro.me")) {
+			action = new MemberReviewPro();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 		
-		
-		
+		// ----------------------------------------------
+		// 주소 이동
 		if(forward!=null) {
 			if(forward.isRedirect()==true) {
 				response.sendRedirect(forward.getPath());
 			}else {
-				RequestDispatcher dispatcher=
-						request.getRequestDispatcher(forward.getPath());
+				// forward.isRedirect() == false
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response); // request값 들고감
 			}
-		}
+			
+		}// if
 		
-	}
-	
-	
+	} // doProcess
 
-}
+} // MemberFrontController

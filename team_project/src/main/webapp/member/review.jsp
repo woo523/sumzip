@@ -156,7 +156,7 @@
 	</div>
 	
 	<!-- footer -->
-<%-- 	<jsp:include page="../inc/footer.jsp" /> --%>
+	<jsp:include page="../inc/footer.jsp" />
 
 </body>
 <style>
@@ -169,7 +169,7 @@
   		font-family: 'NanumSquareNeo';
  		max-width: 750px;
  		margin: 0 auto;
- 		height: 100%;
+ 		height: 930PX;
  		padding: 20px;
  		box-sizing: border-box;
  	}
