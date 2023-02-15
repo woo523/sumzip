@@ -1,14 +1,15 @@
 package com.itwillbs.board.action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import board.BoardDAO;
 import board.BoardDTO;
-import board.CommendDAO;
 import board.ReplyDAO;
 import board.ReplyDTO;
 import member.UserDAO;
@@ -18,13 +19,24 @@ public class BoardContent implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+	
+	
 		int bno=Integer.parseInt(request.getParameter("bno"));
 
 		BoardDAO bdao=new BoardDAO();
 		BoardDTO bdto=bdao.getBoard(bno);
 		HttpSession session = request.getSession();
+		
 		String id=(String)session.getAttribute("id");
+		if(id==null) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('로그인 후에 보실 수 있습니다');");
+			out.println("location.href='MemberLogin.me';");
+			out.println("</script>");
+			out.close();	
+		}
 		UserDAO udao = new UserDAO();
 		UserDTO udto = udao.getUser(id);
 		int no = udto.getNo();
@@ -44,11 +56,15 @@ public class BoardContent implements Action{
 		request.setAttribute("bno", bno);
 		
 		
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("board/boardContent.jsp?bno="+bno);
-		forward.setRedirect(false);
+		forward.setRedirect(false);		
+
 		
 		return forward;
+		
+		
 	}
 
 }
