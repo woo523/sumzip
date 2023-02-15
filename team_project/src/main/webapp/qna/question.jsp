@@ -12,11 +12,12 @@
 </head>
 <body>
 <%
+
 // request에 저장된 num 파라미터값 가져오기
 int qno=Integer.parseInt(request.getParameter("qno"));
 // QnaDAO 객체생성
 QnaDAO dao=new QnaDAO();
-
+dao.qCount(qno);
 
 // QnaDTO dto = dao.getQna(no) 메서드 호출
 QnaDTO dto = dao.getQna(qno);  
