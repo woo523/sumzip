@@ -97,6 +97,7 @@ public void deleteWish(int no,int pno) {
 
 
 public ArrayList<ProductDTO> getWishArrayList(int no) {
+	System.out.println("no="+no);
 	ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
 	ProductDAO pdao = new ProductDAO();
 	Connection con = null;
@@ -110,10 +111,11 @@ public ArrayList<ProductDTO> getWishArrayList(int no) {
 		rs = pstmt.executeQuery();
 		
 
-		if (rs.next()) {
+		while (rs.next()) {
 			pdao = new ProductDAO();
-			list.add(pdao.getProduct(rs.getInt("Pno")));
+			list.add(pdao.getProduct(rs.getInt("pno")));
 		}
+		System.out.println(list.size());
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {

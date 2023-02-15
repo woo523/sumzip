@@ -20,7 +20,8 @@ if(id!=null){
 	UserDAO udao=new UserDAO();
 	UserDTO dto=udao.getUser(id); //no
 	WishListDAO dao= new WishListDAO();
-	int no=dto.getNo();
+// 	int no=dto.getNo();
+	int no=1;
 	int pno=3;
 	ArrayList<ProductDTO> list=dao.getWishArrayList(no);
 	
