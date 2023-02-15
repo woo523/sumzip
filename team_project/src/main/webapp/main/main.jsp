@@ -10,7 +10,7 @@
 <div id="wrap">
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
-
+왜 안와......
 <jsp:include page="../inc/footer.jsp" />
 </div>
 </body>

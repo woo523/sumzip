@@ -148,7 +148,7 @@
 							// 후기 작성 가능
 							System.out.println("appointOutdate is before today");
 							%>
-							<li><button type="button" id="reviewBtn" class="btn btn-outline-success" onclick="location.href='review.jsp?ano=<%=adto.getAno() %>'">이용 후기 작성하기</button></li>
+							<li><button type="button" id="reviewBtn" class="btn btn-outline-success" onclick="location.href='MemberReview.me?ano=<%=adto.getAno() %>'">이용 후기 작성하기</button></li>
 							<%
 						}
 					}
