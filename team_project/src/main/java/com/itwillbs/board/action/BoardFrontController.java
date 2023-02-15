@@ -1,4 +1,4 @@
-package com.itwillbs.member.action;
+package com.itwillbs.board.action;
 
 import java.io.IOException;
 
@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MemberFrontController extends HttpServlet {
 
+public class BoardFrontController extends HttpServlet {
+
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MemberFrontController doGet()");
+		System.out.println("BoardFrontController doGet()");
 		doProcess(request, response);
 	}
 
@@ -29,12 +31,9 @@ public class MemberFrontController extends HttpServlet {
 		
 		Action action = null;
 		ActionForward forward=null;
-		if(sPath.equals("/Main.me")) {
-			forward = new ActionForward();
-			forward.setPath("main/main.jsp");
-			forward.setRedirect(false);				
-		}else if(sPath.equals("/MemberReview.me")) {
-			action = new MemberReview();
+		
+		if(sPath.equals("/BoardReplyInsert.bo")) {
+			action = new BoardReplyInsert();
 			try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
@@ -43,19 +42,7 @@ public class MemberFrontController extends HttpServlet {
 		}
 		
 		
-		
-		if(forward!=null) {
-			if(forward.isRedirect()==true) {
-				response.sendRedirect(forward.getPath());
-			}else {
-				RequestDispatcher dispatcher=
-						request.getRequestDispatcher(forward.getPath());
-				dispatcher.forward(request, response); // request값 들고감
-			}
-		}
+
 		
 	}
-	
-	
-
 }
