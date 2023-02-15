@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/flaticon.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
 <!-- <script type="text/javascript" src="../script/jquery-3.6.3.js"></script> -->
 <!-- <script type="text/javascript"> -->
@@ -54,24 +54,28 @@
 </head>
 <body>
 <%
-int bno = Integer.parseInt(request.getParameter("bno"));
-// int bno=1; // 임시값
+// int bno = Integer.parseInt(request.getParameter("bno"));
+// // int bno=1; // 임시값
+// String id=(String)session.getAttribute("id");
+// UserDAO dao = new UserDAO();
+// UserDTO dto = dao.getUser(id);
+// int no = dto.getNo();
+
+// // int no=1; // 임시값
+// // String id="hong123"; // 임시값
+
+// ReplyDAO rdao = new ReplyDAO();
+
+// int count = rdao.countReply(bno); // 댓글 개수 계산
+
+// ArrayList<ReplyDTO> replylist = rdao.getReplyList(bno);
+
+// CommendDAO cdao = new CommendDAO();
 String id=(String)session.getAttribute("id");
-UserDAO dao = new UserDAO();
-UserDTO dto = dao.getUser(id);
-int no = dto.getNo();
-
-// int no=1; // 임시값
-// String id="hong123"; // 임시값
-
-ReplyDAO rdao = new ReplyDAO();
-
-int count = rdao.countReply(bno); // 댓글 개수 계산
-
-ArrayList<ReplyDTO> replylist = rdao.getReplyList(bno);
-
-CommendDAO cdao = new CommendDAO();
-
+int bno = (Integer)request.getAttribute("bno");
+int no = (Integer)request.getAttribute("no");
+int count = (Integer)request.getAttribute("count");
+ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replylist");
 %>
    <section class="blog-details-section">
         <div class="conainer">
@@ -81,7 +85,7 @@ CommendDAO cdao = new CommendDAO();
                        <div class="leave-comment">
 <!-- 댓글쓰기 폼 -->
                             <h4>댓글 쓰기</h4>
-                            <form action="replyInsertpro.jsp" class="comment-form">
+                            <form action="BoardReplyInsert.bo" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
@@ -104,31 +108,34 @@ CommendDAO cdao = new CommendDAO();
                                 <div class="sc-text">
 								<% for(int i=0;i<replylist.size();i++){ 
 									ReplyDTO rdto = replylist.get(i);
-									dto = dao.getUserNo(rdto.getNo());
+									UserDAO udao = new UserDAO();
+									UserDTO udto = udao.getUserNo(rdto.getNo());
 									%>
 									<div><span><%=rdto.getRdate()%></span>
-	                                <h5><%=dto.getId()%></h5>
+	                                <h5><%=udto.getId()%></h5>
 	                                <p><%=rdto.getRiply()%></p>
-	                                <a href="CommendForm.jsp?rno=<%=rdto.getRno()%>"class="comment-btn">답댓글</a>
+	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">답댓글</a>
 	                                <%if(no==rdto.getNo()){ %>
-	                                <a href="replyUpdateForm.jsp?rno=<%=rdto.getRno()%>&no=<%=rdto.getNo()%>"class="comment-btn">수정</a>
-	                                <a href="replyDeletePro.jsp?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
+	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>&no=<%=rdto.getNo()%>"class="comment-btn">수정</a>
+	                                <a href="BoardReplyDeletePro.bo?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
 <!-- 대댓글 리스트 -->
-									<%			
+									<%	
+									CommendDAO cdao = new CommendDAO();
 									ArrayList<CommendDTO> commendlist = cdao.getCommendList(rdto.getRno());
 									for(int j=0;j<commendlist.size();j++){
 										CommendDTO cdto = commendlist.get(j);
 										if(rdto.getRno()==cdto.getRno()){
-											dto = dao.getUserNo(cdto.getNo());
+											udao = new UserDAO();
+											udto = udao.getUserNo(cdto.getNo());
 									if(j==0){%>
 								<Br><div class="single-comment-item reply-comment"><%}%>
                                 <div class="sc-text">
                                     <span><%=cdto.getCdate()%></span>
-                                    <h5><%=dto.getId()%></h5>
+                                    <h5><%=udto.getId()%></h5>
                                     <p><%=cdto.getCommend()%></p>
                                     <%if(no==cdto.getNo()){ %>
-                                    <a href="CommendUpdateForm.jsp?cno=<%=cdto.getCno()%>&no=<%=cdto.getNo()%>" class="comment-btn like-btn">수정</a>
-                                    <a href="CommendDeletePro.jsp?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
+                                    <a href="CommendUpdateForm.bo?cno=<%=cdto.getCno()%>&no=<%=cdto.getNo()%>" class="comment-btn like-btn">수정</a>
+                                    <a href="CommendDeletePro.bo?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
                                 </div>
                                 <%if(j==commendlist.size()-1){%>
                                 </div>

@@ -35,9 +35,13 @@ public class BoardContent implements Action{
 
 		ArrayList<ReplyDTO> replylist = rdao.getReplyList(bno);
 
-		CommendDAO cdao = new CommendDAO();
+		
 		
 		request.setAttribute("bdto", bdto);
+		request.setAttribute("replylist", replylist);
+		request.setAttribute("count", count);
+		request.setAttribute("no", no);
+		
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("board/boardContent.jsp");

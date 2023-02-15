@@ -35,6 +35,7 @@ public class BoardReplyInsert implements Action {
 		forward.setPath("BoardContent.bo");
 		forward.setRedirect(true);
 		
+		
 		return forward;
 	}
 	
