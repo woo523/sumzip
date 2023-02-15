@@ -32,7 +32,8 @@ public class MemberFrontController extends HttpServlet {
 		if(sPath.equals("/Main.me")) {
 			forward = new ActionForward();
 			forward.setPath("main/main.jsp");
-			forward.setRedirect(false);				
+			forward.setRedirect(false);			
+			
 		}else if(sPath.equals("/MemberReview.me")) {
 			action = new MemberReview();
 			try {
@@ -40,22 +41,22 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
 		
 		
-		
-		if(forward!=null) {
-			if(forward.isRedirect()==true) {
+		// ----------------------------------------------
+		// 주소 이동
+		if(forward != null) {
+			if(forward.isRedirect() == true) {
 				response.sendRedirect(forward.getPath());
 			}else {
-				RequestDispatcher dispatcher=
-						request.getRequestDispatcher(forward.getPath());
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response); // request값 들고감
 			}
 			
-		}
-	}
+		} // if
+		
+	} // doProcess
 	
-	
-
-}
+} // MemberFrontController
