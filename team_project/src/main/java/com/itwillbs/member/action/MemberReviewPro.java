@@ -70,8 +70,8 @@ public class MemberReviewPro implements Action {
 	 	
 	 	//response.sendRedirect("myList.jsp");
 	 	ActionForward forward = new ActionForward();
-	 	forward.setPath("myList.bo");
-	 	forward.setRedirect(true);
+	 	forward.setPath("member/myList.jsp");
+	 	forward.setRedirect(false);
 		
 		return forward;
 	}

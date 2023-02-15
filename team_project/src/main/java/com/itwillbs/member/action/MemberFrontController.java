@@ -66,6 +66,22 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+	   } else if(sPath.equals("/MemberReviewModifyForm.me")) {
+			action = new MemberReviewModifyForm();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+	   } else if(sPath.equals("/MemberReviewModifyPro.me")) {
+			action = new MemberReviewModifyPro();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 	   } else if(sPath.equals("/MemberReviewDelete.me")) {
 			action = new MemberReviewDelete();
 			try {

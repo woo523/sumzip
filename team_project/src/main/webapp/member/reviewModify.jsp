@@ -97,10 +97,11 @@
 		<%
 		response.sendRedirect("login.jsp");
 	}
+	
 	int ano = Integer.parseInt(request.getParameter("ano"));
 	
-	ReviewDAO rdao = new ReviewDAO();
-	ReviewDTO rdto = rdao.getReview(ano);
+	ReviewDTO rdto = (ReviewDTO)request.getAttribute("rdto");
+	
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -110,7 +111,7 @@
 			펜션정보를 가지고 올까요 말까요?
 		</fieldset>
 		<article>
-			<form name="reviewForm" action="reviewModifyPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
+			<form name="reviewForm" action="MemberReviewModifyPro.me" id="reviewForm" method ="post" onsubmit="return formCheck()" enctype="multipart/form-data">
 				<input type="hidden" name="ano" value="<%=ano %>">
 				<input type="hidden" name="rno" value="<%=rdto.getRno() %>">
 				<div class="reviewTitle">
@@ -143,7 +144,8 @@
 				</div>
 					
 				<div>
-					<button type="button" name="rpic1" class="btn btn-outline-success">사진 첨부 (0/3)</button>
+					<input type="file" name="rpic1"><%=rdto.getRpic1() %>
+					<input type="hidden" name="oldrpic1" value="<%=rdto.getRpic1() %>">
 				</div>
 				
 				<div id="Buttons">
