@@ -11,12 +11,14 @@ public class MemberReviewModifyForm implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println("MemberReviewUpdateForm execute()");
+		System.out.println("MemberReviewModifyForm execute()");
 		
 		int ano = Integer.parseInt(request.getParameter("ano"));
 		
 		ReviewDAO rdao = new ReviewDAO();
 		ReviewDTO rdto = rdao.getReview(ano);
+		
+		request.setAttribute("rdto", rdto);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("/member/reviewModify.jsp");

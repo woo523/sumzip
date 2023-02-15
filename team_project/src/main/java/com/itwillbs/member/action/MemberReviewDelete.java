@@ -21,8 +21,8 @@ public class MemberReviewDelete implements Action{
 		
 		//response.sendRedirect("myList.jsp");
 		ActionForward forward = new ActionForward();
-		forward.setPath("member/myList.jsp");
-		forward.setRedirect(false);
+		forward.setPath("MemberMyList.me");
+		forward.setRedirect(true);
 		
 		return forward;
 	}

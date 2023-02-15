@@ -11,7 +11,7 @@
 	<meta charset="UTF-8">
 	<title>review.JSP</title>
 	
-	<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
+	<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 	<script type="text/javascript">
 		// 별점 마킹 모듈 프로토타입으로 생성
 		function Rating(){};

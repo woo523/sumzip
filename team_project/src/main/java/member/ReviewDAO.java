@@ -162,12 +162,13 @@ public class ReviewDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "update review set rtitle=?, rstar=?, rcontent=? where rno = ?";
+			String sql = "update review set rtitle=?, rstar=?, rcontent=?, rpic1=? where rno = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rdto.getRtitle());
 			pstmt.setString(2, rdto.getRstar());
 			pstmt.setString(3, rdto.getRcontent());
-			pstmt.setInt(4, rdto.getRno());
+			pstmt.setString(4, rdto.getRpic1());
+			pstmt.setInt(5, rdto.getRno());
 			
 			pstmt.executeUpdate();
 			

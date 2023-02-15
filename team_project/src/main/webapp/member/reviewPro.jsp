@@ -18,19 +18,19 @@
 	
 	String id = (String)session.getAttribute("id");
 	
-	String uploadPath = request.getRealPath("/upload");
-	System.out.println(uploadPath);
-	int maxSize = 10*1024*1024;
-	MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+// 	String uploadPath = request.getRealPath("/upload");
+// 	System.out.println(uploadPath);
+// 	int maxSize = 10*1024*1024;
+// 	MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 	
-	int ano = Integer.parseInt(multi.getParameter("ano"));
+	int ano = Integer.parseInt(request.getParameter("ano"));
 	
-	String rtitle = multi.getParameter("title");
-	String rstar = multi.getParameter("rating"); 
-	String rcontent = multi.getParameter("content");
+	String rtitle = request.getParameter("title");
+	String rstar = request.getParameter("rating"); 
+	String rcontent = request.getParameter("content");
 	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
-	String rpic1 = multi.getFilesystemName("rpic1");
+// 	String rpic1 = multi.getFilesystemName("rpic1");
 	
 	// 로그인 후 id, no 값 가져오기
 	UserDAO udao = new UserDAO();
@@ -47,7 +47,7 @@
  	dto.setRcontent(rcontent);
  	dto.setRcount(rcount);
  	dto.setRdate(rdate);
- 	dto.setRpic1(rpic1);
+//  	dto.setRpic1(rpic1);
  
  	// 리턴X insertReview()
  	ReviewDAO dao = new ReviewDAO();
