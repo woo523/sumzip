@@ -91,14 +91,14 @@
 									if(dto.getUtype()==1){
 									%>
 										<div id="login">♥<%=id %> 님♥ |
-										<a href="../member/logout.jsp">Logout</a>	|
-										<a href="../member/myPage_user.jsp">Mypage</a></div>
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_user.me">Mypage</a></div>
 										<% 
 									}else if(dto.getUtype()==2){
 										%>
 										<div id="login">♥<%=id %> 님♥ |
-										<a href="../member/logout.jsp">Logout</a>	|
-										<a href="../member/myPage_owner.jsp">Mypage</a></div>
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_owner.me">Mypage</a></div>
 										<%
 									}
 									%>

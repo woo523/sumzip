@@ -20,26 +20,23 @@ if(id!=null){
 	UserDAO udao=new UserDAO();
 	UserDTO dto=udao.getUser(id); //no
 	WishListDAO dao= new WishListDAO();
-// 	int no=dto.getNo();
-	int no=1;
-	int pno=3;
+	int no=dto.getNo();
+// 	int no=1;
 	ArrayList<ProductDTO> list=dao.getWishArrayList(no);
 	
-
 	%>
-
-	<table border=1>
-	<tr><td>유저이름</td><td>숙박가격</td><td>주소</td><td>ppic1</td></tr>
+<table border=1>
+	<tr><td>제품번호</td><td>제품이름</td><td>숙박가격</td><td>주소</td></tr>
 	<%
-		
+	dao.wishbutton(12,9);	
 	for(int i=0; i<list.size(); i++){
 		ProductDTO d=list.get(i);
 	%>
 	<tr>
+		<td><%=d.getPno()%></td>
 		<td><%=d.getPname()%></td>
 		<td><%=d.getPprice()%></td>
 		<td><%=d.getPaddress()%></td>
-	
 	</tr>
 	<%
 		}
@@ -50,9 +47,21 @@ if(id!=null){
 }else {
 	response.sendRedirect("../member/login.jsp");
 }
+
+
 %>
-<!-- <button onclick = "location.href=''">찜해제</button> -->
-<!-- button onclick = "location.href=''">찜하기</button> -->
+
+<!-- <SCRIPT LANGUAGE="JavaScript"> -->
+// 	function button1()
+// 	{
+// 	    document.form1.buttonName.value = "yes";
+// 	    insertWish();
+// 	} 
+<!-- </SCRIPT> -->
+<!-- <form> -->
+<%-- <button onclick = "location.href='jjimAction.jsp?bbsID=<%=bbsID%>'">찜해제</button> --%>
+<!-- <button onclick = "location.href=''">찜하기</button> -->
+<!-- </form> -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->

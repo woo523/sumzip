@@ -20,7 +20,7 @@ function id_search() {
 		 }
 
 	 frm.method = "post";
-	 frm.action = "findIdPro.jsp"; //넘어간화면
+	 frm.action = "MemberFindIdPro.me"; //넘어간화면
 	 frm.submit();  
 	 }
 </script>

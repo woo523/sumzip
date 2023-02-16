@@ -6,27 +6,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>qna/answer_updateForm.jsp</title>
+<title>qna/a_update_Form.jsp</title>
 </head>
 <body>
 <%
 int qno=Integer.parseInt(request.getParameter("qno"));
 
 QnaDAO dao=new QnaDAO();
-
 QnaDTO dto = dao.getQna(qno); 
 %>
 
-<form action="question_updatePro.jsp" method="post"> 
-<h1>질문수정</h1>
-	<table border="1">
+<h1>답변수정</h1>
+<form action="answer_updatePro.jsp" method="post"> 
 		<input type="hidden" name="qno" value="<%=qno %>">
+	<table border="1">
+			<td colspan="2"><input type="checkbox" name="qstate" value="0" checked>답변완료</td>
 			<tr><td>작성자번호</td>
 			<td><input type="text" name="no" value="<%=dto.getNo() %>" readonly></td></tr>
-			<tr><td>제목</td>
-			<td><input type="text" name="qtitle" value=<%=dto.getQtitle() %>></td></tr>
 			<tr><td>내용</td>
-			<td><textarea name="qcontent" rows="10" cols="20"><%=dto.getQcontent() %></textarea></td></tr>
+			<td><textarea name="answer" rows="10" cols="20"><%=dto.getAnswer() %></textarea></td></tr>
 			<tr><td colspan="2"><input type="submit" value="글수정"></td></tr>
 	</table>
 </form>

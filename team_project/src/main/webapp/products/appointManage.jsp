@@ -22,7 +22,8 @@
 <br><br><br>
 
     <%
- String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
+    String id ="jung123";
+//  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 //로그인 확인 (비로그인시 로그인 화면으로 이동)
  if(id!=null){
  	UserDAO dao=new UserDAO();
@@ -175,7 +176,7 @@ if(endPage < pageCount){
 
 
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 <!-- 푸터 들어가는 곳 -->
 </body>
 </html>

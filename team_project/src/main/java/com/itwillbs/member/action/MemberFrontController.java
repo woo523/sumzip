@@ -90,6 +90,45 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+	   } else if(sPath.equals("/MemberFindId.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/findId.jsp");
+			forward.setRedirect(false);	
+			
+	   } else if(sPath.equals("/MemberFindIdPro.me")) {
+			action = new MemberFindIdPro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   } else if(sPath.equals("/MemberFindPass.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/findPass.jsp");
+			forward.setRedirect(false);	
+			
+	   } else if(sPath.equals("/MemberFindPassPro.me")) {
+			action = new MemberFindPassPro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   } else if(sPath.equals("/MemberLogout.me")) {
+			action = new MemberLogout();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   }else if(sPath.equals("/MemberMyPage_user.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/myPage_user.jsp");
+			forward.setRedirect(false);	
+	   }else if(sPath.equals("/MemberMyPage_owner.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/myPage_owner.jsp");
+			forward.setRedirect(false);	
 	   }
 		
 		
