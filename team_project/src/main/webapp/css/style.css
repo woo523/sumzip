@@ -90,18 +90,15 @@ ul, ol {
   Helper CSS
 -----------------------*/
 .tb{
-	
-	margin: 0px 200px;
 	font-size: 30px;
+	margin: 3px;
 	color: #111111;
 	font-weight: 400;
 	font-family: "Lora", serif;
+	padding : 10px;
+	margin-left:500px;
 }
-.am{
-	height:30px;
-	width:30px;
-	margin: 10px 40px 30px;
-}
+
 .section-title {
 	text-align: center;
 	margin-bottom: 22px;
