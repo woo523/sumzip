@@ -10,6 +10,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import board.BoardDTO;
+
 public class ReviewDAO {
 	
 	private Connection getConnection() throws Exception {
@@ -114,6 +116,47 @@ public class ReviewDAO {
 		return rdto;
 	
 	} // getReview()
+	
+	// ReviewList.jsp 연결메서드
+	public ArrayList<ReviewDTO> getReviewList(int startRow, int pageSize){
+		
+		System.out.println("ReviewDAO getReviewList()");
+		
+		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+		Connection con =null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try {
+			con=getConnection();
+			
+			String sql="select * from review order by bno desc limit ?,?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, startRow-1);
+			pstmt.setInt(2, pageSize);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReviewDTO rdto=new ReviewDTO();
+
+				rdto.setRtitle(rs.getString("rtitle"));
+				rdto.setRcontent(rs.getString("rcontent"));
+				rdto.setRpic1(rs.getString("rpic1"));
+				
+				reviewList.add(rdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return reviewList;
+		
+	}// getBoardList()
 	
 	// checkReview()
 	public boolean checkReview(int ano) {
