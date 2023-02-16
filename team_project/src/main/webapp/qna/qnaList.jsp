@@ -44,7 +44,7 @@ String qstatus = "";
 <article>
 <h3>Q&A</h3>
 	<table border="1">
-		<tr><td>글번호</td><td>작성자</td><td>질문유형</td><td>제목</td>
+		<tr><td>글번호</td><td>작성자</td><td>제목</td>
 		<td>글쓴날짜</td><td>답변상태</td><td>조회수</td></tr>
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
@@ -60,7 +60,6 @@ if(dto.getQstatus()==0){
 %>
 	<tr><td><%=dto.getQno() %></td>
 		<td><%=dto.getNo() %></td>
-		<td><%=dto.getQtype() %></td>
 		<td><a href="question.jsp?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dateFormat.format(dto.getQdate()) %></td>
 		<td><%=qstatus%></td>	

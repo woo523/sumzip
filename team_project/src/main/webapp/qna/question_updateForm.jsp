@@ -17,7 +17,7 @@ QnaDAO dao=new QnaDAO();
 QnaDTO dto = dao.getQna(qno); 
 %>
 <h1>글수정</h1>
-<form action="q_update_Pro.jsp" method="post"> 
+<form action="q_updatePro.jsp" method="post"> 
 	<table border="1">
 		<input type="hidden" name="qno" value="<%=qno %>">
 			<tr><td>작성자번호</td>

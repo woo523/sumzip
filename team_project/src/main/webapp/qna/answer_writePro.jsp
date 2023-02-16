@@ -8,7 +8,7 @@
 <%
 //request 한글처리
 request.setCharacterEncoding("utf-8");
-
+int qno=Integer.parseInt(request.getParameter("qno"));
 String id=(String)session.getAttribute("id");
 UserDAO udao=new UserDAO();
 UserDTO udto=udao.getUser(id);
@@ -18,25 +18,20 @@ int qpw=0000;
 String qtitle=request.getParameter("qtitle");
 int qcount=0;
 Timestamp qadate=new Timestamp(System.currentTimeMillis());
-String qcontent=request.getParameter("qcontent");
+String answer=request.getParameter("answer");
 
 //QnaDTO 객체생성 
 QnaDTO dto=new QnaDTO();
 
 //set메서드 호출해서 값 저장
-dto.setNo(udto.getNo());
-dto.setQtitle(qtitle);
-dto.setQtype("1");
-dto.setQstatus(0);
-dto.setQcount(qcount);
-dto.setQpw(qpw);
 dto.setQadate(qadate);
-dto.setQcontent(qcontent);
+dto.setAnswer(answer);
+dto.setQno(qno);
 
 //QnaDAO 객체생성
 QnaDAO dao=new QnaDAO();
 //updateQna(dto) 메서드 호출
-dao.updateQna(dto);
+dao.insertAnswer(dto);
 
 //글목록 qnaList.jsp
 response.sendRedirect("qnaList.jsp");
