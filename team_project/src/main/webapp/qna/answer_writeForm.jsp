@@ -24,7 +24,7 @@ if(id==null){
 %>
 
 <h1>답변</h1>
-	<form action="a_writePro.jsp" method="post"> 
+	<form action="answer_writePro.jsp" method="post"> 
 		<input type="hidden" name="no" value="<%=no%>">
 			<table border="1">
 				<tr><td>작성자</td>

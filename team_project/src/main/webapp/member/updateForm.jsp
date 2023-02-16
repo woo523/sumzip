@@ -69,11 +69,11 @@
 <!-- 왼쪽메뉴 -->
 
 <%
-// 세션값 가져오기 
+//세션에서 "id" 값을 가져오기 => 변수저장
 String id=(String)session.getAttribute("id");
-
+//UserDAO 객체생성
 UserDAO dao=new UserDAO();
-
+//UserDTO dto =  getMember(id) 메서드 호출
 UserDTO dto=dao.getUser(id);
 %>
 <article>

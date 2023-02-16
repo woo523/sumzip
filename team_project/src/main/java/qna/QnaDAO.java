@@ -49,8 +49,7 @@ public void insertQna(QnaDTO dto) {
 		pstmt.setString(5, dto.getQcontent()); // 질문글
 		pstmt.setInt(6, dto.getQcount()); // 조회수	
 		pstmt.setString(7, dto.getQtype());
-		pstmt.setTimestamp(8, dto.getQdate()); // 질문날짜
-		
+		pstmt.setTimestamp(8, dto.getQdate()); // 질문날짜	
 
 		pstmt.executeUpdate();
 		
@@ -157,11 +156,12 @@ public QnaDTO getQna(int qno) {
 		try {
 			con = getConnection();
 			
-			String sql = "update qna set qtitle=?, qcontent=? where qno=?";
+			String sql = "update qna set qtitle=?, qcontent=?, qadate=? where qno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getQtitle());
 			pstmt.setString(2, dto.getQcontent());
-			pstmt.setInt(3, dto.getQno());
+			pstmt.setTimestamp(3, dto.getQadate());
+			pstmt.setInt(4, dto.getQno());
 		
 			pstmt.executeUpdate();		
 		} catch (Exception e) {
