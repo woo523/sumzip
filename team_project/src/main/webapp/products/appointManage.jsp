@@ -23,17 +23,20 @@
 
     <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
+UserDTO dto =(UserDTO)request.getAttribute("dto");
+SalesDTO dto3=(SalesDTO)request.getAttribute("dto3");
+ProductDTO dto4=(ProductDTO)request.getAttribute("dto4");
 //로그인 확인 (비로그인시 로그인 화면으로 이동)
  if(id!=null){
- 	UserDAO dao=new UserDAO();
- 	UserDTO dto=dao.getUser(id);
- 	int no=dto.getNo();
- 	AppointmentDAO dao2=new AppointmentDAO();
- 	SalesDAO dao3=new SalesDAO();
- 	SalesDTO dto3=dao3.getSales(dto.getNo());
- 	ProductDAO dao4=new ProductDAO();
- 	ProductDTO dto4=dao4.getProduct(dto3.getPno());
-    
+//  	UserDAO dao=new UserDAO();
+//  	UserDTO dto=dao.getUser(id);
+//  	int no=dto.getNo();
+//  	AppointmentDAO dao2=new AppointmentDAO();
+//  	SalesDAO dao3=new SalesDAO();
+//  	SalesDTO dto3=dao3.getSales(dto.getNo());
+//  	ProductDAO dao4=new ProductDAO();
+//  	ProductDTO dto4=dao4.getProduct(dto3.getPno());
+    int no=dto.getNo();
     int pageSize=10;
 // 현 페이지 번호 가져오기 => 페이지번호가 없으면 1페이지 설정
 // http://localhost:8080/webProject/Appointment/list.jsp
@@ -61,8 +64,8 @@ int endRow = startRow+pageSize-1;
 //select * from Appointment order by num desc limit 시작행-1, 몇개
 // 리턴할형 ArrayList<AppointmentDTO>  getAppointmentList(int startRow, int pageSize) 메서드 정의 
 // ArrayList<AppointmentDTO>  AppointmentList = dao.getAppointmentList(startRow, pageSize) 메서드 호출
-ArrayList<AppointmentDTO> AppointmentList=dao2.getAppointmentList(no, startRow, pageSize);
-
+// ArrayList<AppointmentDTO> AppointmentList=dao2.getAppointmentList(no, startRow, pageSize);
+ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
 
 
 	
@@ -88,6 +91,7 @@ ArrayList<AppointmentDTO> AppointmentList=dao2.getAppointmentList(no, startRow, 
 	for(int i=0;i<AppointmentList.size();i++){
 		//배열 한칸에 내용 가져오기 
 		AppointmentDTO dto2=AppointmentList.get(i);
+		
 		%>
 	<tr><td class="tb"> <%=dto2.getAno()%> </td>
 	    <td class="tb"> <%=dto4.getPname()%> </td>
@@ -137,6 +141,7 @@ if(endPage > pageCount){
 	endPage = pageCount;
 }
 //10페이지 이전
+
 if(startPage > pageBlock){
 	%>
 	<a href="appointManage.jsp?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
@@ -168,7 +173,7 @@ if(endPage < pageCount){
 <%
 }else {
 	// 비로그인시 로그인 페이지로 이동
-	response.sendRedirect("../member/login.jsp");
+	response.sendRedirect("MemberLogin.me");
 }
 %>
 
