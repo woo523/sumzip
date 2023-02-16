@@ -42,6 +42,10 @@ if(id==null){
 	</table>
 </form>	
 
+	<input type="button" value="답변입력" 
+		onclick="location.href='answer_writeForm.jsp?qno=<%=dto.getQno()%>'">
+	<input type="button" value="글삭제" 
+		onclick="location.href='answer_delete.jsp?qno=<%=dto.getQno()%>'">
 	<input type="button" value="글목록" 
 		onclick="location.href='qnaList.jsp'">
 </body>

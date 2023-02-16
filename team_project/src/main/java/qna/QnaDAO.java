@@ -313,6 +313,6 @@ public void updateAnswer(QnaDTO dto) {
 			if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
 			if (con != null) try {con.close();} catch (Exception e2) {}
 		}
-	}// updateQna()
+	}// insertAnswer()
 }
 
