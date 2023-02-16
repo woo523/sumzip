@@ -12,7 +12,8 @@ public class BoardList implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+        System.out.println("BoardList execute()");
+        
 		BoardDAO dao=new BoardDAO();
 		int pageSize=10; // 한페이지에 몇개 게시글 보이게 할건지
 		String pageNum=request.getParameter("pageNum");

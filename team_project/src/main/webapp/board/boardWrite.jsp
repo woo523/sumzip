@@ -8,23 +8,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>board/boardWrite.jsp</title>
+</head>
+<body>
+
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
+
 
 <%
 String id=(String)session.getAttribute("id");
 
 if(id==null){
-	response.sendRedirect("../member/login.jsp");
+	response.sendRedirect("MemberLogin.me");
 }
 %>
 
 <h3>board/boardWrite.jsp</h3>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<title>board/boardWrite.jsp</title>
-</head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 
 <!-- 부트스트랩 사용하기 위해 -->
 
@@ -36,15 +38,10 @@ if(id==null){
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>게시판 글쓰기</title>
-
-</head>
-
-<body>
 
 <!-- 게시판 글쓰기 부분 -->
 
-<form action="boardWritePro.jsp" method="post" action="contentWriteProcess.jsp">
+<form action="BoardWritePro.bo" method="post" >
 
 <div class="container">
 
@@ -82,7 +79,7 @@ if(id==null){
 
 
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 
 </form>
 </body>

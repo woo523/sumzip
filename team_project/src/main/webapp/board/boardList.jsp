@@ -49,7 +49,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <table border="0" width="50%">
 <tbody><tr align="right">
 <td>
-<button type="button" onclick="location.href='boardWrite.jsp'">
+<button type="button" onclick="location.href='BoardWriteForm.bo'">
 글쓰기</button></td>
 </tr>
 </tbody></table>
@@ -139,7 +139,7 @@ if(endPage < pageCount){
 %>
 
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 
 </body>
 </html>

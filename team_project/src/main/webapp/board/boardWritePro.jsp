@@ -9,6 +9,7 @@ request.setCharacterEncoding("utf-8");
 
 // [유저번호, 제목, 내용] 변수에 저장
 // int no = Integer.parseInt(request.getParameter("no"));
+int no=3;
 String btitle= request.getParameter("btitle");
 String bcontent=request.getParameter("bcontent");
 int bcount=0;
@@ -17,7 +18,8 @@ Timestamp bdate=new Timestamp(System.currentTimeMillis());
 BoardDTO dto=new BoardDTO();
 
 // 값 저장
-// dto.setNo(no);
+// dto.setBno(bno)
+dto.setNo(no);
 dto.setBtitle(btitle);
 dto.setBcontent(bcontent);
 dto.setBcount(bcount);

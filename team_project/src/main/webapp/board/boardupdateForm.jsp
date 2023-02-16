@@ -10,14 +10,17 @@
 </head>
 <body>
 <%
-int bno=Integer.parseInt(request.getParameter("bno"));
+// int bno=Integer.parseInt(request.getParameter("bno"));
 
-BoardDAO dao=new BoardDAO();
+// BoardDAO dao=new BoardDAO();
 
-BoardDTO dto=dao.getBoard(bno);
+// BoardDTO dto=dao.getBoard(bno);
+
+BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 %>
 <h2>글수정</h2>
-<form action="updatePro.jsp" method="post">
+
+<form action="BoardUpdatePro.bo" method="post">
 <input type="hidden" name="bno" value="<%=dto.getBno()%>">
 <table border="1">
 <tr><td>글쓴이</td>

@@ -24,9 +24,11 @@ public class BoardContent implements Action{
 
 		int bno=Integer.parseInt(request.getParameter("bno"));
 
-		BoardDAO bdao=new BoardDAO();
-		BoardDTO bdto=bdao.getBoard(bno);
+		BoardDAO dao=new BoardDAO();
+		BoardDTO dto=dao.getBoard(bno);
 		HttpSession session = request.getSession();
+		
+		request.setAttribute("dto", dto);
 		
 		String id=(String)session.getAttribute("id");
 		if(id==null) {
@@ -50,7 +52,7 @@ public class BoardContent implements Action{
 
 		
 		
-		request.setAttribute("bdto", bdto);
+		request.setAttribute("dto", dto);
 		request.setAttribute("replylist", replylist);
 		request.setAttribute("count", count);
 		request.setAttribute("no", no);
@@ -59,7 +61,7 @@ public class BoardContent implements Action{
 		
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("board/boardContent.jsp?bno="+bno);
+		forward.setPath("board/boardContent.jsp");
 		forward.setRedirect(false);		
 
 		

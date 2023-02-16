@@ -9,22 +9,23 @@
 <head>
 <meta charset="UTF-8">
 <title>board/boardContent.jsp</title>
-
-
 </head>
 <body>
+<!-- 헤더 들어가는 곳 -->
+ 	<jsp:include page="../inc/header.jsp" />
+ 	
+ 	
 <%
-int bno = Integer.parseInt(request.getParameter("bno"));
+// int bno = Integer.parseInt(request.getParameter("bno"));
 
-BoardDAO dao=new BoardDAO();
-BoardDTO dto=dao.getBoard(bno);
+// BoardDAO dao=new BoardDAO();
+// BoardDTO dto=dao.getBoard(bno);
 
 String id=(String)session.getAttribute("id");
 
-// BoardDTO dto=(BoardDTO)request.getAttribute("dto");
+BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 %>
-<!-- 헤더 들어가는 곳 -->
- 	<jsp:include page="../inc/header.jsp" />
+
 
 <!-- 공지사항 내용 -->
 <h2>글내용 [로그인 : <%=id %>]</h2>
@@ -43,9 +44,9 @@ if(id != null){
 	if(id.equals(dto.getNo())){
 		%>
 <input type="button" value="글수정"
- onclick="location.href='boardupdateForm.jsp?bno=<%=dto.getBno()%>'">
+ onclick="location.href='BoardUpdateForm.bo?bno=<%=dto.getBno()%>'">
  <input type="button" value="글삭제"
- onclick="location.href='board_deletePro.jsp?bno=<%=dto.getBno()%>'">		
+ onclick="location.href='BoardDeletePro.bo?bno=<%=dto.getBno()%>'">		
 		<%
 	}
 }
@@ -53,11 +54,11 @@ if(id != null){
 
 
 <input type="button" value="글목록"
- onclick="location.href='boardList.jsp'">
- <input type="button" value="글수정"
- onclick="location.href='boardupdateForm.jsp'">
- <input type="button" value="글삭제"
- onclick="location.href='board_deletePro.jsp'">
+ onclick="location.href='BoardList.bo'">
+<!--  <input type="button" value="글수정" -->
+<!--  onclick="location.href='boardupdateForm.jsp'"> -->
+<!--  <input type="button" value="글삭제" -->
+<!--  onclick="location.href='board_deletePro.jsp'"> -->
  
  </td></tr>
  </table>
