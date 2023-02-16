@@ -188,7 +188,7 @@ public class AppointmentDAO {
 	}//deleteAppointment()
 	
 	// 리턴할형 ArrayList<AppointmentDTO>  getAppointmentList() 메서드 정의 
-			public ArrayList<AppointmentDTO> getAppointmentList(int startRow,int pageSize){
+			public ArrayList<AppointmentDTO> getAppointmentList(int no, int startRow,int pageSize){
 				ArrayList<AppointmentDTO> AppointmentList=new ArrayList<AppointmentDTO>();
 				Connection con =null;
 				PreparedStatement pstmt=null;
@@ -197,13 +197,11 @@ public class AppointmentDAO {
 					//1,2 디비연결 메서드
 					con=getConnection();
 					// 3단계 SQL
-					// 기본 num기준 오른차순 => 최근글 위로 올라오게 정렬 (num 내림차순)
-					//select * from Appointment order by num desc";
-					//select * from Appointment order by num desc limit 시작행-1, 몇개
-					String sql="select * from Appointment order by num desc limit ?, ?";
+					String sql="select * from Appointment where no=? order by ano desc limit ?, ?";
 					pstmt=con.prepareStatement(sql);
-					pstmt.setInt(1, startRow-1);
-					pstmt.setInt(2, pageSize);
+					pstmt.setInt(1, no);
+					pstmt.setInt(2, startRow-1);
+					pstmt.setInt(3, pageSize);
 					//4단계 SQL구문을 실행(select) => 결과 저장
 					rs=pstmt.executeQuery();	
 					//5단계	//조건이 true 실행문=> 다음행 데이터 있으면 true 
@@ -231,7 +229,7 @@ public class AppointmentDAO {
 			}//getAppointmentList()
 	
 			// int 리턴할형 getAppointmentCount() 메서드 정의
-			public int getAppointmentCount() {
+			public int getAppointmentCount(int no) {
 				Connection con =null;
 				PreparedStatement pstmt=null;
 				ResultSet rs=null;
@@ -241,8 +239,9 @@ public class AppointmentDAO {
 					con=getConnection();
 					
 					//3단계 SQL구문 만들어서 실행할 준비
-					String sql="select count(*) from Appointment";
+					String sql="select count(*) from Appointment where no=?";
 					pstmt=con.prepareStatement(sql);
+					pstmt.setInt(1, no);
 					//4단계 SQL구문을 실행(select) => 결과 저장
 					rs=pstmt.executeQuery();
 					//5단계 결과를 출력, 데이터 담기 (select)

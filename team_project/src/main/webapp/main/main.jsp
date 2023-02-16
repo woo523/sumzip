@@ -11,56 +11,63 @@
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
   <!-- ##### Book Now Area Start ##### -->
-
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <div class="book-now-form">
-                        <form action="#">
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                
-                                 <label for="date-in">입실일</label>
-                                <input type="text" class="date-input" id="date-in" readonly>
-                                                            </div>
-
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                <label for="select2">퇴실일</label>
-                                <input type="text" class="date-input" id="date-in" readonly>
+<div class="container">
+                    <div class="hotel_booking_table">
+                        <div class="col-md-3">
+                            <h2>Book<br> Your Room</h2>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="boking_table">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker11'>
+                                                    <input type='text' class="form-control" placeholder="Arrival Date"/>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" placeholder="Departure Date"/>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="인원수">인원수</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="지역">지역</option>
+                                                    <option value="서귀포시">서귀포시</option>
+                                                    <option value="제주시">제주시</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                             <a class="book_now_btn button_hover" href="#">검색</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                <label for="select3">인원 수</label>
-                                <select class="form-control" id="select3">
-                                  <option>1명</option>
-                                  <option>2명</option>
-                                  <option>3명</option>
-                                  <option>4명</option>
-                                  <option>5명</option>
-                                  <option>6명</option>
-                                  <option>7명</option>
-                                  <option>8명</option>
-                                  <option>9명</option>
-                                </select>
-                            </div>
-
-                            <!-- Form Group -->
-                            <div class="form-group">
-                                <label for="select4">지역</label>
-                                <select class="form-control" id="select4">
-                                  <option>서귀포시</option>
-                                  <option>제주시</option>
-                                </select>
-                            </div>
-
-                            <!-- Button -->
-                            <button type="submit">Book Now</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
     <!-- ##### Book Now Area End ##### -->
 
 
@@ -107,17 +114,9 @@
 
 
 
-<!--     Js Plugins -->
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.magnific-popup.min.js"></script>
-    <script src="../js/jquery.nice-select.min.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/jquery.slicknav.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/main.js"></script>
+     
 
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 </div>
 </body>
 </html>
