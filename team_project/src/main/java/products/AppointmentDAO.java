@@ -165,6 +165,8 @@ public class AppointmentDAO {
 		return dto;
 	}//appointmentCheck()
 	
+	
+	
 	public void deleteAppointment(int ano) {
 		Connection con =null;
 		PreparedStatement pstmt2=null;
@@ -227,6 +229,45 @@ public class AppointmentDAO {
 				}
 				return AppointmentList;
 			}//getAppointmentList()
+			
+			public ArrayList<AppointmentDTO> getAdminAppointmentList(int startRow,int pageSize){
+				ArrayList<AppointmentDTO> AppointmentList=new ArrayList<AppointmentDTO>();
+				Connection con =null;
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					//1,2 디비연결 메서드
+					con=getConnection();
+					// 3단계 SQL
+					String sql="select * from Appointment order by ano desc limit ?, ?";
+					pstmt=con.prepareStatement(sql);
+					pstmt.setInt(1, startRow-1);
+					pstmt.setInt(2, pageSize);
+					//4단계 SQL구문을 실행(select) => 결과 저장
+					rs=pstmt.executeQuery();	
+					//5단계	//조건이 true 실행문=> 다음행 데이터 있으면 true 
+					//     =>  열접근 => 한 명 정보 AppointmentDTO 저장 => 배열한칸 저장 
+					while(rs.next()) {
+						// 하나의 글의 바구니의 저장
+						AppointmentDTO dto=new AppointmentDTO();
+						dto.setNo(rs.getInt("no"));
+						dto.setAno(rs.getInt("ano"));
+						dto.setPno(rs.getInt("pno"));
+						dto.setAstatus(rs.getInt("astatus"));
+						dto.setAdate(rs.getTimestamp("adate"));
+						// 바구니의 주소값을 배열 한칸에 저장
+						AppointmentList.add(dto);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+					if(rs!=null) try { rs.close();} catch (Exception e2) {}
+					if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+					if(con!=null) try { con.close();} catch (Exception e2) {}
+				}
+				return AppointmentList;
+			}//getAppointmentList()
 	
 			// int 리턴할형 getAppointmentCount() 메서드 정의
 			public int getAppointmentCount(int no) {
@@ -261,6 +302,39 @@ public class AppointmentDAO {
 				return count;
 				
 			}
+			
+			// int 리턴할형 getAppointmentCount() 메서드 정의
+						public int getAdminAppointmentCount() {
+							Connection con =null;
+							PreparedStatement pstmt=null;
+							ResultSet rs=null;
+							int count=0;
+							try {
+								//1,2 디비연결 메서드
+								con=getConnection();
+								
+								//3단계 SQL구문 만들어서 실행할 준비
+								String sql="select count(*) from Appointment";
+								pstmt=con.prepareStatement(sql);
+								//4단계 SQL구문을 실행(select) => 결과 저장
+								rs=pstmt.executeQuery();
+								//5단계 결과를 출력, 데이터 담기 (select)
+								// next() 다음행 => 리턴값 데이터 있으면 true/ 데이터 없으면 false
+								//조건이 true 실행문=> 다음행 데이터 있으면 true =>  열접근 출력
+								if(rs.next()){
+									// 바구니 객체생성 => 기억장소 할당
+									count=rs.getInt("count(*)");	
+								}
+							}catch (Exception e) {
+								e.printStackTrace();
+							}finally {
+								if(rs!=null) try { rs.close();} catch (Exception e2) {}
+								if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+								if(con!=null) try { con.close();} catch (Exception e2) {}				
+							}
+							return count;
+							
+						}
 	
 	public void updateAppointment(AppointmentDTO dto) {
 		Connection con =null;
@@ -275,9 +349,9 @@ public class AppointmentDAO {
 			//? 채워넣기
 			pstmt.setInt(1, dto.getAstatus()); //set 문자열(1번째 물음표, 값 name)
 			pstmt.setInt(2, dto.getAno());  
-			System.out.println(dto.getAstatus());
-			// 4단계 SQL구문을 실행(insert,update,delete)
+//			 4단계 SQL구문을 실행(insert,update,delete)
 			pstmt.executeUpdate();
+			System.out.println(dto.getAstatus());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
