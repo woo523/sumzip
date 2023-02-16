@@ -617,7 +617,7 @@ public class UserDAO {
 
 		public void sendTmpPw(String tmpPasswd, UserDTO dto) {
 		    try {
-		        String content = "* 임시 비밀번호로 로그인 한 후, 회원 정보 수정에서 비밀번호를 변경하시기 바랍니다.";
+		        String content = "* 임시 비밀번호로 로그인 한 후, 비밀번호를 변경하시기 바랍니다.";
 		        content += "<hr>";
 		        content += "<table border='1'>";
 		        content += "<tr>";
@@ -647,7 +647,7 @@ public class UserDAO {
 		        Message msg = new MimeMessage(sess);
 		        msg.setRecipients(Message.RecipientType.TO, address);
 		        msg.setFrom(new InternetAddress("webmaster@itwill.co.kr"));
-		        msg.setSubject("MyWeb 임시 비밀번호 입니다");
+		        msg.setSubject("섬집 임시 비밀번호 입니다");
 		        msg.setContent(content, "text/html; charset=UTF-8");
 		        msg.setSentDate(new Date());
 		        Transport.send(msg);

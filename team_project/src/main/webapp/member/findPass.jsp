@@ -9,7 +9,7 @@
 <body>
 <h3>비밀번호 찾기</h3>
 <p>비밀번호를 찾고자 하는 아이디를 입력해 주세요.</p>
-<form action="findPassPro.jsp">
+<form action="MemberFindPassPro.me">
 	<input type="text" name="id" id="id">
 	<br><br>
 	<button>다음</button>

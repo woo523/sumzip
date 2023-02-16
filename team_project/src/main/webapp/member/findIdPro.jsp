@@ -29,7 +29,7 @@ UserDTO dto = dao.findId(uname, email);
 	      <h4>  입니다 </h4>
 	     </div>
 	     <div class = "found-login">
- 		    <a href="login.jsp"><input type="button" id="btnLogin" value="로그인"></a>
+ 		    <a href="MemberLogin.me"><input type="button" id="btnLogin" value="로그인"></a>
        	</div>
        </div>
       <%
