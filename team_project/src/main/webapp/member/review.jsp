@@ -11,7 +11,7 @@
 	<meta charset="UTF-8">
 	<title>review.JSP</title>
 	
-	<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
+	<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 	<script type="text/javascript">
 		// 별점 마킹 모듈 프로토타입으로 생성
 		function Rating(){};
@@ -109,7 +109,7 @@
 			펜션정보를 가지고 올까요 말까요?
 		</fieldset>
 		<article>
-			<form name="reviewForm" action="reviewPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()" entype="multiple/form-data">
+			<form name="reviewForm" action="MemberReviewPro.me" id="reviewForm" method ="post" onsubmit="return formCheck()" enctype="multipart/form-data">
 				<input type="hidden" name="ano" value="<%=ano%>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText">
@@ -142,8 +142,8 @@
 					
 				<div>
 					<input type="file" name="rpic1" class="pic">
-					<input type="file" name="rpic2" class="pic">
-					<input type="file" name="rpic3" class="pic">
+<!-- 					<input type="file" name="rpic2" class="pic"> -->
+<!-- 					<input type="file" name="rpic3" class="pic"> -->
 				</div>
 				
 				<div id="Buttons">
@@ -156,7 +156,7 @@
 	</div>
 	
 	<!-- footer -->
-	<jsp:include page="../inc/footer.jsp" />
+<%-- 	<jsp:include page="../inc/footer.jsp" /> --%>
 
 </body>
 <style>
@@ -169,7 +169,7 @@
   		font-family: 'NanumSquareNeo';
  		max-width: 750px;
  		margin: 0 auto;
- 		height: 930PX;
+ 		height: 100%;
  		padding: 20px;
  		box-sizing: border-box;
  	}

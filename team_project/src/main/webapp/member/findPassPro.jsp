@@ -48,9 +48,8 @@ UserDTO dto = dao.getUser(id);
 	//out.print(tmpPasswd);
 
 	//임시 비밀번호 메일로 전송
-	dao.sendTmpPw(tmpPasswd, dto);
-	
-
+	dao.sendTmpPw(tmpPasswd, dto);	
 %>
+	<a href="MemberLogin.me"><input type="button" name=login value="로그인하기"></a>
 </body>
 </html>

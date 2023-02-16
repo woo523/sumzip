@@ -42,6 +42,8 @@ public class MemberReviewPro implements Action {
 		int rcount = 0;
 		Timestamp rdate = new Timestamp(System.currentTimeMillis());
 		String rpic1 = multi.getFilesystemName("rpic1");
+		String rpic2 = multi.getFilesystemName("rpic2");
+		String rpic3 = multi.getFilesystemName("rpic3");
 		
 		// 로그인 후 id, no 값 가져오기
 		UserDAO udao = new UserDAO();
@@ -59,6 +61,8 @@ public class MemberReviewPro implements Action {
 	 	dto.setRcount(rcount);
 	 	dto.setRdate(rdate);
 	 	dto.setRpic1(rpic1);
+//	 	dto.setRpic1(rpic2);
+//	 	dto.setRpic1(rpic3);
 	 
 	 	// 리턴X insertReview()
 	 	ReviewDAO dao = new ReviewDAO();
@@ -66,7 +70,7 @@ public class MemberReviewPro implements Action {
 	 	
 	 	//response.sendRedirect("myList.jsp");
 	 	ActionForward forward = new ActionForward();
-	 	forward.setPath("myList.bo");
+	 	forward.setPath("MemberMyList.me");
 	 	forward.setRedirect(true);
 		
 		return forward;

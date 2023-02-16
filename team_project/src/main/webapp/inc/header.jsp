@@ -29,6 +29,45 @@
     <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    
+    
+    
+    
+    <link rel="stylesheet" href="../css1/bootstrap.css">
+    <link rel="stylesheet" href="../vendors/linericon/style.css">
+    <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css1/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="../css1/style.css">
+    <link rel="stylesheet" href="../css1/responsive.css">
+    
+    <script src="../js1/jquery-3.2.1.min.js"></script>
+    <script src="../js1/popper.js"></script>
+    <script src="../js1/bootstrap.min.js"></script>
+    <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../js1/jquery.ajaxchimp.min.js"></script>
+    <script src="../js1/mail-script.js"></script>
+    <script src="../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="../vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="../js1/mail-script.js"></script>
+    <script src="../js1/stellar.js"></script>
+    <script src="../vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="../js1/custom.js"></script>
+    
+     <script src="../js1/jquery-3.3.1.min.js"></script>
+    <script src="../js1/bootstrap.min.js"></script>
+    <script src="../js1/jquery.magnific-popup.min.js"></script>
+    <script src="../js1/jquery.nice-select.min.js"></script>
+    <script src="../js1/jquery-ui.min.js"></script>
+    <script src="../js1/jquery.slicknav.js"></script>
+    <script src="../js1/owl.carousel.min.js"></script>
+    <script src="../js1/main.js"></script>
+    <script src="../js1/jquery-3.2.1.min.js"></script>
+    <script src="../js1/popper.js"></script>
+    <script src="../js1/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -52,14 +91,14 @@
 									if(dto.getUtype()==1){
 									%>
 										<div id="login">♥<%=id %> 님♥ |
-										<a href="../member/logout.jsp">Logout</a>	|
-										<a href="../member/myPage_user.jsp">Mypage</a></div>
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_user.me">Mypage</a></div>
 										<% 
 									}else if(dto.getUtype()==2){
 										%>
 										<div id="login">♥<%=id %> 님♥ |
-										<a href="../member/logout.jsp">Logout</a>	|
-										<a href="../member/myPage_owner.jsp">Mypage</a></div>
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_owner.me">Mypage</a></div>
 										<%
 									}
 									%>

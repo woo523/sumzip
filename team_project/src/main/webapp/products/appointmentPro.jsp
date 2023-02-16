@@ -21,6 +21,8 @@ int no=Integer.parseInt(request.getParameter("no"));
 int astatus=1;
 Timestamp adate=new Timestamp(System.currentTimeMillis());
 
+
+//dto에 값 저장
 AppointmentDTO dto=new AppointmentDTO();
 dto.setAno(ano);
 dto.setPno(pno);
@@ -29,6 +31,7 @@ dto.setAstatus(astatus);
 dto.setAdate(adate);
 
 AppointmentDAO dao=new AppointmentDAO();
+//DB에 예약정보 저장
 dao.insertAppointment(dto);
 
 //예약관리 페이지로 이동

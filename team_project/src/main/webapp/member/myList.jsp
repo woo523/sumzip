@@ -81,7 +81,7 @@
 	
 	<form name="myListForm" action="" id="myList" method="get">
 		<h3>내 이용 내역</h3>
-		
+		<ul>
 		<%  
 		AppointmentDAO adao = new AppointmentDAO();
 		ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
@@ -92,7 +92,7 @@
 			ProductDAO pdao = new ProductDAO();
 			ProductDTO pdto = pdao.getProduct(adto.getPno());
 		%>
-		<ul>
+			<li></li>
 			<li>예약일자 : <%=adto.getAdate() %></li>
  			<h5><%=pdto.getPname() %></h5>
 			<li id="timecheck">체크인 <%=salesdto.getIndate() %> <%=pdto.getCheckin() %>:00</li>
@@ -131,8 +131,8 @@
 							// 후기 작성 가능
 							System.out.println("appointOutdate is before today");
 							%>
-							<li><button type="button" class="btn btn-outline-success" onclick="location.href='reviewModify.jsp?ano=<%=adto.getAno()%>'">후기 수정하기</button>
-								<button type="button" class="btn btn-outline-secondary" onclick="location.href='reviewDelete.jsp?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
+							<li><button type="button" class="btn btn-outline-success" onclick="location.href='MemberReviewModifyForm.me?ano=<%=adto.getAno()%>'">후기 수정하기</button>
+								<button type="button" class="btn btn-outline-secondary" onclick="location.href='MemberReviewDelete.me?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
 							<%
 						}
 					}

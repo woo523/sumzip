@@ -32,7 +32,7 @@ public class MemberLoginPro implements Action{
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter(); // html로 출력할 권한 받음
 			out.println("<script type='text/javascript'>");
-			out.println("alert('아이디 비밀번호 틀림');");
+			out.println("alert('아이디 비밀번호를 잘못 입력하였습니다');");
 			out.println("history.back();");
 			out.println("</script>");
 			out.close();

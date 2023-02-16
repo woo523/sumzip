@@ -53,6 +53,62 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
+		}else if(sPath.equals("/BoardReplyUpdateForm.bo")) {
+			action = new BoardReplyUpdateForm();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}else if(sPath.equals("/BoardReplyUpdatePro.bo")) {
+			action = new BoardReplyUpdatePro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardReplyDeletePro.bo")) {
+			action = new BoardReplyDeletePro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardCommendForm.bo")) {
+			action = new BoardCommendForm();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardCommentInsert.bo")) {
+			action = new BoardCommentInsert();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardCommendUpdateForm.bo")) {
+			action = new BoardCommendUpdateForm();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardCommendUpdatePro.bo")) {
+			action = new BoardCommendUpdatePro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(sPath.equals("/BoardCommendDeletePro.bo")) {
+			action = new BoardCommendDeletePro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward!=null) {

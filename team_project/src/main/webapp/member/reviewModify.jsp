@@ -11,7 +11,7 @@
 	<meta charset="UTF-8">
 	<title>reviewModify.JSP</title>
 	
-	<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
+	<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 	<script type="text/javascript">
 		// 별점 마킹 모듈 프로토타입으로 생성
 		function Rating(){};
@@ -63,7 +63,7 @@
 				document.reviewForm.title.focus();
 				return false;
 			// 별점 선택 안했으면 메시지 표시, 체크된 값을 배열 형태로 받아서 length 확인
-			} else if(document.querySelectorAll('input[name="rating"]:checked').length == 0) {
+			} else if(document.querySelectorAll('input[name="rating"]:checked').length < 1) {
 				alert("만족도를 선택해주세요.");
 				return false;
 			// 리뷰 5자 미만이면 메시지 표시
@@ -97,10 +97,9 @@
 		<%
 		response.sendRedirect("login.jsp");
 	}
-	int ano = Integer.parseInt(request.getParameter("ano"));
 	
-	ReviewDAO rdao = new ReviewDAO();
-	ReviewDTO rdto = rdao.getReview(ano);
+	ReviewDTO rdto = (ReviewDTO)request.getAttribute("rdto");
+	
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -110,8 +109,8 @@
 			펜션정보를 가지고 올까요 말까요?
 		</fieldset>
 		<article>
-			<form name="reviewForm" action="reviewModifyPro.jsp" id="reviewForm" method ="post" onsubmit="return formCheck()">
-				<input type="hidden" name="ano" value="<%=ano %>">
+			<form name="reviewForm" action="MemberReviewModifyPro.me" id="reviewForm" method ="post" onsubmit="return formCheck()" enctype="multipart/form-data">
+				<input type="hidden" name="ano" value="<%=rdto.getAno() %>">
 				<input type="hidden" name="rno" value="<%=rdto.getRno() %>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText" value="<%=rdto.getRtitle() %>">
@@ -143,7 +142,8 @@
 				</div>
 					
 				<div>
-					<button type="button" name="rpic1" class="btn btn-outline-success">사진 첨부 (0/3)</button>
+					<input type="file" name="rpic1"><%=rdto.getRpic1() %>
+					<input type="hidden" name="oldrpic1" value="<%=rdto.getRpic1() %>">
 				</div>
 				
 				<div id="Buttons">

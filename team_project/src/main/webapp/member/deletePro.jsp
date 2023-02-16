@@ -16,11 +16,13 @@
 <body>
 <h1>member/deletePro.jsp</h1>
 <%
-//request 태그이름에 해당하는 값을 가져오기s
+//request 태그이름에 해당하는 값을 가져오기 => 변수에 저장
 String id=request.getParameter("id");
 String pass=request.getParameter("pass");
 
+//UserDAO 객체생성
 UserDAO dao=new UserDAO();
+//UserDTO = userCheck(id, pass) 메서드 호출
 UserDTO dto = dao.userCheck(id,pass);
 
 if(dto!=null){	
@@ -28,6 +30,7 @@ if(dto!=null){
 	dao.deleteUser(id); 
 	// => 세션값 초기화
 	session.invalidate();
+	// => main.jsp 이동 
 	response.sendRedirect("../main/main.jsp"); 
 }else{
 	// id,pass 틀림

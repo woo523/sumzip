@@ -15,37 +15,44 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/flaticon.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 <%
-//String id=(String)session.getAttribute("id");
+
 //UserDAO dao = new UserDAO();
 //UserDTO dto = dao.getUser(id);
 //int no = dto.getNo();
 
-int bno=1; // 임시값
-int no=1; // 임시값
-UserDAO dao = new UserDAO();
-UserDTO dto = dao.getUserNo(no);
-String id = dto.getId();
+// int bno=1; // 임시값
+// int no=1; // 임시값
+// UserDAO dao = new UserDAO();
+// UserDTO dto = dao.getUserNo(no);
+// String id = dto.getId();
 
-int rno=Integer.parseInt(request.getParameter("rno"));
+// int rno=Integer.parseInt(request.getParameter("rno"));
+
+String id=(String)session.getAttribute("id");
+int no =(Integer)request.getAttribute("no");
+int bno =(Integer)request.getAttribute("bno");
+int rno =(Integer)request.getAttribute("rno");
+
 %>
 
+<!-- 헤더 들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
 
 
-
-
+<!-- 답댓글 작성 폼 -->
    <section class="blog-details-section">
         <div class="conainer">
             <div class="row">
@@ -53,7 +60,7 @@ int rno=Integer.parseInt(request.getParameter("rno"));
                     <div class="blog-details-text">
                        <div class="leave-comment">
                             <h4>답댓글 작성</h4>
-                            <form action="CommendInsert.jsp" method ="post" class="comment-form">
+                            <form action="BoardCommentInsert.bo" method ="post" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>

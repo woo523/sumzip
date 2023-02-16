@@ -10,22 +10,25 @@
 </head>
 <body>
 <%
+// 가져온 넘버값 num에 저장
 int num=Integer.parseInt(request.getParameter("num"));
 
+// 체크
 AppointmentDAO dao=new AppointmentDAO();
 AppointmentDTO dto=dao.AppointmentCheck(num);
 // AppointmentDTO dto=(AppointmentDTO)request.getAttribute("dto");
 
 if(dto != null){
-	// id,pass 일치
-	// 리턴값없음 deleteMember(String id) 메서드 정의 
-	// dao.deleteMember(id) 메서드 호출
+	// 일치 확인
+	// 리턴값없음 deleteAppointment(int num) 메서드 정의 
+	// dao.deleteAppointment(num) 메서드 호출
 	dao.deleteAppointment(num);
 	// => 세션값 초기화
 // 	session.invalidate();		
-	// => main.jsp 이동
+	// => appointManage.jsp 이동
 	response.sendRedirect("appointManage.jsp");
 }else{
+	// 일치하지 않을 시
     %>
     <script type="text/javascript">
 		alert("예약리스트에 없습니다.");
