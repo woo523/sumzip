@@ -14,6 +14,11 @@
 </head>
 <body>
 
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+
+
+<!-- 상품리스트 부분 -->
 <%
 // 상품페이지 수정중,,
 int pno=Integer.parseInt(request.getParameter("pno"));
@@ -71,5 +76,9 @@ if(id != null){
  
  </td></tr>
  </table>
+ 
+ <!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+
 </body>
 </html>

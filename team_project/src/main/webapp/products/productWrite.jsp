@@ -9,6 +9,11 @@
 <title>products/productWrite.jsp</title>
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+
+
+<!-- 상품등록 하기 -->
 <%
 
 ProductDTO dto=new ProductDTO();
@@ -97,47 +102,9 @@ if(id==null){
 			</div>
 		</div>
 	</div>
-<!-- <form action="productwritePro.jsp" method="post"> -->
 
-<!-- <table border="1"> -->
-<!-- <tr><td>유저번호</td> -->
-<%--     <td><input type="text" name="name" value=<%=id %> readonly></td></tr> --%>
-<!-- <tr><td>펜션이름</td> -->
-<!--     <td><input type="text" name="pname" ></td></tr>    -->
-<!-- <tr><td>펜션주소</td> -->
-<!--     <td><input type="text" name="paddress" ></td></tr>  -->
-<!-- <tr><td>우편번호</td> -->
-<!--     <td><input type="text" name="ppostnum"></td></tr> -->
-<!-- <tr><td>상세주소</td>    -->
-<!--     <td><input type="text" name="paddress2"></td></tr> -->
-<!-- <tr><td>전화번호</td>  -->
-<!--     <td><input type="text" name="ptel"></td></tr> -->
-<!-- <tr><td>체크인시간</td>     -->
-<!--     <td><input type="text" name="checkin"></td></tr> -->
-<!-- <tr><td>체크아웃시간</td>    -->
-<!--     <td><input type="text" name="checkout"></td></tr> -->
-<!-- <tr><td>가격</td>    -->
-<!--     <td><input type="text" name="pprice"></td></tr> -->
-<!-- <tr><td>최대숙박인원</td> -->
-<!--     <td><input type="text" name="max_men"></td></tr> -->
-<!-- <tr><td>등록유효기간</td> -->
-<!--     <td><input type="text" name="expiration"></td></tr> -->
-<!-- <tr><td>숙소등록일</td> -->
-<!--     <td><input type="text" name="datetime"></td></tr> -->
-<!-- <tr><td>펜션사진1</td> -->
-<!--     <td><input type="text" name="ppic1"></td></tr> -->
-<!-- <tr><td>펜션사진1</td> -->
-<!--     <td><input type="text" name="ppic2"></td></tr> -->
-<!-- <tr><td>펜션사진1</td> -->
-<!--     <td><input type="text" name="ppic3"></td></tr>     -->
-<!-- <tr><td>주의사항</td> -->
-<!--     <td><input type="text" name="caution"></td></tr>  -->
-<!-- <tr><td>펜션 설명</td>     -->
-<!--     <td><textarea name="pexplain" rows="10" cols="20"></textarea></td></tr> -->
-<!-- <tr><td colspan="2"><input type="submit" value="상품등록"></td></tr>     -->
-<!-- </table> -->
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
 
-
-<!-- </form> -->
 </body>
 </html>

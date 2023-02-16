@@ -2,6 +2,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- 상품삭제 부분 -->
 <%
 // products/product_deletePro.jsp
 

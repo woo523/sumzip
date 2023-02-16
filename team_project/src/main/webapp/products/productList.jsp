@@ -12,10 +12,14 @@
 </head>
 <body>
 
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+
+
+<!--  한페이지에 보여줄 글 개수 -->
 <%
 ProductDAO dao= new ProductDAO();
 
-// 한페이지에 보여줄 글 개수
 int pageSize=10;
 
 String pageNum=request.getParameter("pageNum");
@@ -35,6 +39,7 @@ ArrayList<ProductDTO> productList=dao.getProductList(startRow, pageSize);
 <h1>product/productList.jsp</h1>
 <h2><a href="productWrite.jsp">글쓰기</a></h2>
 
+<!-- 펜션리스트 부분 -->
 <table border="1">
 <tr><td>상품번호</td><td>유저번호</td><td>펜션이름</td>
    <td>펜션주소</td><td>우편번호</td><td>상세주소</td>
@@ -74,6 +79,7 @@ for(int i=0; i<productList.size(); i++){
 
 </table>
 
+<!-- 페이징 부분 -->
 <% 
 // 한 화면에 보여줄 페이지개수
 int pageBlock=10;
@@ -113,6 +119,8 @@ if(endPage < pageCount){
 }
 %>
 
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>

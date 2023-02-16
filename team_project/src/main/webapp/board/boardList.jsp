@@ -10,7 +10,10 @@
 <title>board/boardList.jsp</title>
 </head>
 <body>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
 
+<!-- 페이징 부분 -->
 <%
 // BoardDAO dao= new BoardDAO();
 
@@ -40,6 +43,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 
 %>
 
+<!-- 글쓰기 버튼 부분 -->
 <h3>board/boardList.jsp</h3>
 
 <table border="0" width="50%">
@@ -50,7 +54,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 </tr>
 </tbody></table>
 
-
+<!-- 공지사항 리스트 부분 -->
 <table border="1" width="50%">
 <tbody>
 <tr>
@@ -78,6 +82,7 @@ for(int i=0; i<boardList.size(); i++){
 }
 %>
 
+<!-- 게시판 글 검색부분 -->
 <form method="get">
 <table border="1" width="50%"> 
 <tbody><tr>
@@ -93,6 +98,7 @@ for(int i=0; i<boardList.size(); i++){
 </tbody></table>
 </form>
 
+<!-- 페이징 처리 -->
 <% 
 // // 한 화면에 보여줄 페이지개수
 // int pageBlock=10;
@@ -132,6 +138,8 @@ if(endPage < pageCount){
 }
 %>
 
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>
