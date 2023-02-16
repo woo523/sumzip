@@ -22,22 +22,15 @@ public class MemberReviewModifyPro implements Action{
 		int maxSize = 10*1024*1024;
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 		
-//		int ano = Integer.parseInt(multi.getParameter("ano"));
-		
 		int rno = Integer.parseInt(multi.getParameter("rno"));
 		String rtitle = multi.getParameter("title");
 //		String rstar = multi.getParameter("rstar"); 
 		String rcontent = multi.getParameter("content");
-		String rpic1 = multi.getParameter("rpic1");
+		String rpic1 = multi.getFilesystemName("rpic1");
 		// 수정할 업로드 파일이 없으면 기존 파일 유지
 		if(rpic1 == null) {
 			rpic1 = multi.getParameter("oldrpic1");
 		}
-		
-		System.out.println(rtitle);
-		System.out.println(rcontent);
-//		System.out.println(rstar);
-		System.out.println(rno);
 		
 		// ReviewDTO
 		ReviewDTO rdto = new ReviewDTO();
