@@ -11,6 +11,9 @@
 <title></title>
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
 <%
 //request에 저장된 qno 파라미터값 가져오기
 int qno=Integer.parseInt(request.getParameter("qno"));
@@ -25,23 +28,23 @@ String id=(String)session.getAttribute("id");
 int no=dto.getNo();
 UserDAO udao = new UserDAO();
 UserDTO udto = udao.getUserNo(no);
-
 //로그인 되어있지 않으면 로그인화면으로
 if(id==null){
 	response.sendRedirect("../member/login.jsp");
 }
 %>
 
-<h1>답변</h1>
+<h4>answer</h4>
+
 <table border="1">
 	<tr><td>글번호</td><td><%=dto.getQno() %></td></tr>
 	<tr><td>글쓴날짜</td><td><%=dto.getQadate() %></td></tr> 
 	<tr><td>글내용</td><td><%=dto.getAnswer() %></td></tr>
 	</table>
 	
-	<form action="qna_owner.jsp">
-	<input type="button" value="글수정" 
-	onclick="location.href='a_update_Form.jsp?qno=<%=dto.getQno()%>'">
+	
+	<input type="button" value="글입력" 
+	onclick="location.href='answer_writeForm.jsp?qno=<%=dto.getQno()%>'">
 	<input type="button" value="글삭제" 
 	onclick="location.href='answer_delete.jsp?qno=<%=dto.getQno()%>'">
 	<input type="button" value="글목록" 

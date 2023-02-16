@@ -81,6 +81,7 @@ if(id!=null){
             </div>
 <%
  }else {
+	// 비로그인시 로그인 페이지로 이동
 	response.sendRedirect("../member/login.jsp");
  }
 %>

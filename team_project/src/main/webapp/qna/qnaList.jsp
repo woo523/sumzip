@@ -18,47 +18,48 @@
 //QnaDAO 객체 생성
 QnaDAO dao=new QnaDAO();
 
+//한페이지에 보여줄 글개수 설정
 int pageSize=10;
 
+//현 페이지 번호 가져오기 => 페이지 번호가 없으면 1페이지 설정
 String pageNum=request.getParameter("pageNum");
 if(pageNum==null){
 	// => 페이지 번호가 없으면 1페이지 설정
 	pageNum="1";
 }
-// apgeNum => 숫자변경
+// pageNum => 숫자변경
 int currentPage=Integer.parseInt(pageNum);
 //시작하는 행번호 구하기
 int startRow=(currentPage-1)*pageSize+1;
 //끝나는 행번호 구하기
 int endRow=startRow+pageSize-1;
 
+//메서드 호출
 ArrayList<QnaDTO> qnaList = dao.getQnaList(startRow, pageSize); 
 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 
 String qstatus = "";
-
-
-
 %>
 
 <article>
 <h3>Q&A</h3>
 	<table border="1">
-		<tr><td>글번호</td><td>작성자</td><td>질문유형</td><td>제목</td>
+		<tr><td>글번호</td><td>작성자</td><td>제목</td>
 		<td>글쓴날짜</td><td>답변상태</td><td>조회수</td></tr>
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
 	QnaDTO dto= qnaList.get(i);
-	if(dto.getQstatus()==1){ 
-		qstatus = "답변완료";
-	}else{
-			qstatus="답변미등록";
-	}
-	%>
+
+// 답변 상태
+if(dto.getQstatus()==0){ 
+	qstatus = "답변완료";
+}else{
+	qstatus="답변미등록";
+}
+%>
 	<tr><td><%=dto.getQno() %></td>
 		<td><%=dto.getNo() %></td>
-		<td><%=dto.getQtype() %></td>
 		<td><a href="question.jsp?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dateFormat.format(dto.getQdate()) %></td>
 		<td><%=qstatus%></td>	

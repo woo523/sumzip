@@ -11,6 +11,9 @@
 <title>qna/question.jsp</title>
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
 <%
 
 // request에 저장된 qno 파라미터값 가져오기
@@ -27,7 +30,7 @@ int no=dto.getNo();
 UserDAO udao = new UserDAO();
 UserDTO udto = udao.getUserNo(no);
 %>
-<h1>글내용 [로그인 : <%=id %>]</h1>
+<h4>question</h4>
 <table border="1">
 	<tr><td>글번호</td><td><%=dto.getQno() %></td></tr>
 	<tr><td>작성자</td><td><%=udto.getId() %></td></tr>
@@ -43,7 +46,7 @@ UserDTO udto = udao.getUserNo(no);
 		if(id.equals(udto.getId())){
 	%>
 	<input type="button" value="글수정" 
-	onclick="location.href='q_update_Form.jsp?qno=<%=dto.getQno()%>'">
+	onclick="location.href='question_updateForm.jsp?qno=<%=dto.getQno()%>'">
 	<input type="button" value="글삭제" 
 	onclick="location.href='question_delete.jsp?qno=<%=dto.getQno()%>'">
 	<%
@@ -53,7 +56,7 @@ UserDTO udto = udao.getUserNo(no);
 	<input type="button" value="글목록" 
 	onclick="location.href='qnaList.jsp'">
 	<input type="button" value="답변확인" 
-	onclick="location.href='user_answer.jsp?qno=<%=dto.getQno() %>'">
+	onclick="location.href='answer.jsp?qno=<%=dto.getQno() %>'">
 	</td></tr>
 </table>
 </body>

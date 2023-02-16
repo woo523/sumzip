@@ -106,7 +106,7 @@
  	
 	<div class="reviewContainer">
 		<fieldset>
-			펜션정보를 가지고 올까요 말까요?
+			펜션정보를 가지고 올까요 말까요?<%=rdto.getRno() %>
 		</fieldset>
 		<article>
 			<form name="reviewForm" action="MemberReviewModifyPro.me" id="reviewForm" method ="post" onsubmit="return formCheck()" enctype="multipart/form-data">
