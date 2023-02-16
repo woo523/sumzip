@@ -24,6 +24,7 @@
 <div class="tb"><h1>예약관리</h1></div><br>
 
 <%
+
 String id="jung123";
 // String id=(String)session.getAttribute("id");
 // if(id!=null){
@@ -36,6 +37,8 @@ String id="jung123";
 	SalesDTO dto3=dao3.getSales(dto.getNo());
 	ProductDAO dao4=new ProductDAO();
 	ProductDTO dto4=dao4.getProduct(dto3.getPno());
+	
+	
 	
 	%>
 	<div class="tb"><table border="1">

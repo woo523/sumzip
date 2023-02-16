@@ -21,6 +21,7 @@ int no=Integer.parseInt(request.getParameter("no"));
 int astatus=1;
 Timestamp adate=new Timestamp(System.currentTimeMillis());
 
+
 //dto에 값 저장
 AppointmentDTO dto=new AppointmentDTO();
 dto.setAno(ano);

@@ -20,12 +20,14 @@
 String id=(String)session.getAttribute("id"); //id세션값 불러오기
 // 로그인 확인 (비로그인시 로그인 화면으로 이동)
 if(id!=null){
+	
 	UserDAO dao=new UserDAO();
 	UserDTO dto=dao.getUser(id);
 	SalesDAO dao2=new SalesDAO();
 	SalesDTO dto2=dao2.getSales(dto.getNo());
 	ProductDAO dao3=new ProductDAO();
 	ProductDTO dto3=dao3.getProduct(dto2.getPno());
+	
 	
 	%>
   <!-- Breadcrumb Section Begin -->
