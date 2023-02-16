@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>products/appointNowDelete</title>
+<title>admin/appointNowDelete</title>
 </head>
 <body>
 <%
