@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>products/appointment</title>
+<title>products/appointment.jsp</title>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -54,7 +54,7 @@ if(id!=null){
                     
                     <div class="col-lg-5 offset-lg-1">
                         <ul class="ap-services">
-                        <form action="appointmentPro.jsp" method="post">
+                        <form action="ProductsAppointmentPro.pr" method="post">
                             <h2>예약자 정보확인</h2>
                             <br>
                             <li><i class="icon_check"></i>예약자명 : <input type="text" name="uname" value="<%=dto.getUname()%>" readonly></li>
@@ -82,7 +82,7 @@ if(id!=null){
 <%
  }else {
 	// 비로그인시 로그인 페이지로 이동
-	response.sendRedirect("../member/login.jsp");
+	response.sendRedirect("MemberLogin.me");
  }
 %>
 <!-- 푸터 들어가는 곳 -->

@@ -20,11 +20,11 @@
 	<%
 	// 회원정보 기준값 id => 세션에 id 값 저장 되어있음
 	// 세션에서 "id" 값을 가져오기 => 변수저장
-	String id = (String) session.getAttribute("id");
+ 	String id = (String) session.getAttribute("id");
 	// MemberDAO 객체생성
-	UserDAO dao = new UserDAO();
+ 	UserDAO dao= new UserDAO();
 	// MemberDTO dto = getMember(id) 메서드호출
-	UserDTO dto = dao.getUser(id);
+ 	UserDTO dto = dao.getUser(id);
 	%>
 	<div id="wrap">
 		<!-- 헤더들어가는 곳 -->
@@ -32,8 +32,7 @@
 		<!-- 헤더들어가는 곳 -->
 		<nav id="sidebar">
 			<ul>
-				<li><a href="MemberMyPage_user
-				">내 정보 조회</a></li>
+				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
 				<li><a href="myList.jsp">내 이용목록</a></li>
 				<li><a href="../products/appointManage.jsp">예약관리</a></li>
 				<li><a href="#">찜 목록</a></li>
@@ -89,15 +88,16 @@
 							<div class="col-md-3">
 								<label>주소</label> <input type="text" name="adrress1"
 									value="<%=dto.getAddress1()%>" readonly> <input
-									type="text" name="adrress2" value="<%=dto.getAddress2()%>"
+									type="text" name="adrress2" value="<%//=dto.getAddress2()%>"
 									readonly>
 							</div>		
 						</div>
 						
 						<div class="btnChange">
-							<a href="updateForm.jsp"><input type="button" name="user_modify"
-								value="회원정보 수정"></a> <a href="pwModify.jsp"><input
-								type="button" name="pw_modify" value="비밀번호 수정"></a>
+							<a href="updateForm.jsp">
+							<input type="button" name="user_modify" value="회원정보 수정"></a> 
+							<a href="MemberPwModify.me">
+								<input type="button" name="pass_modify" value="비밀번호 수정"></a>
 						</div>
 					</form>
 				</div>

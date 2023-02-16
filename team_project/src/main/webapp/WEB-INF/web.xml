@@ -61,5 +61,17 @@
   	<servlet-name>QnaFrontController</servlet-name>
   	<url-pattern>*.qa</url-pattern>
   </servlet-mapping>
+  
+  <!--   *.pr 가상주소 -> 주소매핑 처리 파일로 연결 -> 처리담당자(서블릿) -->
+    <servlet>
+	<servlet-name>ProductsFrontController</servlet-name>
+	<servlet-class>com.itwillbs.products.action.ProductsFrontController</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>ProductsFrontController</servlet-name>
+  	<url-pattern>*.pr</url-pattern>
+  </servlet-mapping>
 
 </web-app>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>products/appointmentPro</title>
+<title>products/appointmentPro.jsp</title>
 </head>
 <body>
 <%
@@ -35,7 +35,7 @@ AppointmentDAO dao=new AppointmentDAO();
 dao.insertAppointment(dto);
 
 //예약관리 페이지로 이동
-response.sendRedirect("appointManage.jsp");
+response.sendRedirect("ProductsAppointManage.pr");
 %>
 </body>
 </html>
