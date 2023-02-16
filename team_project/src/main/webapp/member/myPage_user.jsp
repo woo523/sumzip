@@ -33,7 +33,7 @@
 		<nav id="sidebar">
 			<ul>
 				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="myList.jsp">내 이용목록</a></li>
+				<li><a href="MemberMyList.me">내 이용목록</a></li>
 				<li><a href="../products/appointManage.jsp">예약관리</a></li>
 				<li><a href="#">찜 목록</a></li>
 				<li><a href="deleteForm.jsp">회원탈퇴</a></li>
