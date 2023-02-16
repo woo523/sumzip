@@ -1769,13 +1769,13 @@ ul, ol {
 }
 .blog-details-text .comment-option .single-comment-item .sc-text span {
 	font-size: 12px;
-	color: #dfa974;
+	color: #993800;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 .blog-details-text .comment-option .single-comment-item .sc-text h5 {
 	font-size: 20px;
-	color: #19191a;
+	color: #003300;
 	margin-top: 4px;
 	margin-bottom: 8px;
 }
@@ -1799,9 +1799,9 @@ ul, ol {
 	margin-right: 10px;
 }
 .blog-details-text .comment-option .single-comment-item .sc-text a:hover {
-	background: #dfa974;
+	background: #008000;
 	color: #ffffff;
-	border-color: #dfa974;
+	border-color: #008000;
 }
 .blog-details-text .leave-comment h4 {
 	color: #19191a;
@@ -1821,7 +1821,7 @@ ul, ol {
 	transition: all 0.3s;
 }
 .blog-details-text .leave-comment .comment-form input:focus {
-	border-color: #dfa974;
+	border-color: #008000;
 }
 .blog-details-text .leave-comment .comment-form textarea {
 	width: 100%;
@@ -1839,7 +1839,7 @@ ul, ol {
 	padding-top: 12px;
 }
 .blog-details-text .leave-comment .comment-form textarea:focus {
-	border-color: #dfa974;
+	border-color: #008000;
 }
 .blog-details-text .leave-comment .comment-form button {
 	font-size: 13px;
@@ -1847,7 +1847,7 @@ ul, ol {
 	text-transform: uppercase;
 	color: #ffffff;
 	letter-spacing: 2px;
-	background: #dfa974;
+	background: #008000;
 	border: none;
 	padding: 14px 42px 13px;
 	display: inline-block;
