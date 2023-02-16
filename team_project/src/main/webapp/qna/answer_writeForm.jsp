@@ -9,6 +9,8 @@
 <title>qna/a_writeForm.jsp</title>
 </head>
 <body>
+<!-- header -->
+	<jsp:include page="../inc/header.jsp" />
 <%
 //id값 받아오기
 String id=(String)session.getAttribute("id");
@@ -21,13 +23,16 @@ int no = rdto.getNo();
 if(id==null){
 	response.sendRedirect("../member/login.jsp");
 }
+
+
 %>
 
-<h1>답변</h1>
+<h1>Answer</h1>
 	<form action="answer_writePro.jsp" method="post"> 
 		<input type="hidden" name="no" value="<%=no%>">
 		<input type="hidden" name="qno" value="<%=qno%>">
 			<table border="1">
+				<tr><td colspan="2"><input type="checkbox" name="qstatus" value="1">답변완료</td></tr>
 				<tr><td>작성자</td>
 				<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
 				<tr><td>내용</td>

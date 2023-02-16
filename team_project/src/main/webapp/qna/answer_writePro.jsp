@@ -1,4 +1,4 @@
-<%@page import="qna.QnaDAO"%>기
+<%@page import="qna.QnaDAO"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
@@ -19,6 +19,7 @@ String qtitle=request.getParameter("qtitle");
 int qcount=0;
 Timestamp qadate=new Timestamp(System.currentTimeMillis());
 String answer=request.getParameter("answer");
+int qstatus=Integer.parseInt(request.getParameter("qstatus"));
 
 //QnaDTO 객체생성 
 QnaDTO dto=new QnaDTO();
@@ -27,6 +28,7 @@ QnaDTO dto=new QnaDTO();
 dto.setQadate(qadate);
 dto.setAnswer(answer);
 dto.setQno(qno);
+dto.setQstatus(qstatus);
 
 //QnaDAO 객체생성
 QnaDAO dao=new QnaDAO();
@@ -36,3 +38,4 @@ dao.insertAnswer(dto);
 //글목록 qnaList.jsp
 response.sendRedirect("qnaList.jsp");
 %>
+

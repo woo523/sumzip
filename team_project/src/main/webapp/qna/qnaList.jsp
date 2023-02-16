@@ -51,11 +51,12 @@ String qstatus = "";
 for(int i=0;i<qnaList.size();i++){
 	QnaDTO dto= qnaList.get(i);
 
+
 // 답변 상태
-if(dto.getQstatus()==0){ 
-	qstatus = "답변완료";
+if(dto.getQstatus()==1){ 
+	qstatus = "답변미등록";
 }else{
-	qstatus="답변미등록";
+	qstatus="답변완료";
 }
 %>
 	<tr><td><%=dto.getQno() %></td>
@@ -69,7 +70,8 @@ if(dto.getQstatus()==0){
 %>
 </table>
 <div id="table_search">
-<input type="button" value="글쓰기" class="write" onclick="location.href='q_writeForm.jsp'"><br>
+<input type="button" value="글쓰기" class="write" 
+onclick="location.href='question_writeForm.jsp'"><br>
 </div>
 	<%
 // 한화면에 보여줄 페이지 개수 설정
