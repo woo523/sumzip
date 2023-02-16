@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
+<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  	// jQurery 준비 => 대상.함수()
  	$(document).ready(function(){
@@ -47,12 +47,14 @@
 
 String id=(String)session.getAttribute("id");
 
-UserDAO dao=new UserDAO();
+// UserDAO dao=new UserDAO();
 
-UserDTO dto=dao.getUser(id);
+// UserDTO dto=dao.getUser(id);
+
+UserDTO dto=(UserDTO)request.getAttribute("dto");
  %> 
 <article>
-	<form action="pwModifyPro.jsp" name="passForm" id="pass_modify" method="post">
+	<form action="MemberPwModifyPro.me" name="passForm" id="pass_modify" method="post">
 		<div id="pass_modify">
 			<h3>비밀번호 변경</h3>
 			<label>아이디</label>: <input type="text" name="id" class="id" value="<%=id%>" readonly><br>

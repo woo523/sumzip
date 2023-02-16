@@ -121,14 +121,28 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-	   }else if(sPath.equals("/MemberMyPage_user.me")) {
+	   } else if(sPath.equals("/MemberMyPage_user.me")) {
 			forward = new ActionForward();
 			forward.setPath("member/myPage_user.jsp");
 			forward.setRedirect(false);	
-	   }else if(sPath.equals("/MemberMyPage_owner.me")) {
+	   } else if(sPath.equals("/MemberMyPage_owner.me")) {
 			forward = new ActionForward();
 			forward.setPath("member/myPage_owner.jsp");
 			forward.setRedirect(false);	
+	   } else if(sPath.equals("/MemberPwModify.me")) {
+			action = new MemberPwModify();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   } else if(sPath.equals("/MemberPwModifyPro.me")) {
+			action = new MemberPwModifyPro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 	   }
 		
 		
