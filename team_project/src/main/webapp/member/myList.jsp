@@ -81,7 +81,7 @@
 	
 	<form name="myListForm" action="" id="myList" method="get">
 		<h3>내 이용 내역</h3>
-		<ul>
+		
 		<%  
 		AppointmentDAO adao = new AppointmentDAO();
 		ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
@@ -92,6 +92,7 @@
 			ProductDAO pdao = new ProductDAO();
 			ProductDTO pdto = pdao.getProduct(adto.getPno());
 		%>
+		<ul>
 			<li></li>
 			<li>예약일자 : <%=adto.getAdate() %></li>
  			<h5><%=pdto.getPname() %></h5>
@@ -160,10 +161,11 @@
 	 			</script>
 				<%
 				response.sendRedirect("login.jsp");
-			} // id 확인 메서드
+			} %>
+		</ul> <% // id 확인 메서드
 		} // userappointmentlist
 	%>
-		</ul>
+		
 	</form>
 
 	

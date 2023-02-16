@@ -91,8 +91,8 @@
 	// 아이디 없으면 로그인 페이지로 이동
 	if(id == null) {
 		%>
-		<script type="text/javascript"> -->
-    			alert("로그인을 해주세요"); -->
+		<script type="text/javascript">
+    			alert("로그인을 해주세요");
   		</script>
 		<%
 		response.sendRedirect("login.jsp");
