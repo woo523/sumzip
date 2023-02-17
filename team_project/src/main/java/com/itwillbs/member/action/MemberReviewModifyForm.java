@@ -19,8 +19,6 @@ public class MemberReviewModifyForm implements Action{
 		ReviewDTO rdto = rdao.getReview(ano);
 		
 		request.setAttribute("rdto", rdto);
-		System.out.println("ano: " + ano);
-		System.out.println("rno: " + rdto.getRno());
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("/member/reviewModify.jsp");

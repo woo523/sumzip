@@ -7,33 +7,29 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function fun1() {
-	if(document.ac.chk[0].checked==false && document.ac.chk[1].checked==false){
-		alert("이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.");
-		return;
-	}else if(document.ac.chk[0].checked==false && document.ac.chk[2].checked==false){
-		alert("이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.");
-		return;
-	}else if(document.ac.chk[1].checked==false && document.ac.chk[2].checked==false){
-		alert("이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.");
-		return;
+	   if(document.ac.chk1.checked==false && document.ac.chk2.checked==false){
+	      alert("이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.");
+	      return;
+	   }else if(document.ac.chk1.checked==false || document.ac.chk2.checked==false){
+	      alert("이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.");
+	      return;
+	   }else{
+	      document.ac.submit();
+	   }
 	}
-	else{
-		document.ac.submit();
-	}
-}
 function fun2() {
-	document.ac.action="../main/main.jsp";
-	document.ac.method="post";
-	document.ac.submit();
+   document.ac.action="../main/main.jsp";
+   document.ac.method="post";
+   document.ac.submit();
 }
 </script>
-
 </head>
 <style>
 *{margin: 0;padding: 0;box-sizing: border-box}
 body{background-color: #C5E1A5;}
 ul>li{list-style: none}
 a{text-decoration: none;}
+.top{margin-top: 150px;}
 .clearfix::after{content: "";display: block;clear: both;}
 #agreeForm{width: 500px;margin: 0 auto;}
 ul.join_box{border: 1px solid #ddd;background-color: #fff;}
@@ -45,22 +41,34 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 .footBtwrap{margin-top: 15px;}
 .footBtwrap>li{float: left;width: 50%;height: 60px;}
 .footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 18px;text-align: center;line-height: 60px;}
-.fpmgBt1{background-color: #5A5A5A;color:#FFFFFF; font-weight: bold;}
-.fpmgBt2{background-color: #119208;color: #FFFFFF; font-weight: bold;}
+.fpmgBt1{background-color: #bbb;color:#FFFFFF; font-weight: bold; border-width: 0px;}
+.fpmgBt2{background-color: #119208;color: #FFFFFF; font-weight: bold; border-width: 0px;}
 .logo{width: 500px;margin: 0 auto;}
 a{color:#FFFFFF;}
 a:hover {color: #E0FF8B;text-decoration: underline;}
 </style>
 
 <body>
- <div class="logo">
+<div id="wrap" class="top">
+<!-- 헤더들어가는 곳 -->
+
+<!-- 헤더들어가는 곳 -->
+
+<!-- 본문들어가는 곳 -->
+<!-- 본문메인이미지 -->
+<div id="sub_img_member"></div>
+<!-- 본문메인이미지 -->
+
+<!-- 왼쪽메뉴 -->
+
+ <div class="logo" style="margin-bottom: 10px;">
      <a href="../main/main.jsp">
      <img src="../img/logo.png" alt="섬집"></a>
  </div>
 <form action="../member/join.jsp" id="agreeForm" name="ac">
   <ul class="join_box">
-  	<li class="checkBox check01">
-  	
+     <li class="checkBox check01">
+     
   <ul class="clearfix">
 
   </ul>
@@ -69,7 +77,7 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
         <ul class="clearfix">
      <li>이용약관 동의(필수)</li>     
       <li class="checkBtn">
-       <input type="checkbox" name="chk" value="동의1"> 
+       <input type="checkbox" name="chk1" value="동의1"> 
      </li></ul>
      <textarea name="" id="">여러분을 환영합니다.
 섬집 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 
@@ -85,10 +93,10 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
        </li>
        
        <li class="checkBox check03">
-       	<ul class="clearfix">
-       	<li>개인정보 수집 및 이용에 대한 안내(필수)</li>
-       	<li class="checkBtn">
-       	<input type="checkbox" name="chk" value="동의2"></li></ul>
+          <ul class="clearfix">
+          <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
+          <li class="checkBtn">
+          <input type="checkbox" name="chk2" value="동의2"></li></ul>
         <textarea name="" id="">여러분을 환영합니다.
 섬집 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 섬집 서비스의 이용과 관련하여 네이버 서비스를 제공하는  섬집 주식회사(이하 ‘섬집’)와 이를 이용하는 섬집 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 섬집 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
 1. 수집하는 개인정보
@@ -99,12 +107,12 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
        </textarea>
          </li>
           <li class="checkBox check03">
-                    <ul class="clearfix">
-                        <li>위치정보 이용약관 동의(선택)</li>
-                        <li class="checkBtn">
-                            <input type="checkbox" name="chk2" value="동의3">
-                        </li>
-                    </ul>
+                  <ul class="clearfix">
+                      <li>위치정보 이용약관 동의(선택)</li>
+                      <li class="checkBtn">
+                          <input type="checkbox" name="chk3" value="동의3">
+                      </li>
+                  </ul>
  
                     <textarea name="" id="">위치기반서비스 이용약관에 동의하시면, 위치를 활용한 광고 정보 수신 등을 포함하는 섬집 위치기반 서비스를 이용할 수 있습니다.
 제 1 조 (목적)
@@ -124,15 +132,16 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
          <ul class="clearfix">
           <li>이벤트 등 프로모션 알림 메일 수신(선택)</li>
            <li class="checkBtn">
-           <input type="checkbox" name="chk2" value="동의4"></li>
+           <input type="checkbox" name="chk4" value="동의4"></li>
             </ul>
  
                 </li>
             </ul>
             <ul class="footBtwrap clearfix">
-            	<li><button type="button" class="fpmgBt1" onclick="fun2()">비동의</button></li>
+               <li><button type="button" class="fpmgBt1" onclick="fun2()">비동의</button></li>
                 <li><button type="button" class="fpmgBt2" onclick="fun1()">동의</button></li> 
             </ul>
         </form>
+    </div>
 </body>
 </html>
