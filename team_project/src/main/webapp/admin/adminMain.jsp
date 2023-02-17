@@ -95,7 +95,7 @@
 				<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
 			</div> 
 			<a href="#clients">숙소예약현황</a> 
-			<a href="#contact">유저관리</a>
+			<a href="AdminUserList.ad">유저관리</a>
 			<button class="dropdown-btn">
 				기타 <i class="fa fa-caret-down"></i>
 			</button>

@@ -12,6 +12,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/ad_header.jsp" />
+<!-- 헤더들어가는 곳 -->
 
 <%
 // UserDAO dao=new UserDAO();
