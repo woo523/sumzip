@@ -47,8 +47,8 @@ public class MemberReviewModifyPro implements Action{
 		rdto.setRstar(rstar); 
 		rdto.setRcontent(rcontent);
 		rdto.setRpic1(rpic1);
-		rdto.setRpic1(rpic2);
-		rdto.setRpic1(rpic3);
+		rdto.setRpic2(rpic2);
+		rdto.setRpic3(rpic3);
 		
 		// ReviewDAO
 		ReviewDAO rdao = new ReviewDAO();
