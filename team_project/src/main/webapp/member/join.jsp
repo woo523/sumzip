@@ -11,81 +11,61 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="../script/jquery-3.6.3.js"></script>
- <script type="text/javascript">
+<script type="text/javascript">
  
 $(document).ready(function(){
- 	 		
 	$('#join').submit(function(){
 	if($('.id').val()==""){
 		alert("아이디를 입력하세요.");
 		$('.id').focus();
 		return false;
 	}
-
-	// class="pass"
 	if($('.pass').val()==""){
 		alert("비밀번호를 입력하세요.");
 		$('.pass').focus();
 		return false;
 	}
-	
-	// class="pass2"
 	if($('.pass2').val()==""){
 		alert("비밀번호를 입력하세요.");
 		$('.pass2').focus();
 		return false;
 	}
-	
 	if($('.pass').val() != $('.pass2').val()){
 		alert("비밀번호가 일치하지 않습니다.");
 		$('.pass2').focus();
 		return false;
 	}
-	
 	if ( ! (document.joinform.pass.value.length >= 8 && document.joinform.pass.value.length <= 16)) {
 			alert("비밀번호 8 ~ 16자 사이로 입력해주세요");
 			document.joinform.pass.focus();
 			return false;
 		}
-	
-	// class="name"
 	if($('.uname').val()==""){
 		alert("이름을 입력하세요.");
 		$('.uname').focus();
 		return false;
 	}
-	
-	// class="birth"
 	if($('.birth').val()==""){
 		alert("생년월일을 입력하세요.");
 		$('.birth').focus();
 		return false;
 	}
-	
-	// class="email"
 	if($('.email').val()==""){
 		alert("이메일을 입력하세요.");
 		$('.email').focus();
 		return false;
 	}
-	
-	// class="tel"
 	if($('.tel').val()==""){
 		alert("전화번호를 입력하세요.");
 		$('.tel').focus();
 		return false;
 	}
-	
-	// class="address"
 	if($('.address').val()==""){
 		alert("주소를 입력하세요.");
 		$('.address').focus();
 		return false;
 	}
-
 		}); //
-	
-	// class="dup" 클릭했을때
 	$('.dup').click(function(){
 //		alert("클릭");
 		if($('.id').val()==""){
@@ -93,8 +73,6 @@ $(document).ready(function(){
 			$('.id').focus();
 			return false;
 		}
-		
-	// idCheck.jsp
 	$.ajax({
 		url:'idCheck.jsp',
 		data:{'id':$('.id').val()},

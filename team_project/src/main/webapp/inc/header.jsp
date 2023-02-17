@@ -120,6 +120,4 @@
         </div>
     </header>
     <!-- Header End -->
-</body>
-</html>
 
