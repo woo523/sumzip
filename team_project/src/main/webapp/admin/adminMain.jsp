@@ -6,12 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-#sidebar {
-	width: 250px;
-	height: 1000px;
-	/*  	background-color: #98FD5D;  */
-	float: left;
-}
 
 /* Fixed sidenav, full height */
 .sidenav {
@@ -21,9 +15,10 @@
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #111;
+	background-color: #00B72E;
 	overflow-x: hidden;
 	padding-top: 20px;
+	margin-top: 26px;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -31,7 +26,7 @@
 	padding: 6px 8px 6px 16px;
 	text-decoration: none;
 	font-size: 20px;
-	color: #818181;
+	color: #CAF0D3;
 	display: block;
 	border: none;
 	background: none;
@@ -72,50 +67,56 @@
 	padding-right: 8px;
 }
 </style>
+
+
 </head>
 <body>
-	<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<%-- 		<jsp:include page="../inc/header.jsp" /> --%>
-		<!-- 헤더들어가는 곳 -->
-
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/ad_header.jsp" />
+<!-- 헤더들어가는 곳 -->
+		
+	<!-- Backgrounds -->
+    <div class="menu-item">
+       <div class="container">
+            <div class="row">
+                 <div class="col-lg-2">
 		<div class="sidenav">
 		
-			<a href="#about">Q&A</a> <a href="#services">공지사항</a> <a
-				href="#clients">숙소예약현황</a> <a href="#contact">유저관리</a>
 			<button class="dropdown-btn">
-				Dropdown <i class="fa fa-caret-down"></i>
+				Q&A <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a> 
+			</div>
+			<button class="dropdown-btn">
+				공지사항 <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+			</div> 
+			<a href="#clients">숙소예약현황</a> 
+			<a href="AdminUserList.ad">유저관리</a>
+			<button class="dropdown-btn">
+				기타 <i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
 				<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
 			</div>
-			<a href="#contact">Search</a>
+			
 			
 		</div>
 		
-		<nav id="sidebar">
-<!-- 			<ul> -->
-<!-- 				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li> -->
-<!-- 				<li><a href="MemberMyList.me">내 이용목록</a></li> -->
-<!-- 				<li><a href="../products/appointManage.jsp">예약관리</a></li> -->
-<!-- 				<li><a href="#">찜 목록</a></li> -->
-<!-- 				<li><a href="deleteForm.jsp">회원탈퇴</a></li> -->
-<!-- 			</ul> -->
-		</nav>
-		
-		
-	</div>
+		</div>
 
+		<div class="col-lg-10">
 
 
 		<div class="content-main">
-			<div class="row">
-				<div class="col-sm-9">
-					<h1>Admin Page</h1>
-
- 				</div>
-			</div>
+			<h1>Admin Page</h1>	
 		</div>
+	</div>
+	</div>
+</div>
 		
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

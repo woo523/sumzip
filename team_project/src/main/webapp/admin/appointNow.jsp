@@ -95,9 +95,9 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 	    }	    
 	    %>
 	    </td>
-	    <td class="tb2"><a href="appointNowUpdate.jsp?Astatus=<%=dto.getAstatus()%>&ano=<%=dto.getAno()%>">다음 예약단계로 변경</a></td>
+	    <td class="tb2"><a href="AdminAppointNowUpdate.ad?Astatus=<%=dto.getAstatus()%>&ano=<%=dto.getAno()%>">다음 예약단계로 변경</a></td>
 	    <td class="tb2"><%=dto.getAdate()%></td>
-	    <td class="tb2"><a href="appointNowDelete.jsp?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
+	    <td class="tb2"><a href="AdminAppointNowDelete.ad?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
 	   <%
 	   }
 	%>
@@ -134,7 +134,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 
 if(startPage > pageBlock){
 	%>
-	<a href="appointNow.jsp?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+	<a href="AdminAppointNow.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
 }
 %>
@@ -143,7 +143,7 @@ if(startPage > pageBlock){
 for(int i=startPage;i<=endPage;i++){
 	%>
 	
-	<a href="appointNow.jsp?pageNum=<%=i%>"><%=i%></a>
+	<a href="AdminAppointNow.ad?pageNum=<%=i%>"><%=i%></a>
 	<%
 }
 %>
@@ -152,7 +152,6 @@ for(int i=startPage;i<=endPage;i++){
 //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="appointNow.jsp?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
 }
 
