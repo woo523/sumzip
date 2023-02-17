@@ -24,7 +24,7 @@ if(Astatus>=3){
 	 appointupdateDto.setAstatus(Astatus);
 	 appointupdateDto.setAstatus(ano);
 	 dao2.updateAppointment(appointupdateDto);	
-		response.sendRedirect("appointNow.jsp");
+		response.sendRedirect("AdminAppointNow.ad");
 }else{
 	
 
@@ -39,7 +39,7 @@ appointupdateDto.setAno(ano);
 	// dao.updateMember(updateDto) 메서드 호출
 	dao2.updateAppointment(appointupdateDto);
 	// => main.jsp 이동
-	response.sendRedirect("appointNow.jsp");
+	response.sendRedirect("AdminAppointNow.ad");
 
 	}else{
 //  데이터 없으면 false => 아이디 비밀번호 틀림

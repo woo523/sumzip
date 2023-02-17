@@ -97,33 +97,40 @@ public class ProductsFrontController extends HttpServlet {
 //				} catch (Exception e) {
 //					e.printStackTrace();
 //				}	
-//			if(sPath.equals("/ProductsAppointment.pr")) {
-//				
-//				//이동정보를 저장하는 자바파일 객체생성
-//				forward=new ActionForward();
-//				forward.setPath("products/appointment.jsp");
-//				forward.setRedirect(false);
-//				
-//			}else if(sPath.equals("/ProductsAppointmentPro.pr")) {
-//				
-//				// 부모 = 자식 객체생성
-//				action=new ProductsAppointmentPro();
-//				try {
-//					forward=action.execute(request, response);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//				
-//			}else if(sPath.equals("/ProductsAppointManage.pr")) {
-//				action=new ProductsAppointManage();
-//				try {
-//					forward=action.execute(request, response);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			
-			}//doProcess()
-//			
+			}if(sPath.equals("/ProductsAppointment.pr")) {
+				
+				//이동정보를 저장하는 자바파일 객체생성
+				forward=new ActionForward();
+				forward.setPath("products/appointment.jsp");
+				forward.setRedirect(false);
+				
+			}else if(sPath.equals("/ProductsAppointmentPro.pr")) {
+				
+				// 부모 = 자식 객체생성
+				action=new ProductsAppointmentPro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}else if(sPath.equals("/ProductsAppointManage.pr")) {
+				action=new ProductsAppointManage();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/ProductsAppointManagePro.pr")) {
+				action=new ProductsAppointManagePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+	
 //	------------------------------------------------------------------------		
 			if(forward != null) {
 				//이동방식비교
@@ -137,5 +144,5 @@ public class ProductsFrontController extends HttpServlet {
 				}
 			}
 			
-			}
-		}
+		}//doProcess
+}
