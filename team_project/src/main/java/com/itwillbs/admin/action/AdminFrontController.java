@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itwillbs.admin.action.Action;
 import com.itwillbs.admin.action.ActionForward;
-import com.itwillbs.board.action.BoardDeletePro;
-import com.itwillbs.member.action.MemberLogout;
 
 public class AdminFrontController extends HttpServlet {
 	@Override
@@ -35,9 +33,12 @@ public class AdminFrontController extends HttpServlet {
 		ActionForward forward=null;
 		
 		if(sPath.equals("/AdminAppointNow.ad")) {
-			forward=new ActionForward();
-			forward.setPath("admin/appointNow.jsp");
-			forward.setRedirect(false);
+			action=new AdminAppointNow();
+			try {
+				forward=action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(sPath.equals("/AdminAppointNowUpdate.ad")) {
 			action=new AdminAppointNowUpdate();
 			try {

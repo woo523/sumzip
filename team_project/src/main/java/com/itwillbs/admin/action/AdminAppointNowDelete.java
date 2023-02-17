@@ -28,7 +28,7 @@ public class AdminAppointNowDelete implements Action {
 			// => 세션값 초기화
 //		 	session.invalidate();		
 			// => main.jsp 이동
-			response.sendRedirect("AdminAppointNow.ad");
+//			response.sendRedirect("AdminAppointNow.ad");
 		}
 		
 		ActionForward forward=new ActionForward();

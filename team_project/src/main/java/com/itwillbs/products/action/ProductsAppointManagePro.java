@@ -32,11 +32,10 @@ public class ProductsAppointManagePro implements Action {
 			dao.deleteAppointment(num);
 			// => 세션값 초기화
 //		 	session.invalidate();		
-			// => appointManage.jsp 이동
-			response.sendRedirect("appointManage.jsp");
+			// => ProductsAppointManage.pr 이동
+			response.sendRedirect("ProductsAppointManage.pr");
 		}else{
-			// 일치하지 않을 시
-		    
+			// 일치하지 않을 시		    
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script type='text/javascript'>");

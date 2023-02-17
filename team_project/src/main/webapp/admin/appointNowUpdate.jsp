@@ -34,7 +34,7 @@ appointupdateDto.setAstatus(Astatus);
 appointupdateDto.setAno(ano);
 
 
-	if(id=="admin"){
+	if(id.equals("admin")){
 	// 리턴값없음 updateMember(MemberDTO updateDto) 메서드 정의 
 	// dao.updateMember(updateDto) 메서드 호출
 	dao2.updateAppointment(appointupdateDto);

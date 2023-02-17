@@ -12,12 +12,10 @@ import products.AppointmentDAO;
 import products.AppointmentDTO;
 
 public class AdminAppointNow implements Action{
-
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("AdminAppointNow execute()");
-		HttpSession session=request.getSession();
-		String id=(String)session.getAttribute("id");
 		
 		AppointmentDAO dao=new AppointmentDAO();
 			
@@ -74,8 +72,6 @@ public class AdminAppointNow implements Action{
 				if(endPage > pageCount){
 					endPage = pageCount;
 				}
-					
-				
 				
 				
 				// dto request 담아서 이동
@@ -84,7 +80,7 @@ public class AdminAppointNow implements Action{
 				request.setAttribute("pageBlock", pageBlock);
 				request.setAttribute("endPage", endPage);
 				request.setAttribute("pageCount", pageCount);
-		
+				
 		ActionForward forward=new ActionForward();
 		forward.setPath("admin/appointNow.jsp");
 		forward.setRedirect(false);

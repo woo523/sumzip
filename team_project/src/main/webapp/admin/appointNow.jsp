@@ -30,8 +30,8 @@
     </div>
 <%
 // String id="admin";
-String id=(String)session.getAttribute("id");
-if(id=="admin"){
+// String id=(String)session.getAttribute("id");
+// if(id.equals("admin")){
 
 // 	AppointmentDAO dao=new AppointmentDAO();
 	
@@ -79,12 +79,10 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 	 for(int i=0;i<AppointmentList.size();i++){
 	 	//배열 한칸에 내용 가져오기
 	 	AppointmentDTO dto=AppointmentList.get(i);
-	 	ProductDAO dao2=new ProductDAO();
-	 	ProductDTO dto2=dao2.getProduct(dto.getPno());
+	 	
 		%>
 	<tr><td class="tb2"><%=dto.getNo()%></td>
 	    <td class="tb2"><%=dto.getAno()%></td>
-	    <td class="tb2"><%=dto2.getPname()%></td>
 	    <td class="tb2"><%
 	    if(dto.getAstatus()==1){
 	    	out.print("입금대기");
@@ -131,7 +129,6 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 // 	endPage = pageCount;
 // }
 //10페이지 이전
-
 if(startPage > pageBlock){
 	%>
 	<a href="AdminAppointNow.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
@@ -155,9 +152,9 @@ if(endPage < pageCount){
 	<%
 }
 
- }else {
-	response.sendRedirect("MemberLogin.me");
- }
+//  }else {
+// 	response.sendRedirect("AdminLogin.ad");
+//  }
  %> 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>

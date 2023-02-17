@@ -89,24 +89,6 @@ ul, ol {
 /*---------------------
   Helper CSS
 -----------------------*/
-.tb{
-	font-size: 30px;
-	margin: 3px;
-	color: #111111;
-	font-weight: 400;
-	font-family: "Lora", serif;
-	padding : 10px;
-	margin-left:500px;
-}
-.tb2{
-	font-size: 30px;
-	margin: 3px;
-	color: #111111;
-	font-weight: 400;
-	font-family: "Lora", serif;
-	padding : 10px;
-	margin-left:280px;
-}
 
 .section-title {
 	text-align: center;
@@ -516,8 +498,8 @@ ul, ol {
 
 .hero-section {
 	position: relative;
-	padding-top: 60px;
-	padding-bottom: 100px;
+	padding-top: 100px;
+	padding-bottom: 60px;
 }
 .hero-section .container {
 	position: relative;

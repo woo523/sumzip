@@ -41,11 +41,11 @@ public class ProductsAppointmentPro implements Action {
 				dao.insertAppointment(dto);
 
 				//예약관리 페이지로 이동
-				response.sendRedirect("ProductsAppointManage.pr");
+//				response.sendRedirect("ProductsAppointManage.pr");
 		
 				
 		ActionForward forward=new ActionForward();
-		forward.setPath("ProductsAppointment.pr");
+		forward.setPath("ProductsAppointManage.pr");
 		forward.setRedirect(true);
 				
 		return forward;	
