@@ -16,11 +16,10 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" type="text/css" href="../css1/styles.css">
+    <link rel="stylesheet" type="text/css" href="css1/styles.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- Backgrounds -->
 
     <div id="login-bg" class="container-fluid">
 
@@ -38,7 +37,7 @@
             <h1>관리자 Login</h1>
             
             <!-- Loging form -->
-                  <form action="loginPro.jsp" id="login" method="post">
+                  <form action="AdminLoginPro.ad" id="login" method="post">
                     <div class="form-group">
                       <input type="text" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디를 입력하세요">
                       

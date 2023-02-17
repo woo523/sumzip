@@ -15,6 +15,7 @@ public class QnaQuestion implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		System.out.println("QnaQuestion execute()");
 		
 		int qno=Integer.parseInt(request.getParameter("qno"));
@@ -45,7 +46,12 @@ public class QnaQuestion implements Action{
 		request.setAttribute("udto", udto);
 		request.setAttribute("qno", qno);
 		
-		return null;
+		ActionForward forward = new ActionForward();
+		forward.setPath("qna/question.jsp");
+		forward.setRedirect(false);		
+
+		
+		return forward;
 	}
 
 }
