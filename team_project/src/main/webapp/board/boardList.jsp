@@ -13,7 +13,7 @@
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
-<!-- 페이징 부분 -->
+<!-- 한페이지에 보여줄 글 개수 -->
 <%
 // BoardDAO dao= new BoardDAO();
 
@@ -83,15 +83,15 @@ for(int i=0; i<boardList.size(); i++){
 %>
 
 <!-- 게시판 글 검색부분 -->
-<form method="get">
+<form action="BoardList.bo"  method="get">
 <table border="1" width="50%"> 
 <tbody><tr>
 <td align="center">
-<select name="serchField">
+<select name="serch1">
 <option value="btitle">제목</option>
 <option value="bcontent">내용</option>
 </select>
-<input type="text" name="searchWord">
+<input type="text" name="search2">
 <input type="submit" value="검색">
 </td>
 </tr>

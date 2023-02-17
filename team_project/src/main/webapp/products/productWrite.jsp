@@ -22,7 +22,7 @@ String id=(String)session.getAttribute("id");
 // String utype=(String)session.getAttribute("utype");
 
 if(id==null){
-	response.sendRedirect("../member/login.jsp");
+	response.sendRedirect("MemberLogin.me");
 	
 }
 %>
@@ -34,9 +34,8 @@ if(id==null){
 			<div class="col-sm-9">
 				<hr>
 				<div class="bg-white rounded shadow-sm container p-3">
-					<form method="POST" action="updateAction" name="updateForm"
-						onsubmit="return updateValidate();" class="form-horizontal"
-						role="form">
+					<form method="POST"  action="updateAction" action="ProductWritePro.pr"
+						onsubmit="return updateValidate();" class="form-horizontal" role="form">
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
 								<label>상품번호</label> <input type="text" name="pno"
@@ -46,7 +45,7 @@ if(id==null){
 
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>유저번호</label> <input type="text" name="no" value="<%=dto.getNo()%>"
+								<label>유저번호</label> <input type="text" name="no" value="<%=id%>"
 									readonly>
 							</div>
 						</div>
@@ -89,12 +88,60 @@ if(id==null){
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>펜션사진</label> <input type="file" name="productImage" > 
+								<label>체크아웃시간</label> <input type="time" name="checkout" > 
+							</div>		
+						</div>						
+						
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>가격</label> <input type="text" name="pprice" > 
+							</div>		
+						</div>
+
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>최대숙박인원</label> <input type="text" name="max_men" > 
+							</div>		
+						</div>
+
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>등록유효기간</label> <input type="text" name="expiration" > 
+							</div>		
+						</div>
+																								
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>펜션사진1</label> <input type="file" name="ppin1" > 
 							</div>		
 						</div>
 						
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>펜션사진2</label> <input type="file" name="ppin2" > 
+							</div>		
+						</div>
+						
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>펜션사진3</label> <input type="file" name="ppin3" > 
+							</div>		
+						</div>												
+	
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>주의사항</label> <input type="text" name="caution" > 
+							</div>		
+						</div>
+						
+						<div class="row mb-3 form-row">
+							<div class="col-md-3">
+								<label>펜션 설명</label> <input type="text" name="pexplain" > 
+							</div>		
+						</div>
+																		
 						<div class="btnChange">
-							<a href="productwritePro.jsp"><input type="button" name="product"
+							<a href="BoardWritePro.pr"><input type="button" 
 								value="상품등록"></a> 
 						</div>
 					</form>

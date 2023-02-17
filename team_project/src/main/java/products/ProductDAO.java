@@ -2,6 +2,8 @@ package products;
 
 import java.sql.Connection;
 
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -10,7 +12,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import member.UserDTO;
+
+
 
     //DB연결
     public class ProductDAO {
@@ -84,7 +87,7 @@ import member.UserDTO;
 		//-ProductList.jsp 연결메서드
 		public ArrayList<ProductDTO> getProductList(int startRow, int pageSize){
 			System.out.println("ProductDAO getProductList()");
-			ArrayList<ProductDTO> productList=new ArrayList<>();
+			ArrayList<ProductDTO> productList=new ArrayList<ProductDTO>();
 			Connection con =null;
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;
@@ -100,25 +103,14 @@ import member.UserDTO;
 				
 				while(rs.next()) {
 					ProductDTO dto=new ProductDTO();
-
+					System.out.println("상품정보저장 주소 : "+dto);
+					
 					dto.setPno(rs.getInt("pno"));
-					dto.setNo(rs.getInt("no"));
 					dto.setPname(rs.getString("pname"));
-					dto.setPaddress(rs.getString("paddress"));
-					dto.setPpostnum(rs.getInt("ppostnum"));
-					dto.setPaddress2(rs.getString("paddress2"));
-					dto.setPtel(rs.getString("ptel"));
-					dto.setCheckin(rs.getInt("checkin"));
-					dto.setCheckout(rs.getInt("checkout"));
 					dto.setPprice(rs.getInt("pprice"));
-					dto.setMax_men(rs.getInt("mex_men"));
-					dto.setExpiration(rs.getInt("expiration"));
-					dto.setReser_date(rs.getTimestamp("reser_date"));
+					dto.setMax_men(rs.getInt("max_men"));
 					dto.setPpic1(rs.getString("ppic1"));
-					dto.setPpic2(rs.getString("ppic2"));
-					dto.setPpic3(rs.getString("ppic3"));
-					dto.setCaution(rs.getString("caution"));
-					dto.setPexplain(rs.getString("pexlain"));
+					dto.setPexplain(rs.getString("pexplain"));
 					
 					productList.add(dto);
 				}
@@ -161,14 +153,14 @@ import member.UserDTO;
 					dto.setCheckin(rs.getInt("checkin"));
 					dto.setCheckout(rs.getInt("checkout"));
 					dto.setPprice(rs.getInt("pprice"));
-					dto.setMax_men(rs.getInt("mex_men"));
+					dto.setMax_men(rs.getInt("max_men"));
 					dto.setExpiration(rs.getInt("expiration"));
 					dto.setReser_date(rs.getTimestamp("reser_date"));
 					dto.setPpic1(rs.getString("ppic1"));
 					dto.setPpic2(rs.getString("ppic2"));
 					dto.setPpic3(rs.getString("ppic3"));
 					dto.setCaution(rs.getString("caution"));
-					dto.setPexplain(rs.getString("pexlain"));
+					dto.setPexplain(rs.getString("pexplain"));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -234,7 +226,7 @@ import member.UserDTO;
 		
 		
 		public void updateProduct(ProductDTO dto) {
-			System.out.println("BoardDAO updateProduct()");
+			System.out.println("ProductDAO updateProduct()");
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			try {
@@ -267,7 +259,32 @@ import member.UserDTO;
 			}
 		}//updateProduct()
 			
-			
+		public void fupdateProduct(ProductDTO dto) {
+			System.out.println("ProductDAO fupdateProduct()");
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			try {
+				// 1~2 단계
+				con=getConnection();
+				// 3단계 sql
+				String sql="update products set ppic1=?, pname=?, pprice=?, pexplain=? where pno=?";
+				pstmt=con.prepareStatement(sql);
+				// file 추가
+				pstmt.setString(1, dto.getPpic1());
+				pstmt.setString(2, dto.getPname());
+				pstmt.setInt(3, dto.getPprice());
+				
+				pstmt.setInt(4, dto.getPno());
+				// 4단계 SQL구문을 실행(insert,update,delete)
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				// 예외 상관없이 마무리작업 => 객체생성한 기억장소 해제
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+		}//fupdateProduct
 		
 			
 			
