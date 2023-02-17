@@ -7,6 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>maindetail.jsp</title>
+
+<style type="text/css">
+.class{
+
+}
+</style>
 </head>
 <body>
 <%
@@ -23,7 +29,7 @@ int pageCount = (Integer)request.getAttribute("pageCount");
 for(int i = 0;i<productlist.size();i++){
 ProductDTO dto = productlist.get(i);
 %>
-<div class="productitem">
+<div class="productitem" style="float: left; width: 33%;">
 <img src ="<%=dto.getPpic1() %>">
 <div class="productinfo">
 <h3><%=dto.getPname() %></h3>
