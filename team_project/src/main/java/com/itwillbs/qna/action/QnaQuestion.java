@@ -18,12 +18,14 @@ public class QnaQuestion implements Action{
 		
 		System.out.println("QnaQuestion execute()");
 		
+		// qno 가져오기
 		int qno=Integer.parseInt(request.getParameter("qno"));
 		
 		QnaDAO qdao=new QnaDAO();
 		QnaDTO qdto=qdao.getQna(qno);
-		HttpSession session = request.getSession();
-		 
+		
+		HttpSession session = request.getSession();	
+		
 		String id=(String)session.getAttribute("id");
 		
 		if(id==null) {
