@@ -22,8 +22,8 @@ public class AdminLoginPro implements Action{
 		UserDTO dto=dao.userCheck(id, pass);
 		
 		ActionForward forward = null;
-		if(dto!=null){
-			//아이디 비밀번호 일치
+		if(id.equals("admin")){
+			//관리자 아이디 일치
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 			
@@ -31,14 +31,17 @@ public class AdminLoginPro implements Action{
 			forward.setPath("AdminMain.ad");
 			forward.setRedirect(true);
 		}else{
+
+			forward = new ActionForward();
+			forward.setPath("AdminMain.ad");
+			forward.setRedirect(true);
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter(); // html로 출력할 권한 받음
 			out.println("<script type='text/javascript'>");
-			out.println("alert('아이디 비밀번호를 잘못 입력하였습니다');");
+			out.println("alert('권한이 없는 사용자입니다');");
 			out.println("history.back();");
 			out.println("</script>");
 			out.close();
-			
 			}
 		
 		return forward;
