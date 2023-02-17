@@ -21,8 +21,11 @@ public class QnaQuestion implements Action{
 		// qno 가져오기
 		int qno=Integer.parseInt(request.getParameter("qno"));
 		
+		
+		
 		QnaDAO qdao=new QnaDAO();
 		QnaDTO qdto=qdao.getQna(qno);
+		
 		
 		HttpSession session = request.getSession();	
 		
@@ -47,6 +50,7 @@ public class QnaQuestion implements Action{
 		request.setAttribute("qdto", qdto);
 		request.setAttribute("udto", udto);
 		request.setAttribute("qno", qno);
+	
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("qna/question.jsp");

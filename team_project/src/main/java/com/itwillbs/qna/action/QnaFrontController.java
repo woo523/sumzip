@@ -61,7 +61,14 @@ public class QnaFrontController extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}		
+	}else if(sPath.equals("QuestionUpdateForm.qa")) {
+		action = new QuestionUpdateForm();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
