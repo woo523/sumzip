@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" type="text/css" href="css1/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 <title>Insert title here</title>
 </head>
 <body>

@@ -18,6 +18,7 @@
 	background-color: #00B72E;
 	overflow-x: hidden;
 	padding-top: 20px;
+	margin-top: 26px;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -70,14 +71,15 @@
 
 </head>
 <body>
-	<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/ad_header.jsp" />
-	<!-- 헤더들어가는 곳 -->
-
-	<div id="wrap">
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/ad_header.jsp" />
+<!-- 헤더들어가는 곳 -->
 		
 	<!-- Backgrounds -->
-
+    <div class="menu-item">
+       <div class="container">
+            <div class="row">
+                 <div class="col-lg-2">
 		<div class="sidenav">
 		
 			<button class="dropdown-btn">
@@ -104,19 +106,17 @@
 			
 		</div>
 		
-		
-	</div>
+		</div>
 
+		<div class="col-lg-10">
 
 
 		<div class="content-main">
-			<div class="row">
-				<div class="col-sm-9">
-					<h1>Admin Page</h1>
-
- 				</div>
-			</div>
+			<h1>Admin Page</h1>	
 		</div>
+	</div>
+	</div>
+</div>
 		
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
