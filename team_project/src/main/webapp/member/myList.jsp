@@ -87,10 +87,13 @@
 		ArrayList<AppointmentDTO> userappointmentlist = adao.getUserAppointmentList(no);
 		
 		for(int i = 0 ; i < userappointmentlist.size(); i++){
+			// 예약정보
 			AppointmentDTO adto = userappointmentlist.get(i);
 			
+			// 펜션정보 => 펜션 이름, 체크인시간, 체크아웃 시간
 			ProductDAO pdao = new ProductDAO();
 			ProductDTO pdto = pdao.getProduct(adto.getPno());
+			
 		%>
 		<ul>
 			<li></li>
@@ -105,10 +108,8 @@
 			String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			
-			Date appointIndate = formatter.parse("2023-02-01"); // 임시 체크인 날짜
-			// Date appointIndate = salesdto.getIndate();
-			Date appointOutdate = formatter.parse("2023-02-05"); // 임시 체크아웃 날짜
-			// Date appointOutdate = salesdto.getOutdate();
+			Date appointIndate = salesdto.getIndate(); // 체크인 날짜
+			Date appointOutdate = salesdto.getOutdate(); // 체크아웃 날짜
 			Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
 			
 			System.out.println("appointIndate: " + formatter.format(appointIndate));
@@ -149,7 +150,7 @@
 							// 후기 작성 가능
 							System.out.println("appointOutdate is before today");
 							%>
-							<li><button type="button" id="reviewBtn" class="btn btn-outline-success" onclick="location.href='MemberReview.me?ano=<%=adto.getAno() %>'">이용 후기 작성하기</button></li>
+							<li><button type="button" id="reviewBtn" class="btn btn-outline-success" onclick="location.href='MemberReview.me?ano=<%=adto.getAno()%>&pno=<%=adto.getPno()%>'">이용 후기 작성하기</button></li>
 							<%
 						}
 					}
@@ -163,6 +164,7 @@
 				response.sendRedirect("login.jsp");
 			} %>
 		</ul> <% // id 확인 메서드
+		
 		} // userappointmentlist
 	%>
 		

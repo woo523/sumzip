@@ -105,9 +105,6 @@
  	<jsp:include page="../inc/header.jsp" />
  	
 	<div class="reviewContainer">
-		<fieldset>
-			펜션정보를 가지고 올까요 말까요?
-		</fieldset>
 		<article>
 			<form name="reviewForm" action="MemberReviewModifyPro.me" id="reviewForm" method ="post" onsubmit="return formCheck()" enctype="multipart/form-data">
 				<input type="hidden" name="ano" value="<%=rdto.getAno() %>">
@@ -142,8 +139,12 @@
 				</div>
 					
 				<div>
-					<input type="file" name="rpic1"><%=rdto.getRpic1() %>
+					<input type="file" name="rpic1" class="pic"><%=rdto.getRpic1() %>
 					<input type="hidden" name="oldrpic1" value="<%=rdto.getRpic1() %>">
+					<input type="file" name="rpic2" class="pic"><%=rdto.getRpic2() %>
+					<input type="hidden" name="oldrpic2" value="<%=rdto.getRpic2() %>">
+					<input type="file" name="rpic3" class="pic"><%=rdto.getRpic3() %>
+					<input type="hidden" name="oldrpic3" value="<%=rdto.getRpic3() %>">
 				</div>
 				
 				<div id="Buttons">
@@ -207,6 +208,10 @@
   		height: 250px;
   		resize: none;
  	}
+ 	
+ 	.reviewContainer #reviewForm .pic {
+		margin: 5px 0px 5px 0px;	
+	}
 	
   	.reviewContainer #reviewForm #Buttons {
 		text-align: right;
@@ -218,6 +223,37 @@
  		width: 150px;
  		height: 50px;
  	}
+ 	
+ 	 .star_rating .rate_radio {
+		position: relative;
+		display: inline-block;
+		z-index: 20;
+		opacity: 0.001;
+		width: 60px;
+		height: 60px;
+		background-color: #fff;
+		cursor: pointer;
+		vertical-align: top;
+		display: none;
+	}
+	
+	.star_rating .rate_radio + label {
+		position: relative;
+		display: inline-block;
+		margin-left: -4px;
+		z-index: 10;
+		width: 60px;
+		height: 60px;
+		background-image: url('img/starrate.png');
+		background-repeat: no-repeat;
+		background-size: 60px 60px;
+		cursor: pointer;
+		background-color: #f0f0f0;
+	}
+	
+	.star_rating .rate_radio:checked + label {
+		background-color: #FCC419;
+	}
 	
 </style>
 </html>

@@ -99,18 +99,17 @@
 	}
 	
 	int ano = Integer.parseInt(request.getParameter("ano"));
+	int pno = Integer.parseInt(request.getParameter("pno"));
 	
 %>
 	<!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
  	
 	<div class="reviewContainer">
-		<fieldset>
-			펜션정보를 가지고 올까요 말까요?
-		</fieldset>
 		<article>
 			<form name="reviewForm" action="MemberReviewPro.me" id="reviewForm" method ="post" onsubmit="return formCheck()" enctype="multipart/form-data">
 				<input type="hidden" name="ano" value="<%=ano%>">
+				<input type="hidden" name="pno" value="<%=pno%>">
 				<div class="reviewTitle">
 				한줄평 : <input type="text" name="title" class="reviewTitleText">
 				</div>
@@ -142,8 +141,8 @@
 					
 				<div>
 					<input type="file" name="rpic1" class="pic">
-<!-- 					<input type="file" name="rpic2" class="pic"> -->
-<!-- 					<input type="file" name="rpic3" class="pic"> -->
+					<input type="file" name="rpic2" class="pic">
+					<input type="file" name="rpic3" class="pic">
 				</div>
 				
 				<div id="Buttons">

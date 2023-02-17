@@ -13,6 +13,8 @@ import member.ReviewDAO;
 import member.ReviewDTO;
 import member.UserDAO;
 import member.UserDTO;
+import products.ProductDAO;
+import products.ProductDTO;
 
 public class MemberReviewPro implements Action {
 
@@ -24,7 +26,7 @@ public class MemberReviewPro implements Action {
 		request.setCharacterEncoding("UTF-8");
 		
 		// 임시 데이터
-		int pno = 100;
+//		int pno = 100;
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
@@ -35,6 +37,7 @@ public class MemberReviewPro implements Action {
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 		
 		int ano = Integer.parseInt(multi.getParameter("ano"));
+		int pno = Integer.parseInt(multi.getParameter("pno"));
 		
 		String rtitle = multi.getParameter("title");
 		String rstar = multi.getParameter("rating"); 
@@ -61,8 +64,8 @@ public class MemberReviewPro implements Action {
 	 	dto.setRcount(rcount);
 	 	dto.setRdate(rdate);
 	 	dto.setRpic1(rpic1);
-//	 	dto.setRpic1(rpic2);
-//	 	dto.setRpic1(rpic3);
+	 	dto.setRpic2(rpic2);
+	 	dto.setRpic3(rpic3);
 	 
 	 	// 리턴X insertReview()
 	 	ReviewDAO dao = new ReviewDAO();

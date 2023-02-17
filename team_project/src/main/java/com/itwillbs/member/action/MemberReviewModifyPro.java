@@ -24,21 +24,31 @@ public class MemberReviewModifyPro implements Action{
 		
 		int rno = Integer.parseInt(multi.getParameter("rno"));
 		String rtitle = multi.getParameter("title");
-//		String rstar = multi.getParameter("rstar"); 
+		String rstar = multi.getParameter("rating"); 
 		String rcontent = multi.getParameter("content");
 		String rpic1 = multi.getFilesystemName("rpic1");
+		String rpic2 = multi.getFilesystemName("rpic2");
+		String rpic3 = multi.getFilesystemName("rpic3");
 		// 수정할 업로드 파일이 없으면 기존 파일 유지
 		if(rpic1 == null) {
 			rpic1 = multi.getParameter("oldrpic1");
+		}
+		if(rpic2 == null) {
+			rpic2 = multi.getParameter("oldrpic2");
+		}
+		if(rpic3 == null) {
+			rpic3 = multi.getParameter("oldrpic3");
 		}
 		
 		// ReviewDTO
 		ReviewDTO rdto = new ReviewDTO();
 		rdto.setRno(rno);
 		rdto.setRtitle(rtitle);
-//		rdto.setRstar(rstar); 
+		rdto.setRstar(rstar); 
 		rdto.setRcontent(rcontent);
 		rdto.setRpic1(rpic1);
+		rdto.setRpic1(rpic2);
+		rdto.setRpic1(rpic3);
 		
 		// ReviewDAO
 		ReviewDAO rdao = new ReviewDAO();
