@@ -50,8 +50,6 @@ public class BoardContent implements Action{
 
 		ArrayList<ReplyDTO> replylist = rdao.getReplyList(bno);
 
-		
-		
 		request.setAttribute("dto", dto);
 		request.setAttribute("replylist", replylist);
 		request.setAttribute("count", count);

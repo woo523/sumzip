@@ -69,13 +69,13 @@ public class ProductsFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}	
-//			}else if(sPath.equals("/ProductContent.pr")) {
-//				action = new ProductContent();
-//				try {
-//					forward=action.execute(request, response);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
+			}else if(sPath.equals("/ProductContent.pr")) {
+				action = new ProductContent();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 //			}else if(sPath.equals("/ProductUpdateForm.pr")) {
 //				action=new ProductUpdateForm();
 //				try {
@@ -122,7 +122,7 @@ public class ProductsFrontController extends HttpServlet {
 //					e.printStackTrace();
 //				}
 //			
-//			}//doProcess()
+			}//doProcess()
 //			
 //	------------------------------------------------------------------------		
 			if(forward != null) {
@@ -139,4 +139,3 @@ public class ProductsFrontController extends HttpServlet {
 			
 			}
 		}
-}
