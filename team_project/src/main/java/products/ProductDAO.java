@@ -107,6 +107,10 @@ import javax.sql.DataSource;
 					
 					dto.setPno(rs.getInt("pno"));
 					dto.setPname(rs.getString("pname"));
+					dto.setPaddress(rs.getString("paddress"));
+					dto.setPaddress2(rs.getString("paddress2"));
+					dto.setCheckin(rs.getInt("checkin"));
+					dto.setCheckout(rs.getInt("checkout"));
 					dto.setPprice(rs.getInt("pprice"));
 					dto.setPpic1(rs.getString("ppic1"));
 					dto.setPexplain(rs.getString("pexplain"));

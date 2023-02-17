@@ -2,6 +2,7 @@ package com.itwillbs.board.action;
 
 
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ public class BoardCommentInsert implements Action{
 		int no = Integer.parseInt(request.getParameter("no"));
 		String commend = request.getParameter("commend");
 		int rno = Integer.parseInt(request.getParameter("rno"));
-
+		
 		Timestamp cdate = new Timestamp(System.currentTimeMillis());
 
 		CommendDTO dto = new CommendDTO();
@@ -29,13 +30,25 @@ public class BoardCommentInsert implements Action{
 		dto.setRno(rno);
 		dto.setCommend(commend);
 		dto.setCdate(cdate);
-
+		
+		ActionForward forward = null;
+		if (commend=="") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('내용을 입력해주세요');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();	
+		}else {
+	
 		CommendDAO dao = new CommendDAO();
 		dao.insertCommend(dto);
 
-		ActionForward forward = new ActionForward();
+		forward = new ActionForward();
 		forward.setPath("BoardContent.bo?bno="+bno);
 		forward.setRedirect(true);
+		}
 		
 		return forward;
 

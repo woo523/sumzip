@@ -134,7 +134,7 @@ public class CommendDAO {
 		ArrayList<CommendDTO> commendlist = new ArrayList<>();
 		try {
 			con = getConnection();
-			String sql = "select * from commend where rno =? order by cno desc";
+			String sql = "select * from commend where rno =? order by cno";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rno);
 			rs=pstmt.executeQuery();

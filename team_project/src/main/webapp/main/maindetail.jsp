@@ -24,20 +24,90 @@ int endPage = (Integer)request.getAttribute("endPage");
 int pageCount = (Integer)request.getAttribute("pageCount");
 
 %>
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h2>Our pension</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+<!-- 펜션 정보 -->
+  <section class="rooms-section spad">
+        <div class="container">
+            <div class="row">
 <%
 for(int i = 0;i<productlist.size();i++){
 ProductDTO dto = productlist.get(i);
 %>
-<div class="productitem" style="float: left; width: 33%;">
-<img src ="<%=dto.getPpic1() %>">
-<div class="productinfo">
-<h3><%=dto.getPname() %></h3>
-<p> <%=dto.getPprice() %></p>
-</div>
-</div>
 
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+						<!--  펜션 사진들어 가는 곳 -->
+                        <img src="img/room/room-5.jpg"> 
+<!-- 지금 디비에 사진이 없어서 샘플로 넣어놨어요. 사진 들어 오면 dto.getPpic()으로 바꾸면 될듯 -->
+                        <div class="ri-text">
+                            <h4><%=dto.getPname() %></h4>
+                            <h3><%=dto.getPprice()%>원<span>/1박</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">주소 :</td>
+                                        <td><%=dto.getPaddress2() %></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">체크인 :</td>
+                                        <td><%=dto.getCheckin() %>시</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">체크아웃:</td>
+                                        <td><%=dto.getCheckout() %>시</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                            <a href="ProductContent.pr?pno=<%=dto.getPno()%>" class="primary-btn">More Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+              
 <%} %>
+
+
+<!-- 페이징 -->
+ <div class="col-lg-12">
+                    <div class="room-pagination">
+<%
+if(startPage > pageBlock){
+	%>
+<a href="Main.me?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
+	<%
+}                   
+                    
+	for(int i=startPage;i<=endPage;i++){
+	%>
+	<a href="Main.me?pageNum=<%=i%>"><%=i %></a> 
+	<%
+}
+if(endPage < pageCount){
+	%>
+<a href="Main.me?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+ <i class="fa fa-long-arrow-right"></i></a>	<%
+}
+%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+   
 
 </body>
 </html>

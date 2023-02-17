@@ -1,5 +1,6 @@
 package com.itwillbs.board.action;
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ public class BoardReplyInsert implements Action {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		int no = Integer.parseInt(request.getParameter("no"));
 		String riply = request.getParameter("riply");
-
+		
 		Timestamp rdate = new Timestamp(System.currentTimeMillis());
 
 		ReplyDTO dto = new ReplyDTO();
@@ -25,16 +26,24 @@ public class BoardReplyInsert implements Action {
 		dto.setNo(no);
 		dto.setRiply(riply);
 		dto.setRdate(rdate);
-
-
+		
+		ActionForward forward = null;
+		if (riply=="") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('내용을 입력해주세요');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();	
+		}else {
 		ReplyDAO dao = new ReplyDAO();
 		dao.insertReply(dto);
 		
-		
-		ActionForward forward = new ActionForward();
+		forward = new ActionForward();
 		forward.setPath("BoardContent.bo?bno="+bno+"");
 		forward.setRedirect(true);
-		
+		}
 		
 		return forward;
 	}

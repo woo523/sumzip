@@ -1,5 +1,7 @@
 package com.itwillbs.board.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,17 +20,26 @@ public class BoardCommendUpdatePro implements Action{
 		String commend=request.getParameter("commend");
 
 		CommendDTO dto=new CommendDTO();
-
 		dto.setCno(cno);
 		dto.setCommend(commend);
-
+		
+		ActionForward forward = null;
+		if (commend=="") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('내용을 입력해주세요');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();	
+		} else {
 		CommendDAO dao=new CommendDAO();
-
 		dao.updateCommend(dto);
 
-		ActionForward forward = new ActionForward();
+		forward = new ActionForward();
 		forward.setPath("BoardContent.bo?bno="+bno);
 		forward.setRedirect(true);
+		}
 		return forward;
 	
 	}
