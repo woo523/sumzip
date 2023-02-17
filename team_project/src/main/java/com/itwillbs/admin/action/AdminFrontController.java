@@ -2,6 +2,7 @@ package com.itwillbs.admin.action;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +32,22 @@ public class AdminFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward=null;
 		
+		if(sPath.equals("/AdminAppointNow.ad")) {
+			forward=new ActionForward();
+			forward.setPath("admin/appointNow.jsp");
+			forward.setRedirect(false);
+		}
 		
 		
-		
-		
+		if(forward!=null) {
+			if(forward.isRedirect()==true) {
+				response.sendRedirect(forward.getPath());
+			}else {
+				RequestDispatcher dispatcher=
+						request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response); // request값 들고감
+			}
+		}
 		
 		
 		

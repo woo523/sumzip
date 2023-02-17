@@ -3,7 +3,7 @@ package com.itwillbs.admin.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itwillbs.board.action.ActionForward;
+import com.itwillbs.admin.action.ActionForward;
 
 public interface Action {
 	// 추상메서드 : 부모의 공통적인 메서드 틀
