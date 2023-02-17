@@ -50,7 +50,7 @@ ProductDTO dto = productlist.get(i);
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
 						<%if(dto.getPpic1()==null){%>
-                        <img src="img/room/room-5.jpg" width="370px" height="240px"> 
+                        <img src="img/room/room-6.jpg" width="370px" height="240px"> 
                         <%}else{%>
                         	 <img src="<%=dto.getPpic1()%>" width="370px" height="240px"> 
                       <% }%>
@@ -74,6 +74,7 @@ ProductDTO dto = productlist.get(i);
                                    
                                 </tbody>
                             </table>
+					<!-- 	펜션 상세 정보 페이지로 이동   -->
                             <a href="ProductContent.pr?pno=<%=dto.getPno()%>" class="primary-btn">More Details</a>
                         </div>
                     </div>
