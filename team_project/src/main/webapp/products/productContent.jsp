@@ -20,14 +20,15 @@
 
 <!-- 상품리스트 부분 -->
 <%
-// 상품페이지 수정중,,
-int pno=Integer.parseInt(request.getParameter("pno"));
 
-ProductDAO dao=new ProductDAO();
+// int pno=Integer.parseInt(request.getParameter("pno"));
 
-ProductDTO dto=dao.getProduct(pno);
+// ProductDAO dao=new ProductDAO();
+// ProductDTO dto=dao.getProduct(pno);
 
 String id=(String)session.getAttribute("id");
+
+ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 %>
 
 <h2>글내용 [로그인 : <%=id %>]</h2>
@@ -50,30 +51,25 @@ String id=(String)session.getAttribute("id");
 <tr><td>펜션사진3</td><td><%=dto.getPpic3() %></td></tr>
 <tr><td>주의사항</td><td><%=dto.getCaution() %></td></tr>
 <tr><td>펜션 설명</td><td><%=dto.getPexplain() %></td></tr>
-
 <tr><td colspan="2">
 <%
 // 로그인 => 세션값 있음
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-	if(id.equals(dto.getPname())){
+// 	if(id.equals(dto.getNo())){
 		%>
 <input type="button" value="상품수정"
- onclick="location.href='product_updateForm.jsp?pno=<%=dto.getPno() %>'">
+ onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">
  <input type="button" value="상품삭제"
- onclick="location.href='product_deletePro.jsp?pno=<%=dto.getPno() %>'">		
+ onclick="location.href='ProductDeletePro.pr?pno=<%=dto.getPno() %>'">		
 		<%
 	}
-}
+// }
 %>
 
 <input type="button" value="상품목록"
- onclick="location.href='productList.jsp'">
- <input type="button" value="상품수정"
- onclick="location.href='product_updateForm.jsp'">
- <input type="button" value="상품삭제"
- onclick="location.href='product_deletePro.jsp'">
- 
+ onclick="location.href='ProductList.pr'">
+
  </td></tr>
  </table>
  

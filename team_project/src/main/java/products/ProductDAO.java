@@ -108,7 +108,6 @@ import javax.sql.DataSource;
 					dto.setPno(rs.getInt("pno"));
 					dto.setPname(rs.getString("pname"));
 					dto.setPprice(rs.getInt("pprice"));
-					dto.setMax_men(rs.getInt("max_men"));
 					dto.setPpic1(rs.getString("ppic1"));
 					dto.setPexplain(rs.getString("pexplain"));
 					
@@ -128,10 +127,10 @@ import javax.sql.DataSource;
 		//-productContent.jsp 연결메서드
 		public ProductDTO getProduct(int pno) {
 			System.out.println("ProductDAO getProduct()");
+			ProductDTO dto=null;
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;
-			ProductDTO dto=null;
 			try {
 				con=getConnection();
 				
@@ -144,7 +143,7 @@ import javax.sql.DataSource;
 				while(rs.next()) {
 					dto = new ProductDTO();
 					dto.setPno(rs.getInt("pno"));
-					dto.setNo(rs.getInt("no"));
+//					dto.setNo(rs.getInt("no"));
 					dto.setPname(rs.getString("pname"));
 					dto.setPaddress(rs.getString("paddress"));
 					dto.setPpostnum(rs.getInt("ppostnum"));

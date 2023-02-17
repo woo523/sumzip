@@ -23,7 +23,7 @@ if(dto != null){
 	// => 세션값 초기화
 // 	session.invalidate();		
 	// => main.jsp 이동
-	response.sendRedirect("appointNow.jsp");
+	response.sendRedirect("AdminAppointNow.ad");
 }else{
     %>
     <script type="text/javascript">

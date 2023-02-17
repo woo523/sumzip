@@ -74,6 +74,20 @@ public class AdminFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+	   }else if(sPath.equals("/AdminUserList.ad")) {
+			action = new AdminUserList();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   }else if(sPath.equals("/AdminUserDelete.ad")) {
+			action = new AdminUserDelete();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 	   } 
 		
 		

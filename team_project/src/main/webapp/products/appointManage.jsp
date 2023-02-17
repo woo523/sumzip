@@ -105,7 +105,7 @@ ProductDTO dto4=(ProductDTO)request.getAttribute("dto4");
  	    	out.print("예약완료");
   	    }%> </td>
 	    <td class="tb"> <%=dto2.getAdate()%> </td> 
-	    <td class="tb"><a href="appointManagePro.jsp?num=<%=dto2.getAno()%>">취소하기</a></td></tr>
+	    <td class="tb"><a href="ProductsAppointManagePro.pr?num=<%=dto2.getAno()%>">취소하기</a></td></tr>
 
 		<%
  	}
@@ -147,7 +147,7 @@ ProductDTO dto4=(ProductDTO)request.getAttribute("dto4");
 
 if(startPage > pageBlock){
 	%>
-	<a href="appointManage.jsp?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+	<a href="ProductsAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
 }
  %>
@@ -156,7 +156,7 @@ if(startPage > pageBlock){
  for(int i=startPage;i<=endPage;i++){
 	%>
 	
-	<a href="appointManage.jsp?pageNum=<%=i%>"><%=i%></a>
+	<a href="ProductsAppointManage.pr?pageNum=<%=i%>"><%=i%></a>
 	<%
 }
  %> 
@@ -166,7 +166,7 @@ if(startPage > pageBlock){
 // //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="appointManage.jsp?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+	<a href="ProductsAppointManage.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
  }
  %>
