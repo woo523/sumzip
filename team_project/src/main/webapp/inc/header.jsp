@@ -19,26 +19,26 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <link rel="stylesheet" href="../css1/bootstrap.css">
-    <link rel="stylesheet" href="../vendors/linericon/style.css">
-    <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css">
-    <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css1/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
     
-    <link rel="stylesheet" href="../css1/style.css">
-    <link rel="stylesheet" href="../css1/responsive.css">
+    <link rel="stylesheet" href="css1/style.css">
+    <link rel="stylesheet" href="css1/responsive.css">
     
     <!-- Js Plugins -->
     <script src="js/bootstrap.min.js"></script>
@@ -48,27 +48,27 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     
-    <script src="../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-    <script src="../vendors/lightbox/simpleLightbox.min.js"></script>
-    <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../vendors/nice-select/js/jquery.nice-select.js"></script>
-    <script src="../js1/bootstrap.min.js"></script>
-    <script src="../js1/jquery.ajaxchimp.min.js"></script>
-    <script src="../js1/mail-script.js"></script>
-    <script src="../js1/mail-script.js"></script>
-    <script src="../js1/stellar.js"></script>
-    <script src="../js1/custom.js"></script>
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="js1/bootstrap.min.js"></script>
+    <script src="js1/jquery.ajaxchimp.min.js"></script>
+    <script src="js1/mail-script.js"></script>
+    <script src="js1/mail-script.js"></script>
+    <script src="js1/stellar.js"></script>
+    <script src="js1/custom.js"></script>
     
-    <script src="../js1/bootstrap.min.js"></script>
-    <script src="../js1/jquery-ui.min.js"></script>
-    <script src="../js1/jquery-3.3.1.min.js"></script>
-    <script src="../js1/jquery-3.2.1.min.js"></script>
-    <script src="../js1/jquery.nice-select.min.js"></script>
-    <script src="../js1/jquery.magnific-popup.min.js"></script>
-    <script src="../js1/jquery.slicknav.js"></script>
-    <script src="../js1/owl.carousel.min.js"></script>
-    <script src="../js1/main.js"></script>
-    <script src="../js1/popper.js"></script>
+    <script src="js1/bootstrap.min.js"></script>
+    <script src="js1/jquery-ui.min.js"></script>
+    <script src="js1/jquery-3.3.1.min.js"></script>
+    <script src="js1/jquery-3.2.1.min.js"></script>
+    <script src="js1/jquery.nice-select.min.js"></script>
+    <script src="js1/jquery.magnific-popup.min.js"></script>
+    <script src="js1/jquery.slicknav.js"></script>
+    <script src="js1/owl.carousel.min.js"></script>
+    <script src="js1/main.js"></script>
+    <script src="js1/popper.js"></script>
 </head>
 
 <body>
@@ -122,8 +122,8 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="../index.jsp">
-                                <img src="../img/logo.png" alt="">
+                            <a href="Main.me">
+                                <img src="img/logo.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                                     <li><a href="#">테마별 조회</a></li>
                                     <li><a href="#">추천 펜션</a></li>
                                     <li><a href="BoardList.bo">공지사항</a></li>
-                                    <li><a href="../qna/qnaList.jsp">Q&A</a></li>
+                                    <li><a href="QnaList.qa">Q&A</a></li>
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
