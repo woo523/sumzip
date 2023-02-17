@@ -7,8 +7,10 @@
 //products/productwritePro.jsp
 request.setCharacterEncoding("utf-8");
 
-// [유저번호, 제목, 내용] 변수에 저장
+// [all 컬럼] 변수에 저장
 // int pno = Integer.parseInt(request.getParameter("pno"));
+// int no = Integer.parseInt(request.getParameter("no"));
+int no=2;
 String pname= request.getParameter("pname");
 String paddress= request.getParameter("paddress");
 int ppostnum= Integer.parseInt(request.getParameter("ppostnum"));
@@ -25,11 +27,12 @@ String ppic2= request.getParameter("ppic2");
 String ppic3= request.getParameter("ppic3");
 String caution= request.getParameter("caution");
 String pexplain= request.getParameter("pexplain");
+
 ProductDTO dto=new ProductDTO();
 
 // 값 저장
 // dto.setPno(pno);
-// dto.setNo(no);
+dto.setNo(no);
 dto.setPname(pname);
 dto.setPaddress(paddress);
 dto.setPpostnum(ppostnum);
