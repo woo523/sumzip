@@ -15,8 +15,9 @@ public class ProductReviewList implements Action{
 		
 		System.out.println("MemberReviewList execute()");
 		
+		// 페이징
 		// db 데이터 가져오기
-		ReviewDAO dao = new ReviewDAO();
+		ReviewDAO rdao = new ReviewDAO();
 		
 		int pageSize = 3;
 
@@ -31,16 +32,16 @@ public class ProductReviewList implements Action{
 		
 		int endRow = startRow + pageSize-1;
 		
-		ArrayList<ReviewDTO> reviewList = dao.getReviewList(startRow, pageSize);
+		ArrayList<ReviewDTO> reviewList = rdao.getReviewList(startRow, pageSize);
 
 		// 한 화면에 보여줄 '페이지 개수' 구하기
-		int pageBlock = 10;
+		int pageBlock = 5;
 		
 		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
 		
 		int endPage = (startPage+pageBlock)-1;
 		
-		int count = dao.getReviewCount();
+		int count = rdao.getReviewCount();
 		
 		int pageCount = count/pageSize + (count%pageSize == 0 ? 0 : 1);
 		if(endPage > pageCount) {
@@ -55,6 +56,9 @@ public class ProductReviewList implements Action{
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
+		
+		// 디비 데이터
+		
 		
 		// 이동
 		ActionForward forward = new ActionForward();
