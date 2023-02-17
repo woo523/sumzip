@@ -26,6 +26,10 @@
             </div>
         </div>
     </div>
+    
+<!-- 펜션 정보 리스트 -->
+<jsp:include page="maindetail.jsp" />
+
     <!-- Breadcrumb Section End -->
 
     <!-- Blog Section Begin -->

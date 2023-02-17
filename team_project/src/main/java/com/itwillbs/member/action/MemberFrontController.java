@@ -32,10 +32,12 @@ public class MemberFrontController extends HttpServlet {
 		ActionForward forward=null;
 		
 		if(sPath.equals("/Main.me")) {
-			forward = new ActionForward();
-			forward.setPath("main/main.jsp");
-			forward.setRedirect(false);			
-			
+			action = new Main();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
 		} else if(sPath.equals("/MemberLogin.me")) {
 			forward = new ActionForward();
 			forward.setPath("member/login.jsp");
