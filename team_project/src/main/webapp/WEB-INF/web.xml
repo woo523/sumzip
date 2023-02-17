@@ -50,7 +50,7 @@
   </servlet-mapping>
   
 
-   <!--   *.bo 가상주소 -> 주소매핑 처리 파일로 연결 -> 처리담당자(서블릿) -->
+   <!--   *.qa 가상주소 -> 주소매핑 처리 파일로 연결 -> 처리담당자(서블릿) -->
     <servlet>
 	<servlet-name>QnaFrontController</servlet-name>
 	<servlet-class>com.itwillbs.qna.action.QnaFrontController</servlet-class>
