@@ -51,7 +51,7 @@ public class ReviewDAO {
 			pstmt.setInt(3, dto.getPno()); // 상품번호
 			pstmt.setInt(4, dto.getAno()); // 예약번호
 			pstmt.setString(5, dto.getRtitle());
-			pstmt.setString(6, dto.getRstar());	// 별점 길이 값 받아오기...
+			pstmt.setString(6, dto.getRstar());
 			pstmt.setString(7, dto.getRcontent());
 			pstmt.setInt(8, dto.getRcount());
 			pstmt.setTimestamp(9, dto.getRdate());
@@ -115,6 +115,50 @@ public class ReviewDAO {
 	
 	} // getReview()
 	
+	// getReviewList()
+	public ArrayList<ReviewDTO> getReviewList(int startRow, int pageSize){
+		
+		System.out.println("ReviewDAO getReviewList()");
+		
+		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql="select * from review order by pno desc limit ?, ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRow-1);
+			pstmt.setInt(2, pageSize);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReviewDTO rdto=new ReviewDTO();
+
+				rdto.setRtitle(rs.getString("rtitle"));
+				rdto.setRstar(rs.getString("rstar"));
+				rdto.setRcontent(rs.getString("rcontent"));
+				rdto.setRpic1(rs.getString("rpic1"));
+				rdto.setRpic2(rs.getString("rpic2"));
+				rdto.setRpic3(rs.getString("rpic3"));
+				
+				reviewList.add(rdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return reviewList;
+		
+	} // getReviewList()
+	
 	// checkReview()
 	public boolean checkReview(int ano) {
 		System.out.println("ReviewDTO ReviewCheck()");
@@ -162,13 +206,15 @@ public class ReviewDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "update review set rtitle=?, rcontent=?, rpic1=? where rno = ?";
+			String sql = "update review set rtitle=?, rstar=?, rcontent=?, rpic1=?, rpic2=?, rpic3=? where rno = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rdto.getRtitle());
-//			pstmt.setString(2, rdto.getRstar());
-			pstmt.setString(2, rdto.getRcontent());
-			pstmt.setString(3, rdto.getRpic1());
-			pstmt.setInt(4, rdto.getRno());
+			pstmt.setString(2, rdto.getRstar());
+			pstmt.setString(3, rdto.getRcontent());
+			pstmt.setString(4, rdto.getRpic1());
+			pstmt.setString(5, rdto.getRpic2());
+			pstmt.setString(6, rdto.getRpic3());
+			pstmt.setInt(7, rdto.getRno());
 			
 			pstmt.executeUpdate();
 			
@@ -205,6 +251,39 @@ public class ReviewDAO {
 		}
 		
 	} // deleteReview()
+	
+	// getReviewCount()
+	public int getReviewCount() {
+		System.out.println("ReviewDAO getReviewCount()");
+		
+		int count = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			
+			String sql = "select count(*) from review";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
+		}
+		
+		return count;
+		
+	} // getReviewCount()
 	
 
 }

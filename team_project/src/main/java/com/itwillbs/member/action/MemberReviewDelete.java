@@ -1,5 +1,7 @@
 package com.itwillbs.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,12 +21,17 @@ public class MemberReviewDelete implements Action{
 		ReviewDAO rdao = new ReviewDAO();
 		rdao.deleteReview(ano);
 		
+		// 자바에서 HTML(JS) 동작하기
 		//response.sendRedirect("myList.jsp");
-		ActionForward forward = new ActionForward();
-		forward.setPath("MemberMyList.me");
-		forward.setRedirect(true);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script type='text/javascript'>");
+		out.println("alert('삭제되었습니다.')");
+		out.println("location.href='MemberMyList.me'");
+		out.println("</script>");
+		out.close();
 		
-		return forward;
+		return null;
 	}
 	
 }
