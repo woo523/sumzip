@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.itwillbs.admin.action.Action;
 import com.itwillbs.admin.action.ActionForward;
 import com.itwillbs.board.action.BoardDeletePro;
+import com.itwillbs.member.action.MemberLogout;
 
 public class AdminFrontController extends HttpServlet {
 	@Override
@@ -44,14 +45,36 @@ public class AdminFrontController extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(sPath.equals("//AdminAppointNowDelete.ad")) {
+		}else if(sPath.equals("/AdminAppointNowDelete.ad")) {
 			action=new AdminAppointNowDelete();
 			try {
 				forward=action.execute(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}else if(sPath.equals("/AdminMain.ad")) {
+			forward = new ActionForward();
+			forward.setPath("admin/adminMain.jsp");
+			forward.setRedirect(false);				
+		}else if(sPath.equals("/AdminLogin.ad")) {
+			forward = new ActionForward();
+			forward.setPath("admin/login.jsp");
+			forward.setRedirect(false);		
+		}else if(sPath.equals("/AdminLoginPro.ad")) {
+			action = new AdminLoginPro();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}else if(sPath.equals("/AdminLogout.ad")) {
+			action = new AdminLogout();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   } 
 		
 		
 		
