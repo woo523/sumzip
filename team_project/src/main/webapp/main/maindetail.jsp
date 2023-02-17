@@ -48,8 +48,12 @@ ProductDTO dto = productlist.get(i);
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
 						<!--  펜션 사진들어 가는 곳 -->
-                        <img src="img/room/room-5.jpg"> 
-<!-- 지금 디비에 사진이 없어서 샘플로 넣어놨어요. 사진 들어 오면 dto.getPpic()으로 바꾸면 될듯 -->
+						<!-- 사진없으면 샘플사진 뜨게 설정 -->
+						<%if(dto.getPpic1()==null){%>
+                        <img src="img/room/room-5.jpg" width="370px" height="240px"> 
+                        <%}else{%>
+                        	 <img src="<%=dto.getPpic1()%>" width="370px" height="240px"> 
+                      <% }%>
                         <div class="ri-text">
                             <h4><%=dto.getPname() %></h4>
                             <h3><%=dto.getPprice()%>원<span>/1박</span></h3>
