@@ -56,7 +56,13 @@ ProductDTO dto = productlist.get(i);
                       <% }%>
                         <div class="ri-text">
                             <h4><%=dto.getPname() %></h4>
-                            <h3><%=dto.getPprice()%>원<span>/1박</span></h3>
+                            <h3>
+                            
+                            <script type="text/javascript">
+                            var num = <%=dto.getPprice()%>;
+                            document.write(num.toLocaleString()+"원");
+                            </script>
+                            <span>/1박</span></h3>
                             <table>
                                 <tbody>
                                     <tr>
