@@ -79,40 +79,38 @@
 	</ul>
 	<% } %>
 	
-	<%
-		if(startPage > pageBlock) {
-			%>
-			<a href="ProductReviewList.pr?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]</a>
-			<%
-		}
+<%
+	if(startPage > pageBlock) {
+		%>
+		<a href="ProductReviewList.pr?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]</a>
+		<%
+	}
+
+	if(currentPage > 1) {
+		%>
+		<a href="ProductReviewList.pr?pageNum=<%=currentPage-1%>">[1 페이지 이전]</a>
+		<%
+	}
 	
-		if(currentPage > 1) {
-			%>
-			<a href="ProductReviewList.pr?pageNum=<%=currentPage-1%>">[1 페이지 이전]</a>
-			<%
-		}
-		
-		for(int i = startPage; i <= endPage; i++) {
-			%>
-			<a href="ProductReviewList.pr?pageNum=<%=i%>"><%=i %></a>
-			<%
-		}
-		
-		if(currentPage < pageCount) {
-			%>
-			<a href="ProductReviewList.pr?pageNum=<%=currentPage+1%>">[1 페이지 다음]</a>
-			<%
-		}
-		
-		if(endPage < pageCount) {
-			%>
-			<a href="ProductReviewList.pr?pageNum=<%=startPage+pageBlock%>">[5 페이지 다음]</a>
-			<%
-		}
-	%>
+	for(int i = startPage; i <= endPage; i++) {
+		%>
+		<a href="ProductReviewList.pr?pageNum=<%=i%>"><%=i %></a>
+		<%
+	}
+	
+	if(currentPage < pageCount) {
+		%>
+		<a href="ProductReviewList.pr?pageNum=<%=currentPage+1%>">[1 페이지 다음]</a>
+		<%
+	}
+	
+	if(endPage < pageCount) {
+		%>
+		<a href="ProductReviewList.pr?pageNum=<%=startPage+pageBlock%>">[5 페이지 다음]</a>
+		<%
+	}
+%>
 </article>
-
-
 
 <footer>
 	<jsp:include page="../inc/footer.jsp" />

@@ -1,18 +1,10 @@
-<%@page import="member.ReviewDTO"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="products.ProductDAO"%>
 <%@page import="member.ReviewDAO"%>
-<%@page import="member.UserDTO"%>
-<%@page import="member.UserDAO"%>
-<%@page import="java.text.ParseException"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="products.AppointmentDTO"%>
 <%@page import="products.AppointmentDAO"%>
-<%@page import="products.SalesDTO"%>
-<%@page import="products.SalesDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -101,8 +93,8 @@
 	<ul>
 		<li>예약일자 : <%=adto.getAdate() %></li>
 		<h5><%=pdto.getPname() %></h5>
-		<li id="timecheck">체크인 appointIndate <%=pdto.getCheckin() %>:00</li>
-		<li id="timecheck">체크아웃 appointOutdate <%=pdto.getCheckout() %>:00</li>
+		<li id="timecheck">체크인 <%=appointIndate %> <%=pdto.getCheckin() %>:00</li>
+		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=pdto.getCheckout() %>:00</li>
 
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			
@@ -162,6 +154,39 @@
 	</ul> <% // id 확인 메서드
 	
 	} // userappointmentlist
+%>
+
+<% 
+	// 페이징
+	if(startPage > pageBlock) {
+		%>
+		<a href="MemberMyList.me?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]</a>
+		<%
+	}
+
+	if(currentPage > 1) {
+		%>
+		<a href="MemberMyList.me?pageNum=<%=currentPage-1%>">[1 페이지 이전]</a>
+		<%
+	}
+	
+	for(int i = startPage; i <= endPage; i++) {
+		%>
+		<a href="MemberMyList.me?pageNum=<%=i%>"><%=i %></a>
+		<%
+	}
+	
+	if(currentPage < pageCount) {
+		%>
+		<a href="MemberMyList.me?pageNum=<%=currentPage+1%>">[1 페이지 다음]</a>
+		<%
+	}
+	
+	if(endPage < pageCount) {
+		%>
+		<a href="MemberMyList.me?pageNum=<%=startPage+pageBlock%>">[5 페이지 다음]</a>
+		<%
+	}
 %>
 	
 </form>

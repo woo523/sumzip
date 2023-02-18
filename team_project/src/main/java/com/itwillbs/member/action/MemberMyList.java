@@ -1,5 +1,6 @@
 package com.itwillbs.member.action;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,25 +10,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import member.ReviewDAO;
-import member.ReviewDTO;
 import member.UserDAO;
 import member.UserDTO;
 import products.AppointmentDAO;
 import products.AppointmentDTO;
+import products.ProductDAO;
+import products.ProductDTO;
 import products.SalesDAO;
 import products.SalesDTO;
 
 public class MemberMyList implements Action{
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception, ParseException {
 		
 		System.out.println("MemberMyList execute()");
 		
 		// 아이디 세션 값
-		String id = request.getParameter("id");
 		HttpSession session = request.getSession();
-		session.setAttribute("id", id);
+		String id = (String)session.getAttribute("id");
 
 		// 유저정보 no 값
 		UserDAO udao = new UserDAO();
@@ -37,7 +38,7 @@ public class MemberMyList implements Action{
 		// 판매정보 => 입실일 / 퇴실일
 		SalesDAO salesdao = new SalesDAO();
 		SalesDTO salesdto = salesdao.getSales(no);
-		
+	
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -48,14 +49,27 @@ public class MemberMyList implements Action{
 		request.setAttribute("appointIndate", appointIndate);
 		request.setAttribute("appointOutdate", appointOutdate);
 		request.setAttribute("today", today);
+
+		// 펜션정보 => 펜션 이름, 체크인/체크아웃 시간
+		ProductDAO pdao = new ProductDAO();
+		ProductDTO pdto = pdao.getProduct(salesdto.getPno());
+		String houseName = pdto.getPname(); // 펜션이름
 		
 		
-		ReviewDAO rdao = new ReviewDAO();
+		int houseInTime = pdto.getCheckin(); // 체크인 시간
+		int houseOutTime = pdto.getCheckout(); // 체크아웃 시간
+		
+		request.setAttribute("houseName", houseName);
+		request.setAttribute("houseInTime", houseInTime);
+		request.setAttribute("houseOutTime", houseOutTime);
+		
+
 		
 		// 페이징
 		AppointmentDAO adao = new AppointmentDAO();
 		
 		int pageSize = 2;
+		
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null) {
 			pageNum="1";
@@ -74,6 +88,7 @@ public class MemberMyList implements Action{
 		
 		int endPage = (startPage+pageBlock)-1;
 		
+		ReviewDAO rdao = new ReviewDAO();
 		int count = rdao.getReviewCount();
 		
 		int pageCount = count/pageSize + (count%pageSize == 0 ? 0 : 1);
