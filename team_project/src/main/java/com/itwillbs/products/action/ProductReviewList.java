@@ -15,11 +15,14 @@ public class ProductReviewList implements Action{
 		
 		System.out.println("MemberReviewList execute()");
 		
+		int pno = 102;
+//		int pno = Integer.parseInt(request.getParameter("pno"));
+		
 		// 페이징
 		// db 데이터 가져오기
 		ReviewDAO rdao = new ReviewDAO();
 		
-		int pageSize = 3;
+		int pageSize = 2;
 
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null) {
@@ -56,9 +59,6 @@ public class ProductReviewList implements Action{
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
-		
-		// 디비 데이터
-		
 		
 		// 이동
 		ActionForward forward = new ActionForward();
