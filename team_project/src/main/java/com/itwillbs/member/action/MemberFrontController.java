@@ -52,9 +52,12 @@ public class MemberFrontController extends HttpServlet {
 			}
 			
 		} else if(sPath.equals("/MemberMyList.me")) {
-			forward = new ActionForward();
-			forward.setPath("member/myList.jsp");
-			forward.setRedirect(false);
+			action = new MemberMyList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 		} else if(sPath.equals("/MemberReview.me")) {
 			forward = new ActionForward();

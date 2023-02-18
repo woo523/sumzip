@@ -137,7 +137,8 @@ public class ReviewDAO {
 			
 			while(rs.next()) {
 				ReviewDTO rdto=new ReviewDTO();
-
+				
+				rdto.setPno(rs.getInt("pno"));
 				rdto.setRtitle(rs.getString("rtitle"));
 				rdto.setRstar(rs.getString("rstar"));
 				rdto.setRcontent(rs.getString("rcontent"));

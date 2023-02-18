@@ -22,7 +22,7 @@
 	ul li {
 		list-style: none;
 	}
-	ul h2 {
+	ul h3 {
 		margin: 0px 20px 10px 20px;
 		display: inline-block;
 	}
@@ -43,15 +43,16 @@
 	int endPage = (Integer)request.getAttribute("endPage");
 	int pageCount = (Integer)request.getAttribute("pageCount");
 %>
-<article>
+<jsp:include page="../inc/header.jsp" />
 
+<article>
 <%
 	for(int i = 0; i < reviewList.size(); i++) {
 		ReviewDTO rdto = reviewList.get(i);
 %>
 	<!-- 후기 리스트  -->
 	<ul>
-		<img src="img/review/quote-left.png"><h2><%=rdto.getRtitle() %></h2><img src="img/review/get-quote.png">
+		<img src="img/review/quote-left.png"><h3><%=rdto.getRtitle() %></h3><img src="img/review/get-quote.png">
 		<li id="stars">별점 <%=rdto.getRstar() %></li>
 		<li id="contents"><%=rdto.getRcontent() %></li>
 		
@@ -111,11 +112,10 @@
 	%>
 </article>
 
-<jsp:include page="../inc/footer.jsp" />
+
 
 <footer>
-	<a target="_blank" href="https://icons8.com/icon/61893/quote-left">Quote Left</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-	<a target="_blank" href="https://icons8.com/icon/61891/get-quote">Get Quote</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+	<jsp:include page="../inc/footer.jsp" />
 </footer>
 	
 </body>
