@@ -2,6 +2,7 @@ package com.itwillbs.admin.action;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itwillbs.admin.action.Action;
 import com.itwillbs.admin.action.ActionForward;
+import com.itwillbs.board.action.BoardContent;
+//import com.itwillbs.board.action.BoardDeletePro;
+import com.itwillbs.board.action.BoardList;
+//import com.itwillbs.board.action.BoardUpdateForm;
+//import com.itwillbs.board.action.BoardUpdatePro;
+//import com.itwillbs.board.action.BoardWritePro;
 
 public class AdminFrontController extends HttpServlet {
 	@Override
@@ -89,9 +96,55 @@ public class AdminFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-	   } 
+	   }if(sPath.equals("/AdminBoardWriteForm.ad")) {
+				// board/writeForm.jsp 이동
+				forward=new ActionForward();
+				forward.setPath("admin/boardWrite.jsp");
+				forward.setRedirect(false);
+			}else if(sPath.equals("/AdminBoardWritePro.ad")) {
+				action=new AdminBoardWritePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardList.ad")){
+				action = new AdminBoardList();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardContent.ad")) {
+				action = new AdminBoardContent();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardUpdateForm.ad")) {
+				action=new AdminBoardUpdateForm();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardUpdatePro.ad")) {
+				action=new AdminBoardUpdatePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardDeletePro.ad")) {
+				action=new AdminBoardDeletePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}		    
 		
-		
+			}
 		
 		
 		

@@ -37,23 +37,17 @@ BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 <tr><td>조회수</td><td><%=dto.getBcount() %></td></tr>
 <tr><td>작성날짜</td><td><%=dto.getBdate() %></td></tr>
 <tr><td colspan="2">
-<%
+<% 
 // 로그인 => 세션값 있음
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-	if(id.equals(dto.getNo())){
-		%>
-<input type="button" value="글수정"
- onclick="location.href='BoardUpdateForm.bo?bno=<%=dto.getBno()%>'">
- <input type="button" value="글삭제"
- onclick="location.href='BoardDeletePro.bo?bno=<%=dto.getBno()%>'">		
-		<%
-	}
+
 }
 %>
 
  <input type="button" value="글목록"
  onclick="location.href='BoardList.bo'">
+	
  
  </td></tr>
  </table>

@@ -19,13 +19,14 @@ public class BoardContent implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
 		System.out.println("BoardContent execute()");
 
 		int bno=Integer.parseInt(request.getParameter("bno"));
 
 		BoardDAO dao=new BoardDAO();
+		
 		BoardDTO dto=dao.getBoard(bno);
+		
 		HttpSession session = request.getSession();
 		
 		request.setAttribute("dto", dto);

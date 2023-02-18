@@ -16,7 +16,7 @@ public class FileProductUpdatePro implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("FileBoardUpdatePro execute()");
+		System.out.println("FileProductUpdatePro execute()");
 		
 		//객체생성
 				// 1. request 
@@ -48,8 +48,7 @@ public class FileProductUpdatePro implements Action{
 				ProductDTO dto=new ProductDTO();
 				// set메서드호출 num, name, subject, content 저장
 				dto.setPno(pno);
-				// file 추가
-//				dto.setFile(file);
+				// ppic ->file 
 				dto.setPpic1(ppic1);
 				dto.setPname(pname);
 				dto.setPprice(pprice);

@@ -1,8 +1,5 @@
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
-<%@page import="board.BoardDTO"%>
-<%@page import="board.BoardDAO"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,6 +19,13 @@ String id=(String)session.getAttribute("id");
 
 if(id==null){
 	response.sendRedirect("MemberLogin.me");
+}if(id!="admin"){
+	%>
+	<script type="text/javascript">
+	alert("글쓰기권한이 없습니다.")
+	history.back();
+	</script>
+	<% 
 }
 %>
 
@@ -53,7 +57,7 @@ if(id==null){
 
       <tr>
 
-      	<td><input type="text" class="form-control" placeholder="유저번호" name="id" value=<%=id %> maxlength="40"></td>
+      	<td><input type="text" class="form-control" placeholder="유저번호" name="id" value=<%=id %> maxlength="40" readonly></td>
 
       </tr>
 
@@ -76,11 +80,11 @@ if(id==null){
   <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
 
 </div>
+</form>
 
 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
 
-</form>
 </body>
 </html>

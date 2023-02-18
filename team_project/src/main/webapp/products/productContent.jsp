@@ -1,9 +1,7 @@
+<%@page import="member.UserDTO"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="products.ProductDAO"%>
-<%@page import="member.UserDAO"%>
-<%@page import="member.UserDTO"%>
-<%@page import="board.BoardDTO"%>
-<%@page import="board.BoardDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,10 +23,12 @@
 
 // ProductDAO dao=new ProductDAO();
 // ProductDTO dto=dao.getProduct(pno);
+// UserDTO udto=new UserDTO();
 
 String id=(String)session.getAttribute("id");
 
 ProductDTO dto=(ProductDTO)request.getAttribute("dto");
+UserDTO udto=(UserDTO)request.getAttribute("udto");
 %>
 
 <h2>글내용 [로그인 : <%=id %>]</h2>
@@ -46,25 +46,31 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 <tr><td>최대숙박인원</td><td><%=dto.getMax_men() %></td></tr>
 <tr><td>등록유효기간</td><td><%=dto.getExpiration() %></td></tr>
 <tr><td>숙소등록일</td><td><%=dto.getReser_date() %></td></tr>
-<tr><td>펜션사진1</td><td><%=dto.getPpic1() %></td></tr>
+<tr><td>펜션사진1</td>
+<td><a href="upload/<%=dto.getPpic1() %>" download><%=dto.getPpic1() %></a>
+<img src="upload/<%=dto.getPpic1() %>" width="100" height="100">
+</td></tr>
 <tr><td>펜션사진2</td><td><%=dto.getPpic2() %></td></tr>
 <tr><td>펜션사진3</td><td><%=dto.getPpic3() %></td></tr>
 <tr><td>주의사항</td><td><%=dto.getCaution() %></td></tr>
-<tr><td>펜션 설명</td><td><%=dto.getPexplain() %></td></tr>
+<tr><td>펜션설명</td><td><%=dto.getPexplain() %></td></tr>
 <tr><td colspan="2">
 <%
 // 로그인 => 세션값 있음
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-// 	if(id.equals(dto.getNo())){
+	if(id.equals(udto.getUname())){
 		%>
 <input type="button" value="상품수정"
  onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">
  <input type="button" value="상품삭제"
  onclick="location.href='ProductDeletePro.pr?pno=<%=dto.getPno() %>'">		
+		
+	<input type="button" value="파일 글수정"
+ onclick="location.href='FileBoardUpdateForm.pr?pno=<%=dto.getPno() %>'">	
 		<%
 	}
-// }
+}
 %>
 
 <input type="button" value="상품목록"
@@ -74,7 +80,7 @@ if(id != null){
  </table>
  
  <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 
 </body>
 </html>

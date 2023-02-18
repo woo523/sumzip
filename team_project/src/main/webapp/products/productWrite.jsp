@@ -141,7 +141,7 @@ if(id==null){
 						</div>
 																		
 						<div class="btnChange">
-							<a href="BoardWritePro.pr"><input type="button" 
+							<a href="ProductWritePro.pr"><input type="button" 
 								value="상품등록"></a> 
 						</div>
 					</form>
