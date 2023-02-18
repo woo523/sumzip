@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <!--     게시판 글 삭제 -->
 <%
-// board/board_deletePro.jsp
+// admin/board_deletePro.jsp
 
 int bno=Integer.parseInt(request.getParameter("bno"));
 

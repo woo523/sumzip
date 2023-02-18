@@ -1,15 +1,15 @@
-package com.itwillbs.board.action;
+package com.itwillbs.admin.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import board.BoardDAO;
 
-public class BoardDeletePro implements Action {
+public class AdminBoardDeletePro implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardDeletePro execute()");
+		System.out.println("AdminBoardDeletePro execute()");
 		
 		int bno=Integer.parseInt(request.getParameter("bno"));
 
@@ -18,7 +18,7 @@ public class BoardDeletePro implements Action {
 		dao.deleteBoard(bno);
 
 		ActionForward forward=new ActionForward();
-		forward.setPath("BoardList.bo");
+		forward.setPath("AdminBoardList.ad");
 		forward.setRedirect(true);
 		return forward;
 	}

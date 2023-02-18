@@ -1,4 +1,4 @@
-package com.itwillbs.board.action;
+package com.itwillbs.admin.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import board.BoardDAO;
 import board.BoardDTO;
 
-public class BoardUpdatePro implements Action {
+public class AdminBoardUpdatePro implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardUpdatePro execute()");
+		System.out.println("AdminBoardUpdatePro execute()");
 		
 		request.setCharacterEncoding("utf-8");
 
@@ -31,7 +31,7 @@ public class BoardUpdatePro implements Action {
 		dao.updateBoard(dto);
 		
 		ActionForward forward=new ActionForward();
-		forward.setPath("BoardList.bo");
+		forward.setPath("AdminBoardList.ad");
 		forward.setRedirect(true);
 		return forward;
 	}

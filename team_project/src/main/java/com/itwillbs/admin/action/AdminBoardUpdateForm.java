@@ -1,4 +1,4 @@
-package com.itwillbs.board.action;
+package com.itwillbs.admin.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import board.BoardDAO;
 import board.BoardDTO;
 
-public class BoardUpdateForm implements Action {
+public class AdminBoardUpdateForm implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardUpdateForm execute()");
+		System.out.println("AdminBoardUpdateForm execute()");
 		int bno=Integer.parseInt(request.getParameter("bno"));
 
 		BoardDAO dao=new BoardDAO();
@@ -20,7 +20,7 @@ public class BoardUpdateForm implements Action {
 		request.setAttribute("dto", dto);
 		
 		ActionForward forward=new ActionForward();
-		forward.setPath("board/boardupdateForm.jsp");
+		forward.setPath("admin/boardupdateForm.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

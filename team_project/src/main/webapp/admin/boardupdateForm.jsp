@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>board/boardupdateForm.jsp</title>
+<title>admin/boardupdateForm.jsp</title>
 </head>
 <body>
 <%
@@ -20,7 +20,7 @@ BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 %>
 <h2>글수정</h2>
 
-<form action="BoardUpdatePro.bo" method="post">
+<form action="AdminBoardUpdatePro.ad" method="post">
 <input type="hidden" name="bno" value="<%=dto.getBno()%>">
 <table border="1">
 <tr><td>글쓴이</td>

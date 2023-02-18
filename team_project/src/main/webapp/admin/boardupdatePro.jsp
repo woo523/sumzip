@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>board/boardupdatePro.jsp</title>
+<title>admin/boardupdatePro.jsp</title>
 </head>
 <body>
 <%
@@ -14,6 +14,7 @@ request.setCharacterEncoding("utf-8");
 
 int bno=Integer.parseInt(request.getParameter("bno"));
 int no=Integer.parseInt(request.getParameter("no"));
+// int no=3;
 String btitle=request.getParameter("btitle");
 String bcontent=request.getParameter("bcontent");
 

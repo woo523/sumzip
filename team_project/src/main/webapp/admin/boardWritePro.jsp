@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="board.BoardDAO"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="java.sql.Timestamp"%>
@@ -9,7 +11,7 @@ request.setCharacterEncoding("utf-8");
 
 // [유저번호, 제목, 내용] 변수에 저장
 // int no = Integer.parseInt(request.getParameter("no"));
-int no=3;
+int no=1;
 String btitle= request.getParameter("btitle");
 String bcontent=request.getParameter("bcontent");
 int bcount=0;

@@ -1,23 +1,27 @@
-package com.itwillbs.board.action;
+package com.itwillbs.admin.action;
 
 import java.sql.Timestamp;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import board.BoardDAO;
 import board.BoardDTO;
 
-public class BoardWritePro implements Action {
+
+public class AdminBoardWritePro implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardWritePro execute()");
+		System.out.println("AdminBoardWritePro execute()");
+		
 		request.setCharacterEncoding("utf-8");
-
+	
 		// [유저번호, 제목, 내용, 조회수, 작성날짜] 변수에 저장
 //		int no = Integer.parseInt(request.getParameter("no"));
-		int no=3;
+		int no=1;
 		String btitle= request.getParameter("btitle");
 		String bcontent=request.getParameter("bcontent");
 		int bcount=0;
@@ -26,7 +30,6 @@ public class BoardWritePro implements Action {
 		BoardDTO dto=new BoardDTO();
 
 		// 값 저장
-//		dto.setBno(bno);
 		dto.setNo(no);
 		dto.setBtitle(btitle);
 		dto.setBcontent(bcontent);
@@ -39,9 +42,9 @@ public class BoardWritePro implements Action {
 		
 		// 글목록 이동
 		ActionForward forward=new ActionForward();
-		forward.setPath("BoardList.bo");
+		forward.setPath("AdminBoardList.ad");
 		forward.setRedirect(true);
-		return null;
+		return forward;
 	}
 
 }
