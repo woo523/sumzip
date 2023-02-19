@@ -127,6 +127,53 @@ import javax.sql.DataSource;
 			return productList;
 		}// getProductList()
 		
+		public ArrayList<ProductDTO> getSearchProductList(String indated, String outdated,
+				String indatet, String outdatet, int guest, String region, int startRow, int pageSize) {
+			ArrayList<ProductDTO> productList=new ArrayList<ProductDTO>();
+			Connection con =null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				con=getConnection();
+				
+				String sql="select * from products where max_men>=? && paddress like ? && checkin > ? && checkout < ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?) order by pno desc limit ?,?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, guest);
+				pstmt.setString(2, "%"+region+"%");
+				pstmt.setString(3, indatet);
+				pstmt.setString(4, outdatet);
+				pstmt.setString(5, indated);
+				pstmt.setString(6, outdated);
+				pstmt.setString(7, indated);
+				pstmt.setString(8, outdated);
+				pstmt.setInt(9, startRow-1);
+				pstmt.setInt(10, pageSize);
+				rs=pstmt.executeQuery();
+				
+				while(rs.next()) {
+					ProductDTO dto=new ProductDTO();
+					
+					dto.setPno(rs.getInt("pno"));
+					dto.setPname(rs.getString("pname"));
+					dto.setPaddress(rs.getString("paddress"));
+					dto.setPaddress2(rs.getString("paddress2"));
+					dto.setCheckin(rs.getInt("checkin"));
+					dto.setCheckout(rs.getInt("checkout"));
+					dto.setPprice(rs.getInt("pprice"));
+					dto.setPpic1(rs.getString("ppic1"));
+					dto.setPexplain(rs.getString("pexplain"));
+					
+					productList.add(dto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(rs!=null) try { rs.close();} catch (Exception e2) {}
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+			return productList;
+		}// getSearchProductList()
 		
 		//-productContent.jsp 연결메서드
 		public ProductDTO getProduct(int pno) {
@@ -174,7 +221,6 @@ import javax.sql.DataSource;
 			}
 			return dto;
 		}//getProduct()
-			
 		
 		//-ProuctList.jsp 연결메서드(페이징기능 메서드정의)
 		public int getProductCount() {
@@ -202,7 +248,42 @@ import javax.sql.DataSource;
 			}
 			return count;
 		}//getProductCount()
-			
+		
+		//-result.jsp 연결메서드(페이징기능 메서드정의)
+				public int getSearchProductCount(String indated, String outdated,
+						String indatet, String outdatet, int guest, String region) {
+					Connection con=null;
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
+					int count=0;
+					try {
+						con=getConnection();
+						
+						String sql="select count(*) from products where max_men>=? && paddress like ? && checkin > ? && checkout < ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
+						pstmt=con.prepareStatement(sql);
+						pstmt.setInt(1, guest);
+						pstmt.setString(2, "%"+region+"%");
+						pstmt.setString(3, indated);
+						pstmt.setString(4, outdated);
+						pstmt.setString(5, indated);
+						pstmt.setString(6, outdated);
+						pstmt.setString(7, indatet);
+						pstmt.setString(8, outdatet);
+						rs=pstmt.executeQuery();
+						
+						if(rs.next()) {
+							count=rs.getInt("count(*)");
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}finally {
+							if(rs!=null) try { rs.close();} catch (Exception e2) {}
+							if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+							if(con!=null) try { con.close();} catch (Exception e2) {}
+					}
+					return count;
+				}//getSearchProductCount()
+				
 		
 		//-product_deletePro.jsp 연결메서드
 		public void deleteProduct(int pno) {

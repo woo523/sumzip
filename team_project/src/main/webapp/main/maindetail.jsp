@@ -24,17 +24,17 @@ int endPage = (Integer)request.getAttribute("endPage");
 int pageCount = (Integer)request.getAttribute("pageCount");
 
 %>
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>Our pension</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--     <div class="breadcrumb-section"> -->
+<!--         <div class="container"> -->
+<!--             <div class="row"> -->
+<!--                 <div class="col-lg-12"> -->
+<!--                     <div class="breadcrumb-text"> -->
+<!--                         <h2>Our pension</h2> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
 
 <!-- 펜션 정보 -->
   <section class="rooms-section spad">
