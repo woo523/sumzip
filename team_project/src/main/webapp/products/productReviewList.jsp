@@ -53,7 +53,17 @@
 	<!-- 후기 리스트  -->
 	<ul>
 		<img src="img/review/quote-left.png"><h3><%=rdto.getRtitle() %></h3><img src="img/review/get-quote.png">
-		<li id="stars">별점 <%=rdto.getRstar() %></li>
+		<li id="stars"> 별점 <%=rdto.getRstar() %>
+		<%
+			String star = rdto.getRstar();
+			int getStar = Integer.parseInt(star);
+			for(int j = 1; j <= getStar; j++) {
+				%>
+				<img src="img/review/yellowStar.png" width="25" height="25">
+				<%
+			}
+		%>
+		</li>
 		<li id="contents"><%=rdto.getRcontent() %></li>
 		
 		<!-- 사진 1이 없을 때 안보이게 하기 -->
