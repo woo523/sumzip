@@ -61,20 +61,39 @@ public class QnaFrontController extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}else if(sPath.equals("QuestionUpdateForm.qa")) {
+	
+	}else if(sPath.equals("/QuestionUpdateForm.qa")) {
 		action = new QuestionUpdateForm();
 		try {
 			forward=action.execute(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	
+	}else if(sPath.equals("/QuestionUpdatePro.qa")) {
+		action = new QuestionUpdatePro();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}else if(sPath.equals("/QuestionDelete.qa")) {
+		action = new QuestionDelete();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}else if(sPath.equals("/QnaAnswer.qa")) {
+		action = new QnaAnswer();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
-	
-	
-	
-	
-	
 	
 	//---------------------------------------------
 	// 이동
