@@ -1,3 +1,5 @@
+<%@page import="java.time.ZoneId"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="products.ProductDAO"%>
 <%@page import="member.ReviewDAO"%>
@@ -63,10 +65,15 @@
 	// 예약정보
 	ArrayList<AppointmentDTO> userappointmentlist = (ArrayList<AppointmentDTO>)request.getAttribute("userappointmentlist");
 	
+	// 펜션이름, 체크인 / 체크아웃 시간
+	String houseName = (String)request.getAttribute("houseName");
+	int houseInTime = (Integer)request.getAttribute("houseInTime");
+	int houseOutTime = (Integer)request.getAttribute("houseOutTime");
+	
 	// 체크인 / 체크아웃 날짜
-	Date appointIndate = (Date)request.getAttribute("appointIndate");
-	Date appointOutdate = (Date)request.getAttribute("appointOutdate");
-	Date today = (Date)request.getAttribute("today");
+	LocalDate appointIndate = (LocalDate)request.getAttribute("appointIndate");
+	LocalDate appointOutdate = (LocalDate)request.getAttribute("appointOutdate");
+	LocalDate today = (LocalDate)request.getAttribute("today");
 	
 	// 페이징
 	int currentPage = (Integer)request.getAttribute("currentPage");
@@ -84,17 +91,16 @@
 	for(int i = 0 ; i < userappointmentlist.size(); i++){
 		// 예약정보
 		AppointmentDTO adto = userappointmentlist.get(i);
-		
-		// 펜션정보 => 펜션 이름, 체크인/체크아웃 시간
-		ProductDAO pdao = new ProductDAO();
-		ProductDTO pdto = pdao.getProduct(adto.getPno());
-		
+	
+		// 일자 포맷 변경
+		Date date = adto.getAdate();
+		LocalDate appointdate = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()); // 예약일자
 	%>
 	<ul>
-		<li>예약일자 : <%=adto.getAdate() %></li>
-		<h5><%=pdto.getPname() %></h5>
-		<li id="timecheck">체크인 <%=appointIndate %> <%=pdto.getCheckin() %>:00</li>
-		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=pdto.getCheckout() %>:00</li>
+		<li>예약일자 : <%=appointdate %></li>
+		<h5><%=houseName %></h5>
+		<li id="timecheck">체크인 <%=appointIndate %> <%=houseInTime %>:00</li>
+		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=houseOutTime %>:00</li>
 
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			
