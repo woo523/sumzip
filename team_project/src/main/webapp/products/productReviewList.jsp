@@ -57,7 +57,7 @@
 		<%
 			String star = rdto.getRstar();
 			int getStar = Integer.parseInt(star);
-			for(int j = 1; j < getStar; j++) {
+			for(int j = 1; j <= getStar; j++) {
 				%>
 				<img src="img/review/yellowStar.png" width="25" height="25">
 				<%
