@@ -283,7 +283,7 @@ public class ProductDAO {
 		PreparedStatement pstmt=null;
 		try {
 			con=getConnection();
-			String sql="update products set pname=?, checkin=?, checkout=?,pprice=?, max_men=?, expiration=?, ppic1=?, ppic2=?, ppic3=?,caution=?, pexplan=? where pno=?";
+			String sql="update products set pname=?, checkin=?, checkout=?,pprice=?, max_men=?, expiration=?, ppic1=?, ppic2=?, ppic3=?,caution=?, pexplain=? where pno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, dto.getPname());
 			pstmt.setString(2, dto.getCheckin());
