@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="products.ProductDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="products.ProductDTO"%>
@@ -6,26 +8,196 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<style type="text/css">
-.class{
+	<meta charset="UTF-8">
+	<meta name="description" content="Sona Template">
+    <meta name="keywords" content="Sona, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-}
-</style>
+<!--         main css -->
+        <link rel="stylesheet" href="css1/style.css">
+<!--    	 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
+    	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    	<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    	<link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    	<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    	<link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    	<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    	<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    	<link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+<!--         Bootstrap CSS -->
+        <link rel="stylesheet" href="css1/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css1/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="css1/style.css">
 </head>
-<!-- <body> -->
-<!--     <div class="breadcrumb-section"> -->
-<!--         <div class="container"> -->
-<!--             <div class="row"> -->
-<!--                 <div class="col-lg-12"> -->
-<!--                     <div class="breadcrumb-text"> -->
-<!--                         <h2>검색 결과</h2> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </div> -->
-    
+<!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
+
+<header class="header-section">
+	<div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="tn-left">
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="tn-right">
+                            <%
+								String id=(String)session.getAttribute("id");
+                            	UserDAO dao = new UserDAO();
+                        		// MemberDTO dto = getMember(id) 메서드호출
+                        		UserDTO dto = dao.getUser(id);
+
+								if(id!=null){
+									if(dto.getUtype()==1){
+									%>
+										<div id="login">♥<%=id %> 님♥ |
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_user.me">Mypage</a></div>
+										<% 
+									}else if(dto.getUtype()==2){
+										%>
+										<div id="login">♥<%=id %> 님♥ |
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_owner.me">Mypage</a></div>
+										<%
+									}
+									%>
+								 <%
+								}else{
+									%>
+									<div id="login"><a href="MemberLogin.me">Login</a> |
+													<a href="../member/agree.jsp">Join</a></div>	
+									<%
+								}
+							%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+        <div class="menu-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="Main.me">
+                                <img src="img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul> 
+                                    <li><a href="#">지역별 조회</a></li>
+                                    <li><a href="#">테마별 조회</a></li>
+                                    <li><a href="#">추천 펜션</a></li>
+                                    <li><a href="BoardList.bo">공지사항</a></li>
+                                    <li><a href="QnaList.qa">Q&A</a></li>
+                                </ul>
+                            </nav>
+                            <div class="nav-right search-switch">
+                                <i class="icon_search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+<!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+<!-- 						검색기능                         -->
+<!--                          ================Banner Area ================= -->
+       
+            <div class="hotel_booking_area position">
+                <div class="container">
+                    <div class="hotel_booking_table">
+                        <div class="col-md-3">
+                            <h2>펜션<br> 검색하기</h2>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="boking_table">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                    	<form action="Result.me" method="post">
+                                    	<div class="book_tabel_item">
+                                            <div class="form-group">
+<!--                                                 <div class='input-group date' id='datetimepicker11'> -->
+                                                    <input type='date' name="indate" class="form-control" placeholder="입실일"/>
+<!--                                                     <span class="input-group-addon"> -->
+<!--                                                         <i class="fa fa-calendar" aria-hidden="true"></i> -->
+<!--                                                     </span> -->
+<!--                                                 </div> -->
+                                            </div>
+                                            <div class="form-group">
+<!--                                                 <div class='input-group date' id='datetimepicker1'> -->
+                                                    <input type='date' name="outdate" class="form-control" placeholder="퇴실일"/>
+<!--                                                     <span class="input-group-addon"> -->
+<!--                                                         <i class="fa fa-calendar" aria-hidden="true"></i> -->
+<!--                                                     </span> -->
+<!--                                                 </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+<!--                                         <div class="book_tabel_item"> -->
+                                            <div class="input-group">
+                                                <select class="wide" name="guest">
+                                                    <option data-display="인원 수">인원 수 선택</option>
+                                                    <option value="1">1명</option>
+                                                    <option value="2">2명</option>
+                                                    <option value="3">3명</option>
+                                                    <option value="4">4명</option>
+                                                    <option value="5">5명</option>
+                                                    <option value="6">6명</option>
+                                                    <option value="7">7명</option>
+                                                    <option value="8">8명</option>
+                                                    <option value="9">9명</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group">
+                                                <select class="wide" name="region">
+                                                    <option data-display="지역">지역 선택</option>
+                                                    <option value="서귀포시">서귀포시</option>
+                                                    <option value="제주시">제주시</option>
+                                                </select>
+                                            </div>
+<!--                                         </div> -->
+                                    </div>
+                                    <div class="col-md-4">
+                                      <input type="submit" class="book_now_btn button_hover" value="검색">
+                                    </form>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--         ================Banner Area =================      -->
+       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
  
 <%
 // request.setCharacterEncoding("utf-8");
@@ -74,32 +246,40 @@ int startPage=(Integer)request.getAttribute("startPage");
 int pageBlock=(Integer)request.getAttribute("pageBlock");
 int endPage=(Integer)request.getAttribute("endPage");
 int pageCount=(Integer)request.getAttribute("pageCount");
-
+String indate = (String)request.getAttribute("indate");
+String outdate=(String)request.getAttribute("outdate");
+int guest=(Integer)request.getAttribute("guest");
+String region=(String)request.getAttribute("region");
 
 %>
+<!-- 헤더파일들어가는 곳 -->
+<%-- <jsp:include page="../inc/header.jsp" /> --%>
+
+
+
    <section class="rooms-section spad">
         <div class="container">
             <div class="row">
             <%
             	for(int i=0;i<ProductList.size();i++){
  		//배열 한칸에 내용 가져오기 
- 		ProductDTO dto=ProductList.get(i);
+ 		ProductDTO dto2=ProductList.get(i);
 			%>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
-						<%if(dto.getPpic1()==null){%>
+						<%if(dto2.getPpic1()==null){%>
                         <img src="img/room/room-6.jpg" width="370px" height="240px"> 
                         <%}else{%>
-                        	 <img src="<%=dto.getPpic1()%>" width="370px" height="240px"> 
+                        	 <img src="<%=dto2.getPpic1()%>" width="370px" height="240px"> 
                       <% }%>
                         <div class="ri-text">
-                            <h4><%=dto.getPname() %></h4>
+                            <h4><%=dto2.getPname() %></h4>
                             <h3>
                             
                             <script type="text/javascript">
-                            var num = <%=dto.getPprice()%>;
+                            var num = <%=dto2.getPprice()%>;
                             document.write(num.toLocaleString()+"원");
                             </script>
                             <span>/1박</span></h3>
@@ -107,21 +287,21 @@ int pageCount=(Integer)request.getAttribute("pageCount");
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>
-                                        <td><%=dto.getPaddress2() %></td>
+                                        <td><%=dto2.getPaddress2() %></td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크인 :</td>
-                                        <td><%=dto.getCheckin() %>시</td>
+                                        <td><%=dto2.getCheckin() %>시</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크아웃:</td>
-                                        <td><%=dto.getCheckout() %>시</td>
+                                        <td><%=dto2.getCheckout() %>시</td>
                                     </tr>
                                    
                                 </tbody>
                             </table>
 					<!-- 	펜션 상세 정보 페이지로 이동   -->
-                            <a href="ProductContent.pr?pno=<%=dto.getPno()%>" class="primary-btn">More Details</a>
+                            <a href="ProductContent.pr?pno=<%=dto2.getPno()%>" class="primary-btn">More Details</a>
                         </div>
                     </div>
                 </div>
@@ -165,20 +345,20 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 <%
 if(startPage > pageBlock){
 	%>
-	<a href="Result.me?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
+	<a href="Result.me?pageNum=<%=startPage-pageBlock%>&indate=<%=indate%>&outdate=<%=outdate%>&guest=<%=guest%>&region=<%=region%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
 for(int i=startPage;i<=endPage;i++){
 	%>
-	<a href="Result.me?pageNum=<%=i%>"><%=i%></a>
+	<a href="Result.me?pageNum=<%=i%>&indate=<%=indate%>&outdate=<%=outdate%>&guest=<%=guest%>&region=<%=region%>"><%=i%></a>
 	<%
 }
 
 //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="Result.me?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+	<a href="Result.me?pageNum=<%=startPage+pageBlock%>&indate=<%=indate%>&outdate=<%=outdate%>&guest=<%=guest%>&region=<%=region%>">[10페이지 다음]
  <i class="fa fa-long-arrow-right"></i></a>	<%
 }
 
@@ -189,6 +369,31 @@ if(endPage < pageCount){
          </div>    
      </section>  
 
+<!-- Optional JavaScript -->
+
+        <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+<!--     <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--         jQuery first, then Popper.js, then Bootstrap JS -->
+<!--         <script src="js1/jquery-3.2.1.min.js"></script> -->
+        <script src="js1/popper.js"></script>
+        <script src="js1/bootstrap.min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="js1/jquery.ajaxchimp.min.js"></script>
+        <script src="js1/mail-script.js"></script>
+        <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+        <script src="js1/mail-script.js"></script>
+        <script src="js1/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="js1/custom.js"></script>
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 
 </body>
 </html>
