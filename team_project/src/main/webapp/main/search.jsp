@@ -35,7 +35,7 @@
                             <div class="boking_table">
                                 <div class="row">
                                     <div class="col-md-4">
-                                    	<form action="result.jsp" method="post">
+                                    	<form action="Result.me" method="post">
                                     	<div class="book_tabel_item">
                                             <div class="form-group">
                                                 <div class='input-group date' id='datetimepicker11'>

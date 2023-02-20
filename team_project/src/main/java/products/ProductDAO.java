@@ -136,7 +136,7 @@ import javax.sql.DataSource;
 			try {
 				con=getConnection();
 				
-				String sql="select * from products where max_men>=? && paddress like ? && checkin > ? && checkout < ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?) order by pno desc limit ?,?";
+				String sql="select * from products where max_men>=? && paddress like ? && checkin >= ? && checkout <= ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?) order by pno desc limit ?,?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, guest);
 				pstmt.setString(2, "%"+region+"%");
@@ -259,16 +259,16 @@ import javax.sql.DataSource;
 					try {
 						con=getConnection();
 						
-						String sql="select count(*) from products where max_men>=? && paddress like ? && checkin > ? && checkout < ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
+						String sql="select count(*) from products where max_men>=? && paddress like ? && checkin >= ? && checkout <= ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
 						pstmt=con.prepareStatement(sql);
 						pstmt.setInt(1, guest);
 						pstmt.setString(2, "%"+region+"%");
-						pstmt.setString(3, indated);
-						pstmt.setString(4, outdated);
+						pstmt.setString(3, indatet);
+						pstmt.setString(4, outdatet);
 						pstmt.setString(5, indated);
 						pstmt.setString(6, outdated);
-						pstmt.setString(7, indatet);
-						pstmt.setString(8, outdatet);
+						pstmt.setString(7, indated);
+						pstmt.setString(8, outdated);
 						rs=pstmt.executeQuery();
 						
 						if(rs.next()) {
