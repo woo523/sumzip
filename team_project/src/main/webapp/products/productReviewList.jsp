@@ -1,3 +1,6 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="member.ReviewDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="member.ReviewDAO"%>
@@ -24,15 +27,18 @@
  		padding: 20px;
  	}
  	
-	ul li {
+	#reviewList li {
 		list-style: none;
 	}
-	ul h3 {
+	#reviewList h4 {
 		font-family: 'NanumSquareNeo';
 		margin: 0px 20px 10px 20px;
 		display: inline-block;
 	}
-	ul #img {
+	#reviewList #stars {
+		float: right;
+	}
+	#reviewList #img {
  		margin: 0px 20px 10px 0px;
  		color : black;
         display: inline-block;
@@ -56,11 +62,15 @@
 <%
 	for(int i = 0; i < reviewList.size(); i++) {
 		ReviewDTO rdto = reviewList.get(i);
+		
+		// 작성일자 포맷 변경
+		Timestamp getDate = rdto.getRdate();
+		LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 %>
 	<!-- 후기 리스트  -->
 	<ul id="reviewList">
-		<img src="img/review/quote-left.png"> <h3><%=rdto.getRtitle() %></h3> <img src="img/review/get-quote.png">
-		<li id="stars"> 별점 <%=rdto.getRstar() %>
+		<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">
+		<li id="stars">
 		<%
 			String star = rdto.getRstar();
 			int getStar = Integer.parseInt(star);
@@ -71,6 +81,7 @@
 			}
 		%>
 		</li>
+		<li>작성일자 : <%=getDateFm %></li>
 		<li id="contents"><%=rdto.getRcontent() %></li>
 		
 		<!-- 사진 1이 없을 때 안보이게 하기 -->

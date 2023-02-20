@@ -37,35 +37,7 @@ public class MemberMyList implements Action{
 		SalesDAO salesdao = new SalesDAO();
 		SalesDTO salesdto = salesdao.getSales(no);
 		
-//		try {
-//			
-//			Date Indate = Indate = salesdto.getIndate(); 
-//			LocalDate appointIndate = LocalDate.ofInstant(Indate.toInstant(), ZoneId.systemDefault()); // 체크인 날짜
-//			Date Outdate = Outdate = salesdto.getOutdate(); 
-//			LocalDate appointOutdate = LocalDate.ofInstant(Outdate.toInstant(), ZoneId.systemDefault()); // 체크아웃 날짜
-//			LocalDateTime now = LocalDateTime.now(); 
-//			LocalDate today = now.toLocalDate();	// 오늘 날짜
-//			
-//			request.setAttribute("appointIndate", appointIndate);
-//			request.setAttribute("appointOutdate", appointOutdate);
-//			request.setAttribute("today", today);
-//			
-//		} catch (UnsupportedOperationException e) {
-//			e.printStackTrace();
-//		} finally {
-//			
-//		}
-		
 		request.setAttribute("salesdto", salesdto);
-		
-		// 펜션정보 => 펜션 이름, 체크인/체크아웃 시간
-
-		
-
-		
-//		request.setAttribute("houseName", houseName);
-//		request.setAttribute("houseInTime", houseInTime);
-//		request.setAttribute("houseOutTime", houseOutTime);
 
 		
 		// 페이징
