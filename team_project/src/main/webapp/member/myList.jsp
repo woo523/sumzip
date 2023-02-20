@@ -73,6 +73,9 @@
 // 	int houseInTime = (Integer)request.getAttribute("houseInTime");
 // 	int houseOutTime = (Integer)request.getAttribute("houseOutTime");
 	
+	// 체크인 / 체크아웃 날짜
+	SalesDTO salesdto = (SalesDTO)request.getAttribute("salesdto");
+	
 // 	LocalDate appointIndate = (LocalDate)request.getAttribute("appointIndate");
 // 	LocalDate appointOutdate = (LocalDate)request.getAttribute("appointOutdate");
 // 	LocalDate today = (LocalDate)request.getAttribute("today");
@@ -95,8 +98,16 @@
 <form name="myListForm" action="" id="myList" method="get">
 	<h3>내 이용 내역</h3>
 	<% 
+	// 예약 내역 확인
+	if(salesdto == null) {
+		%>
+		<p>예약된 내역이 없습니다.</p>
+		<%
+	} else {
+		
 	for(int i = 0 ; i < userappointmentlist.size(); i++){
-		// 예약정보
+		
+		// 예약정보 - 펜션이름, 체크인 / 체크아웃 시간
 		AppointmentDTO adto = userappointmentlist.get(i);
 		ProductDAO pdao = new ProductDAO();
 		ProductDTO pdto = pdao.getProduct(adto.getPno());
@@ -105,25 +116,12 @@
 		int houseInTime = pdto.getCheckin(); // 체크인 시간
 		int houseOutTime = pdto.getCheckout(); // 체크아웃 시간
 		
-		// 체크인 / 체크아웃 날짜
-		SalesDTO salesdto = (SalesDTO)request.getAttribute("salesdto");
-		
-		if(salesdto == null) {
-			%>
-			<p>예약된 내역이 없습니다.</p>
-			<%
-		} else {
-		
-		Date appointIndate = salesdto.getIndate();
-		Date appointOutdate = salesdto.getOutdate();
+		Date appointIndate = salesdto.getIndate(); // 체크인 날짜
+		Date appointOutdate = salesdto.getOutdate(); // 체크아웃 날짜
 
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date today = new Date(formatter.parse(todayfm).getTime());
-		
-		System.out.println(appointIndate); // 2023-02-16
-		System.out.println(appointOutdate); // 2023-02-19
-		System.out.println(today); // 2023-02-20
+		Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
 		
 		// 일자 포맷 변경
 		Date date = adto.getAdate();
@@ -194,7 +192,8 @@
 	</ul> <% // id 확인 메서드
 	
 	} // userappointmentlist
-}
+	
+} // 예약 내역 확인 if 문
 %>
 
 <% 
