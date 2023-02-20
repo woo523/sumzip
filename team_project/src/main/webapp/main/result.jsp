@@ -59,7 +59,6 @@
 
 
 
-
 // String indate=request.getParameter("indate");
 // String outdate=request.getParameter("outdate");
 // int guest=Integer.parseInt(request.getParameter("guest"));
