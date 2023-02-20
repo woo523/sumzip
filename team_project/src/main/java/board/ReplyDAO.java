@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 public class ReplyDAO {
 	
 	private Connection getConnection() throws Exception {
-		
 		Context init = new InitialContext();
 		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
 		Connection con = ds.getConnection();
@@ -24,7 +23,6 @@ public class ReplyDAO {
 	} // 디비연결
 	
 	public void insertReply(ReplyDTO dto) {
-		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -37,18 +35,14 @@ public class ReplyDAO {
 			if(rs.next()) {
 				rno=rs.getInt("max(rno)")+1;
 			}
-			
 			sql = "insert into reply values(?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
-			
 			pstmt.setInt(1, rno);
 			pstmt.setInt(2, dto.getNo());
 			pstmt.setInt(3, dto.getBno());
 			pstmt.setString(4, dto.getRiply());
 			pstmt.setTimestamp(5, dto.getRdate());
-			
 			pstmt.executeUpdate();
-			
 			System.out.println("insert 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,8 +51,7 @@ public class ReplyDAO {
 			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
 			if(rs != null) try {rs.close();} catch (SQLException e) {}
 		}
-		
-	} // 댓글 입력
+	} // 댓글 등록
 
 	public ArrayList<ReplyDTO> getReplyList(int bno){
 		Connection con = null;
@@ -78,17 +71,14 @@ public class ReplyDAO {
 				dto.setBno(rs.getInt("bno"));
 				dto.setRiply(rs.getString("riply"));
 				dto.setRdate(rs.getTimestamp("rdate"));
-				// 바구니의 주소값을 배열 한칸에 저장
 				replylist.add(dto);
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();;
 		} finally {
 			if(con!=null)try {con.close();} catch (Exception e2) {}
 			if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 			if(rs!=null)try {rs.close();} catch (Exception e2) {}
-			
 		}
 		return replylist;
 	} // 댓글 리스트
@@ -120,7 +110,7 @@ public class ReplyDAO {
 			if(rs!=null)try {rs.close();} catch (Exception e2) {}
 		}
 		return dto;
-	} // getReply
+	} // rno로 reply 테이블 조회
 
 	public void updateReply(ReplyDTO dto) {
 		Connection con = null;
@@ -138,7 +128,6 @@ public class ReplyDAO {
 			if(con!=null)try {con.close();} catch (Exception e2) {}
 			if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 		}
-		
 	} // 댓글 수정
 	
 	public void deleteReply(int rno) {
@@ -156,7 +145,6 @@ public class ReplyDAO {
 			if(con!=null)try {con.close();} catch (Exception e2) {}
 			if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 		}
-		
 	} // 댓글 삭제
 	
 	public int countReply(int bno) {
@@ -181,7 +169,6 @@ public class ReplyDAO {
 		if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 		if(rs!=null)try {rs.close();} catch (Exception e2) {}
 		}
-		
 		return countReply;
 	} // 댓글 갯수 계산
 

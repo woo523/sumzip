@@ -99,6 +99,13 @@ public class QnaFrontController extends HttpServlet{
 		forward.setPath("qna/answer_writeForm.jsp");
 		forward.setRedirect(false);
 		
+	}else if(sPath.equals("/AnswerWritePro.qa")) {
+		action = new AnswerWritePro();
+		try {
+			forward=action.execute(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//---------------------------------------------

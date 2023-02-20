@@ -16,8 +16,15 @@ public class Result implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");
-		
 		ProductDAO dao=new ProductDAO();
+		int pageSize=9;
+		String pageNum=request.getParameter("pageNum");
+		if(pageNum==null){
+			pageNum="1";
+		}
+		int currentPage=Integer.parseInt(pageNum);
+		int startRow=(currentPage-1)*pageSize+1;
+		int endRow = startRow+pageSize-1;
 		
 		String indate=request.getParameter("indate");
 		String outdate=request.getParameter("outdate");
@@ -29,32 +36,6 @@ public class Result implements Action {
 		String outdatet=(outdate.substring(11, 13)+outdate.substring(14));
 		
 		
-		
-		int pageSize=10;
-		//현 페이지 번호 가져오기 => 페이지번호가 없으면 1페이지 설정
-		//http://localhost:8080/webProject/board/list.jsp
-		//http://localhost:8080/webProject/board/list.jsp?pageNum=2
-		String pageNum=request.getParameter("pageNum");
-		if(pageNum==null){
-			//=> 페이지번호가 없으면 1페이지 설정
-			pageNum="1";
-		}
-		//pageNum => 숫자변경
-		int currentPage=Integer.parseInt(pageNum);
-		//시작하는 행번호 구하기
-		//pageNum(currentPage)	   pageSize	=> startRow
-//			1						10		=> 	(1-1)*10+1 => 0*10+1 =>  0+1 -> 1  ~10
-//			2						10		=> 	(2-1)*10+1 => 1*10+1 => 10+1 -> 11 ~20
-//			3						10		=> 	(3-1)*10+1 => 2*10+1 => 20+1 -> 21 ~30
-		int startRow=(currentPage-1)*pageSize+1;
-		//끝나는 행번호 구하기
-		//startRow	pageSize	=>	endRow
-//				1		10		=>	1+10-1	=>	10
-//				11		10		=>	11+10-1	=>	20
-//				21		10		=>	21+10-1	=>	30
-		int endRow = startRow+pageSize-1;
-		
-		ArrayList<ProductDTO> ProductList=dao.getSearchProductList(indated, outdated, indatet, outdatet, guest, region, startRow, pageSize);
 		
 		// 한 화면에 보여줄 페이지 개수 설정
 		int pageBlock=10;
@@ -84,7 +65,13 @@ public class Result implements Action {
 			endPage = pageCount;
 		}
 		
+
+		
+		
+		
 		// dto request 담아서 이동
+		ArrayList<ProductDTO> ProductList=dao.getSearchProductList(indated, outdated, indatet, outdatet, guest, region, startRow, pageSize);
+		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("ProductList", ProductList);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("pageBlock", pageBlock);

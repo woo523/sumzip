@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
 <%
 // int qno=Integer.parseInt(request.getParameter("qno"));
 
@@ -35,7 +38,7 @@ QnaDTO dto = (QnaDTO)request.getAttribute("dto");
 
 %>
 
-<h1>글수정</h1>
+<h4>Question 수정</h4>
 <form action="QuestionUpdatePro.qa" method="post"> 
 	<table border="1">
 		<input type="hidden" name="qno" value="<%=dto.getQno() %>">

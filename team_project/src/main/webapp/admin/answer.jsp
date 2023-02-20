@@ -47,8 +47,13 @@ if(id==null){
 	<tr><td>글내용</td><td><%=qdto.getAnswer() %></td></tr>
 	</table>
 	
+	
+	<input type="button" value="글입력" 
+	onclick="location.href='AnswerUpdateForm.qa?qno=<%=qdto.getQno() %>'">
+	<input type="button" value="글삭제" 
+	onclick="location.href='AnswerDelete.qa?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글목록" 
-	onclick="location.href='QnaList.qa'"> 
+	onclick="location.href='qnaList.qa'"> 
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.itwillbs.qna.action;
+package com.itwillbs.admin.action;
 
 import java.io.PrintWriter;
 
@@ -11,13 +11,10 @@ import member.UserDTO;
 import qna.QnaDAO;
 import qna.QnaDTO;
 
-public class QnaQuestion implements Action{
+public class AdminQnaQustion implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		System.out.println("QnaQuestion execute()");
-		
 		// qno 가져오기
 		int qno=Integer.parseInt(request.getParameter("qno"));
 		

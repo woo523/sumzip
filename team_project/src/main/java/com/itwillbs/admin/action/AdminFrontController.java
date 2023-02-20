@@ -17,6 +17,7 @@ import com.itwillbs.board.action.BoardList;
 //import com.itwillbs.board.action.BoardUpdateForm;
 //import com.itwillbs.board.action.BoardUpdatePro;
 //import com.itwillbs.board.action.BoardWritePro;
+import com.itwillbs.qna.action.QnaList;
 
 public class AdminFrontController extends HttpServlet {
 	@Override
@@ -144,16 +145,56 @@ public class AdminFrontController extends HttpServlet {
 					e.printStackTrace();
 				}		    
 		
+			}else if(sPath.equals("/AdminQnaList.ad")) {
+				action=new AdminQnaList();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminQnaQustion.ad")) {
+				action = new AdminQnaQustion();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminAnswerWriteForm.ad")) {
+				forward=new ActionForward();
+				forward.setPath("admin/answer_writeForm.jsp");
+				forward.setRedirect(false);
+			}else if(sPath.equals("/AdminAnswerWritePro.ad")) {
+				action = new AdminAnswerWritePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminAnswerdelete.ad")) {
+				action = new AdminAnswerdelete();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminAnswerUpdateForm.ad")) {
+				action = new AdminAnswerUpdateForm();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminAnswerUpdatePro.ad")) {
+				action = new AdminAnswerUpdatePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		//---------------------------------------------
+		// 이동
 		if(forward!=null) {
 			if(forward.isRedirect()==true) {
 				response.sendRedirect(forward.getPath());

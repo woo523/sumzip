@@ -12,7 +12,6 @@ public class SalesDTO {
 	private Date indate; //입실일
 	private Date outdate; //퇴실일(몇박)
 	private int sprice; //총가격
-	private int scount; //뷰카운트
 	
 	public int getSno() {
 		return sno;
@@ -62,12 +61,5 @@ public class SalesDTO {
 	public void setSprice(int sprice) {
 		this.sprice = sprice;
 	}
-	public int getScount() {
-		return scount;
-	}
-	public void setScount(int scount) {
-		this.scount = scount;
-	}
-	
 	
 }

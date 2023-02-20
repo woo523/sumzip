@@ -13,18 +13,18 @@
 }
 </style>
 </head>
-<body>
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>검색 결과</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- <body> -->
+<!--     <div class="breadcrumb-section"> -->
+<!--         <div class="container"> -->
+<!--             <div class="row"> -->
+<!--                 <div class="col-lg-12"> -->
+<!--                     <div class="breadcrumb-text"> -->
+<!--                         <h2>검색 결과</h2> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
     
  
 <%
@@ -70,26 +70,28 @@
 // String outdatet=(outdate.substring(11, 13)+outdate.substring(14));
 
 ArrayList<ProductDTO> ProductList=(ArrayList<ProductDTO>)request.getAttribute("ProductList");
-
+int currentPage = (Integer)request.getAttribute("currentPage");
 int startPage=(Integer)request.getAttribute("startPage");
 int pageBlock=(Integer)request.getAttribute("pageBlock");
 int endPage=(Integer)request.getAttribute("endPage");
 int pageCount=(Integer)request.getAttribute("pageCount");
 
-	for(int i=0;i<ProductList.size();i++){
- 		//배열 한칸에 내용 가져오기 
- 		ProductDTO dto=ProductList.get(i);
+
 %>
    <section class="rooms-section spad">
         <div class="container">
             <div class="row">
-
+            <%
+            	for(int i=0;i<ProductList.size();i++){
+ 		//배열 한칸에 내용 가져오기 
+ 		ProductDTO dto=ProductList.get(i);
+			%>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
 						<%if(dto.getPpic1()==null){%>
-                        <img src="../img/room/room-6.jpg" width="370px" height="240px"> 
+                        <img src="img/room/room-6.jpg" width="370px" height="240px"> 
                         <%}else{%>
                         	 <img src="<%=dto.getPpic1()%>" width="370px" height="240px"> 
                       <% }%>
@@ -124,9 +126,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
                         </div>
                     </div>
                 </div>
-            </div>
-         </div>    
-     </section>         
+            
 <%
 }
 	
@@ -160,9 +160,13 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 
 
 //10페이지 이전
+%>
+ <div class="col-lg-12">
+                    <div class="room-pagination">
+<%
 if(startPage > pageBlock){
 	%>
-	<a href="Result.me?pageNum=<%=startPage-pageBlock%>">Prev</a>
+	<a href="Result.me?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
@@ -175,10 +179,16 @@ for(int i=startPage;i<=endPage;i++){
 //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="Result.me?pageNum=<%=startPage+pageBlock%>">Next</a>
-	<%
+	<a href="Result.me?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+ <i class="fa fa-long-arrow-right"></i></a>	<%
 }
+
 %>
+					</div>
+				</div>
+       		</div>
+         </div>    
+     </section>  
 
 
 </body>
