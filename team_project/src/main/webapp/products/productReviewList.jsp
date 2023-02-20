@@ -20,9 +20,8 @@
  		box-sizing: border-box;
  	}
  	
- 	ul {
- 		margin: 0px 10px 0px 10px;
-		padding: 0px 10px 0px 10px;
+ 	#reviewList {
+ 		padding: 20px;
  	}
  	
 	ul li {
@@ -59,7 +58,7 @@
 		ReviewDTO rdto = reviewList.get(i);
 %>
 	<!-- 후기 리스트  -->
-	<ul>
+	<ul id="reviewList">
 		<img src="img/review/quote-left.png"> <h3><%=rdto.getRtitle() %></h3> <img src="img/review/get-quote.png">
 		<li id="stars"> 별점 <%=rdto.getRstar() %>
 		<%
