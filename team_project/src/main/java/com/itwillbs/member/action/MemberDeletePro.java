@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import member.UserDAO;
 import member.UserDTO;
@@ -26,7 +27,8 @@ public class MemberDeletePro implements Action {
 			// id,pass 일치
 			dao.deleteUser(id); 
 			// => 세션값 초기화
-			//session.invalidate();
+			HttpSession session = request.getSession();
+			session.invalidate();
 			forward=new ActionForward();
 			forward.setPath("Main.me");
 			forward.setRedirect(true);
