@@ -256,7 +256,7 @@ public class QnaDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			String sql = "update qna set answer=?, qadate=? where qno=?";
+			String sql = "update qna set answer=?, qadate=?, qstatus=0 where qno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getAnswer());
 			pstmt.setTimestamp(2, dto.getQadate());
