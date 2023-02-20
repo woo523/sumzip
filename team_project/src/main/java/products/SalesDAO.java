@@ -41,7 +41,6 @@ public class SalesDAO {
 				dto.setIndate(rs.getDate("indate"));
 				dto.setOutdate(rs.getDate("outdate"));
 				dto.setSprice(rs.getInt("sprice"));
-				dto.setScount(rs.getInt("scount"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,7 +72,6 @@ public class SalesDAO {
 				dto.setIndate(rs.getDate("indate"));
 				dto.setOutdate(rs.getDate("outdate"));
 				dto.setSprice(rs.getInt("sprice"));
-				dto.setScount(rs.getInt("scount"));
 				SalesList.add(dto);
 			}
 		} catch (Exception e) {

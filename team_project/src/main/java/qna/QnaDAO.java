@@ -34,17 +34,15 @@ public class QnaDAO {
 			if(rs.next()) {
 				qno=rs.getInt("max(qno)")+1;
 			}
-			sql="insert into qna(qno, no, qtitle, qpw, qcontent, qcount, qtype, qdate) "
+			sql="insert into qna(qno, no, qtitle, qcontent, qcount, qdate) "
 					+ "values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qno); // 질문글번호 
 			pstmt.setInt(2, dto.getNo()); // 유저번호
 			pstmt.setString(3, dto.getQtitle()); // 질문제목
-			pstmt.setInt(4, dto.getQpw()); 
-			pstmt.setString(5, dto.getQcontent()); // 질문글
-			pstmt.setInt(6, dto.getQcount()); // 조회수	
-			pstmt.setString(7, dto.getQtype());
-			pstmt.setTimestamp(8, dto.getQdate()); // 질문날짜	
+			pstmt.setString(4, dto.getQcontent()); // 질문글
+			pstmt.setInt(5, dto.getQcount()); // 조회수	
+			pstmt.setTimestamp(6, dto.getQdate()); // 질문날짜	
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,8 +75,6 @@ public class QnaDAO {
 				dto.setQtitle(rs.getString("qtitle"));
 				dto.setQcontent(rs.getString("qcontent"));
 				dto.setQcount(rs.getInt("qcount"));
-				dto.setQpw(rs.getInt("qpw"));
-				dto.setQtype(rs.getString("qtype"));
 				dto.setQdate(rs.getTimestamp("qdate"));
 				dto.setQadate(rs.getTimestamp("qadate"));
 				qnaList.add(dto);
@@ -114,8 +110,6 @@ public class QnaDAO {
 				dto.setQcontent(rs.getString("qcontent"));
 				dto.setAnswer(rs.getString("answer"));
 				dto.setQcount(rs.getInt("qcount"));
-				dto.setQpw(rs.getInt("qpw"));
-				dto.setQtype(rs.getString("qtype"));
 				dto.setQdate(rs.getTimestamp("qdate"));
 				dto.setQadate(rs.getTimestamp("qadate"));
 				dto.setQstatus(rs.getInt("qstatus"));

@@ -10,8 +10,6 @@ public class QnaDTO {
 	private String answer; // 답변
 	private int qstatus; // 답변상태
 	private int qcount; // 뷰카운트
-	private int qpw; // 비밀번호
-	private String qtype; // 질문유형
 	private Timestamp qdate; // 질문시간
 	private Timestamp qadate; // 답변시간
 	
@@ -56,18 +54,6 @@ public class QnaDTO {
 	}
 	public void setQcount(int qcount) {
 		this.qcount = qcount;
-	}
-	public int getQpw() {
-		return qpw;
-	}
-	public void setQpw(int qpw) {
-		this.qpw = qpw;
-	}
-	public String getQtype() {
-		return qtype;
-	}
-	public void setQtype(String qtype) {
-		this.qtype = qtype;
 	}
 	public Timestamp getQdate() {
 		return qdate;
