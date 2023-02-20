@@ -34,7 +34,7 @@ public class ProductContent implements Action{
 		// db 데이터 가져오기
 		ReviewDAO rdao = new ReviewDAO();
 		
-		int pageSize = 2;
+		int pageSize = 5;
 
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null) {
