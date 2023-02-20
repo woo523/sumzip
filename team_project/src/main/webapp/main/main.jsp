@@ -141,25 +141,25 @@
                                     	<form action="Result.me" method="post">
                                     	<div class="book_tabel_item">
                                             <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <input type='text' name="indate" class="form-control" placeholder="입실일"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
-                                                </div>
+<!--                                                 <div class='input-group date' id='datetimepicker11'> -->
+                                                    <input type='date' name="indate" class="form-control" placeholder="입실일"/>
+<!--                                                     <span class="input-group-addon"> -->
+<!--                                                         <i class="fa fa-calendar" aria-hidden="true"></i> -->
+<!--                                                     </span> -->
+<!--                                                 </div> -->
                                             </div>
                                             <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' name="outdate" class="form-control" placeholder="퇴실일"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
-                                                </div>
+<!--                                                 <div class='input-group date' id='datetimepicker1'> -->
+                                                    <input type='date' name="outdate" class="form-control" placeholder="퇴실일"/>
+<!--                                                     <span class="input-group-addon"> -->
+<!--                                                         <i class="fa fa-calendar" aria-hidden="true"></i> -->
+<!--                                                     </span> -->
+<!--                                                 </div> -->
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="book_tabel_item">
+<!--                                         <div class="book_tabel_item"> -->
                                             <div class="input-group">
                                                 <select class="wide" name="guest">
                                                     <option data-display="인원 수">인원 수 선택</option>
@@ -181,7 +181,7 @@
                                                     <option value="제주시">제주시</option>
                                                 </select>
                                             </div>
-                                        </div>
+<!--                                         </div> -->
                                     </div>
                                     <div class="col-md-4">
                                       <input type="submit" class="book_now_btn button_hover" value="검색">
