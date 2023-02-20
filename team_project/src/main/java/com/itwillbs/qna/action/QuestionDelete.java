@@ -17,6 +17,7 @@ public class QuestionDelete implements Action{
 		QnaDAO dao=new QnaDAO();
 		dao.deleteQna(qno);
 		
+		// list.jsp 이동
 		ActionForward forward = new ActionForward();
 		forward.setPath("QnaList.qa");
 		forward.setRedirect(true);

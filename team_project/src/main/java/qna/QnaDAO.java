@@ -72,7 +72,7 @@ public ArrayList<QnaDTO> getQnaList(int startRow,int pageSize){
 	try {
 		con=getConnection();
 
-		String sql="select * from qna order by no desc limit ?, ?";
+		String sql="select * from qna order by qno desc limit ?, ?";
 		pstmt=con.prepareStatement(sql);
 		pstmt.setInt(1, startRow-1);
 		pstmt.setInt(2, pageSize);
