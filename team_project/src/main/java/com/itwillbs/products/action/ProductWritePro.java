@@ -7,6 +7,9 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import products.ProductDAO;
 import products.ProductDTO;
 
@@ -16,7 +19,14 @@ public class ProductWritePro implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ProductWritePro execute()");
 		//products/productwritePro.jsp
-		request.setCharacterEncoding("utf-8");
+		String uploadPath=request.getRealPath("/upload");
+		System.out.println(uploadPath);
+
+		int maxSize=10*1024*1024;
+		
+		// 업로드 파일이름 동일할때 => 파일이름변경(DefaultFileRenamePolicy)
+		MultipartRequest multi=new MultipartRequest
+		(request, uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 
 		// [all 컬럼] 변수에 저장
 		// int no = Integer.parseInt(request.getParameter("no"));

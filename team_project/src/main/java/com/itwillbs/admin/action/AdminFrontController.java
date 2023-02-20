@@ -152,8 +152,8 @@ public class AdminFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else if(sPath.equals("/AdminQnaQustion.ad")) {
-				action = new AdminQnaQustion();
+			}else if(sPath.equals("/AdminQnaQuestion.ad")) {
+				action = new AdminQnaQuestion();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {
@@ -191,8 +191,8 @@ public class AdminFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else if(sPath.equals("/AdminAnswer.ad")) {
-				action = new AdminAnswer();
+			}else if(sPath.equals("/AdminQnaAnswer.ad")) {
+				action = new AdminQnaAnswer();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {

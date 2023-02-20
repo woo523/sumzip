@@ -71,8 +71,6 @@ int qno=(Integer)request.getAttribute("qno");
 		}
 	}
 	%>
-	<input type="button" value="답변쓰기" 
-	onclick="location.href='AdminAnswerWriteForm.ad?qno=<%=qdto.getQno() %>'">
 	</td></tr>
 </table>
 </body>

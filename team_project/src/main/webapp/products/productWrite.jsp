@@ -36,12 +36,6 @@ if(id==null){
 				<div class="bg-white rounded shadow-sm container p-3">
 					<form action="ProductWritePro.pr" method="POST" enctype="multipart/form-data"
 						 class="form-horizontal" role="form">
-<!-- 						<div class="row mb-3 form-row"> -->
-<!-- 							<div class="col-md-3"> -->
-<!-- 								<label>상품번호</label> <input type="text" name="pno" -->
-<%-- 									value="<%=dto.getPno() %>" readonly> --%>
-<!-- 							</div> -->
-<!-- 						</div> -->
 
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">

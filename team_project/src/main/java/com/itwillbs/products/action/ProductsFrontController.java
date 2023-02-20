@@ -62,13 +62,13 @@ public class ProductsFrontController extends HttpServlet {
 				forward=new ActionForward();
 				forward.setPath("products/fwriteForm.jsp");
 				forward.setRedirect(false);
-			}else if(sPath.equals("/FileProductWritePro.pr")) {
-				action=new FileProductWritePro();
-				try {
-					forward=action.execute(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}	
+//			}else if(sPath.equals("/FileProductWritePro.pr")) {
+//				action=new FileProductWritePro();
+//				try {
+//					forward=action.execute(request, response);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}	
 			}else if(sPath.equals("/ProductContent.pr")) {
 				action = new ProductContent();
 				try {

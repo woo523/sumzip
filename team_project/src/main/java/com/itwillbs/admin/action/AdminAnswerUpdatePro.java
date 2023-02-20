@@ -36,7 +36,7 @@ public class AdminAnswerUpdatePro implements Action{
 		
 		// QnaList 이동
 		ActionForward forward=new ActionForward();
-		forward.setPath("Admin.ad");
+		forward.setPath("AdminQnaList.ad");
 		forward.setRedirect(true);
 		
 		return forward;
