@@ -144,6 +144,13 @@ public class AdminFrontController extends HttpServlet {
 					e.printStackTrace();
 				}		    
 		
+			}else if(sPath.equals("/AdminQnaList.ad")) {
+				action=new AdminQnaList();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		
 		
