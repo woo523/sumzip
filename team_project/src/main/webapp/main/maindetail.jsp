@@ -23,7 +23,6 @@ int startPage = (Integer)request.getAttribute("startPage");
 int endPage = (Integer)request.getAttribute("endPage");
 int pageCount = (Integer)request.getAttribute("pageCount");
 
-
 %>
 <!--     <div class="breadcrumb-section"> -->
 <!--         <div class="container"> -->

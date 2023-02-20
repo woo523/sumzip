@@ -27,8 +27,6 @@ public class Result implements Action {
 		int currentPage=Integer.parseInt(pageNum);
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
-
-		System.out.println("pageNum" + pageNum);
 		
 		
 		String indate=request.getParameter("indate");
