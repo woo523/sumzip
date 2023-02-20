@@ -7,11 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style type="text/css">
-.class{
 
-}
-</style>
 </head>
 <!-- <body> -->
 <!--     <div class="breadcrumb-section"> -->
@@ -74,9 +70,17 @@ int startPage=(Integer)request.getAttribute("startPage");
 int pageBlock=(Integer)request.getAttribute("pageBlock");
 int endPage=(Integer)request.getAttribute("endPage");
 int pageCount=(Integer)request.getAttribute("pageCount");
-
+String indate = (String)request.getAttribute("indate");
+String outdate=(String)request.getAttribute("outdate");
+int guest=(Integer)request.getAttribute("guest");
+String region=(String)request.getAttribute("region");
 
 %>
+<!-- 헤더파일들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+
+
+
    <section class="rooms-section spad">
         <div class="container">
             <div class="row">
@@ -165,20 +169,20 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 <%
 if(startPage > pageBlock){
 	%>
-	<a href="Result.me?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
+	<a href="Result.me?pageNum=<%=startPage-pageBlock%>&indate=<%=indate%>&outdate=<%=outdate%>&guest=<%=guest%>&region=<%=region%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
 for(int i=startPage;i<=endPage;i++){
 	%>
-	<a href="Result.me?pageNum=<%=i%>"><%=i%></a>
+	<a href="Result.me?pageNum=<%=i%>&indate=<%=indate%>&outdate=<%=outdate%>&guest=<%=guest%>&region=<%=region%>"><%=i%></a>
 	<%
 }
 
 //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="Result.me?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+	<a href="Result.me?pageNum=<%=startPage+pageBlock%>&indate=<%=indate%>&outdate=<%=outdate%>&guest=<%=guest%>&region=<%=region%>">[10페이지 다음]
  <i class="fa fa-long-arrow-right"></i></a>	<%
 }
 

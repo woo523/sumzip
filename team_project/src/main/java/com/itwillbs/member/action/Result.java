@@ -27,12 +27,17 @@ public class Result implements Action {
 		int currentPage=Integer.parseInt(pageNum);
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
+
+		System.out.println("pageNum" + pageNum);
 		
 		
 		String indate=request.getParameter("indate");
 		String outdate=request.getParameter("outdate");
 		int guest=Integer.parseInt(request.getParameter("guest"));
 		String region=request.getParameter("region");
+		
+		
+		
 		
 		// 한 화면에 보여줄 페이지 개수 설정
 		int pageBlock=10;
@@ -62,6 +67,8 @@ public class Result implements Action {
 			endPage = pageCount;
 		}
 		
+		System.out.println("st" + startRow);
+		System.out.println(pageSize);
 
 		
 		
@@ -74,7 +81,11 @@ public class Result implements Action {
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
-		
+		request.setAttribute("indate", indate);
+		request.setAttribute("outdate", outdate);
+		request.setAttribute("guest", guest);
+		request.setAttribute("region", region);
+
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/result.jsp");
