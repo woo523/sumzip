@@ -25,6 +25,11 @@ public class MemberFindPassPro implements Action{
 		String email = dao.findEmail(id);
 		dto.setEmail(email);
 		
+		// 이동
+		ActionForward forward = new ActionForward();
+		forward.setPath("member/findPassPro.jsp");
+		forward.setRedirect(false);
+		
 		//임시 비밀번호 생성
 		String tmpPasswd = dao.tmpPasswd(dto);
 		//out.print(tmpPasswd);
@@ -32,18 +37,11 @@ public class MemberFindPassPro implements Action{
 		//임시 비밀번호 메일로 전송
 		dao.sendTmpPw(tmpPasswd, dto);
 		
-		ActionForward forward = null;
-		if(email.length()<1) {
-		forward = new ActionForward();
-		forward.setPath("member/findPassPro.jsp");
-		forward.setRedirect(false);
-		} else {
-			forward = new ActionForward();
-			forward.setPath("member/findPassPro.jsp");
-			forward.setRedirect(false);
-		}
+		
+						
 		return forward;
-	}	
+	}
+
 	
 
 	}

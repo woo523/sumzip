@@ -5,6 +5,66 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+        /* 전체 레이아웃 스타일 */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 100%;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* 폼 스타일 */
+        form {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        input[type="button"] {
+            background-color: #119208;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #C5E1A5;
+        }
+    </style>
+    
 <script type="text/javascript">
 function id_search() { 
 	 	var frm = document.idfindscreen;
@@ -26,13 +86,16 @@ function id_search() {
 </script>
 </head>
 <body>
-<div id="wrap">
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
-<form name="idfindscreen" method = "POST">
-			<div class = "search-title">
-				<h3>아이디찾기</h3>
-			</div>
+
+
+<div id="wrap">
+
+<form name="idfindscreen" method = "POST" >
+
+		<h2>아이디찾기</h2>
+		<div class="form-container">
 		<section class = "form-search">
 			<div class = "find-name">
 				<label>이름</label>
@@ -48,10 +111,12 @@ function id_search() {
 	<div class ="btnSearch">
 		<input type="button" name="enter" value="찾기"  onClick="id_search()">
 		<input type="button" name="cancle" value="취소" onClick="history.back()">
+		</div>
  	</div>
  </form>
- 
- <jsp:include page="../inc/footer.jsp" />
 </div>
+
+
+ <jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
