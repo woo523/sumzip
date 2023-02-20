@@ -71,11 +71,11 @@ ProductDTO dto = productlist.get(i);
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크인 :</td>
-                                        <td><%=Integer.toString(dto.getCheckin()).substring(0, 2) %>시 <%=Integer.toString(dto.getCheckin()).substring(2) %>분</td>
+                                        <td><%=dto.getCheckin().substring(0, 2) %>시 <%=dto.getCheckin().substring(3) %>분</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크아웃:</td>
-                                        <td><%=Integer.toString(dto.getCheckout()).substring(0, 2) %>시 <%=Integer.toString(dto.getCheckout()).substring(2) %>분</td>
+                                        <td><%=dto.getCheckout().substring(0, 2) %>시 <%=dto.getCheckout().substring(3) %>분</td>
                                     </tr>
                                    
                                 </tbody>
