@@ -59,16 +59,13 @@ public class MemberMyList implements Action{
 		request.setAttribute("salesdto", salesdto);
 		
 		// 펜션정보 => 펜션 이름, 체크인/체크아웃 시간
-		ProductDAO pdao = new ProductDAO();
-		ProductDTO pdto = pdao.getProduct(salesdto.getPno());
+
 		
-		String houseName = pdto.getPname(); // 펜션 이름
-		int houseInTime = pdto.getCheckin(); // 체크인 시간
-		int houseOutTime = pdto.getCheckout(); // 체크아웃 시간
+
 		
-		request.setAttribute("houseName", houseName);
-		request.setAttribute("houseInTime", houseInTime);
-		request.setAttribute("houseOutTime", houseOutTime);
+//		request.setAttribute("houseName", houseName);
+//		request.setAttribute("houseInTime", houseInTime);
+//		request.setAttribute("houseOutTime", houseOutTime);
 
 		
 		// 페이징
