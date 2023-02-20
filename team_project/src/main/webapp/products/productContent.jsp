@@ -49,12 +49,19 @@ UserDTO udto=(UserDTO)request.getAttribute("udto");
 <tr><td>등록유효기간</td><td><%=dto.getExpiration() %></td></tr>
 <tr><td>숙소등록일</td><td><%=dto.getReser_date() %></td></tr>
 <tr><td>펜션사진1</td>
-<td><a href="upload/<%=dto.getPpic1() %>" download><%=dto.getPpic1() %></a>
-<img src="upload/<%=dto.getPpic1() %>" width="100" height="100">
-</td></tr>
-<tr><td>펜션사진2</td><td><%=dto.getPpic2() %></td></tr>
-<tr><td>펜션사진3</td><td><%=dto.getPpic3() %></td></tr>
-<tr><td>주의사항</td><td><%=dto.getCaution() %></td></tr>
+<td>
+<img src="upload/<%=dto.getPpic1() %>" width="200" height="200">
+</td>
+<tr><td>펜션사진2</td>
+<td>
+<img src="upload/<%=dto.getPpic2() %>" width="200" height="200">
+</td>
+<tr><td>펜션사진3</td>
+<td>
+<img src="upload/<%=dto.getPpic3() %>" width="200" height="200">
+</td>
+<tr><td>주의사항</td><td><%=dto.getCaution() %>
+</td>
 <tr><td>펜션설명</td><td><%=dto.getPexplain() %></td></tr>
 <tr><td colspan="2">
 <%

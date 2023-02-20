@@ -46,9 +46,9 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 %>
 
 <!-- 글쓰기 버튼 부분 -->
-<h1>products/productList.jsp</h1>
+<h3>products/productList.jsp</h3>
 
-<table border="0" width="50%">
+<table border="0" width="64%">
 <tbody><tr align="right">
 <td>
 <button type="button" onclick="location.href='ProductWriteForm.pr'">
@@ -67,7 +67,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <!-- 	<td>체크인</td> -->
 <!-- 	<td>체크아웃</td> -->
     <td>가격</td>
-    <td>펜션사진1</td>
+    <td>펜션사진</td>
     <td>펜션설명</td>
     </tr>
    
@@ -86,7 +86,7 @@ for(int i=0; i<productList.size(); i++){
 <%--     <td><%=dto.getCheckin() %></td> --%>
 <%--     <td><%=dto.getCheckout() %></td> --%>
     <td><%=dto.getPprice() %></td>
-	<td><%=dto.getPpic1() %></td>
+	<td><img src="upload/<%=dto.getPpic1() %>" width="200" height="200"></td>
 	<td><%=dto.getPexplain() %></td></tr>
 
 	<%
