@@ -17,7 +17,7 @@ QnaDTO dto = dao.getQna(qno);
 %>
 
 <h1>답변수정</h1>
-<form action="answer_updatePro.jsp" method="post"> 
+<form action="AdminAnswerUpdatePro.ad" method="post"> 
 		<input type="hidden" name="qno" value="<%=qno %>">
 	<table border="1">
 			<td colspan="2"><input type="checkbox" name="qstate" value="0" checked>답변완료</td>

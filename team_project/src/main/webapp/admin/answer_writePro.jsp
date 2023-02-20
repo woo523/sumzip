@@ -13,7 +13,7 @@ String id=(String)session.getAttribute("id");
 UserDAO udao=new UserDAO();
 UserDTO udto=udao.getUser(id);
 
-//request qpw, qtitle, qcount, qdate, qcontent 가져와서 변수에 저장
+//request qtitle, qcount, qdate, answer 가져와서 변수에 저장
 String qtitle=request.getParameter("qtitle");
 int qcount=0;
 Timestamp qadate=new Timestamp(System.currentTimeMillis());
