@@ -29,7 +29,6 @@ public class QuestionWritePro implements Action{
 		UserDTO udto=udao.getUser(id);
 		
 		//request qtitle, qcount, qdate, qcontent 가져와서 변수에 저장
-		int qpw=0000;
 		String qtitle=request.getParameter("qtitle");
 		int qcount=0;
 		Timestamp qdate=new Timestamp(System.currentTimeMillis());
@@ -41,10 +40,8 @@ public class QuestionWritePro implements Action{
 		//set메서드 호출해서 값 저장
 		dto.setNo(udto.getNo());
 		dto.setQtitle(qtitle);
-		dto.setQtype("1");
 		dto.setQstatus(0);
 		dto.setQcount(qcount);
-		dto.setQpw(qpw);
 		dto.setQdate(qdate);
 		dto.setQcontent(qcontent);
 		

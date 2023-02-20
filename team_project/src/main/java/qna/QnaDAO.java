@@ -35,7 +35,7 @@ public class QnaDAO {
 				qno=rs.getInt("max(qno)")+1;
 			}
 			sql="insert into qna(qno, no, qtitle, qcontent, qcount, qdate) "
-					+ "values(?,?,?,?,?,?,?,?)";
+					+ "values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qno); // 질문글번호 
 			pstmt.setInt(2, dto.getNo()); // 유저번호
