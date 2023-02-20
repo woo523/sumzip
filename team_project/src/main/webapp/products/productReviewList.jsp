@@ -19,10 +19,17 @@
  		padding: 20px;
  		box-sizing: border-box;
  	}
+ 	
+ 	ul {
+ 		margin: 0px 10px 0px 10px;
+		padding: 0px 10px 0px 10px;
+ 	}
+ 	
 	ul li {
 		list-style: none;
 	}
 	ul h3 {
+		font-family: 'NanumSquareNeo';
 		margin: 0px 20px 10px 20px;
 		display: inline-block;
 	}
@@ -46,13 +53,14 @@
 <jsp:include page="../inc/header.jsp" />
 
 <article>
+<h2>Reviews</h2>
 <%
 	for(int i = 0; i < reviewList.size(); i++) {
 		ReviewDTO rdto = reviewList.get(i);
 %>
 	<!-- 후기 리스트  -->
 	<ul>
-		<img src="img/review/quote-left.png"><h3><%=rdto.getRtitle() %></h3><img src="img/review/get-quote.png">
+		<img src="img/review/quote-left.png"> <h3><%=rdto.getRtitle() %></h3> <img src="img/review/get-quote.png">
 		<li id="stars"> 별점 <%=rdto.getRstar() %>
 		<%
 			String star = rdto.getRstar();

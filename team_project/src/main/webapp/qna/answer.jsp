@@ -49,11 +49,11 @@ if(id==null){
 	
 	
 	<input type="button" value="글입력" 
-	onclick="location.href='answer_writeForm.jsp?qno=<%=qdto.getQno()%>'">
+	onclick="location.href='AnswerUpdateForm.qa?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글삭제" 
-	onclick="location.href='answer_delete.jsp?qno=<%=qdto.getQno()%>'">
+	onclick="location.href='AnswerDelete.qa?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글목록" 
-	onclick="location.href='qnaList.jsp'">
+	onclick="location.href='qnaList.qa'"> 
 	</form>
 
 </body>

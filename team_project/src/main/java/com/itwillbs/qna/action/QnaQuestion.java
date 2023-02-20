@@ -21,11 +21,11 @@ public class QnaQuestion implements Action{
 		// qno 가져오기
 		int qno=Integer.parseInt(request.getParameter("qno"));
 		
-		
-		
 		QnaDAO qdao=new QnaDAO();
 		QnaDTO qdto=qdao.getQna(qno);
 		
+		// 조회수 증가
+		qdao.qCount(qno);
 		
 		HttpSession session = request.getSession();	
 		

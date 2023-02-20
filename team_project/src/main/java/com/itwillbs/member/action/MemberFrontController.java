@@ -148,7 +148,51 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-	   }
+	   } else if(sPath.equals("/Result.me")) {
+		   action = new Result();
+			try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	   }else if(sPath.equals("/MemberAgree.me")) {
+		   forward = new ActionForward();
+		   forward.setPath("member/agree.jsp");
+		   forward.setRedirect(false);   
+	   }else if(sPath.equals("/MemberJoin.me")) {
+		   forward = new ActionForward();
+		   forward.setPath("member/join.jsp");
+		   forward.setRedirect(false);   
+	   }else if(sPath.equals("/MemberJoinPro.me")) {
+		   action = new MemberJoinPro();
+		   try {
+		      forward=action.execute(request, response);
+		   } catch (Exception e) {
+		      e.printStackTrace();
+		   }
+		}else if(sPath.equals("/MemberUpdateForm.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/updateForm.jsp");
+		    forward.setRedirect(false);   
+		}else if(sPath.equals("/MemberUpdatePro.me")) {
+		    action = new MemberUpdatePro();
+		    try {
+		       forward=action.execute(request, response);
+		    } catch (Exception e) {
+		       e.printStackTrace();
+		    }
+		}else if(sPath.equals("/MemberDeleteForm.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/deleteForm.jsp");
+		    forward.setRedirect(false);   
+		}else if(sPath.equals("/MemberDeletePro.me")) {
+		    action = new MemberDeletePro();
+		    try {
+		       forward=action.execute(request, response);
+		    } catch (Exception e) {
+		       e.printStackTrace();
+		    }
+		 }
 		
 		
 		// ----------------------------------------------

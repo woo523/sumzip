@@ -50,9 +50,9 @@ int qno=(Integer)request.getAttribute("qno");
 		if(id.equals(udto.getId())){
 	%>
 	<input type="button" value="글수정" 
-	onclick="location.href='QuestionUpdateForm.qa'">
+	onclick="location.href='QuestionUpdateForm.qa?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글삭제" 
-	onclick="location.href='QuestionDelete.qa'">
+	onclick="location.href='QuestionDelete.qa?qno=<%=qdto.getQno() %>'">
 	<%
 		}
 	}
@@ -66,7 +66,7 @@ int qno=(Integer)request.getAttribute("qno");
 		if(id.equals(udto.getId())){
 	%>
 	<input type="button" value="답변확인" 
-	onclick="location.href='Answer.qa?qno=<%=qdto.getQno() %>'">
+	onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">
 	<%
 		}
 	}

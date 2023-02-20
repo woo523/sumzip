@@ -36,7 +36,7 @@
 				<li><a href="MemberMyList.me">내 이용목록</a></li>
 				<li><a href="../products/appointManage.jsp">예약관리</a></li>
 				<li><a href="#">찜 목록</a></li>
-				<li><a href="deleteForm.jsp">회원탈퇴</a></li>
+				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -94,7 +94,7 @@
 						</div>
 						
 						<div class="btnChange">
-							<a href="updateForm.jsp">
+							<a href="MemberUpdateForm.me">
 							<input type="button" name="user_modify" value="회원정보 수정"></a> 
 							<a href="MemberPwModify.me">
 								<input type="button" name="pass_modify" value="비밀번호 수정"></a>

@@ -79,7 +79,7 @@
 								}else{
 									%>
 									<div id="login"><a href="MemberLogin.me">Login</a> |
-													<a href="../member/agree.jsp">Join</a></div>	
+													<a href="MemberAgree.me">Join</a></div>	
 									<%
 								}
 							%>

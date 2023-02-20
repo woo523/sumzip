@@ -21,7 +21,7 @@
                     <div class="breadcrumb-text">
                         
 <!-- 검색기능 넣기 -->
-<%-- <jsp:include page="a.jsp" /> --%>
+<jsp:include page="search.jsp" />
                     </div>
                 </div>
             </div>

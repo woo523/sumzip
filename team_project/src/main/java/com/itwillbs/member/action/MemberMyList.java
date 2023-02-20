@@ -1,11 +1,7 @@
 package com.itwillbs.member.action;
 
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,29 +37,35 @@ public class MemberMyList implements Action{
 		SalesDAO salesdao = new SalesDAO();
 		SalesDTO salesdto = salesdao.getSales(no);
 		
-		Date Indate = salesdto.getIndate(); 
-		LocalDate appointIndate = LocalDate.ofInstant(Indate.toInstant(), ZoneId.systemDefault()); // 체크인 날짜
-		Date Outdate = salesdto.getOutdate(); 
-		LocalDate appointOutdate = LocalDate.ofInstant(Outdate.toInstant(), ZoneId.systemDefault()); // 체크아웃 날짜
-		LocalDateTime now = LocalDateTime.now(); 
-		LocalDate today = now.toLocalDate();	// 오늘 날짜
+//		try {
+//			
+//			Date Indate = Indate = salesdto.getIndate(); 
+//			LocalDate appointIndate = LocalDate.ofInstant(Indate.toInstant(), ZoneId.systemDefault()); // 체크인 날짜
+//			Date Outdate = Outdate = salesdto.getOutdate(); 
+//			LocalDate appointOutdate = LocalDate.ofInstant(Outdate.toInstant(), ZoneId.systemDefault()); // 체크아웃 날짜
+//			LocalDateTime now = LocalDateTime.now(); 
+//			LocalDate today = now.toLocalDate();	// 오늘 날짜
+//			
+//			request.setAttribute("appointIndate", appointIndate);
+//			request.setAttribute("appointOutdate", appointOutdate);
+//			request.setAttribute("today", today);
+//			
+//		} catch (UnsupportedOperationException e) {
+//			e.printStackTrace();
+//		} finally {
+//			
+//		}
 		
-		request.setAttribute("appointIndate", appointIndate);
-		request.setAttribute("appointOutdate", appointOutdate);
-		request.setAttribute("today", today);
-
+		request.setAttribute("salesdto", salesdto);
+		
 		// 펜션정보 => 펜션 이름, 체크인/체크아웃 시간
-		ProductDAO pdao = new ProductDAO();
-		ProductDTO pdto = pdao.getProduct(salesdto.getPno());
+
 		
-		String houseName = pdto.getPname(); // 펜션 이름
+
 		
-		int houseInTime = pdto.getCheckin(); // 체크인 시간
-		int houseOutTime = pdto.getCheckout(); // 체크아웃 시간
-		
-		request.setAttribute("houseName", houseName);
-		request.setAttribute("houseInTime", houseInTime);
-		request.setAttribute("houseOutTime", houseOutTime);
+//		request.setAttribute("houseName", houseName);
+//		request.setAttribute("houseInTime", houseInTime);
+//		request.setAttribute("houseOutTime", houseOutTime);
 
 		
 		// 페이징
@@ -80,7 +82,7 @@ public class MemberMyList implements Action{
 		int startRow = (currentPage-1) * pageSize+1; 
 		int endRow = startRow + pageSize-1;
 		
-		ArrayList<AppointmentDTO> userappointmentlist = adao.getAppointmentList(no, startRow, pageSize);
+		ArrayList<AppointmentDTO> userappointmentlist = new ArrayList<>(adao.getAppointmentList(no, startRow, pageSize));
 		
 		// 한 화면에 보여줄 '페이지 개수' 구하기
 		int pageBlock = 5;
