@@ -115,6 +115,7 @@ public class ReviewDAO {
 				rdto.setRtitle(rs.getString("rtitle"));
 				rdto.setRstar(rs.getString("rstar"));
 				rdto.setRcontent(rs.getString("rcontent"));
+				rdto.setRdate(rs.getTimestamp("rdate"));
 				rdto.setRpic1(rs.getString("rpic1"));
 				rdto.setRpic2(rs.getString("rpic2"));
 				rdto.setRpic3(rs.getString("rpic3"));

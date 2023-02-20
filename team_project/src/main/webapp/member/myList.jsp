@@ -68,22 +68,8 @@
 	// 예약정보
 	ArrayList<AppointmentDTO> userappointmentlist = (ArrayList<AppointmentDTO>)request.getAttribute("userappointmentlist");
 	
-	// 펜션이름, 체크인 / 체크아웃 시간
-// 	String houseName = (String)request.getAttribute("houseName");
-// 	int houseInTime = (Integer)request.getAttribute("houseInTime");
-// 	int houseOutTime = (Integer)request.getAttribute("houseOutTime");
-	
 	// 체크인 / 체크아웃 날짜
 	SalesDTO salesdto = (SalesDTO)request.getAttribute("salesdto");
-	
-// 	LocalDate appointIndate = (LocalDate)request.getAttribute("appointIndate");
-// 	LocalDate appointOutdate = (LocalDate)request.getAttribute("appointOutdate");
-// 	LocalDate today = (LocalDate)request.getAttribute("today");
-	
-// 	LocalDate appointIndate = LocalDate.ofInstant(Indate.toInstant(), ZoneId.systemDefault());
-// 	LocalDate appointOutdate = LocalDate.ofInstant(Outdate.toInstant(), ZoneId.systemDefault());
-// 	LocalDateTime now = LocalDateTime.now(); 
-// 	LocalDate today = now.toLocalDate();
 	
 	// 페이징
 	int currentPage = (Integer)request.getAttribute("currentPage");
@@ -96,8 +82,8 @@
 <jsp:include page="../inc/header.jsp" />
 
 <form name="myListForm" action="" id="myList" method="get">
-	<h3>내 이용 내역</h3>
-	<% 
+<h3>내 이용 내역</h3>
+<% 
 	// 예약 내역 확인
 	if(salesdto == null) {
 		%>
@@ -131,16 +117,12 @@
 	<ul>
 		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
-		<li id="timecheck">체크인 <%=appointIndate %> <%=houseInTime %>:00</li>
-		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=houseOutTime %>:00</li>
+		<li id="timecheck">체크인 <%=appointIndate %> <%=Integer.toString(houseInTime).substring(0, 2) %>시 <%=Integer.toString(houseInTime).substring(2) %>분</li>
+		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=Integer.toString(houseOutTime).substring(0, 2) %>시 <%=Integer.toString(houseOutTime).substring(2) %>분</li>
 
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			
 		ReviewDAO rdao = new ReviewDAO();
-		
-// 		System.out.println(appointIndate);
-// 		System.out.println(appointOutdate);
-// 		System.out.println(today);
 		
 		int resultIn = appointIndate.compareTo(today);
 		int resultOut = appointOutdate.compareTo(today);
@@ -193,7 +175,7 @@
 	
 	} // userappointmentlist
 	
-} // 예약 내역 확인 if 문
+	} // 예약 내역 확인 if 문
 %>
 
 <% 
