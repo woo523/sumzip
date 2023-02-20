@@ -76,13 +76,13 @@ if(id==null){
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>체크인시간</label> <input type="text" name="checkin" > 
+								<label>체크인시간</label> <input type="time" name="checkin" > 
 							</div>		
 						</div>
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>체크아웃시간</label> <input type="text" name="checkout" > 
+								<label>체크아웃시간</label> <input type="time" name="checkout" > 
 							</div>		
 						</div>						
 						

@@ -18,11 +18,13 @@
 
 ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 %>
-<h2>글수정</h2>
+<h2>상품등록 수정</h2>
 
 <form action="ProductUpdatePro.pr" method="post">
 <input type="hidden" name="pno" value="<%=dto.getPno()%>">
 <table border="1">
+<tr><td>유저번호</td>
+    <td><input type="text" name="no" value="<%=dto.getNo()%>"></td></tr>
 <tr><td>펜션이름</td>
     <td><input type="text" name="pname" value="<%=dto.getPname() %>"></td></tr>
 <tr><td>체크인</td>
