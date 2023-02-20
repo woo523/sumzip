@@ -1,27 +1,146 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="kr">
+
 <head>
-<meta charset="UTF-8">
-<title>member/deleteForm.jsp</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sona Template">
+    <meta name="keywords" content="Sona, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>섬집</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/table.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    
 </head>
+
 <body>
-<!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
-<!-- 헤더들어가는 곳 -->
+    <header class="header-section">
+	<div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="tn-left">
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="tn-right">
+                            <%
+								String id=(String)session.getAttribute("id");
+                            	UserDAO dao = new UserDAO();
+                        		// MemberDTO dto = getMember(id) 메서드호출
+                        		UserDTO dto = dao.getUser(id);
+
+								if(id!=null){
+									if(dto.getUtype()==1){
+									%>
+										<div id="login">♥<%=id %> 님♥ |
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_user.me">Mypage</a></div>
+										<% 
+									}else if(dto.getUtype()==2){
+										%>
+										<div id="login">♥<%=id %> 님♥ |
+										<a href="MemberLogout.me">Logout</a>	|
+										<a href="MemberMyPage_owner.me">Mypage</a></div>
+										<%
+									}
+									%>
+								 <%
+								}else{
+									%>
+									<div id="login"><a href="MemberLogin.me">Login</a> |
+													<a href="../member/agree.jsp">Join</a></div>	
+									<%
+								}
+							%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+        <div class="menu-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="Main.me">
+                                <img src="img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul> 
+                                    <li><a href="#">지역별 조회</a></li>
+                                    <li><a href="#">테마별 조회</a></li>
+                                    <li><a href="#">추천 펜션</a></li>
+                                    <li><a href="BoardList.bo">공지사항</a></li>
+                                    <li><a href="QnaList.qa">Q&A</a></li>
+                                </ul>
+                            </nav>
+                            <div class="nav-right search-switch">
+                                <i class="icon_search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+
 
 <h1>회원탈퇴</h1>
-<%
-String id=(String)session.getAttribute("id"); //다운캐스팅 형변환
-%>
-<form action="deletePro.jsp" method="post" id="delete" name="deleteform">
-아이디 : <input type="text" name="id" value="<%=id%>" readonly><br>
-비밀번호 : <input type="password" name="pass"><br>
-<input type="submit" value="회원탈퇴">
-</form>
-<!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/footer.jsp" />
-<!-- 푸터 들어가는 곳 -->
+
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <form action="MemberDeletePro.me" method="post" id="delete" name="deleteform">
+			아이디 : <input type="text" name="id" value="<%=id%>" readonly><br>
+			비밀번호 : <input type="password" name="pass"><br>
+			<input type="submit" value="회원탈퇴">
+			</form>
+			<!-- 푸터 들어가는 곳 -->
+			<jsp:include page="../inc/footer.jsp" />
+			<!-- 푸터 들어가는 곳 -->
+        </div>
+    </div>
+    
+</section>
+
+
 </body>
 </html> 

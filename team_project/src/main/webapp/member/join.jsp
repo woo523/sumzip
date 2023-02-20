@@ -74,7 +74,7 @@ $(document).ready(function(){
 			return false;
 		}
 	$.ajax({
-		url:'idCheck.jsp',
+		url:'member/idCheck.jsp',
 		data:{'id':$('.id').val()},
 		success:function(result){
 			if(result.trim()=="중복확인"){
@@ -168,10 +168,10 @@ form {
 		<jsp:include page="../inc/header.jsp" />
 		<!-- 헤더들어가는 곳 -->
 	<article>
-		<form action="joinPro.jsp" name="joinform" id="join" method="post">
+		<form action="MemberJoinPro.me" name="joinform" id="join" method="post">
 			<fieldset>
 				<legend>회원가입</legend>		
-				<input type="radio" name="utype" value="1">일반회원	 
+				<input type="radio" name="utype" value="1" checked>일반회원	 
 		  		<input type="radio" name="utype" value="2">사장님<br>
 				<label>아이디</label> 
 				<input type="text" name="id" class="id">
@@ -212,5 +212,6 @@ form {
 		</form>
 	</article>
 <%-- 	<jsp:include page="../inc/footer.jsp" /> --%>
+</div>
 </body>
 </html>

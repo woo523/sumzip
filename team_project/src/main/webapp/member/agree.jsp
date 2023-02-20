@@ -18,7 +18,7 @@ function fun1() {
 	   }
 	}
 function fun2() {
-   document.ac.action="../main/main.jsp";
+   document.ac.action="Main.me";
    document.ac.method="post";
    document.ac.submit();
 }
@@ -29,7 +29,7 @@ function fun2() {
 body{background-color: #C5E1A5;}
 ul>li{list-style: none}
 a{text-decoration: none;}
-.top{margin-top: 150px;}
+.top{margin-top: 30px;}
 .clearfix::after{content: "";display: block;clear: both;}
 #agreeForm{width: 500px;margin: 0 auto;}
 ul.join_box{border: 1px solid #ddd;background-color: #fff;}
@@ -49,23 +49,13 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
 </style>
 
 <body>
-<div id="wrap" class="top">
+<div class="top">
 <!-- 헤더들어가는 곳 -->
-
-<!-- 헤더들어가는 곳 -->
-
-<!-- 본문들어가는 곳 -->
-<!-- 본문메인이미지 -->
-<div id="sub_img_member"></div>
-<!-- 본문메인이미지 -->
-
-<!-- 왼쪽메뉴 -->
-
- <div class="logo" style="margin-bottom: 10px;">
-     <a href="../main/main.jsp">
-     <img src="../img/logo.png" alt="섬집"></a>
+<div class="logo" style="margin-bottom: 10px;">
+     <a href="/Main.me">
+     <img src="img/logo.png" alt="섬집"></a>
  </div>
-<form action="../member/join.jsp" id="agreeForm" name="ac">
+<form action="MemberJoin.me" id="agreeForm" name="ac">
   <ul class="join_box">
      <li class="checkBox check01">
      

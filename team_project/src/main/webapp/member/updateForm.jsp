@@ -76,39 +76,42 @@ UserDAO dao=new UserDAO();
 //UserDTO dto =  getMember(id) 메서드 호출
 UserDTO dto=dao.getUser(id);
 %>
-<article>
-<form action="updatePro.jsp" id="join" method="post">
-<fieldset>
-<legend>개인정보 수정</legend>
-<label>아이디</label>
-<input type="text" name="id" class="id" value="<%=id%>" readonly><br>
-<label>비밀번호</label>
-<input type="password" name="pass" value="<%=dto.getPass()%>"><br>
-<label>이름</label>
-<input type="text" name="uname" value="<%=dto.getUname()%>"><br>
-<label>이메일</label>
-<input type="email" name="email" value="<%=dto.getEmail()%>"><br>
-<label>주소</label>
-<input type="text" id="sample4_postcode" name="postnum" value="<%=dto.getPostnum()%>" placeholder="우편번호">
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ><br>
-<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="address1" value="<%=dto.getAddress1()%>"><br>				
-<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="address2" value="<%=dto.getAddress2()%>"><br>
-<label>전화번호</label>
-<input type="text" name="tel" value="<%=dto.getTel()%>"><br>
-</fieldset>
-<div class="clear"></div>
-<div id="buttons">
-<input type="submit" value="Submit" class="submit">
-<input type="reset" value="Cancel" class="cancel">
-</div>
-</form>
-</article>
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+			<form action="MemberUpdatePro.me" id="join" method="post">
+			<fieldset>
+				<legend>개인정보 수정</legend>
+				<label>아이디</label>
+				<input type="text" name="id" class="id" value="<%=id%>" readonly><br>
+				<label>비밀번호</label>
+				<input type="password" name="pass" value="<%=dto.getPass()%>"><br>
+				<label>이름</label>
+				<input type="text" name="uname" value="<%=dto.getUname()%>"><br>
+				<label>이메일</label>
+				<input type="email" name="email" value="<%=dto.getEmail()%>"><br>
+				<label>주소</label>
+				<input type="text" id="sample4_postcode" name="postnum" value="<%=dto.getPostnum()%>" placeholder="우편번호">
+				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ><br>
+				<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="address1" value="<%=dto.getAddress1()%>"><br>				
+				<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="address2" value="<%=dto.getAddress2()%>"><br>
+				<label>전화번호</label>
+				<input type="text" name="tel" value="<%=dto.getTel()%>"><br>
+			</fieldset>
+			<div id="buttons">
+			<input type="submit" value="Submit" class="submit">
+			<input type="reset" value="Cancel" class="cancel">
+			</div>
+			</form>
+		</div>
+	</div>
+</section>
 <!-- 본문내용 -->
 <!-- 본문들어가는 곳 -->
 
 <div class="clear"></div>
 <!-- 푸터 들어가는 곳 -->
-<jsp:include page="../inc/footer.jsp" />
+<%-- <jsp:include page="../inc/footer.jsp" /> --%>
 <!-- 푸터 들어가는 곳 -->
 </div>
 </body>
