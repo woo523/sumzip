@@ -34,8 +34,8 @@ public class ProductUpdatePro implements Action {
 		// set메서드 호출 ->저장
 		dto.setPno(pno);
 		dto.setPname(pname);
-		dto.setCheckin(checkin);
-		dto.setCheckout(checkout);
+//		dto.setCheckin(checkin);
+//		dto.setCheckout(checkout);
 		dto.setPprice(pprice);
 		dto.setMax_men(max_men);
 		dto.setExpiration(expiration);

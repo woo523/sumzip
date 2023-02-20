@@ -11,8 +11,8 @@ public class ProductDTO {
    private String paddress; // 펜션주소
    private String paddress2; // 상세주소
    private String ptel; // 전화번호
-   private int checkin; // 체크인시간
-   private int checkout; // 체크아웃시간
+   private String checkin; // 체크인시간
+   private String checkout; // 체크아웃시간
    private int pprice; // 가격
    private int max_men; // 최대숙박인원
    private int expiration; // 등록유효기간
@@ -65,16 +65,16 @@ public class ProductDTO {
    public void setPtel(String ptel) {
       this.ptel = ptel;
    }
-   public int getCheckin() {
+   public String getCheckin() {
       return checkin;
    }
-   public void setCheckin(int checkin) {
+   public void setCheckin(String checkin) {
       this.checkin = checkin;
    }
-   public int getCheckout() {
+   public String getCheckout() {
       return checkout;
    }
-   public void setCheckout(int checkout) {
+   public void setCheckout(String checkout) {
       this.checkout = checkout;
    }
    public int getPprice() {

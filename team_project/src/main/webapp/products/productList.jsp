@@ -69,11 +69,12 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 for(int i=0; i<productList.size(); i++){
 	ProductDTO dto=productList.get(i);
 %>
-    <tr><td><%=dto.getPno() %></td><td><%=dto.getPname() %></td>
+    <tr><td><%=dto.getPno() %></td>
     <td>
     <a href="ProductContent.pr?pno=<%=dto.getPno()%>">
-    <%=dto.getPprice() %>
+    <%=dto.getPname() %>
     </a></td>
+    <td><%=dto.getPprice() %></td>
 	<td><%=dto.getPpic1() %></td>
 	<td><%=dto.getPexplain() %></td></tr>
 

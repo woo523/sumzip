@@ -26,8 +26,8 @@ public class ProductWritePro implements Action {
 		int ppostnum= Integer.parseInt(request.getParameter("ppostnum"));
 		String paddress2= request.getParameter("paddress2");
 		String ptel= request.getParameter("ptel");
-		int checkin= Integer.parseInt(request.getParameter("checkin"));
-		int checkout= Integer.parseInt(request.getParameter("checkout"));
+		String checkin=request.getParameter("checkin");
+		String checkout=request.getParameter("checkin");
 		int pprice= Integer.parseInt(request.getParameter("pprice"));
 		int max_men= Integer.parseInt(request.getParameter("max_men"));
 		int expiration= Integer.parseInt(request.getParameter("expiration"));
