@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>qna/a_writeForm.jsp</title>
+<title>admin/answer_writeForm.jsp</title>
 </head>
 <body>
 <%

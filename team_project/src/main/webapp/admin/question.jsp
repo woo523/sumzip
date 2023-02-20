@@ -43,20 +43,7 @@ int qno=(Integer)request.getAttribute("qno");
 	<tr><td>글제목</td><td><%=qdto.getQtitle() %></td></tr>
 	<tr><td>글내용</td><td><%=qdto.getQcontent() %></td></tr>
 	<tr><td colspan="2">
-	<%
-	// 로그인 => 세션값 있음
-	if(id!=null){ //id!=null => 세션값이 있다는 뜻
-		// 글쓴이,세션값 => 일치 => 자기자신이 쓴 글(글수정, 글삭제 보이기)
-		if(id.equals(udto.getId())){
-	%>
-	<input type="button" value="글수정" 
-	onclick="location.href='QuestionUpdateForm.qa?qno=<%=qdto.getQno() %>'">
-	<input type="button" value="글삭제" 
-	onclick="location.href='QuestionDelete.qa?qno=<%=qdto.getQno() %>'">
-	<%
-		}
-	}
-	%>
+	
 	<input type="button" value="글목록" 
 	onclick="location.href='AdminQnaList.ad'">
 	

@@ -49,9 +49,9 @@ if(id==null){
 	
 	
 	<input type="button" value="글입력" 
-	onclick="location.href='AnswerUpdateForm.qa?qno=<%=qdto.getQno() %>'">
+	onclick="location.href='AdminAnswerUpdateForm.ad?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글삭제" 
-	onclick="location.href='AnswerDelete.qa?qno=<%=qdto.getQno() %>'">
+	onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글목록" 
 	onclick="location.href='qnaList.qa'"> 
 

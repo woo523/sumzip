@@ -11,10 +11,11 @@ import member.UserDTO;
 import qna.QnaDAO;
 import qna.QnaDTO;
 
-public class AdminQnaQustion implements Action{
+public class AdminQnaQuestion implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("AdminQnaQustion execute()");
 		// qno 가져오기
 		int qno=Integer.parseInt(request.getParameter("qno"));
 		

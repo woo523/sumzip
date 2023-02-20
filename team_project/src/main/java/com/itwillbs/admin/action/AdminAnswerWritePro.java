@@ -49,7 +49,7 @@ public class AdminAnswerWritePro implements Action{
 
 		// 글목록 이동
 		ActionForward forward=new ActionForward();
-		forward.setPath("AdminQnaList.ad");
+		forward.setPath("AdminQnaAnswer.ad");
 		forward.setRedirect(true);
 		return forward;
 	}

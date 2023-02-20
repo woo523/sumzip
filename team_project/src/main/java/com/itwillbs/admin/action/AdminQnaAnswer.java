@@ -11,7 +11,7 @@ import member.UserDTO;
 import qna.QnaDAO;
 import qna.QnaDTO;
 
-public class AdminAnswer implements Action{
+public class AdminQnaAnswer implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
