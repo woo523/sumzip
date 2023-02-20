@@ -28,7 +28,6 @@ public class QnaQuestion implements Action{
 		qdao.qCount(qno);
 		
 		HttpSession session = request.getSession();	
-		
 		String id=(String)session.getAttribute("id");
 		
 		if(id==null) {
