@@ -17,17 +17,11 @@ public class MemberFindIdPro implements Action{
 		UserDAO dao = new UserDAO();
 		UserDTO dto = dao.findId(uname, email);
 		
-		ActionForward forward = null;
-		if(dto!=null){
-			forward = new ActionForward();
-			forward.setPath("member/findIdPro.jsp");
-			forward.setRedirect(false);
-		}else{
-			forward = new ActionForward();
-			forward.setPath("member/findIdPro.jsp");
-			forward.setRedirect(true);
-		}
-		
+		// 이동
+		ActionForward forward = new ActionForward();
+		forward.setPath("member/findIdPro.jsp");
+		forward.setRedirect(false);
+				
 		return forward;
 	}
 	

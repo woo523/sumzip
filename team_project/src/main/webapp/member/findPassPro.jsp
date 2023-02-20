@@ -18,6 +18,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+
 <h3>임시 비밀번호 발급</h3>
 <p>아래 이메일로 임시 비밀번호를 전송합니다.</p>
 
@@ -38,7 +41,7 @@ UserDTO dto = dao.getUser(id);
 	//전송할 이메일 보여주기
 	if(email.length()<1) {
 		out.println("<p>회원정보가 없습니다</p>");
-		out.println("<p><a href='javascript:history.back()'>[다시시도]</a></p>");
+	    out.println("<p><a href='javascript:history.back()'>[다시시도]</a></p>");			
 	} else {
 		out.println("<p>이메일 : " + email + "</p>");
 	}
@@ -51,5 +54,7 @@ UserDTO dto = dao.getUser(id);
 	dao.sendTmpPw(tmpPasswd, dto);	
 %>
 	<a href="MemberLogin.me"><input type="button" name=login value="로그인하기"></a>
+	
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
