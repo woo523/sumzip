@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>qna/question.jsp</title>
+<title>admin/question.jsp</title>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -58,7 +58,7 @@ int qno=(Integer)request.getAttribute("qno");
 	}
 	%>
 	<input type="button" value="글목록" 
-	onclick="location.href='QnaList.qa'">
+	onclick="location.href='AdminQnaList.ad'">
 	
 	<!-- 답변이 있을때만 답변확인버튼 보이게 -->
 	<%
@@ -66,13 +66,13 @@ int qno=(Integer)request.getAttribute("qno");
 		if(id.equals(udto.getId())){
 	%>
 	<input type="button" value="답변확인" 
-	onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">
+	onclick="location.href='AdminQnaAnswer.ad?qno=<%=qdto.getQno() %>'">
 	<%
 		}
 	}
 	%>
 	<input type="button" value="답변쓰기" 
-	onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">
+	onclick="location.href='AdminAnswerWriteForm.ad?qno=<%=qdto.getQno() %>'">
 	</td></tr>
 </table>
 </body>

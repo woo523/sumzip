@@ -14,6 +14,8 @@ public class Result implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("Result execute()");
+		
 		
 		request.setCharacterEncoding("utf-8");
 		ProductDAO dao=new ProductDAO();
@@ -26,16 +28,11 @@ public class Result implements Action {
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
 		
+		
 		String indate=request.getParameter("indate");
 		String outdate=request.getParameter("outdate");
 		int guest=Integer.parseInt(request.getParameter("guest"));
 		String region=request.getParameter("region");
-		String indated=indate.substring(0, 10);
-		String outdated=outdate.substring(0, 10);
-		String indatet=(indate.substring(11, 13)+indate.substring(14));
-		String outdatet=(outdate.substring(11, 13)+outdate.substring(14));
-		
-		
 		
 		// 한 화면에 보여줄 페이지 개수 설정
 		int pageBlock=10;
@@ -55,7 +52,7 @@ public class Result implements Action {
 		//전체글 개수 select count(*) from board
 		// int 리턴할형 getBoardCount() 메서드 정의
 		// getBoardCount() 메서드 호출
-		int count = dao.getSearchProductCount(indated, outdated, indatet, outdatet, guest, region);
+		int count = dao.getSearchProductCount(indate, outdate, guest, region);
 		//끝나는 페이지(endPage) = 10  <=  전체페이지(pageCount) = 2
 		//전체페이지(pageCount) 구하기
 		//=> 전체글의 개수 13 /글개수 10 => 1 페이지 +(0.3 글 남아있으면 1페이지 추가)
@@ -70,7 +67,7 @@ public class Result implements Action {
 		
 		
 		// dto request 담아서 이동
-		ArrayList<ProductDTO> ProductList=dao.getSearchProductList(indated, outdated, indatet, outdatet, guest, region, startRow, pageSize);
+		ArrayList<ProductDTO> ProductList=dao.getSearchProductList(indate, outdate, guest, region, startRow, pageSize);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("ProductList", ProductList);
 		request.setAttribute("startPage", startPage);

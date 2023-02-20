@@ -11,20 +11,20 @@ import member.UserDTO;
 import qna.QnaDAO;
 import qna.QnaDTO;
 
-public class AdminQnaQustion implements Action{
+public class AdminAnswer implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// qno 가져오기
+		System.out.println("AdminAnswer execute()");
+		
+		//request에 저장된 qno 파라미터값 가져오기
 		int qno=Integer.parseInt(request.getParameter("qno"));
 		
+		//QnaDAO 객체생성
 		QnaDAO qdao=new QnaDAO();
-		QnaDTO qdto=qdao.getQna(qno);
+		QnaDTO qdto=qdao.getQna(qno);  
 		
-		// 조회수 증가
-		qdao.qCount(qno);
-		
-		HttpSession session = request.getSession();	
+		HttpSession session = request.getSession();
 		String id=(String)session.getAttribute("id");
 		
 		if(id==null) {
@@ -39,21 +39,19 @@ public class AdminQnaQustion implements Action{
 		
 		int no=qdto.getNo();
 		UserDAO udao = new UserDAO();
-		UserDTO udto = udao.getUserNo(no);	
-		
-		int status=qdto.getQstatus(); // 답변 상태
+		UserDTO udto = udao.getUserNo(no);
 		
 		request.setAttribute("qdto", qdto);
 		request.setAttribute("udto", udto);
 		request.setAttribute("qno", qno);
-	
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("admin/question.jsp");
+		forward.setPath("admin/answer.jsp");
 		forward.setRedirect(false);		
 
 		
-		return forward;
+		return forward;		
+	
 	}
 
 }

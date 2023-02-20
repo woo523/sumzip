@@ -46,7 +46,7 @@ public class AdminQnaList implements Action{
 		
 		// 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("qna/qnaList.jsp");
+		forward.setPath("admin/qnaList.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

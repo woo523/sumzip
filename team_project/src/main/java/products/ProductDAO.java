@@ -109,26 +109,23 @@ public class ProductDAO {
 	}// getProductList()
 	
 	// 펜션 검색
-	public ArrayList<ProductDTO> getSearchProductList(String indated, String outdated,
-			String indatet, String outdatet, int guest, String region, int startRow, int pageSize) {
+	public ArrayList<ProductDTO> getSearchProductList(String indate, String outdate, int guest, String region, int startRow, int pageSize) {
 		ArrayList<ProductDTO> productList=new ArrayList<ProductDTO>();
 		Connection con =null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		try {
 			con=getConnection();
-			String sql="select * from products where max_men>=? && paddress like ? && checkin >= ? && checkout <= ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?) order by pno desc limit ?,?";
+			String sql="select * from products where max_men>=? && paddress like ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?) order by pno desc limit ?,?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, guest);
 			pstmt.setString(2, "%"+region+"%");
-			pstmt.setString(3, indatet);
-			pstmt.setString(4, outdatet);
-			pstmt.setString(5, indated);
-			pstmt.setString(6, outdated);
-			pstmt.setString(7, indated);
-			pstmt.setString(8, outdated);
-			pstmt.setInt(9, startRow-1);
-			pstmt.setInt(10, pageSize);
+			pstmt.setString(3, indate);
+			pstmt.setString(4, outdate);
+			pstmt.setString(5, indate);
+			pstmt.setString(6, outdate);
+			pstmt.setInt(7, startRow-1);
+			pstmt.setInt(8, pageSize);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				ProductDTO dto=new ProductDTO();
@@ -222,24 +219,21 @@ public class ProductDAO {
 	}//getProductCount()
 	
 	// 검색 후 펜션 갯수 계산
-	public int getSearchProductCount(String indated, String outdated,
-		String indatet, String outdatet, int guest, String region) {
+	public int getSearchProductCount(String indate, String outdate, int guest, String region) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		int count=0;
 		try {
 			con=getConnection();
-			String sql="select count(*) from products where max_men>=? && paddress like ? && checkin >= ? && checkout <= ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
+			String sql="select count(*) from products where max_men>=? && paddress like ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, guest);
 			pstmt.setString(2, "%"+region+"%");
-			pstmt.setString(3, indatet);
-			pstmt.setString(4, outdatet);
-			pstmt.setString(5, indated);
-			pstmt.setString(6, outdated);
-			pstmt.setString(7, indated);
-			pstmt.setString(8, outdated);
+			pstmt.setString(3, indate);
+			pstmt.setString(4, outdate);
+			pstmt.setString(5, indate);
+			pstmt.setString(6, outdate);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				count=rs.getInt("count(*)");

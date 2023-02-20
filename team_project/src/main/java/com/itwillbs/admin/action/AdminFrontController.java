@@ -191,8 +191,15 @@ public class AdminFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}else if(sPath.equals("/AdminAnswer.ad")) {
+				action = new AdminAnswer();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-		
+		 
 		//---------------------------------------------
 		// 이동
 		if(forward!=null) {
