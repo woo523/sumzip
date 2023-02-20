@@ -47,7 +47,7 @@ public class ProductContent implements Action{
 		
 		int endRow = startRow + pageSize-1;
 		
-		ArrayList<ReviewDTO> reviewList = rdao.getReviewList(startRow, pageSize);
+		ArrayList<ReviewDTO> reviewList = rdao.getReviewList(startRow, pageSize, pno);
 
 		// 한 화면에 보여줄 '페이지 개수' 구하기
 		int pageBlock = 5;
