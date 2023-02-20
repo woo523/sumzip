@@ -149,6 +149,7 @@ for(int i=startPage;i<=endPage;i++){
 //10페이지 다음
 if(endPage < pageCount){
 	%>
+	<a href="AdminAppointNow.ad?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
 }
 
