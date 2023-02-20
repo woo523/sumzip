@@ -56,6 +56,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 </tr>
 </tbody></table>
 
+
 <!-- 펜션리스트 부분 -->
 <table border="1">
 <tr><td>상품번호</td>

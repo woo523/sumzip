@@ -44,7 +44,7 @@ public class ProductsFrontController extends HttpServlet {
 				forward.setPath("products/productWrite.jsp");
 				forward.setRedirect(false);
 			}else if(sPath.equals("/ProductWritePro.pr")) {
-				action=new ProductWritePro();
+				action=new ProductWritePro(); 
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {
@@ -57,11 +57,11 @@ public class ProductsFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else if(sPath.equals("/FileProductWriteForm.pr")) {
-				// board/fwriteForm.jsp 이동
-				forward=new ActionForward();
-				forward.setPath("products/fwriteForm.jsp");
-				forward.setRedirect(false);
+//			}else if(sPath.equals("/FileProductWriteForm.pr")) {
+//				// board/fwriteForm.jsp 이동
+//				forward=new ActionForward();
+//				forward.setPath("products/fwriteForm.jsp");
+//				forward.setRedirect(false);
 //			}else if(sPath.equals("/FileProductWritePro.pr")) {
 //				action=new FileProductWritePro();
 //				try {

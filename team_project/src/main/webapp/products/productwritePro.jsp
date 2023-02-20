@@ -10,14 +10,14 @@ request.setCharacterEncoding("utf-8");
 // [all 컬럼] 변수에 저장
 // int pno = Integer.parseInt(request.getParameter("pno"));
 // int no = Integer.parseInt(request.getParameter("no"));
-int no=2;
+int no=13;
 String pname= request.getParameter("pname");
 String paddress= request.getParameter("paddress");
 int ppostnum= Integer.parseInt(request.getParameter("ppostnum"));
 String paddress2= request.getParameter("paddress2");
 String ptel= request.getParameter("ptel");
-int checkin= Integer.parseInt(request.getParameter("checkin"));
-int checkout= Integer.parseInt(request.getParameter("checkout"));
+String checkin=request.getParameter("checkin");
+String checkout=request.getParameter("checkout");
 int pprice= Integer.parseInt(request.getParameter("pprice"));
 int max_men= Integer.parseInt(request.getParameter("max_men"));
 int expiration= Integer.parseInt(request.getParameter("expiration"));

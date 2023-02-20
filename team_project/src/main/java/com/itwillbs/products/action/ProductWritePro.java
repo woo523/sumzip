@@ -29,8 +29,8 @@ public class ProductWritePro implements Action {
 		(request, uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 
 		// [all 컬럼] 변수에 저장
-		// int no = Integer.parseInt(request.getParameter("no"));
-		int no=2;
+//		 int no = Integer.parseInt(request.getParameter("no"));
+		int no=13;
 		String pname= request.getParameter("pname");
 		String paddress= request.getParameter("paddress");
 		int ppostnum= Integer.parseInt(request.getParameter("ppostnum"));
@@ -42,7 +42,7 @@ public class ProductWritePro implements Action {
 		int max_men= Integer.parseInt(request.getParameter("max_men"));
 		int expiration= Integer.parseInt(request.getParameter("expiration"));
 		Timestamp reser_date=new Timestamp(System.currentTimeMillis());
-		String ppic1= request.getParameter("ppic1");
+		String ppic1= multi.getFilesystemName("ppic1");
 		String ppic2= request.getParameter("ppic2");
 		String ppic3= request.getParameter("ppic3");
 		String caution= request.getParameter("caution");
