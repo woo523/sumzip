@@ -15,8 +15,8 @@ public class ProductReviewList implements Action{
 		
 		System.out.println("MemberReviewList execute()");
 		
-		int pno = 102;
-//		int pno = Integer.parseInt(request.getParameter("pno"));
+//		int pno = 102;
+		int pno = Integer.parseInt(request.getParameter("pno"));
 		
 		// 페이징
 		// db 데이터 가져오기
