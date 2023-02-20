@@ -22,39 +22,30 @@ import member.UserDTO;
     		return con;
     	}
    
-	    //게시판에 넣을 데이터들의 메서드생성
+	    // 공지사항 등록
 	    public void insertBoard(BoardDTO dto) {
 	    	System.out.println("BoardDAO insertBoard()");
-	    	
 	    	Connection con=null;
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;
 		try {
 			con=getConnection();
-			
 			int bno=1;
-			
 			String sql="select max(bno) from board";
 			pstmt=con.prepareStatement(sql);
-			
 			rs=pstmt.executeQuery();
-			
 			if(rs.next()) {
 				bno=rs.getInt("max(bno)")+1;
 			}
-			
 			sql="insert into board(bno, no, btitle, bcontent, bcount, bdate) values (?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
-			
 			pstmt.setInt(1, bno);
 			pstmt.setInt(2, dto.getNo());
 			pstmt.setString(3, dto.getBtitle());
 			pstmt.setString(4, dto.getBcontent());
 			pstmt.setInt(5, dto.getBcount());
 			pstmt.setTimestamp(6, dto.getBdate());
-			
 			pstmt.executeUpdate();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -65,8 +56,7 @@ import member.UserDTO;
 		return;
 		}// insertBoard()
 		
-	    
-		//-boardList.jsp 연결메서드
+		// 공지사항 리스트
 		public ArrayList<BoardDTO> getBoardList(int startRow, int pageSize){
 			System.out.println("BoardDAO getBoardList()");
 			ArrayList<BoardDTO> boardList=new ArrayList<>();
@@ -105,8 +95,7 @@ import member.UserDTO;
 			return boardList;
 		}// getBoardList()
 		
-		
-		//-content.jsp 연결메서드
+		// bno로 공지사항 조회
 		public BoardDTO getBoard(int bno) {
 			System.out.println("BoardDAO getBoard()");
 			Connection con=null;
@@ -115,13 +104,10 @@ import member.UserDTO;
 			BoardDTO dto=null;
 			try {
 				con=getConnection();
-				
 				String sql="select * from board where bno=?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, bno);
-				
 				rs=pstmt.executeQuery();
-				
 				while(rs.next()) {
 					dto=new BoardDTO();
 					dto.setBno(rs.getInt("bno"));
@@ -142,7 +128,7 @@ import member.UserDTO;
 		}//getBoard()
 			
 		
-		//-boardList.jsp 연결메서드(페이징기능 메서드정의)
+		// 공지사항 갯수 계산
 		public int getBoardCount() {
 			Connection con=null;
 			PreparedStatement pstmt=null;
@@ -150,12 +136,9 @@ import member.UserDTO;
 			int count=0;
 			try {
 				con=getConnection();
-				
 				String sql="select count(*) from board";
 				pstmt=con.prepareStatement(sql);
-				
 				rs=pstmt.executeQuery();
-				
 				if(rs.next()) {
 					count=rs.getInt("count(*)");
 				}
@@ -170,44 +153,37 @@ import member.UserDTO;
 		}//getBoardCount()
 			
 		
-		//-board_deletePro.jsp 연결메서드
+		// 공지사항 삭제
 		public void deleteBoard(int bno) {
 			System.out.println("BoardDAO deleteBoard()");
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			try {
-				
 				con=getConnection();
-			
 				String sql="delete from board where bno=?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, bno);
-				
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
-				
 				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
 				if(con!=null) try { con.close();} catch (Exception e2) {}
 			}
 		}//deleteBoard()
 		
-		
+		// 공지사항 수정
 		public void updateBoard(BoardDTO dto) {
 			System.out.println("BoardDAO updateBoard()");
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			try {
-				// 1~2 단계
 				con=getConnection();
-				// 3단계 sql
 				String sql="update board set btitle=?, bcontent=? where bno=?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setString(1, dto.getBtitle());
 				pstmt.setString(2, dto.getBcontent());
 				pstmt.setInt(3, dto.getBno());
-				
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -217,6 +193,5 @@ import member.UserDTO;
 			}
 		}//updateBoard()
 			
-
     }//class
 	   

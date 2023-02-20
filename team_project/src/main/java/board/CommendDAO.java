@@ -21,7 +21,6 @@ public class CommendDAO {
 	} // 디비연결
 	
 	public void insertCommend(CommendDTO dto) {
-		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -34,19 +33,15 @@ public class CommendDAO {
 			if(rs.next()) {
 				cno=rs.getInt("max(cno)")+1;
 			}
-			
 			sql = "insert into commend values(?, ?, ?, ?, ?,?)";
 			pstmt = con.prepareStatement(sql);
-			
 			pstmt.setInt(1, cno);
 			pstmt.setInt(2, dto.getBno());
 			pstmt.setInt(3, dto.getNo());
 			pstmt.setInt(4, dto.getRno());
 			pstmt.setString(5, dto.getCommend());
 			pstmt.setTimestamp(6, dto.getCdate());
-			
 			pstmt.executeUpdate();
-			
 			System.out.println("insert 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,9 +50,7 @@ public class CommendDAO {
 			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
 			if(rs != null) try {rs.close();} catch (SQLException e) {}
 		}
-		
-	} // 대댓글 입력
-	
+	} // 대댓글 등록
 	
 	public CommendDTO getCommend(int cno) {
 		Connection con = null;
@@ -87,7 +80,7 @@ public class CommendDAO {
 			if(rs!=null)try {rs.close();} catch (Exception e2) {}
 		}
 		return dto;
-	} // getCommend
+	} // cno로 commend 테이블 조회
 	
 	public void updateCommend(CommendDTO dto) {
 		Connection con = null;
@@ -105,9 +98,7 @@ public class CommendDAO {
 			if(con!=null)try {con.close();} catch (Exception e2) {}
 			if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 		}
-		
 	} // 대댓글 수정
-	
 	
 	public void deleteCommend(int cno) {
 		Connection con = null;
@@ -124,7 +115,6 @@ public class CommendDAO {
 			if(con!=null)try {con.close();} catch (Exception e2) {}
 			if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 		}
-		
 	} // 대댓글 삭제
 	
 	public ArrayList<CommendDTO> getCommendList(int rno){
@@ -146,22 +136,16 @@ public class CommendDAO {
 				dto.setRno(rs.getInt("rno"));
 				dto.setCommend(rs.getString("commend"));
 				dto.setCdate(rs.getTimestamp("cdate"));
-				// 바구니의 주소값을 배열 한칸에 저장
 				commendlist.add(dto);
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();;
 		} finally {
 			if(con!=null)try {con.close();} catch (Exception e2) {}
 			if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 			if(rs!=null)try {rs.close();} catch (Exception e2) {}
-			
 		}
 		return commendlist;
 	} // 대댓글 리스트
-	
-	
-	
 	
 }
