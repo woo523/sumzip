@@ -24,7 +24,7 @@ if(id==null){
 %>
 
 <h1>답변</h1>
-	<form action="answer_writePro.jsp" method="post"> 
+	<form action="AdminAnswerWritePro.ad" method="post"> 
 		<input type="hidden" name="no" value="<%=no%>">
 		<input type="hidden" name="qno" value="<%=qno%>">
 			<table border="1">

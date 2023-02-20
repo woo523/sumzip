@@ -73,7 +73,7 @@ if(dto.getQstatus()==0){
 %>
 	<tr><td><%=dto.getQno() %></td>
 		<td><%=dto.getNo() %></td>
-		<td><a href="QnaQuestion.qa?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
+		<td><a href="AdminQnaQuestion.ad?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dateFormat.format(dto.getQdate()) %></td>
 		<td><%=qstatus%></td>	
 		<td><%=dto.getQcount()%></td></tr>	
@@ -105,13 +105,13 @@ if(dto.getQstatus()==0){
 // 10페이지 이전
 if(startPage > pageBlock){
 	%>
- 	<a href="QnaList.qa?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
+ 	<a href="AdminQnaList.ad?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
 	<%
 }
 
 for(int i=startPage;i<=endPage;i++){
 	%>
-	<a href="QnaList.qa?pageNum=<%=i %>"><%=i %></a>
+	<a href="AdminQnaList.ad?pageNum=<%=i %>"><%=i %></a>
 	<%
 }
 
