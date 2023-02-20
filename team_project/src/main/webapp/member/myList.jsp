@@ -123,7 +123,7 @@
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
 		
-		// 일자 포맷 변경
+		// 예약일자 포맷 변경
 		Date date = adto.getAdate();
 		LocalDate appointdate = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()); // 예약일자
 		
