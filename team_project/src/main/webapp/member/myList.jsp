@@ -99,8 +99,8 @@
 		ProductDTO pdto = pdao.getProduct(adto.getPno());
 		
 		String houseName = pdto.getPname(); // 펜션 이름
-		int houseInTime = pdto.getCheckin(); // 체크인 시간
-		int houseOutTime = pdto.getCheckout(); // 체크아웃 시간
+		String houseInTime = pdto.getCheckin(); // 체크인 시간
+		String houseOutTime = pdto.getCheckout(); // 체크아웃 시간
 		
 		Date appointIndate = salesdto.getIndate(); // 체크인 날짜
 		Date appointOutdate = salesdto.getOutdate(); // 체크아웃 날짜
@@ -117,8 +117,8 @@
 	<ul>
 		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
-		<li id="timecheck">체크인 <%=appointIndate %> <%=Integer.toString(houseInTime).substring(0, 2) %>시 <%=Integer.toString(houseInTime).substring(2) %>분</li>
-		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=Integer.toString(houseOutTime).substring(0, 2) %>시 <%=Integer.toString(houseOutTime).substring(2) %>분</li>
+		<li id="timecheck">체크인 <%=appointIndate %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(2) %>분</li>
+		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=houseOutTime.substring(0, 2) %>시 <%=houseOutTime.substring(2) %>분</li>
 
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			
