@@ -166,7 +166,7 @@ public class ProductDAO {
 			while(rs.next()) {
 				dto = new ProductDTO();
 				dto.setPno(rs.getInt("pno"));
-//					dto.setNo(rs.getInt("no"));
+					dto.setNo(rs.getInt("no"));
 				dto.setPname(rs.getString("pname"));
 				dto.setPaddress(rs.getString("paddress"));
 				dto.setPpostnum(rs.getInt("ppostnum"));
@@ -297,27 +297,7 @@ public class ProductDAO {
 		}
 	}//updateProduct()
 	
-	// 
-	public void fupdateProduct(ProductDTO dto) {
-		System.out.println("ProductDAO fupdateProduct()");
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		try {
-			con=getConnection();
-			String sql="update products set ppic1=?, pname=?, pprice=?, pexplain=? where pno=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, dto.getPpic1());
-			pstmt.setString(2, dto.getPname());
-			pstmt.setInt(3, dto.getPprice());
-			pstmt.setInt(4, dto.getPno());
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
-			if(con!=null) try { con.close();} catch (Exception e2) {}
-		}
-	}//fupdateProduct
+	
 		
 }//class
 	   

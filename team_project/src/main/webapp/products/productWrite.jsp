@@ -39,7 +39,7 @@ if(id==null){
 
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>유저번호</label> <input type="text" name="id" value="<%=id%>"
+								<label>유저번호</label> <input type="text" name="no" value="<%=id%>"
 									readonly>
 							</div>
 						</div>

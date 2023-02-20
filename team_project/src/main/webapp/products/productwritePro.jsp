@@ -11,6 +11,7 @@ request.setCharacterEncoding("utf-8");
 // int pno = Integer.parseInt(request.getParameter("pno"));
 // int no = Integer.parseInt(request.getParameter("no"));
 int no=13;
+System.out.println("num="+no);
 String pname= request.getParameter("pname");
 String paddress= request.getParameter("paddress");
 int ppostnum= Integer.parseInt(request.getParameter("ppostnum"));
