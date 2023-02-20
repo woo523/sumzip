@@ -112,40 +112,43 @@
 		<% } %>
 	</ul>
 	<% 
-		} 
-	}
+		if(startPage > pageBlock) {
+			%>
+			<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
+			<%
+		}
+	
+		if(currentPage > 1) {
+			%>
+			<a href="ProductContent.pr?pageNum=<%=currentPage-1%>&pno=<%=pno %>">[1 페이지 이전]</a>
+			<%
+		}
+		
+		for(i = startPage; i <= endPage; i++) {
+			%>
+			<a href="ProductContent.pr?pageNum=<%=i%>&pno=<%=pno %>"><%=i %></a>
+			<%
+		}
+		
+		if(currentPage < pageCount) {
+			%>
+			<a href="ProductContent.pr?pageNum=<%=currentPage+1%>&pno=<%=pno %>">[1 페이지 다음]</a>
+			<%
+		}
+		
+		if(endPage < pageCount) {
+			%>
+			<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]</a>
+			<%
+		}
+
+	} // if 
+		
+}// for
 %>
 	
 <%
-	if(startPage > pageBlock) {
-		%>
-		<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]</a>
-		<%
-	}
-
-	if(currentPage > 1) {
-		%>
-		<a href="ProductContent.pr?pageNum=<%=currentPage-1%>">[1 페이지 이전]</a>
-		<%
-	}
 	
-	for(int i = startPage; i <= endPage; i++) {
-		%>
-		<a href="ProductContent.pr?pageNum=<%=i%>"><%=i %></a>
-		<%
-	}
-	
-	if(currentPage < pageCount) {
-		%>
-		<a href="ProductContent.pr?pageNum=<%=currentPage+1%>">[1 페이지 다음]</a>
-		<%
-	}
-	
-	if(endPage < pageCount) {
-		%>
-		<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>">[5 페이지 다음]</a>
-		<%
-	}
 %>
 </article>
 	
