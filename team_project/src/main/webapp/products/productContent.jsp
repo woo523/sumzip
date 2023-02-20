@@ -67,9 +67,7 @@ if(id != null){
  onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">
  <input type="button" value="상품삭제"
  onclick="location.href='ProductDeletePro.pr?pno=<%=dto.getPno() %>'">		
-		
-	<input type="button" value="파일 글수정"
- onclick="location.href='FileBoardUpdateForm.pr?pno=<%=dto.getPno() %>'">	
+
 		<%
 	}
 }

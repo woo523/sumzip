@@ -20,11 +20,11 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 %>
 <h2>상품등록 수정</h2>
 
-<form action="ProductUpdatePro.pr" method="post">
+<form action="ProductUpdatePro.pr" method="post" enctype="multipart/form-data">
 <input type="hidden" name="pno" value="<%=dto.getPno()%>">
 <table border="1">
-<tr><td>유저번호</td>
-    <td><input type="text" name="no" value="<%=dto.getNo()%>"></td></tr>
+<!-- <tr><td>유저번호</td> -->
+<%--     <td><input type="text" name="no" value="<%=dto.getNo()%>" readonly></td></tr> --%>
 <tr><td>펜션이름</td>
     <td><input type="text" name="pname" value="<%=dto.getPname() %>"></td></tr>
 <tr><td>체크인</td>
@@ -38,11 +38,17 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 <tr><td>등록유효기간</td>
     <td><input type="text" name="expiration" value="<%=dto.getExpiration() %>"></td></tr>
 <tr><td>펜션사진1</td>
-    <td><input type="file" name="ppic1" value="<%=dto.getPpic1()%>"></td></tr>
+    <td><input type="file" name="ppic1" value="<%=dto.getPpic1()%>">
+    <input type="hidden" name="oldppic1" value="<%=dto.getPpic1()%>">
+    </td></tr>
 <tr><td>펜션사진2</td>
-    <td><input type="file" name="ppic2" value="<%=dto.getPpic2() %>"></td></tr>
+    <td><input type="file" name="ppic2" value="<%=dto.getPpic2() %>">
+    <input type="hidden" name="oldppic2" value="<%=dto.getPpic2()%>">    
+    </td></tr>
 <tr><td>펜션사진3</td>
-    <td><input type="file" name="ppic3" value="<%=dto.getPpic3() %>"></td></tr>
+    <td><input type="file" name="ppic3" value="<%=dto.getPpic3() %>">
+        <input type="hidden" name="oldppic3" value="<%=dto.getPpic3()%>">
+        </td></tr>
 <tr><td>주의사항</td>
     <td><textarea name="caution" rows="10" cols="20"><%=dto.getCaution() %></textarea></td></tr>                      
 <tr><td>펜션설명</td>

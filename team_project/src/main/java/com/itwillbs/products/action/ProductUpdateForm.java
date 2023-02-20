@@ -21,7 +21,7 @@ public class ProductUpdateForm implements Action{
 		request.setAttribute("dto", dto);
 
 		ActionForward forward=new ActionForward();
-		forward.setPath("products/productsupdateForm.jsp");
+		forward.setPath("products/productupdateForm.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

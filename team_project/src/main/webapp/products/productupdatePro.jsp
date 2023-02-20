@@ -34,7 +34,7 @@ String pexplain=request.getParameter("pexplain");
 ProductDTO dto=new ProductDTO();
 
 dto.setPno(pno);
-// dto.setNo(no);
+// dto.setNo(no); 
 dto.setPname(pname);
 // dto.setPaddress(paddress);
 // dto.setPpostnum(ppostnum);

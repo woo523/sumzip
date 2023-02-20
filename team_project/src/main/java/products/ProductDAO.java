@@ -101,8 +101,8 @@ public class ProductDAO {
 		dto.setExpiration(rs.getInt("expiration"));
 		dto.setReser_date(rs.getTimestamp("reser_date"));		
 				dto.setPpic1(rs.getString("ppic1"));
-		dto.setPpic1(rs.getString("ppic2"));
-		dto.setPpic1(rs.getString("ppic3"));
+		dto.setPpic2(rs.getString("ppic2"));
+		dto.setPpic3(rs.getString("ppic3"));
 		dto.setCaution(rs.getString("caution"));
 				dto.setPexplain(rs.getString("pexplain"));
 				productList.add(dto);
