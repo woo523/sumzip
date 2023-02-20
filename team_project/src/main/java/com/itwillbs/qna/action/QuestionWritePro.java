@@ -41,10 +41,8 @@ public class QuestionWritePro implements Action{
 		//set메서드 호출해서 값 저장
 		dto.setNo(udto.getNo());
 		dto.setQtitle(qtitle);
-		dto.setQtype("1");
 		dto.setQstatus(0);
 		dto.setQcount(qcount);
-		dto.setQpw(qpw);
 		dto.setQdate(qdate);
 		dto.setQcontent(qcontent);
 		
