@@ -48,16 +48,10 @@ int qno=(Integer)request.getAttribute("qno");
 	onclick="location.href='AdminQnaList.ad'">
 	
 	<!-- 답변이 있을때만 답변확인버튼 보이게 -->
-	<%
-	if(qdto.getQstatus()==0){
-		if(id.equals(udto.getId())){
-	%>
+	
 	<input type="button" value="답변확인" 
 	onclick="location.href='AdminQnaAnswer.ad?qno=<%=qdto.getQno() %>'">
-	<%
-		}
-	}
-	%>
+	
 	<input type="button" value="답변쓰기" 
 	onclick="location.href='AdminAnswerWriteForm.ad?qno=<%=qdto.getQno() %>'">
 	</td></tr>
