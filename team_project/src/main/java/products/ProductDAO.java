@@ -88,13 +88,22 @@ public class ProductDAO {
 				ProductDTO dto=new ProductDTO();
 				System.out.println("상품정보저장 주소 : "+dto);
 				dto.setPno(rs.getInt("pno"));
+				dto.setNo(rs.getInt("no"));
 				dto.setPname(rs.getString("pname"));
 				dto.setPaddress(rs.getString("paddress"));
+		dto.setPpostnum(rs.getInt("ppostnum"));
 				dto.setPaddress2(rs.getString("paddress2"));
+		dto.setPtel(rs.getString("ptel"));		
 				dto.setCheckin(rs.getString("checkin"));
 				dto.setCheckout(rs.getString("checkout"));
 				dto.setPprice(rs.getInt("pprice"));
+		dto.setMax_men(rs.getInt("max_men"));
+		dto.setExpiration(rs.getInt("expiration"));
+		dto.setReser_date(rs.getTimestamp("reser_date"));		
 				dto.setPpic1(rs.getString("ppic1"));
+		dto.setPpic1(rs.getString("ppic2"));
+		dto.setPpic1(rs.getString("ppic3"));
+		dto.setCaution(rs.getString("caution"));
 				dto.setPexplain(rs.getString("pexplain"));
 				productList.add(dto);
 			}

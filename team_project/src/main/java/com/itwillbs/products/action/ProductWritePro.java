@@ -32,22 +32,22 @@ public class ProductWritePro implements Action {
 		// [all 컬럼] 변수에 저장
 //		 int no = Integer.parseInt(request.getParameter("no"));
 		int no=13;
-		String pname= request.getParameter("pname");
-		String paddress= request.getParameter("paddress");
-		int ppostnum= Integer.parseInt(request.getParameter("ppostnum"));
-		String paddress2= request.getParameter("paddress2");
-		String ptel= request.getParameter("ptel");
-		String checkin=request.getParameter("checkin");
-		String checkout=request.getParameter("checkin");
-		int pprice= Integer.parseInt(request.getParameter("pprice"));
-		int max_men= Integer.parseInt(request.getParameter("max_men"));
-		int expiration= Integer.parseInt(request.getParameter("expiration"));
+		String pname= multi.getParameter("pname");
+		String paddress= multi.getParameter("paddress");
+		int ppostnum= Integer.parseInt(multi.getParameter("ppostnum"));
+		String paddress2= multi.getParameter("paddress2");
+		String ptel= multi.getParameter("ptel");
+		String checkin=multi.getParameter("checkin");
+		String checkout=multi.getParameter("checkin");
+		int pprice= Integer.parseInt(multi.getParameter("pprice"));
+		int max_men= Integer.parseInt(multi.getParameter("max_men"));
+		int expiration= Integer.parseInt(multi.getParameter("expiration"));
 		Timestamp reser_date=new Timestamp(System.currentTimeMillis());
 		String ppic1= multi.getFilesystemName("ppic1");
-		String ppic2= request.getParameter("ppic2");
-		String ppic3= request.getParameter("ppic3");
-		String caution= request.getParameter("caution");
-		String pexplain= request.getParameter("pexplain");
+		String ppic2= multi.getFilesystemName("ppic2");
+		String ppic3= multi.getFilesystemName("ppic3");
+		String caution= multi.getParameter("caution");
+		String pexplain= multi.getParameter("pexplain");
 
 		ProductDTO dto=new ProductDTO();
 

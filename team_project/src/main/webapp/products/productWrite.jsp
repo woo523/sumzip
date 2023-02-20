@@ -27,7 +27,7 @@ if(id==null){
 }
 %>
 
-<h5>상품등록</h5>
+<h3>상품등록</h3>
 
 <div class="content-main">
 		<div class="row">
@@ -76,13 +76,13 @@ if(id==null){
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>체크인시간</label> <input type="time" name="checkin" > 
+								<label>체크인시간</label> <input type="text" name="checkin" > 
 							</div>		
 						</div>
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>체크아웃시간</label> <input type="time" name="checkout" > 
+								<label>체크아웃시간</label> <input type="text" name="checkout" > 
 							</div>		
 						</div>						
 						
