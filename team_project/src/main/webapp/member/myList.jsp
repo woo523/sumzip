@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="products.SalesDTO"%>
 <%@page import="java.time.ZoneId"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="products.ProductDTO"%>
@@ -71,9 +74,28 @@
 	int houseOutTime = (Integer)request.getAttribute("houseOutTime");
 	
 	// 체크인 / 체크아웃 날짜
-	LocalDate appointIndate = (LocalDate)request.getAttribute("appointIndate");
-	LocalDate appointOutdate = (LocalDate)request.getAttribute("appointOutdate");
-	LocalDate today = (LocalDate)request.getAttribute("today");
+// 	LocalDate appointIndate = (LocalDate)request.getAttribute("appointIndate");
+// 	LocalDate appointOutdate = (LocalDate)request.getAttribute("appointOutdate");
+// 	LocalDate today = (LocalDate)request.getAttribute("today");
+	
+	SalesDTO salesdto = (SalesDTO)request.getAttribute("salesdto");
+	
+	Date appointIndate = salesdto.getIndate();
+	Date appointOutdate = salesdto.getOutdate();
+
+	String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	Date today = new Date(formatter.parse(todayfm).getTime());
+	
+	System.out.println(appointIndate); // 2023-02-16
+	System.out.println(appointOutdate); // 2023-02-19
+	System.out.println(today); // 2023-02-20
+	
+// 	LocalDate appointIndate = LocalDate.ofInstant(Indate.toInstant(), ZoneId.systemDefault());
+// 	LocalDate appointOutdate = LocalDate.ofInstant(Outdate.toInstant(), ZoneId.systemDefault());
+// 	LocalDateTime now = LocalDateTime.now(); 
+// 	LocalDate today = now.toLocalDate();
+	
 	
 	// 페이징
 	int currentPage = (Integer)request.getAttribute("currentPage");
