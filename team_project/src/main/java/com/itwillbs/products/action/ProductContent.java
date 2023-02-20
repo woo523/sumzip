@@ -26,7 +26,7 @@ public class ProductContent implements Action{
 		request.setAttribute("udto", udto);
 
 		ActionForward forward=new ActionForward();
-		forward.setPath("board/content.jsp");
+		forward.setPath("products/productContent.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

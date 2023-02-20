@@ -59,7 +59,7 @@ UserDTO udto=(UserDTO)request.getAttribute("udto");
 // 로그인 => 세션값 있음
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-	if(id.equals(udto.getUname())){
+	if(id.equals("owner")){
 		%>
 <input type="button" value="상품수정"
  onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">

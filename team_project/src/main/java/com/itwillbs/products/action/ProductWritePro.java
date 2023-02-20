@@ -3,6 +3,7 @@ package com.itwillbs.products.action;
 import java.sql.Timestamp;
 
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,7 +19,6 @@ public class ProductWritePro implements Action {
 		request.setCharacterEncoding("utf-8");
 
 		// [all 컬럼] 변수에 저장
-		// int pno = Integer.parseInt(request.getParameter("pno"));
 		// int no = Integer.parseInt(request.getParameter("no"));
 		int no=2;
 		String pname= request.getParameter("pname");
@@ -68,7 +68,7 @@ public class ProductWritePro implements Action {
 		ActionForward forward=new ActionForward();
 		forward.setPath("ProductList.pr");
 		forward.setRedirect(true);
-		return null;
+		return forward;
 	}
 
 }

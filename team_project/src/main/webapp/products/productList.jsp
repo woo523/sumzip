@@ -52,7 +52,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <tbody><tr align="right">
 <td>
 <button type="button" onclick="location.href='ProductWriteForm.pr'">
-글쓰기</button></td>
+상품등록</button></td>
 </tr>
 </tbody></table>
 

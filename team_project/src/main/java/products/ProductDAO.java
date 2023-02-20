@@ -333,6 +333,7 @@ import javax.sql.DataSource;
 				pstmt.setString(9, dto.getPpic3());
 				pstmt.setString(10, dto.getCaution());
 				pstmt.setString(11, dto.getPexplain());
+				pstmt.setInt(12, dto.getPno());
 				
 				pstmt.executeUpdate();
 			} catch (Exception e) {

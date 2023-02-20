@@ -34,18 +34,18 @@ if(id==null){
 			<div class="col-sm-9">
 				<hr>
 				<div class="bg-white rounded shadow-sm container p-3">
-					<form method="POST"  action="updateAction" action="ProductWritePro.pr"
-						onsubmit="return updateValidate();" class="form-horizontal" role="form">
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>상품번호</label> <input type="text" name="pno"
-									value="<%=dto.getPno() %>" readonly>
-							</div>
-						</div>
+					<form action="ProductWritePro.pr" method="POST" 
+						 class="form-horizontal" role="form">
+<!-- 						<div class="row mb-3 form-row"> -->
+<!-- 							<div class="col-md-3"> -->
+<!-- 								<label>상품번호</label> <input type="text" name="pno" -->
+<%-- 									value="<%=dto.getPno() %>" readonly> --%>
+<!-- 							</div> -->
+<!-- 						</div> -->
 
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>유저번호</label> <input type="text" name="no" value="<%=id%>"
+								<label>유저번호</label> <input type="text" name="id" value="<%=id%>"
 									readonly>
 							</div>
 						</div>
@@ -112,19 +112,19 @@ if(id==null){
 																								
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>펜션사진1</label> <input type="file" name="ppin1" > 
+								<label>펜션사진1</label> <input type="file" name="ppic1" > 
 							</div>		
 						</div>
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>펜션사진2</label> <input type="file" name="ppin2" > 
+								<label>펜션사진2</label> <input type="file" name="ppic2" > 
 							</div>		
 						</div>
 						
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>펜션사진3</label> <input type="file" name="ppin3" > 
+								<label>펜션사진3</label> <input type="file" name="ppic3" > 
 							</div>		
 						</div>												
 	
@@ -139,11 +139,12 @@ if(id==null){
 								<label>펜션 설명</label> <input type="text" name="pexplain" > 
 							</div>		
 						</div>
-																		
-						<div class="btnChange">
-							<a href="ProductWritePro.pr"><input type="button" 
-								value="상품등록"></a> 
-						</div>
+										
+							<input type="submit" class="btnChange" value="상품등록">											
+<!-- 						<div class="btnChange"> -->
+<!-- 							<a href="ProductWritePro.pr"><input type="button"  -->
+<!-- 								value="상품등록"></a>  -->
+<!-- 						</div> -->
 					</form>
 				</div>
 			</div>

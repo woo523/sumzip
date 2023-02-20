@@ -76,27 +76,27 @@ public class ProductsFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-//			}else if(sPath.equals("/ProductUpdateForm.pr")) {
-//				action=new ProductUpdateForm();
-//				try {
-//					forward=action.execute(request, response);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}else if(sPath.equals("/ProductUpdatePro.pr")) {
-//				action=new ProductUpdatePro();
-//				try {
-//					forward=action.execute(request, response);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}else if(sPath.equals("/ProductDeletePro.pr")) {
-//				action=new ProductDeletePro();
-//				try {
-//					forward=action.execute(request, response);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}	
+			}else if(sPath.equals("/ProductUpdateForm.pr")) {
+				action=new ProductUpdateForm();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/ProductUpdatePro.pr")) {
+				action=new ProductUpdatePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/ProductDeletePro.pr")) {
+				action=new ProductDeletePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
 			}if(sPath.equals("/ProductsAppointment.pr")) {
 				
 				//이동정보를 저장하는 자바파일 객체생성

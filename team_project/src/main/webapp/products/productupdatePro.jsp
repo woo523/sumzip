@@ -1,7 +1,6 @@
 <%@page import="products.ProductDAO"%>
 <%@page import="products.ProductDTO"%>
-<%@page import="board.BoardDAO"%>
-<%@page import="board.BoardDTO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,12 +14,12 @@
 request.setCharacterEncoding("utf-8");
 
 int pno=Integer.parseInt(request.getParameter("pno"));
-int no=Integer.parseInt(request.getParameter("no"));
+// int no=Integer.parseInt(request.getParameter("no"));
 String pname=request.getParameter("pname");
-String paddress=request.getParameter("paddress");
-int ppostnum=Integer.parseInt(request.getParameter("ppostnum"));
-String paddress2=request.getParameter("paddress2");
-String ptel=request.getParameter("ptel");
+// String paddress=request.getParameter("paddress");
+// int ppostnum=Integer.parseInt(request.getParameter("ppostnum"));
+// String paddress2=request.getParameter("paddress2");
+// String ptel=request.getParameter("ptel");
 int checkin=Integer.parseInt(request.getParameter("checkin"));
 int checkout=Integer.parseInt(request.getParameter("checkout"));
 int pprice=Integer.parseInt(request.getParameter("pprice"));
@@ -35,12 +34,12 @@ String pexplain=request.getParameter("pexplain");
 ProductDTO dto=new ProductDTO();
 
 dto.setPno(pno);
-dto.setNo(no);
+// dto.setNo(no);
 dto.setPname(pname);
-dto.setPaddress(paddress);
-dto.setPpostnum(ppostnum);
-dto.setPaddress2(paddress2);
-dto.setPtel(ptel);
+// dto.setPaddress(paddress);
+// dto.setPpostnum(ppostnum);
+// dto.setPaddress2(paddress2);
+// dto.setPtel(ptel);
 dto.setCheckin(checkin);
 dto.setCheckout(checkout);
 dto.setPprice(pprice);
