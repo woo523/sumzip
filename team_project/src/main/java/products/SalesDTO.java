@@ -1,7 +1,6 @@
 package products;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class SalesDTO {
 	private int sno; //판매번호
@@ -11,6 +10,10 @@ public class SalesDTO {
 	private Timestamp sdate; //판매일자
 	private String indate; //입실일
 	private String outdate; //퇴실일(몇박)
+	private int sprice; //총가격
+	
+	
+
 	public String getIndate() {
 		return indate;
 	}
@@ -23,8 +26,6 @@ public class SalesDTO {
 	public void setOutdate(String outdate) {
 		this.outdate = outdate;
 	}
-	private int sprice; //총가격
-	
 	public int getSno() {
 		return sno;
 	}

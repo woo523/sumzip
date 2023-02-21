@@ -102,9 +102,14 @@
 		String houseInTime = pdto.getCheckin(); // 체크인 시간
 		String houseOutTime = pdto.getCheckout(); // 체크아웃 시간
 		
-		Date appointIndate = salesdto.getIndate(); // 체크인 날짜
-		Date appointOutdate = salesdto.getOutdate(); // 체크아웃 날짜
+		String appointIndateSt = salesdto.getIndate(); // 체크인 날짜
+		String appointOutdateSt = salesdto.getOutdate(); // 체크아웃 날짜
 
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date appointIndate = format.parse(appointIndateSt);
+		Date appointOutdate = format.parse(appointOutdateSt);
+		
+		
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
@@ -117,8 +122,8 @@
 	<ul>
 		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
-		<li id="timecheck">체크인 <%=appointIndate %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(2) %>분</li>
-		<li id="timecheck">체크아웃 <%=appointOutdate %> <%=houseOutTime.substring(0, 2) %>시 <%=houseOutTime.substring(2) %>분</li>
+		<li id="timecheck">체크인 <%=format.format(appointIndate) %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(3) %>분</li>
+		<li id="timecheck">체크아웃 <%=format.format(appointOutdate) %> <%=houseOutTime.substring(0, 2) %>시 <%=houseOutTime.substring(3) %>분</li>
 
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			
