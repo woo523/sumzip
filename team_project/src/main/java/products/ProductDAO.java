@@ -241,7 +241,7 @@ public class ProductDAO {
 					ResultSet rs=null;
 					try {
 						con=getConnection();
-						String sql="select * from sales s join Products p on s.pno = p.pno group by s.pno order by count(sno) desc order by pno desc limit ?,?";
+						String sql="select p.pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain  from sales s join products p on s.pno = p.pno group by pno order by count(sno) desc limit ?,?";
 						pstmt=con.prepareStatement(sql);
 						pstmt.setInt(1, startRow-1);
 						pstmt.setInt(2, pageSize);
@@ -395,7 +395,7 @@ public class ProductDAO {
 					int count=0;
 					try {
 						con=getConnection();
-						String sql="select * from sales s join Products p on s.pno = p.pno group by s.pno order by count(sno) desc";
+						String sql="select count(*) from sales s join Products p on s.pno = p.pno group by s.pno order by count(sno) desc";
 						pstmt=con.prepareStatement(sql);
 						rs=pstmt.executeQuery();
 						if(rs.next()) {
