@@ -52,7 +52,7 @@ ProductDTO dto = productlist.get(i);
 						<%if(dto.getPpic1()==null){%>
                         <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><img src="img/room/room-6.jpg" width="370px" height="240px"></a> 
                         <%}else{%>
-                        	  <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><img src="<%=dto.getPpic1()%>" width="370px" height="240px"></a> 
+                        	  <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><img src="upload/<%=dto.getPpic1()%>" width="370px" height="240px"></a> 
                       <% }%>
                         <div class="ri-text">
                              <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><h4><%=dto.getPname() %></h4></a>
