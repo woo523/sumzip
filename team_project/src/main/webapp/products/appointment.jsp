@@ -1,9 +1,6 @@
-<%@page import="products.ProductDTO"%>
-<%@page import="products.ProductDAO"%>
-<%@page import="products.SalesDAO"%>
-<%@page import="member.UserDAO"%>
+
 <%@page import="member.UserDTO"%>
-<%@page import="products.SalesDTO"%>
+<%@page import="products.ProductDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,16 +15,8 @@
 <!-- 헤더파일들어가는 곳 -->
 <%
 String id=(String)session.getAttribute("id"); //id세션값 불러오기
-// 로그인 확인 (비로그인시 로그인 화면으로 이동)
-if(id!=null){
-	
-	UserDAO dao=new UserDAO();
-	UserDTO dto=dao.getUser(id);
-	SalesDAO dao2=new SalesDAO();
-	SalesDTO dto2=dao2.getSales(dto.getNo());
-	ProductDAO dao3=new ProductDAO();
-	ProductDTO dto3=dao3.getProduct(dto2.getPno());
-	
+ProductDTO pdto = (ProductDTO)request.getAttribute("pdto");
+UserDTO udto = (UserDTO)request.getAttribute("udto");
 	
 	%>
   <!-- Breadcrumb Section Begin -->
@@ -57,21 +46,21 @@ if(id!=null){
                         <form action="ProductsAppointmentPro.pr" method="post">
                             <h2>예약자 정보확인</h2>
                             <br>
-                            <li><i class="icon_check"></i>예약자명 : <input type="text" name="uname" value="<%=dto.getUname()%>" readonly></li>
-                            <li><i class="icon_check"></i>전화번호 : <input type="text" name="tel" value="<%=dto.getTel()%>" readonly></li>
-                            <li><i class="icon_check"></i>이메일 : <input type="text" name="email" value="<%=dto.getEmail()%>" readonly><br></li>
+                            <li><i class="icon_check"></i>예약자명 : <input type="text" name="uname" value="<%=udto.getUname()%>" readonly></li>
+                            <li><i class="icon_check"></i>전화번호 : <input type="text" name="tel" value="<%=udto.getTel()%>" readonly></li>
+                            <li><i class="icon_check"></i>이메일 : <input type="text" name="email" value="<%=udto.getEmail()%>" readonly><br></li>
                             <br>
-                            <h2>예약정보 확인</h2>
+                            <h2>예약정보 입력</h2>
 							<br>
-							<input type="hidden" name="no" value="<%=dto.getNo()%>" readonly>
-							<input type="hidden" name="ano" value="<%=dto2.getAno()%>" readonly>
-							<input type="hidden" name="pno" value="<%=dto2.getPno()%>" readonly>
-							<input type="hidden" name="sno" value="<%=dto2.getSno()%>" readonly>
-							<li><i class="icon_check"></i>펜션이름 : <input type="text" name="pname" value="<%=dto3.getPname()%>" readonly></li>
-							<li><i class="icon_check"></i>예약한 날짜 : <input type="text" name="sdate" value="<%=dto2.getSdate()%>" readonly></li>
-							<li><i class="icon_check"></i>입실일 : <input type="text" name="indate" value="<%=dto2.getIndate()%>" readonly></li>
-							<li><i class="icon_check"></i>퇴실일 : <input type="text" name="outdate" value="<%=dto2.getOutdate()%>" readonly></li>
-							<li><i class="icon_check"></i>총가격 : <input type="text" name="sprice" value="<%=dto2.getSprice()%>" readonly></li>
+							<input type="hidden" name="no" value="<%=udto.getNo()%>">
+							<input type="hidden" name="pno" value="<%=pdto.getPno()%>">
+			
+							<li><i class="icon_check"></i>펜션이름 : <input type="text" name="pname" value="<%=pdto.getPname()%>" readonly></li>
+							<li><i class="icon_check"></i>숙박료 : <input type="text" name="price" value="<%=pdto.getPprice()%>원" readonly></li>
+							<li><i class="icon_check"></i>입실일 : <input type="date" name="indate"></li>
+							<li><i class="icon_check"></i>퇴실일 : <input type="date" name="outdate"></li>
+							
+				
 							<br>
 							<li><i class="icon_check"></i><button type="submit"> 예약하기</button></li>
 							</form>
@@ -79,12 +68,7 @@ if(id!=null){
                     </div>
                 </div>
             </div>
-<%
- }else {
-	// 비로그인시 로그인 페이지로 이동
-	response.sendRedirect("MemberLogin.me");
- }
-%>
+
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
 <!-- 푸터 들어가는 곳 -->
