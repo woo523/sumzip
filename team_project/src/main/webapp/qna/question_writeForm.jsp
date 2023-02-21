@@ -86,6 +86,7 @@ textarea.form-control{
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
+
 <%
 // id값 받아오기
 String id=(String)session.getAttribute("id");
@@ -99,8 +100,6 @@ if(id==null){
 	response.sendRedirect("MemberLogin.me");
 }
 %>
-
-
 <article>
 <div class="qna_writeContainer">
 <!-- 게시판 글쓰기 부분 -->
