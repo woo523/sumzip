@@ -22,7 +22,7 @@ if(id==null){
 }if(id!="admin"){
 	%>
 	<script type="text/javascript">
-	alert("글쓰기권한이 없습니다.")
+	alert("글쓰기 권한이 없습니다.")
 	history.back();
 	</script>
 	<% 

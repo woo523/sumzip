@@ -9,7 +9,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import products.ProductDAO;
 import products.ProductDTO;
 
 public class WishListDAO {
@@ -20,13 +19,15 @@ public class WishListDAO {
 		return con;
 	}
 public void insertWish(int no,int pno) {
+	System.out.println("insertWish()");
+	System.out.println("no : "+no);
+	System.out.println("pno : "+pno);
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	WishListDTO dto = new WishListDTO();
 	try {
 		con = getConnection();
 		
-		String sql = "insert into Wish_List(no,pno) values(?,?)";
+		String sql = "insert into Wish_List values(?,?)";
 		pstmt = con.prepareStatement(sql);
 		
 		pstmt.setInt(1, no);
@@ -44,17 +45,18 @@ public void insertWish(int no,int pno) {
 	}	
 
 public void deleteWish(int no,int pno) {
+	System.out.println("deletewish");
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	WishListDTO dto = new WishListDTO();
 	try {
 		con = getConnection();
 		
 		String sql = "delete from Wish_List where no=? and pno=?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setInt(1, pno);
-		
+		pstmt.setInt(1, no);
+		pstmt.setInt(2, pno);
 		pstmt.executeUpdate();
+		
 
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -64,58 +66,67 @@ public void deleteWish(int no,int pno) {
 	}
 	return;
 	}	
-//
-//public ArrayList<WishListDTO> getWishArrayList(int pno) {
-//	ArrayList<WishListDTO> wishArrayList = new ArrayList<WishListDTO>();
-//	Connection con = null;
-//	PreparedStatement pstmt = null;
-//	ResultSet rs = null;
-//	try {
-//		con = getConnection();
-//		String sql = "select * from Wish_List where id=?";
-//		pstmt = con.prepareStatement(sql);
-//		pstmt.setInt(1, pno);
-//
-//		rs = pstmt.executeQuery();
-//
-//		if (rs.next()) {
-//			WishListDTO dto = new WishListDTO();
-//			dto.setNo(rs.getInt("no"));
-//			dto.setPno(rs.getInt("pno"));
-//			wishArrayList.add(dto);
-//			
-//		}
-//	} catch (Exception e) {
-//		e.printStackTrace();
-//	} finally {
-//		if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
-//		if (con != null) try {con.close();} catch (Exception e2) {}
-//		if (rs != null) try {rs.close();} catch (Exception e2) {}
-//	}
-//	return wishArrayList;
-//}
+
+public boolean WishCheck(int no,int pno) {
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	boolean result=true;
+	ResultSet rs=null;
+	try {
+		
+		con = getConnection();
+		
+		String sql = "select * from Wish_List where no=? and pno=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1,no);
+		pstmt.setInt(2, pno);
+		
+		rs = pstmt.executeQuery();
+		System.out.println("rs.next()"+rs.next());
+		if (rs.next()==false) { 
+			result= false; //db insert가능
+		}else {
+			result= true;
+		}
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		if (pstmt != null)try {pstmt.close();} catch (Exception e2) {}
+		if (con != null)try {con.close();} catch (Exception e2) {}
+		if (rs != null) try {rs.close();} catch (Exception e2) {}
+	}
+	return result;
+	}	
+
 
 
 public ArrayList<ProductDTO> getWishArrayList(int no) {
 	System.out.println("no="+no);
 	ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
-	ProductDAO pdao = new ProductDAO();
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
+	ProductDTO dto=null;
 	try {
 		con = getConnection();
-		String sql = "select * from Wish_List where no=?";
+		String sql="select * from Products where pno in (select pno from Wish_List where no=?)";
+
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, no);
 		rs = pstmt.executeQuery();
 		
 
 		while (rs.next()) {
-			pdao = new ProductDAO();
-			list.add(pdao.getProduct(rs.getInt("pno")));
-		}
-		System.out.println(list.size());
+			dto=new ProductDTO();
+			dto.setNo(rs.getInt("no"));
+            dto.setPname(rs.getString("pname"));
+            dto.setPprice(rs.getInt("pprice"));
+            dto.setPaddress(rs.getString("paddress"));
+            dto.setPno(rs.getInt("pno"));
+
+			list.add(dto);
+		}System.out.println("list.size="+list.size());
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
@@ -125,24 +136,4 @@ public ArrayList<ProductDTO> getWishArrayList(int no) {
 	}
 	return list;
 }
-//
-//public ArrayList<Jjim> getJjim(String userID, int bbsID) {
-//	String SQL = "SELECT * FROM jjim WHERE userID = ? AND bbsID = ?";
-//	ArrayList<Jjim> list = new ArrayList<Jjim>();
-//	try {
-//		PreparedStatement pstmt = conn.prepareStatement(SQL);
-//		pstmt.setString(1,  userID);
-//		pstmt.setInt(2,  bbsID);
-//		rs = pstmt.executeQuery();
-//		while (rs.next()) {
-//			Jjim jjim = new Jjim();
-//			jjim.setBbsID(rs.getInt(1));
-//			jjim.setUserID(rs.getString(2));
-//			list.add(jjim);
-//		}
-//	}catch(Exception e) {
-//		e.printStackTrace();
-//	}
-//	return list;
-//}
 }

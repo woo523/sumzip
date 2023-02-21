@@ -50,19 +50,18 @@ ProductDTO dto = productlist.get(i);
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
 						<%if(dto.getPpic1()==null){%>
-                        <img src="img/room/room-6.jpg" width="370px" height="240px"> 
+                        <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><img src="img/room/room-6.jpg" width="370px" height="240px"></a> 
                         <%}else{%>
-                        	 <img src="<%=dto.getPpic1()%>" width="370px" height="240px"> 
+                        	  <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><img src="upload/<%=dto.getPpic1()%>" width="370px" height="240px"></a> 
                       <% }%>
                         <div class="ri-text">
-                            <h4><%=dto.getPname() %></h4>
-                            <h3>
-                            
+                             <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><h4><%=dto.getPname() %></h4></a>
+                            <a href="ProductContent.pr?pno=<%=dto.getPno()%>"><h3>
                             <script type="text/javascript">
                             var num = <%=dto.getPprice()%>;
                             document.write(num.toLocaleString()+"원");
                             </script>
-                            <span>/1박</span></h3>
+                            <span>/1박</span></h3></a>
                             <table>
                                 <tbody>
                                     <tr>

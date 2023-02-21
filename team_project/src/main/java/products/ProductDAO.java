@@ -159,6 +159,43 @@ public class ProductDAO {
 		return productList;
 	}// getSearchProductList()
 	
+	// 펜션 검색
+		public ArrayList<ProductDTO> getRegion1ProductList(int startRow, int pageSize) {
+			ArrayList<ProductDTO> productList=new ArrayList<ProductDTO>();
+			Connection con =null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				con=getConnection();
+				String sql="select * from products where paddress like ? order by pno desc limit ?,?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, "%제주시%");
+				pstmt.setInt(2, startRow-1);
+				pstmt.setInt(3, pageSize);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					ProductDTO dto=new ProductDTO();
+					dto.setPno(rs.getInt("pno"));
+					dto.setPname(rs.getString("pname"));
+					dto.setPaddress(rs.getString("paddress"));
+					dto.setPaddress2(rs.getString("paddress2"));
+					dto.setCheckin(rs.getString("checkin"));
+					dto.setCheckout(rs.getString("checkout"));
+					dto.setPprice(rs.getInt("pprice"));
+					dto.setPpic1(rs.getString("ppic1"));
+					dto.setPexplain(rs.getString("pexplain"));
+					productList.add(dto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(rs!=null) try { rs.close();} catch (Exception e2) {}
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+			return productList;
+		}// getRegion1ProductList()
+	
 	// pno로 펜션 조회
 	public ProductDTO getProduct(int pno) {
 		System.out.println("ProductDAO getProduct()");
@@ -226,6 +263,31 @@ public class ProductDAO {
 		}
 		return count;
 	}//getProductCount()
+	
+	// 펜션 갯수 계산
+		public int getRegion1ProductCount() {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			int count=0;
+			try {
+				con=getConnection();
+				String sql="select count(*) from products where paddress like ?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, "%제주시%");
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					count=rs.getInt("count(*)");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+					if(rs!=null) try { rs.close();} catch (Exception e2) {}
+					if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+					if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+			return count;
+		}//getProductCount()
 	
 	// 검색 후 펜션 갯수 계산
 	public int getSearchProductCount(String indate, String outdate, int guest, String region) {

@@ -192,7 +192,20 @@ public class MemberFrontController extends HttpServlet {
 		    } catch (Exception e) {
 		       e.printStackTrace();
 		    }
-		 }
+		 }else if(sPath.equals("/MemberWishList.me")) {
+				forward = new ActionForward();
+				forward.setPath("member/Wish_List.jsp");
+			    forward.setRedirect(false);   
+			}else if(sPath.equals("/MemberWishListPro.me")) {
+			    action = new MembeWishListPro();
+			    try {
+			       forward=action.execute(request, response);
+			    } catch (Exception e) {
+			       e.printStackTrace();
+			    }
+
+			}
+
 		
 		
 		// ----------------------------------------------

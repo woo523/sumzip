@@ -98,8 +98,8 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul> 
-                                    <li><a href="#">지역별 조회</a></li>
-                                    <li><a href="#">테마별 조회</a></li>
+                                    <li><a href="#">제주시 조회</a></li>
+                                    <li><a href="#">서귀포시 조회</a></li>
                                     <li><a href="#">추천 펜션</a></li>
                                     <li><a href="BoardList.bo">공지사항</a></li>
                                     <li><a href="QnaList.qa">Q&A</a></li>
@@ -291,11 +291,11 @@ String region=(String)request.getAttribute("region");
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크인 :</td>
-                                        <td><%=dto2.getCheckin() %>시</td>
+                                        <td><%=dto2.getCheckin().substring(0, 2) %>시 <%=dto2.getCheckin().substring(3) %>분</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크아웃:</td>
-                                        <td><%=dto2.getCheckout() %>시</td>
+                                        <td><%=dto2.getCheckout().substring(0, 2) %>시 <%=dto2.getCheckout().substring(3) %>분</td>
                                     </tr>
                                    
                                 </tbody>
