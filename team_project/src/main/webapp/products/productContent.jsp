@@ -82,6 +82,8 @@ if(id != null){
 
 <input type="button" value="상품목록"
  onclick="location.href='ProductList.pr'">
+ <input type="button" value="숙소예약"
+ onclick="location.href='ProductsAppointment.pr?pno=<%=dto.getPno() %>'">
 
  </td></tr>
  </table>
