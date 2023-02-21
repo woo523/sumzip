@@ -102,7 +102,7 @@
                                 <ul> 
                                     <li><a href="Region1.me">제주시 펜션</a></li>
                                     <li><a href="Region2.me">서귀포시 펜션</a></li>
-                                    <li><a href="Recommned.me">추천 펜션</a></li>
+                                    <li><a href="Recommend.me">추천 펜션</a></li>
                                     <li><a href="BoardList.bo">공지사항</a></li>
                                     <li><a href="QnaList.qa">Q&A</a></li>
                                 </ul>

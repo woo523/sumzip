@@ -98,9 +98,9 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul> 
-                                    <li><a href="#">제주시 조회</a></li>
-                                    <li><a href="#">서귀포시 조회</a></li>
-                                    <li><a href="#">추천 펜션</a></li>
+                                    <li><a href="Region1.me">제주시 조회</a></li>
+                                    <li><a href="Region2.me">서귀포시 조회</a></li>
+                                    <li><a href="Recommend.me">추천 펜션</a></li>
                                     <li><a href="BoardList.bo">공지사항</a></li>
                                     <li><a href="QnaList.qa">Q&A</a></li>
                                 </ul>
