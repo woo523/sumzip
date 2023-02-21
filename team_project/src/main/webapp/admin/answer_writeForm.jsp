@@ -19,7 +19,7 @@ int no = rdto.getNo();
 
 //로그인 되어있지 않으면 로그인화면으로
 if(id==null){
-	response.sendRedirect("../member/login.jsp");
+	response.sendRedirect("AdminLogin.ad");
 }
 %>
 

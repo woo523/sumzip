@@ -114,9 +114,6 @@
                                     <li><a href="QnaList.qa">Q&A</a></li>
                                 </ul>
                             </nav>
-                            <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
-                            </div>
                         </div>
                     </div>
                 </div>

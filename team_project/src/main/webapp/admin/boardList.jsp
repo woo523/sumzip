@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
+<jsp:include page="../inc/ad_header.jsp" />
 
 <!-- 한페이지에 보여줄 글 개수 -->
 <%

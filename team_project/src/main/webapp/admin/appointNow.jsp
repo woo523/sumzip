@@ -15,7 +15,7 @@
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
+<jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더파일들어가는 곳 -->
 <div class="breadcrumb-section">
         <div class="container">

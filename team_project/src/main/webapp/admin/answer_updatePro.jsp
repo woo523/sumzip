@@ -23,5 +23,5 @@ QnaDAO dao=new QnaDAO();
 // 메서드 호출
 dao.updateAnswer(dto); 
 // qnaList.jsp 이동
-response.sendRedirect("qnaList.jsp");
+response.sendRedirect("AdminQnaList.ad");
 %>

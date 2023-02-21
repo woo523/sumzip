@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- 헤더 들어가는 곳 -->
- 	<jsp:include page="../inc/header.jsp" />
+ 	<jsp:include page="../inc/ad_header.jsp" />
  	
  	
 <%

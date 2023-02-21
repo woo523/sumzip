@@ -11,6 +11,6 @@ BoardDAO dao=new BoardDAO();
 
 dao.deleteBoard(bno);
 
-response.sendRedirect("boardList.jsp");
+response.sendRedirect("AdminBoardList.ad");
 
 %>

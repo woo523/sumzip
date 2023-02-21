@@ -29,7 +29,7 @@ BoardDAO dao=new BoardDAO();
 
 dao.updateBoard(dto);
 
-response.sendRedirect("boardList.jsp");
+response.sendRedirect("AdminBoardList.ad");
 
 %>
 </body>

@@ -7,5 +7,5 @@ session.invalidate();
 %>
 <script>
 	alert("로그아웃");
-	location.href="adminboard.jsp";
+	location.href="AdminLogin.ad";
 </script>

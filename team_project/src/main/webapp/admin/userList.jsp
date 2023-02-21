@@ -22,25 +22,7 @@
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
-				<div class="sidenav">		
-					<button class="dropdown-btn">Q&A <i class="fa fa-caret-down"></i>
-					</button>
-				<div class="dropdown-container">
-					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a> 
-				</div>
-					<button class="dropdown-btn">공지사항 <i class="fa fa-caret-down"></i>
-					</button>
-				<div class="dropdown-container">
-					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
-				</div> 
-					<a href="AdminAppointNow.ad">숙소예약현황</a> 
-					<a href="AdminUserList.ad">유저관리</a>
-					<button class="dropdown-btn">기타 <i class="fa fa-caret-down"></i>
-					</button>
-				<div class="dropdown-container">
-					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
-				</div>	
-				</div>
+				
 			</div>
 			
 <div class="col-lg-10">

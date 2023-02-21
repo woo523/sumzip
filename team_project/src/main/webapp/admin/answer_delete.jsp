@@ -10,5 +10,5 @@ QnaDAO dao=new QnaDAO();
 
 dao.deleteQna(qno);
 // list.jsp 이동
-response.sendRedirect("qnaList.jsp");
+response.sendRedirect("AdminQnaList.ad");
 %>

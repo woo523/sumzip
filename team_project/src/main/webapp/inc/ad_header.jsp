@@ -67,6 +67,7 @@
     <script src="js1/jquery-3.2.1.min.js"></script>
     <script src="js1/popper.js"></script>
     <script src="js1/bootstrap.min.js"></script>
+    
 <title>Insert title here</title>
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
@@ -88,7 +89,7 @@ for (i = 0; i < dropdown.length; i++) {
 </head>
 <body>
 <header class="header-section">
-	<div class="top-nav">
+   <div class="top-nav">
          <div class="container">
              <div class="row">
                  <div class="col-lg-6">
@@ -96,56 +97,53 @@ for (i = 0; i < dropdown.length; i++) {
                  </div>
                  <div class="col-lg-6">
                      <div class="tn-right">
-                     	<%
-                       	String id=(String)session.getAttribute("id");
-                        	UserDAO dao = new UserDAO();
-                    		// MemberDTO dto = getMember(id) 메서드호출
-                    		UserDTO dto = dao.getUser(id);
-                    		if(id!=null){
-						%>
-						<div id="login">♥ <%=id %> 님 ♥ |
-							<a href="AdminLogout.ad">Logout</a> | 
-							<a href="Main.me">유저 페이지</a>
-						</div>
-						<%
-						}
-						%>
-					</div>
+                        <%
+                          String id=(String)session.getAttribute("id");
+                           UserDAO dao = new UserDAO();
+                          // MemberDTO dto = getMember(id) 메서드호출
+                          UserDTO dto = dao.getUser(id);
+                          if(id!=null){
+                  %>
+                  <div id="login">♥ <%=id %> 님 ♥ |
+                     <a href="AdminLogout.ad">Logout</a> | 
+                     <a href="Main.me">유저 페이지</a>
+                  </div>
+                  <%
+                  }
+                  %>
+               </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Backgrounds -->
 <div class="menu-item">
-	<div class="container">
-    	<div class="row">
-        	<div class="col-lg-2">
-				<div class="sidenav">	
-					<a href="AdminUserList.ad">유저관리</a>
-					<a href="AdminAppointNow.ad">숙소예약현황</a> 
-					<a href="AdminQnaList.ad">Q&A 관리</a> 
-					<button class="dropdown-btn">공지사항
-						<i class="fa fa-caret-down"></i>
-					</button>
-					<div class="dropdown-container">
-						<a href="AdminBoardList.ad">공지사항 리스트</a>
-						<a href="AdminBoardWriteForm.ad">공지사항 작성</a>
-					</div> 
-				</div>
-			</div>
-			
-			<div class="col-lg-10">
-				<div class="content-main">
-					<h1 style="color:#777;">Admin Page</h1>	
-				</div>
-			</div>
-		</div>
-	</div>	
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-2">
+            <div class="sidenav">   
+               <a href="AdminUserList.ad">유저관리</a>
+               <a href="AdminAppointNow.ad">숙소예약현황</a> 
+               <a href="AdminQnaList.ad">Q&A 관리</a> 
+               <button class="dropdown-btn">공지사항
+                  <i class="fa fa-caret-down"></i>
+               </button>
+               <div class="dropdown-container">
+                  <a href="AdminBoardList.ad">공지사항 리스트</a>
+                  <a href="AdminBoardWriteForm.ad">공지사항 작성</a>
+               </div> 
+            </div>
+         </div>
+         
+         <div class="col-lg-10">
+            <div class="content-main">
+               <h1 style="color:#777;">Admin Page</h1>   
+            </div>
+         </div>
+      </div>
+   </div>   
 </div>
-		
+      
 
 </header>
     <!-- Header End -->
-</body>
-</html>
-					

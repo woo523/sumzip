@@ -9,6 +9,7 @@
 <title>admin/boardupdateForm.jsp</title>
 </head>
 <body>
+<jsp:include page="../inc/ad_header.jsp" />
 <%
 // int bno=Integer.parseInt(request.getParameter("bno"));
 

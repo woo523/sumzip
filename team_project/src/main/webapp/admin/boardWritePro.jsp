@@ -32,7 +32,7 @@ BoardDAO dao=new BoardDAO();
 dao.insertBoard(dto);
 
 // 글목록(boardList.jsp)으로 이동
-response.sendRedirect("boardList.jsp");
+response.sendRedirect("AdminBoardList.ad");
 
 
 %>
