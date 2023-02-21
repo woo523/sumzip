@@ -37,7 +37,7 @@ boolean result=true, answer=true;
 					System.out.println("wishcheck2");
 				%>
 				<script type="text/javascript">
-				 var answer= confirm('이미 담긴 항목입니다. 찜 목록으로 이동하시겠습니까?');
+				 var answer= confirm('이미 담긴 항목입니다.);
 				   if (answer) {
 					   location.href = "Wish_List.jsp";
 				      
@@ -54,11 +54,11 @@ boolean result=true, answer=true;
 				dao.deleteWish(no, pno);%>
 				<script type="text/javascript">
 				alert("해당항목을 찜 목록에서 삭제하였습니다.");
-				location.href = "Wish_List.jsp";
+				location.href = "MemberLogin.me";
 				</script><% 
 			}
 				}
 				
 				else { //로그인 안되어있을때
-					response.sendRedirect("login.jsp");}
+					response.sendRedirect("MemberLogin.me");}
 					%>

@@ -17,6 +17,7 @@
 <h1>위시리스트</h1>
 
 <%
+request.setCharacterEncoding("utf-8");
 String id=(String)session.getAttribute("id");
 System.out.println("id="+id);
 //int pno = 7;
@@ -27,45 +28,74 @@ if(id!=null){
 	int no=dto.getNo();
 	System.out.println("no="+no);
 	ArrayList<ProductDTO> list=dao.getWishArrayList(no);
-
-	
-
 	%>
-	<table border=1>
-	<tr><td>숙소이름</td><td>숙박가격</td><td>주소</td></tr>
-	<%
-		
+
+    <style>
+      table {
+    text-align:center;
+    width: 80%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+  }
+
+ 
+  
+  #end{
+  	border:none;
+  }
+  
+  #button{
+  	padding-top: 5px;
+  	text-align:left;
+  	border-top: none;
+  	border-right: none;
+  	border-bottom:none;
+  }
+  
+  input{
+  margin-top: 10px;
+  }
+  
+  
+    </style>
+  
+
+    <table>
+      <thead>
+        <tr>
+          <th>숙소이름</th><th>숙박가격</th><th>주소</th><th id="end"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <%                   	
 	for(int i=0; i<list.size(); i++){
 		ProductDTO d=list.get(i);
 		int ppno=d.getPno();
 	%>
-	<tr>
-		<td><%=d.getPname()%></td>
-		<td><%=d.getPprice()%></td>
-		<td><%=d.getPaddress()%></td>
-		<td><form action="Wish_ListPro.jsp">
+		<tr>
+          <td><%=d.getPname()%></td><td><%=d.getPprice()%></td><td><%=d.getPaddress()%></td>
+
+<td id="button"><form action="MemberWishListPro.me">
+<input type="submit" name="button" value="찜">
 <input type="hidden" name="pno" value=<%=ppno%>>
-<input type="submit" name="button" value="X">; 
+<input type="submit" name="button" value="찜해제">
 </form></td>
 		<%System.out.println("ppno="+ppno);%>
-	</tr>
-	<%
-		}
-	%>
-	
-</table>
-<a href="../member/myPage_user.jsp">마이페이지로 돌아가기</a><br>
-<%
-}else {
-	response.sendRedirect("../member/login.jsp");
+        </tr><%} %>
+      </tbody>
+    </table>
+<a href="MemberMyPage_user.me">마이페이지로 돌아가기</a><br><%
+        }else {
+	response.sendRedirect("MemberLogin.me");
 }
 %>
-    
-<form action="Wish_ListPro.jsp">
 <%-- <input type="hidden" name="pno" value=<%=ppno%>> --%>
-<input type="submit" name="button" value="X">; 
 <input type="submit" name="button" value="찜">; 
-</form>
+
 
 
 

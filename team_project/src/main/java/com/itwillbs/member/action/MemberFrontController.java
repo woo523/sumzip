@@ -1,5 +1,4 @@
 package com.itwillbs.member.action;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -193,11 +192,12 @@ public class MemberFrontController extends HttpServlet {
 		       e.printStackTrace();
 		    }
 		 }else if(sPath.equals("/MemberWishList.me")) {
-				forward = new ActionForward();
+			System.out.println("/MemberWishList.me");	
+			 forward = new ActionForward();
 				forward.setPath("member/Wish_List.jsp");
 			    forward.setRedirect(false);   
 			}else if(sPath.equals("/MemberWishListPro.me")) {
-			    action = new MembeWishListPro();
+			    action = new MemberWishListPro();
 			    try {
 			       forward=action.execute(request, response);
 			    } catch (Exception e) {

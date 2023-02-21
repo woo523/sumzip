@@ -79,10 +79,9 @@ if(id != null){
 	}
 }
 %>
-
+<td>
 <input type="button" value="상품목록"
  onclick="location.href='ProductList.pr'">
-
  </td></tr>
  </table>
 
