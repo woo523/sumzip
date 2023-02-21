@@ -20,7 +20,7 @@
 // int qno=Integer.parseInt(request.getParameter("qno"));
 // // QnaDAO 객체생성
 // QnaDAO qdao=new QnaDAO();
-// qdao.qCount(qno);
+// qdao.qCo unt(qno);
 
 // // QnaDTO dto = dao.getQna(no) 메서드 호출
 // QnaDTO qdto = qdao.getQna(qno);  

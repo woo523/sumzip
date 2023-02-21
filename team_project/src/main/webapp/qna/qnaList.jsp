@@ -17,9 +17,9 @@
 <style>
 article{
 	font-family: 'NanumSquareNeo';
-  	max-width: 750px;
+  	max-width: 1000px;
  	margin: 0 auto;
- 	padding: 20px;
+ 	padding: 50px;
 }
 .table thead.thead-primary{
 	background: #99b19c;
