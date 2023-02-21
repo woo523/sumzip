@@ -92,7 +92,7 @@ for(int i=0; i<boardList.size(); i++){
 </table>
 <!-- 게시판 글 검색부분 -->
 <div id="table_search">
-<form action="BoardList.ad"  method="post">
+<form action="BoardList.bo"  method="post">
 <table border="1" width="50%"> 
 <tr><td align="center">
 <input type="text" name="search">
