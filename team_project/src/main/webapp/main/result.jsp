@@ -291,11 +291,11 @@ String region=(String)request.getAttribute("region");
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크인 :</td>
-                                        <td><%=dto2.getCheckin() %>시</td>
+                                        <td><%=dto2.getCheckin().substring(0, 2) %>시 <%=dto2.getCheckin().substring(3) %>분</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크아웃:</td>
-                                        <td><%=dto2.getCheckout() %>시</td>
+                                        <td><%=dto2.getCheckout().substring(0, 2) %>시 <%=dto2.getCheckout().substring(3) %>분</td>
                                     </tr>
                                    
                                 </tbody>
