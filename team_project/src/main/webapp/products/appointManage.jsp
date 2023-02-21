@@ -12,13 +12,19 @@
 <head>
 <meta charset="UTF-8">
 <title>products/appointManage</title>
+<style type="text/css">
+#sidebar{
+ 	width: 250px; 
+   	height: 1000px;   
+/*  	background-color: #98FD5D;  */
+	float: left;
+}
+</style>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 <!-- 헤더파일들어가는 곳 -->
-<br><br><br>
-
     <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 
@@ -32,6 +38,18 @@
 	
 	
  	%>
+		<nav id="sidebar">
+			<ul>
+				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
+				<li><a href="MemberMyList.me">내 이용목록</a></li>
+				<li><a href="ProductsAppointManage.pr">예약관리</a></li>
+				<li><a href="MemberWishList.me">찜 목록</a></li>
+				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
+			</ul>
+		</nav>
+
+ 	
+ 	
   <div class="breadcrumb-section">
         <div class="container"> 
             <div class="row"> 
