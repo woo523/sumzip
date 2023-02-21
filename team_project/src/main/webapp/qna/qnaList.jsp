@@ -8,27 +8,47 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>qna/qnaList.jsp</title>
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 <style>
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 750px;
+ 	margin: 0 auto;
+ 	padding: 20px;
+}
 .table thead.thead-primary{
 	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;
+	
 }
 
 .heading-section {
     font-size: 28px;
-    color: #000;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+     
 }
+
+#table_search{
+	float: right;
+   
+}
+
 </style>
 
 </head>
 <body>
-<!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
-<!-- 헤더들어가는 곳 -->
-
 <!-- 한페이지에 보여줄 글 개수 -->
 <%
 // //QnaDAO 객체 생성
@@ -68,13 +88,20 @@ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 String qstatus = "";
 %>
 
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
 <article>
-<h3 class="heading-section">Q&A</h3>
-	<table class="table">
-	<thead class="thead-primary">
-		<tr><td>No</td><td>Writer</td><td>Title</td>
-		<td>Date</td><td>Answer Status</td><td>View</td></tr>
-		</thead>
+<div class="qnalistContainer">
+	<h3 class="heading-section">Q&A</h3>
+	</div>
+		<table class="table">
+			<thead class="thead-primary">
+				<tr><td>No</td><td>Writer</td><td>Title</td>
+				<td>Date</td><td>Answer Status</td><td>View</td></tr>
+			</thead>
+
+
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
@@ -144,7 +171,7 @@ if(endPage < pageCount){
 }
 %>
 
-</article>		
+</article>	
 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
