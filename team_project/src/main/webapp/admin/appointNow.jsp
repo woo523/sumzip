@@ -93,7 +93,17 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 	    }	    
 	    %>
 	    </td>
-	    <td class="tb2"><a href="AdminAppointNowUpdate.ad?Astatus=<%=dto.getAstatus()%>&ano=<%=dto.getAno()%>">다음 예약단계로 변경</a></td>
+	   	<%
+	    if(dto.getAstatus()!=3){
+	   	%>
+	    	<td class="tb2"><a href="AdminAppointNowUpdate.ad?Astatus=<%=dto.getAstatus()%>&ano=<%=dto.getAno()%>">다음 예약단계로 변경</a></td>
+	    <%
+	    }else if(dto.getAstatus()==3){
+	    	%>
+	    	<td class="tb2">이미 최종단계입니다.</td>
+	    	<%
+	    }
+	   	%>	    
 	    <td class="tb2"><%=dto.getAdate()%></td>
 	    <td class="tb2"><a href="AdminAppointNowDelete.ad?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
 	   <%
