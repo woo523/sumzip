@@ -340,20 +340,20 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 <%
 if(startPage > pageBlock){
 	%>
-	<a href="Region2.me?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
+	<a href="Recommend.me?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
 for(int i=startPage;i<=endPage;i++){
 	%>
-	<a href="Region2.me?pageNum=<%=i%>"><%=i%></a>
+	<a href="Recommend.me?pageNum=<%=i%>"><%=i%></a>
 	<%
 }
 
 //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="Region2.me?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+	<a href="Recommend.me?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
  <i class="fa fa-long-arrow-right"></i></a>	<%
 }
 
