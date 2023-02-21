@@ -14,6 +14,10 @@ public class AdminBoardList implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.println("AdminBoardList execute()");
         
+        request.setCharacterEncoding("utf-8");
+        
+        String search=request.getParameter("search");
+        
 		BoardDAO dao=new BoardDAO();
 		int pageSize=10; // 한페이지에 몇개 게시글 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
@@ -24,12 +28,29 @@ public class AdminBoardList implements Action {
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
 
-		ArrayList<BoardDTO> boardList=dao.getBoardList(startRow,pageSize);
+		ArrayList<BoardDTO> boardList=null;
+		if(search==null) {
+			//검색어 없음
+			boardList=dao.getBoardList(startRow, pageSize);
+		}else {
+			//검색어 있음
+			boardList=dao.getBoardList(startRow, pageSize, search);
+		}	
 
 		int pageBlock=10;
 		int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 		int endPage=startPage+pageBlock-1;
-		int count = dao.getBoardCount();
+		
+		int count = 0;
+		//검색어
+		if(search==""){
+			//검색어 없음
+			count=dao.getBoardCount();
+		}else {
+			//검색어 있음
+			count=dao.getBoardCount(search);	
+			
+		}		
 		int pageCount=count/pageSize+(count%pageSize==0?0:1);
 		if(endPage > pageCount){
 			endPage = pageCount;
@@ -43,6 +64,7 @@ public class AdminBoardList implements Action {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
 		
+		request.setAttribute("search", search);
 		
 		// 이동
 		ActionForward forward = new ActionForward();
