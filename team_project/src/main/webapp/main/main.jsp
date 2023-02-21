@@ -41,7 +41,7 @@
 <div id="wrap">
 <!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
-String Date=(String)request.getAttribute("Date");
+// String Date=(String)request.getAttribute("Date");
 %>
 <header class="header-section">
 	<div class="top-nav">
@@ -144,10 +144,10 @@ String Date=(String)request.getAttribute("Date");
                                     	<form action="Result.me" method="post">
                                     	<div class="book_tabel_item">
                                             <div class="form-group">  
-                                                    <input type='date' name="indate" class="form-control" value="<%=Date%>"/>
+                                                    <input type='date' name="indate" class="form-control" />
                                             </div>
                                             <div class="form-group">
-                                                    <input type='date' name="outdate" class="form-control" value="<%=Date%>"/>
+                                                    <input type='date' name="outdate" class="form-control" />
                                             </div>
                                         </div>
                                     </div>

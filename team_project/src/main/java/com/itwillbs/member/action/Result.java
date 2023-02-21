@@ -18,7 +18,7 @@ public class Result implements Action {
 		
 		
 		request.setCharacterEncoding("utf-8");
-		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+//		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 		ProductDAO dao=new ProductDAO();
 		int pageSize=9;
 		String pageNum=request.getParameter("pageNum");
@@ -83,7 +83,7 @@ public class Result implements Action {
 		request.setAttribute("outdate", outdate);
 		request.setAttribute("guest", guest);
 		request.setAttribute("region", region);
-		request.setAttribute("Date", Date);
+//		request.setAttribute("Date", Date);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/result.jsp");
