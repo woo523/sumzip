@@ -29,7 +29,7 @@ function fun2() {
 body{background-color: #C5E1A5;}
 ul>li{list-style: none}
 a{text-decoration: none;}
-.top{margin-top: 30px;}
+.top{margin-top: 150px;}
 .clearfix::after{content: "";display: block;clear: both;}
 #agreeForm{width: 500px;margin: 0 auto;}
 ul.join_box{border: 1px solid #ddd;background-color: #fff;}
