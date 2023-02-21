@@ -185,22 +185,10 @@
 		<a href="MemberMyList.me?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]</a>
 		<%
 	}
-
-	if(currentPage > 1) {
-		%>
-		<a href="MemberMyList.me?pageNum=<%=currentPage-1%>">[1 페이지 이전]</a>
-		<%
-	}
 	
 	for(int i = startPage; i <= endPage; i++) {
 		%>
 		<a href="MemberMyList.me?pageNum=<%=i%>"><%=i %></a>
-		<%
-	}
-	
-	if(currentPage < pageCount) {
-		%>
-		<a href="MemberMyList.me?pageNum=<%=currentPage+1%>">[1 페이지 다음]</a>
 		<%
 	}
 	

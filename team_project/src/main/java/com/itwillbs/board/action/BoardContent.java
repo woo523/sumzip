@@ -1,6 +1,7 @@
 package com.itwillbs.board.action;
 
 import java.io.PrintWriter;
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,9 @@ public class BoardContent implements Action{
 		
 		BoardDTO dto=dao.getBoard(bno);
 		
+		// 조회수 증가
+		dao.bCount(bno);
+				
 		HttpSession session = request.getSession();
 		
 		request.setAttribute("dto", dto);

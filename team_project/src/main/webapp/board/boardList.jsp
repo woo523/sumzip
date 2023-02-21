@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="board.BoardDAO"%>
@@ -33,19 +34,24 @@
 
 // ArrayList<BoardDTO> boardList=dao.getBoardList(startRow, pageSize);
 
+SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
+
 ArrayList<BoardDTO> boardList = (ArrayList<BoardDTO>)request.getAttribute("boardList");
+
 int currentPage =(Integer)request.getAttribute("currentPage");
 int pageBlock =(Integer)request.getAttribute("pageBlock");
 int startPage =(Integer)request.getAttribute("startPage");
 int endPage =(Integer)request.getAttribute("endPage");
 int pageCount =(Integer)request.getAttribute("pageCount");
 
+String search=(String)request.getAttribute("search");
+
 
 %>
-
 <!-- 글쓰기 버튼 부분 -->
 <h3>board/boardList.jsp</h3>
 
+<div id="table_search">
 <table border="0" width="50%">
 <tbody><tr align="right">
 <td>
@@ -53,6 +59,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 글쓰기</button></td>
 </tr>
 </tbody></table>
+</div>
 
 <!-- 공지사항 리스트 부분 -->
 <table border="1" width="50%">
@@ -81,22 +88,19 @@ for(int i=0; i<boardList.size(); i++){
 <% 
 }
 %>
-
+</tbody>
+</table>
 <!-- 게시판 글 검색부분 -->
-<form action="BoardList.bo"  method="get">
+<div id="table_search">
+<form action="BoardList.bo"  method="post">
 <table border="1" width="50%"> 
-<tbody><tr>
-<td align="center">
-<select name="serch1">
-<option value="btitle">제목</option>
-<option value="bcontent">내용</option>
-</select>
-<input type="text" name="search2">
+<tr><td align="center">
+<input type="text" name="search">
 <input type="submit" value="검색">
-</td>
-</tr>
-</tbody></table>
+</td></tr>
+</table>
 </form>
+</div>
 
 <!-- 페이징 처리 -->
 <% 
@@ -118,6 +122,7 @@ for(int i=0; i<boardList.size(); i++){
 // 	endPage = pageCount;
 // }
 
+if(search==null){
 
 if(startPage > pageBlock){
 	%>
@@ -135,6 +140,26 @@ if(endPage < pageCount){
 	%>
 <a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
+}
+
+}else{
+	if(startPage > pageBlock){
+		%>
+	<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]</a>
+		<%
+	}
+
+	for(int i=startPage;i<=endPage;i++){
+		%>
+		<a href="BoardList.bo?pageNum=<%=i%>&search=<%=search%>"><%=i %></a> 
+		<%
+	}
+
+	if(endPage < pageCount){
+		%>
+	<a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]</a>
+		<%
+	}
 }
 %>
 

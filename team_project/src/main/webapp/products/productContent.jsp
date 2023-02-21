@@ -82,15 +82,19 @@ if(id != null){
 <td>
 <input type="button" value="상품목록"
  onclick="location.href='ProductList.pr'">
+<<<<<<< HEAD
+=======
+ <input type="button" value="숙소예약"
+ onclick="location.href='ProductsAppointment.pr?pno=<%=dto.getPno() %>'">
+
+>>>>>>> branch 'master' of https://github.com/junjun12321/itwill_team3.git
  </td></tr>
  </table>
 
-<jsp:include page="productReviewList.jsp" flush="false">
-	<jsp:param value="<%=dto.getPno() %>" name="getPno"/>
-</jsp:include>
+<jsp:include page="productReviewList.jsp" flush="false" />
  
  <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>

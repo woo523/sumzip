@@ -40,7 +40,7 @@ RegionDTO dto = c.getsalesproduct();
         ]);
 
         // Set chart options
-        var options = {'title':'섬집 지역별 예약현황',
+        var options = {'title':'섬집 지역별 숙박현황',
         		 		'titleTextStyle' : {
                      	fontSize: 30
                      	},

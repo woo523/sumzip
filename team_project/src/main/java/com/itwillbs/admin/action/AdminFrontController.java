@@ -170,8 +170,8 @@ public class AdminFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else if(sPath.equals("/AdminAnswerdelete.ad")) {
-				action = new AdminAnswerdelete();
+			}else if(sPath.equals("/AdminAnswerDelete.ad")) {
+				action = new AdminAnswerDelete();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {

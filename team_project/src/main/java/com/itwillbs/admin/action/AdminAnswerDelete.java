@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import qna.QnaDAO;
 
-public class AdminAnswerdelete implements Action{
+public class AdminAnswerDelete implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -15,11 +15,11 @@ int qno=Integer.parseInt(request.getParameter("qno"));
 		
 		// QnaDAO 객체생성
 		QnaDAO dao=new QnaDAO();
-		dao.deleteQna(qno);
+		dao.deleteAnswer(qno);
 		
 		// list.jsp 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("QnaList.qa");
+		forward.setPath("AdminQnaList.ad");
 		forward.setRedirect(true);
 		
 		return forward;

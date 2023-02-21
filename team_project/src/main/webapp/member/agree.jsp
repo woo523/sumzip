@@ -26,10 +26,10 @@ function fun2() {
 </head>
 <style>
 *{margin: 0;padding: 0;box-sizing: border-box}
-body{background-color: #C5E1A5;}
+body{background-color: #99b19c;}
 ul>li{list-style: none}
 a{text-decoration: none;}
-.top{margin-top: 30px;}
+.top{margin-top: 150px;}
 .clearfix::after{content: "";display: block;clear: both;}
 #agreeForm{width: 500px;margin: 0 auto;}
 ul.join_box{border: 1px solid #ddd;background-color: #fff;}

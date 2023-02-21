@@ -20,49 +20,8 @@
 <br><br><br>
 
     <%
-  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
- UserDTO dto =(UserDTO)request.getAttribute("dto");
- SalesDTO dto3=(SalesDTO)request.getAttribute("dto3");
-ProductDTO dto4=(ProductDTO)request.getAttribute("dto4");
- //로그인 확인 (비로그인시 로그인 화면으로 이동)
-  if(id!=null){
- //  	UserDAO dao=new UserDAO();
-//  	UserDTO dto=dao.getUser(id);
- //  	int no=dto.getNo();
- //  	AppointmentDAO dao2=new AppointmentDAO();
- //  	SalesDAO dao3=new SalesDAO();
- //  	SalesDTO dto3=dao3.getSales(dto.getNo());
- //  	ProductDAO dao4=new ProductDAO();
-//  	ProductDTO dto4=dao4.getProduct(dto3.getPno());
-//      int no=dto.getNo();
-//     int pageSize=10;
- // 현 페이지 번호 가져오기 => 페이지번호가 없으면 1페이지 설정
-// http://localhost:8080/webProject/Appointment/list.jsp
-// http://localhost:8080/webProject/Appointment/list.jsp?pageNum=2
-// String pageNum=request.getParameter("pageNum");
-//  if(pageNum==null){
-	//=> 페이지번호가 없으면 1페이지 설정
-//  	pageNum="1";
-//  }
- // pageNum => 숫자변경
-//  int currentPage=Integer.parseInt(pageNum);
- // 시작하는 행번호 구하기
- // pageNum(currentPage)	   pageSize	=> startRow
- // 	1						10		=> 	(1-1)*10+1 => 0*10+1 =>  0+1 -> 1  ~10
- // 	2						10		=> 	(2-1)*10+1 => 1*10+1 => 10+1 -> 11 ~20
- // 	3						10		=> 	(3-1)*10+1 => 2*10+1 => 20+1 -> 21 ~30
-//  int startRow=(currentPage-1)*pageSize+1;
- // 끝나는 행번호 구하기
- // startRow	pageSize	=>	endRow
- //		1		10		=>	1+10-1	=>	10
- // 		11		10		=>	11+10-1	=>	20
- //		21		10		=>	21+10-1	=>	30
-// int endRow = startRow+pageSize-1;
+ String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 
-// select * from Appointment order by num desc limit 시작행-1, 몇개
-//  리턴할형 ArrayList<AppointmentDTO>  getAppointmentList(int startRow, int pageSize) 메서드 정의 
-//  ArrayList<AppointmentDTO>  AppointmentList = dao.getAppointmentList(startRow, pageSize) 메서드 호출
-//  ArrayList<AppointmentDTO> AppointmentList=dao2.getAppointmentList(no, startRow, pageSize);
  ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
 
  int startPage=(Integer)request.getAttribute("startPage");
@@ -91,21 +50,24 @@ ProductDTO dto4=(ProductDTO)request.getAttribute("dto4");
  	<% 
  	for(int i=0;i<AppointmentList.size();i++){
  		//배열 한칸에 내용 가져오기 
- 		AppointmentDTO dto2=AppointmentList.get(i);
-		
+ 		AppointmentDTO adto=AppointmentList.get(i);
+ 		
+		ProductDAO pdao = new ProductDAO();
+		ProductDTO pdto = pdao.getProduct(adto.getPno());
+ 		
  		%> 
- 	<tr><td class="tb"> <%=dto2.getAno()%> </td> 
-	    <td class="tb"> <%=dto4.getPname()%> </td> 
+ 	<tr><td class="tb"> <%=adto.getAno()%> </td> 
+	    <td class="tb"> <%=pdto.getPname()%> </td> 
 	        <td class="tb"> <% 
-	    if(dto2.getAstatus()==1){
+	    if(adto.getAstatus()==1){
  	    	out.print("입금대기");
- 	    }else if(dto2.getAstatus()==2){
+ 	    }else if(adto.getAstatus()==2){
  	    	out.print("입금확인");
- 	    }else if(dto2.getAstatus()==3){
+ 	    }else if(adto.getAstatus()==3){
  	    	out.print("예약완료");
   	    }%> </td>
-	    <td class="tb"> <%=dto2.getAdate()%> </td> 
-	    <td class="tb"><a href="ProductsAppointManagePro.pr?num=<%=dto2.getAno()%>">취소하기</a></td></tr>
+	    <td class="tb"> <%=adto.getAdate()%> </td> 
+	    <td class="tb"><a href="ProductsAppointManagePro.pr?ano=<%=adto.getAno()%>">취소하기</a></td></tr>
 
 		<%
  	}
@@ -171,17 +133,10 @@ if(endPage < pageCount){
  }
  %>
 
- <% 
-}else {
-	// 비로그인시 로그인 페이지로 이동
-	response.sendRedirect("MemberLogin.me");
-}
- %> 
 
 
-
-<!-- <!-- 푸터 들어가는 곳 --> -->
+<!-- <!-- 푸터 들어가는 곳 --> 
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
-<!-- <!-- 푸터 들어가는 곳 --> -->
+<!-- <!-- 푸터 들어가는 곳 -->
 </body>
 </html>

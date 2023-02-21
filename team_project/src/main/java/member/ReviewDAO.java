@@ -35,8 +35,8 @@ public class ReviewDAO {
 			if(rs.next()) {
 				rno = rs.getInt("max(rno)") + 1;
 			}
-			sql = "insert into review(rno, no, pno, ano, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3)"
-			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into review(rno, no, pno, ano, rtitle, rstar, rcontent, rdate, rpic1, rpic2, rpic3)"
+			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rno);  // 게시글번호
 			pstmt.setInt(2, dto.getNo()); // 유저번호
@@ -45,12 +45,13 @@ public class ReviewDAO {
 			pstmt.setString(5, dto.getRtitle());
 			pstmt.setString(6, dto.getRstar());
 			pstmt.setString(7, dto.getRcontent());
-			pstmt.setInt(8, dto.getRcount());
-			pstmt.setTimestamp(9, dto.getRdate());
-			pstmt.setString(10, dto.getRpic1());
-			pstmt.setString(11, dto.getRpic2());
-			pstmt.setString(12, dto.getRpic3());
+			pstmt.setTimestamp(8, dto.getRdate());
+			pstmt.setString(9, dto.getRpic1());
+			pstmt.setString(10, dto.getRpic2());
+			pstmt.setString(11, dto.getRpic3());
+			
 			pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -132,43 +133,46 @@ public class ReviewDAO {
 		
 	} // getReviewList()
 	
-	// 리뷰 리스트
-		public ArrayList<ReviewDTO> getReviewList(int startRow, int pageSize, int pno){
-			System.out.println("ReviewDAO getReviewList()");
-			ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				con = getConnection();
-				String sql="select * from review where pno = ? order by pno desc limit ?, ?";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, pno);
-				pstmt.setInt(2, startRow-1);
-				pstmt.setInt(3, pageSize);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					ReviewDTO rdto=new ReviewDTO();
-					rdto.setPno(rs.getInt("pno"));
-					rdto.setRtitle(rs.getString("rtitle"));
-					rdto.setRstar(rs.getString("rstar"));
-					rdto.setRcontent(rs.getString("rcontent"));
-					rdto.setRdate(rs.getTimestamp("rdate"));
-					rdto.setRpic1(rs.getString("rpic1"));
-					rdto.setRpic2(rs.getString("rpic2"));
-					rdto.setRpic3(rs.getString("rpic3"));
-					reviewList.add(rdto);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally {
-				if(rs!=null) try { rs.close();} catch (Exception e2) {}
-				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
-				if(con!=null) try { con.close();} catch (Exception e2) {}
+	// 리뷰 리스트(pno 값 들고감)
+	public ArrayList<ReviewDTO> getReviewList(int startRow, int pageSize, int pno){
+		System.out.println("ReviewDAO getReviewList()");
+		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			String sql="select * from review where pno = ? order by pno desc limit ?, ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pno);
+			pstmt.setInt(2, startRow-1);
+			pstmt.setInt(3, pageSize);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ReviewDTO rdto=new ReviewDTO();
+				rdto.setNo(rs.getInt("no"));
+				rdto.setRno(rs.getInt("rno"));
+				rdto.setPno(rs.getInt("pno"));
+				rdto.setRtitle(rs.getString("rtitle"));
+				rdto.setRstar(rs.getString("rstar"));
+				rdto.setRcontent(rs.getString("rcontent"));
+				rdto.setRdate(rs.getTimestamp("rdate"));
+				rdto.setRpic1(rs.getString("rpic1"));
+				rdto.setRpic2(rs.getString("rpic2"));
+				rdto.setRpic3(rs.getString("rpic3"));
+				
+				reviewList.add(rdto);
 			}
-			return reviewList;
-			
-		} // getReviewList()
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return reviewList;
+		
+	} // getReviewList()
 	
 	// ano로 리뷰 작성여부 조회
 	public boolean checkReview(int ano) {

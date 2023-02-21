@@ -22,8 +22,16 @@ String id=(String)session.getAttribute("id");
 // String utype=(String)session.getAttribute("utype");
 
 if(id==null){
-	response.sendRedirect("MemberLogin.me");
+	response.sendRedirect("MemberLogin.me");	
+}else if(id.equals("owner")){
 	
+}else{
+	%>
+	<script type="text/javascript">
+	alert("글쓰기 권한이 없습니다.");
+	history.back();
+	</script>
+	<%
 }
 %>
 

@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -6,15 +8,47 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>qna/qnaList.jsp</title>
+<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
+<style>
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 1000px;
+ 	margin: 0 auto;
+ 	padding: 50px;
+}
+.table thead.thead-primary{
+	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;
+	
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+     
+}
+
+#table_search{
+	float: right;
+   
+}
+
+</style>
+
 </head>
 <body>
-<!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
-<!-- 헤더들어가는 곳 -->
-
 <!-- 한페이지에 보여줄 글 개수 -->
 <%
 // //QnaDAO 객체 생성
@@ -54,11 +88,20 @@ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 String qstatus = "";
 %>
 
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
 <article>
-<h3>Q&A</h3>
-	<table border="1">
-		<tr><td>글번호</td><td>작성자</td><td>제목</td>
-		<td>글쓴날짜</td><td>답변상태</td><td>조회수</td></tr>
+<div class="qnalistContainer">
+	<h3 class="heading-section">Q&A</h3>
+	</div>
+		<table class="table">
+			<thead class="thead-primary">
+				<tr><td>No</td><td>Writer</td><td>Title</td>
+				<td>Date</td><td>Answer Status</td><td>View</td></tr>
+			</thead>
+
+
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
@@ -72,7 +115,12 @@ if(dto.getQstatus()==0){
 }
 %>
 	<tr><td><%=dto.getQno() %></td>
-		<td><%=dto.getNo() %></td>
+	<%
+	// id값 받아오기
+	UserDAO qudao = new UserDAO();
+	UserDTO qudto = qudao.getUserNo(dto.getNo());
+	%>
+		<td><%=qudto.getId() %></td>
 		<td><a href="QnaQuestion.qa?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dateFormat.format(dto.getQdate()) %></td>
 		<td><%=qstatus%></td>	
@@ -82,7 +130,7 @@ if(dto.getQstatus()==0){
 %>
 </table>
 <div id="table_search">
-<input type="button" value="글쓰기" class="write" onclick="location.href='QuestionWriteForm.qa'"><br>
+<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
 </div>
 
 <!-- 페이징 처리 -->
@@ -123,7 +171,7 @@ if(endPage < pageCount){
 }
 %>
 
-</article>		
+</article>	
 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>

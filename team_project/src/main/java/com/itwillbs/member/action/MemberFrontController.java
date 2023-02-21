@@ -196,17 +196,39 @@ public class MemberFrontController extends HttpServlet {
 			 forward = new ActionForward();
 				forward.setPath("member/Wish_List.jsp");
 			    forward.setRedirect(false);   
+
 			}else if(sPath.equals("/MemberWishListPro.me")) {
+			    action = new MemberWishListPro();
+
+		}else if(sPath.equals("/MemberWishListPro.me")) {
 			    action = new MemberWishListPro();
 			    try {
 			       forward=action.execute(request, response);
 			    } catch (Exception e) {
 			       e.printStackTrace();
 			    }
-
-			}
-
-		
+		}else if(sPath.equals("/Region1.me")) {
+			action = new Region1();
+		    try {
+		       forward=action.execute(request, response);
+		    } catch (Exception e) {
+		       e.printStackTrace();
+		    }
+		}else if(sPath.equals("/Region2.me")) {
+			action = new Region2();
+		    try {
+		       forward=action.execute(request, response);
+		    } catch (Exception e) {
+		       e.printStackTrace();
+		    }
+		}else if(sPath.equals("/Recommend.me")) {
+			action = new Recommend();
+		    try {
+		       forward=action.execute(request, response);
+		    } catch (Exception e) {
+		       e.printStackTrace();
+		    }
+		}
 		
 		// ----------------------------------------------
 		// 주소 이동

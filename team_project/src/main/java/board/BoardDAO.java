@@ -95,6 +95,46 @@ import member.UserDTO;
 			return boardList;
 		}// getBoardList()
 		
+		public ArrayList<BoardDTO> getBoardList(int startRow, int pageSize, String search){
+			System.out.println("BoardDAO getBoardList()");
+			Connection con =null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			ArrayList<BoardDTO> boardList=new ArrayList<>();
+			try {
+				con=getConnection();
+				
+				String sql="select * from board where btitle like? order by bno desc limit ?,?";
+				pstmt=con.prepareStatement(sql);
+				
+				pstmt.setString(1, "%"+search+"%");
+				pstmt.setInt(2, startRow-1);
+				pstmt.setInt(3, pageSize);
+				
+				rs=pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BoardDTO dto=new BoardDTO();
+
+					dto.setBno(rs.getInt("bno"));
+					dto.setNo(rs.getInt("no"));
+					dto.setBtitle(rs.getString("btitle"));
+					dto.setBcontent(rs.getString("bcontent"));
+					dto.setBcount(rs.getInt("bcount"));
+					dto.setBdate(rs.getTimestamp("bdate"));
+					
+					boardList.add(dto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if(rs!=null) try { rs.close();} catch (Exception e2) {}
+				if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+				if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+			return boardList;
+		}// getBoardList()
+		
 		// bno로 공지사항 조회
 		public BoardDTO getBoard(int bno) {
 			System.out.println("BoardDAO getBoard()");
@@ -151,7 +191,51 @@ import member.UserDTO;
 			}
 			return count;
 		}//getBoardCount()
-			
+		
+		public int getBoardCount(String search) {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			int count=0;
+			try {
+				con=getConnection();
+				String sql="select count(*) from board where btitle like ?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, "%"+search+"%");
+				
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) {
+					count=rs.getInt("count(*)");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+					if(rs!=null) try { rs.close();} catch (Exception e2) {}
+					if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+					if(con!=null) try { con.close();} catch (Exception e2) {}
+			}
+			return count;
+		}//getBoardCount()
+		
+		// 조회수 증가
+		public void bCount(int bno) {
+			System.out.println("bCount BoardDTO()");
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = getConnection();
+				String sql = "update board set bcount = bcount +1 where bno=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, bno);
+				pstmt.executeUpdate();		
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) try {pstmt.close();} catch (Exception e2) {}
+				if (con != null) try {con.close();} catch (Exception e2) {}
+			}
+		}
 		
 		// 공지사항 삭제
 		public void deleteBoard(int bno) {

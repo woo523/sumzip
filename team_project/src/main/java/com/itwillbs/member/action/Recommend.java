@@ -5,22 +5,18 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itwillbs.member.action.ActionForward;
-
 import products.ProductDAO;
 import products.ProductDTO;
 
-public class Result implements Action {
+public class Recommend implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("Result execute()");
-		
 		
 		request.setCharacterEncoding("utf-8");
+		ProductDAO dao=new ProductDAO();
 		//오늘 날짜
 		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-		ProductDAO dao=new ProductDAO();
 		//페이징
 		int pageSize=9;// 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
@@ -31,16 +27,7 @@ public class Result implements Action {
 		int startRow=(currentPage-1)*pageSize+1;
 		int endRow = startRow+pageSize-1;
 		
-		
-		String indate=request.getParameter("indate");
-		String outdate=request.getParameter("outdate");
-		int guest=Integer.parseInt(request.getParameter("guest"));
-		String region=request.getParameter("region");
-		System.out.println(indate);
-		System.out.println(outdate);
-		System.out.println(guest);
-		System.out.println(region);
-		
+				
 		
 		// 한 화면에 보여줄 페이지 개수 설정
 		int pageBlock=10;
@@ -60,7 +47,7 @@ public class Result implements Action {
 		//전체글 개수 select count(*) from board
 		// int 리턴할형 getBoardCount() 메서드 정의
 		// getBoardCount() 메서드 호출
-		int count = dao.getSearchProductCount(indate, outdate, guest, region);
+		int count = dao.getRecommendProductCount();
 		//끝나는 페이지(endPage) = 10  <=  전체페이지(pageCount) = 2
 		//전체페이지(pageCount) 구하기
 		//=> 전체글의 개수 13 /글개수 10 => 1 페이지 +(0.3 글 남아있으면 1페이지 추가)
@@ -69,26 +56,20 @@ public class Result implements Action {
 		if(endPage > pageCount){
 			endPage = pageCount;
 		}
-		
-		
-		
+			
 		
 		// request 담아서 이동
-		ArrayList<ProductDTO> ProductList=dao.getSearchProductList(indate, outdate, guest, region, startRow, pageSize);
+		ArrayList<ProductDTO> ProductList=dao.getRecommendProductList(startRow, pageSize);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("ProductList", ProductList);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
-		request.setAttribute("indate", indate);
-		request.setAttribute("outdate", outdate);
-		request.setAttribute("guest", guest);
-		request.setAttribute("region", region);
 		request.setAttribute("Date", Date);
 		
 		ActionForward forward=new ActionForward();
-		forward.setPath("main/result.jsp");
+		forward.setPath("main/recommend.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

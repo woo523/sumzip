@@ -1,6 +1,10 @@
 package com.itwillbs.products.action;
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,46 +13,75 @@ import com.itwillbs.products.action.ActionForward;
 
 import products.AppointmentDAO;
 import products.AppointmentDTO;
+import products.ProductDAO;
+import products.ProductDTO;
+import products.SalesDAO;
+import products.SalesDTO;
 
 public class ProductsAppointmentPro implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ProductsAppointmentPro execute()");
-		
-		//폼에서 입력한 내용이 서버에 전달 => request 내장객체 저장
-				//request 한글처리
-				request.setCharacterEncoding("utf-8");
-				//폼에서 입력한 내용이 서버에 전달 => request 내장객체 저장
+			System.out.println("ProductsAppointmentPro execute()");
+
+			int pno=Integer.parseInt(request.getParameter("pno"));
+			int no=Integer.parseInt(request.getParameter("no"));
+			Timestamp adate=new Timestamp(System.currentTimeMillis());
+			Timestamp sdate=new Timestamp(System.currentTimeMillis());
 				
-				int ano=Integer.parseInt(request.getParameter("ano"));
-				int pno=Integer.parseInt(request.getParameter("pno"));
-				int no=Integer.parseInt(request.getParameter("no"));
-				int astatus=1;
-				Timestamp adate=new Timestamp(System.currentTimeMillis());
-
-
-				//dto에 값 저장
-				AppointmentDTO dto=new AppointmentDTO();
-				dto.setAno(ano);
-				dto.setPno(pno);
-				dto.setNo(no);
-				dto.setAstatus(astatus);
-				dto.setAdate(adate);
-
-				AppointmentDAO dao=new AppointmentDAO();
-				//DB에 예약정보 저장
-				dao.insertAppointment(dto);
-
-				//예약관리 페이지로 이동
-//				response.sendRedirect("ProductsAppointManage.pr");
-		
+			String indate = request.getParameter("indate");
+			String outdate = request.getParameter("outdate");
 				
-		ActionForward forward=new ActionForward();
-		forward.setPath("ProductsAppointManage.pr");
-		forward.setRedirect(true);
+			// 총 숙박일 계산
+			LocalDate startDate = LocalDate.parse(indate);
+			LocalDate endDate = LocalDate.parse(outdate);
+		   	int daycount = (int)startDate.until(endDate, ChronoUnit.DAYS);
 				
-		return forward;	
+		   	// 총 숙박료 계산
+			ProductDAO pdao = new ProductDAO();
+			ProductDTO pdto = pdao.getProduct(pno);
+			int sprice = pdto.getPprice()*daycount;
+				
+			//Appointment dto에 값 저장
+			AppointmentDTO adto=new AppointmentDTO();
+			adto.setPno(pno);
+			adto.setNo(no);
+			adto.setAdate(adate);
+
+			AppointmentDAO dao=new AppointmentDAO();
+			// DB에 예약정보 저장
+			dao.insertAppointment(adto);
+
+			// 저장된 예약정보 ano 가져오기
+			adto = dao.getAppointment(no, pno);
+			int ano = adto.getAno();
+			
+			// Sales dto에 값 저장
+			SalesDTO sdto = new SalesDTO();
+			sdto.setAno(ano);
+			sdto.setPno(pno);
+			sdto.setNo(no);
+			sdto.setSdate(sdate);
+			sdto.setIndate(indate);
+			sdto.setOutdate(outdate);
+			sdto.setSprice(sprice);
+			
+			SalesDAO sdao = new SalesDAO();
+			sdao.insertSales(sdto);
+			
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('총 "+daycount+"박 숙박료 "+sprice+"원 입니다')");
+			out.println("alert('예약 입금 대기 되었습니다.')");
+			out.println("alert('입금 확인 후 예약 완료 됩니다.')");
+			out.println("location.href='ProductsAppointManage.pr';");
+			out.println("</script>");
+			out.close();
+
+	
+		return null;	
 	}
 	
 }
