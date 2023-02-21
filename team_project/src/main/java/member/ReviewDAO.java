@@ -149,6 +149,7 @@ public class ReviewDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				ReviewDTO rdto=new ReviewDTO();
+				rdto.setNo(rs.getInt("no"));
 				rdto.setRno(rs.getInt("rno"));
 				rdto.setPno(rs.getInt("pno"));
 				rdto.setRtitle(rs.getString("rtitle"));
