@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -82,7 +84,7 @@ if(dto.getQstatus()==0){
 %>
 </table>
 <div id="table_search">
-<input type="button" value="글쓰기" class="write" onclick="location.href='QuestionWriteForm.qa'"><br>
+<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
 </div>
 
 <!-- 페이징 처리 -->
