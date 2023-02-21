@@ -22,7 +22,7 @@ public class AdminLoginPro implements Action{
 		UserDTO dto=dao.userCheck(id, pass);
 		
 		ActionForward forward = null;
-		if(id.equals("admin")){
+		if(id.equals("admin") && dto !=null){
 			//관리자 아이디 일치
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
@@ -43,9 +43,8 @@ public class AdminLoginPro implements Action{
 			out.println("</script>");
 			out.close();
 			}
-		
 		return forward;
-	}
+		}
 	
 
 }

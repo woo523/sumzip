@@ -10,20 +10,18 @@ String pass=request.getParameter("pass");
 UserDAO dao=new UserDAO();
 
 UserDTO dto=dao.userCheck(id, pass);
-                         
-if(id.equals("admin")){
+
+if(id.equals("admin") && dto !=null){
 	session.setAttribute("id",id);
 	response.sendRedirect("user.jsp");
-
-}else{
+	}else{
 // dto null 이면 아이디 비밀번호 틀림 => 자바스크립트 "아이디 비밀번호 틀림"
 //                                          뒤로이동
-	%>
-	<script type="text/javascript">
- 		alert("권한이 없는 사용자입니다");
- 		history.back();
-	</script>
-	<% 
-	
+		%>
+		<script type="text/javascript">
+ 			alert("권한이 없는 사용자입니다");
+ 			history.back();
+		</script>
+		<% 
 }
-%>		 
+%>

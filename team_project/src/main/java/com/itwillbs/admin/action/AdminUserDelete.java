@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import member.UserDAO;
 import member.UserDTO;
@@ -26,7 +27,8 @@ public class AdminUserDelete implements Action{
 			// dao.deleteMember(id) 메서드 호출
 			dao.delUserlist(id);
 			// => 세션값 초기화
-//		 	session.invalidate();		
+//			HttpSession session=request.getSession();
+//			session.invalidate();		
 			// => main.jsp 이동
 			response.sendRedirect("AdminUserList.ad");
 		}else {

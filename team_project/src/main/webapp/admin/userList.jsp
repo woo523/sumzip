@@ -92,6 +92,8 @@ for(int i=0;i<userList.size();i++){
        일반회원
     <% } else if (dto.getUtype() == 2) { %>
        사장님
+    <% } else {%>
+    	관리자
     <% } %>
 	</td>
 	<td><a href="AdminUserDelete.ad?id=<%=dto.getId()%>" onclick="return confirm('회원을 삭제하시겠습니까?')">회원삭제</a></td></tr>
