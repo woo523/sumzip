@@ -20,9 +20,9 @@
   		font-family: 'NanumSquareNeo';
   		max-width: 750px;
  		margin: 0 auto;
- 		height: 500px;
+/*  		height: 500px; */
  		padding: 20px;
- 		box-sizing: border-box;
+/*  		box-sizing: border-box; */
  	}
  	
  	#reviewList {
@@ -81,7 +81,7 @@
 		LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 		
 		// 해당 펜션 리뷰 들고오기
-		if(rdto.getPno() == pno) {
+// 		if(rdto.getPno() == pno) {
 %>
 	<!-- 후기 리스트  -->
 	<ul id="reviewList">
@@ -127,14 +127,20 @@
 			<li id="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="150"></li>
 		<% } %>
 	</ul>
-	<% 
+<%
+	} // 해당 펜션 리뷰 if 
+		
+	}// for
+	
+ // 작성리뷰 확인 if
+ 
 		if(startPage > pageBlock) {
 			%>
 			<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
 			<%
 		}
 		
-		for(i = startPage; i <= endPage; i++) {
+		for(int i = startPage; i <= endPage; i++) {
 			%>
 			<a href="ProductContent.pr?pageNum=<%=i%>&pno=<%=pno %>"><%=i %></a>
 			<%
@@ -145,12 +151,6 @@
 			<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]</a>
 			<%
 		}
-
-	} // 해당 펜션 리뷰 if 
-		
-	}// for
-	
-} // 작성리뷰 확인 if
 %>
 </article>
 	
