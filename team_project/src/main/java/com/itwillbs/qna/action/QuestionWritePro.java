@@ -1,5 +1,6 @@
 package com.itwillbs.qna.action;
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +35,16 @@ public class QuestionWritePro implements Action{
 		Timestamp qdate=new Timestamp(System.currentTimeMillis());
 		String qcontent=request.getParameter("qcontent");
 		
+		ActionForward forward = null;
+		if(qtitle==""||qcontent=="") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('제목 또는 내용을 입력해주세요');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}else {
 		//QnaDTO 객체생성 
 		QnaDTO dto=new QnaDTO();
 		
@@ -52,9 +63,9 @@ public class QuestionWritePro implements Action{
 		dao.insertQna(dto);
 		
 		// 글목록 이동
-		ActionForward forward=new ActionForward();
+		forward=new ActionForward();
 		forward.setPath("QnaList.qa");
-		forward.setRedirect(true);
+		forward.setRedirect(true);}
 		
 		return forward;
 	}

@@ -26,7 +26,7 @@ function fun2() {
 </head>
 <style>
 *{margin: 0;padding: 0;box-sizing: border-box}
-body{background-color: #C5E1A5;}
+body{background-color: #99b19c;}
 ul>li{list-style: none}
 a{text-decoration: none;}
 .top{margin-top: 150px;}

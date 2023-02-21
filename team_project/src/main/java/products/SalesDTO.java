@@ -9,8 +9,20 @@ public class SalesDTO {
 	private int pno; //상품번호
 	private int no; //유저번호
 	private Timestamp sdate; //판매일자
-	private Date indate; //입실일
-	private Date outdate; //퇴실일(몇박)
+	private String indate; //입실일
+	private String outdate; //퇴실일(몇박)
+	public String getIndate() {
+		return indate;
+	}
+	public void setIndate(String indate) {
+		this.indate = indate;
+	}
+	public String getOutdate() {
+		return outdate;
+	}
+	public void setOutdate(String outdate) {
+		this.outdate = outdate;
+	}
 	private int sprice; //총가격
 	
 	public int getSno() {
@@ -43,18 +55,7 @@ public class SalesDTO {
 	public void setSdate(Timestamp sdate) {
 		this.sdate = sdate;
 	}
-	public Date getIndate() {
-		return indate;
-	}
-	public void setIndate(Date indate) {
-		this.indate = indate;
-	}
-	public Date getOutdate() {
-		return outdate;
-	}
-	public void setOutdate(Date outdate) {
-		this.outdate = outdate;
-	}
+
 	public int getSprice() {
 		return sprice;
 	}

@@ -14,7 +14,7 @@
 <jsp:include page="../inc/header.jsp" />
 <!-- 헤더파일들어가는 곳 -->
 <%
-String id=(String)session.getAttribute("id"); //id세션값 불러오기
+String id=(String)session.getAttribute("id"); 
 ProductDTO pdto = (ProductDTO)request.getAttribute("pdto");
 UserDTO udto = (UserDTO)request.getAttribute("udto");
 	
