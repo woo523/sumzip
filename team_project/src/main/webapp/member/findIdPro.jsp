@@ -34,7 +34,7 @@
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
-<div id="wrap">	
+
 <%
 request.setCharacterEncoding("UTF-8");
 String uname = request.getParameter("uname");
@@ -51,7 +51,8 @@ UserDTO dto = dao.findId(uname, email);
        			if (dto != null) {
       		%>
       			<div class="found-success">
-	      			<h3>회원님의 아이디는 <%=dto.getId()%>입니다.</h3>
+	      			<h3>회원님의 아이디는<br> 
+	      			<%=dto.getId()%>입니다.</h3>
 	      			<div class="login-btn">
 	 		    		<a href="MemberLogin.me"><input type="button" id="btnLogin" value="로그인"></a>
 	       			</div>
@@ -71,7 +72,7 @@ UserDTO dto = dao.findId(uname, email);
 		 		%> 
 	 		</form>
 	</div>
-</div>
+
 <jsp:include page="../inc/footer.jsp" />
 </body>
 </html>

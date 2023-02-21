@@ -16,6 +16,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body {
+		background-color: #f5f5f5;
+		font-family: sans-serif;
+	}
+
+	#wrap {
+		margin: 60px auto;
+		width: 90%;
+		max-width: 600px;
+		padding: 20px;
+		background-color: #fff;
+	}
+	
+	form {
+		background-color: white;
+		margin: 20px auto;
+		max-width: 600px;
+		padding: 20px;
+		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+	}
+	
+</style>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->

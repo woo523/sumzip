@@ -53,7 +53,7 @@
 		width: 100%;
 		padding: 10px;
 		margin-top: 20px;
-		background-color: #119208;
+		background-color: #99b19c;
 		color: #fff;
 		font-weight: bold;
 		border: none;
@@ -67,7 +67,7 @@
 	}
 
 	#sub_menu a {
-		color: #C5E1A5;
+		color:  #113000;
 		text-decoration: none;
 	}
 

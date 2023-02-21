@@ -28,9 +28,11 @@
   /* 비밀번호 찾기 폼 */
   .form-container {
     background-color: #fff;
-    margin: 20px auto;
+    margin: 30px auto;
+    margin-bottom: 70px;
     max-width: 600px;
     padding: 30px;
+    padding-bottom: 60px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
   }
@@ -57,17 +59,18 @@
   }
   
   .form-container input[type="button"] {
-    background-color: #119208;
+    background-color: #99b19c;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    float: right;
   }
   
   .form-container input[type="button"]:hover {
-    background-color: #C5E1A5;
+    background-color: #113000;
   }
 </style>
 

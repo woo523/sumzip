@@ -52,7 +52,7 @@
             border: 1px solid #ccc;
         }
         input[type="button"] {
-            background-color: #119208;
+            background-color: #99b19c;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -61,7 +61,7 @@
             cursor: pointer;
         }
         input[type="button"]:hover {
-            background-color: #C5E1A5;
+            background-color: #113000;
         }
     </style>
     
