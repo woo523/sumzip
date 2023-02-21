@@ -15,7 +15,7 @@ int qno=Integer.parseInt(request.getParameter("qno"));
 QnaDAO dao=new QnaDAO();
 QnaDTO dto = dao.getQna(qno); 
 %>
-
+<jsp:include page="../inc/ad_header.jsp" />
 <h1>답변수정</h1>
 <form action="AdminAnswerUpdatePro.ad" method="post"> 
 		<input type="hidden" name="qno" value="<%=qno %>">

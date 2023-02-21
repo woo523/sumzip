@@ -22,7 +22,7 @@ if(id==null){
 	response.sendRedirect("AdminLogin.ad");
 }
 %>
-
+<jsp:include page="../inc/ad_header.jsp" />
 <h1>답변</h1>
 	<form action="AdminAnswerWritePro.ad" method="post"> 
 		<input type="hidden" name="no" value="<%=no%>">

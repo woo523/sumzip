@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
-<%-- <jsp:include page="../inc/ad_header.jsp" /> --%>
+<jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
 <%
 //request에 저장된 qno 파라미터값 가져오기
