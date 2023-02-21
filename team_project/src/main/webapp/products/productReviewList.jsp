@@ -22,7 +22,7 @@
  		margin: 0 auto;
 /*  		height: 500px; */
  		padding: 20px;
-/*  		box-sizing: border-box; */
+  		box-sizing: border-box;
  	}
  	
  	#reviewList {
