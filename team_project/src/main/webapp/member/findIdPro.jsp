@@ -6,10 +6,35 @@
 <html>
 <head>
 <title>아이디 찾기 결과</title>
+<style type="text/css">
+	body {
+		background-color: #f5f5f5;
+		font-family: sans-serif;
+	}
+
+	#wrap {
+		margin: 60px auto;
+		width: 90%;
+		max-width: 600px;
+		padding: 20px;
+		background-color: #fff;
+	}
+	
+	form {
+		background-color: white;
+		margin: 20px auto;
+		max-width: 600px;
+		padding: 20px;
+		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+	}
+	
+</style>
 </head>
 <body>
-	<!-- 헤더들어가는 곳 -->
-	<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+
+<div id="wrap">	
 <%
 request.setCharacterEncoding("UTF-8");
 String uname = request.getParameter("uname");
@@ -46,8 +71,8 @@ UserDTO dto = dao.findId(uname, email);
 		 		%> 
 	 		</form>
 	</div>
-
-	<jsp:include page="../inc/footer.jsp" />
+</div>
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
       
