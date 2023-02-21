@@ -47,7 +47,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 <table border="1">
 <tr><td>이름</td><td>아이디</td>
 	<td>생일</td><td>주소</td><td>이메일</td>
-	<td>가입날짜</td><td>회원삭제</td></tr>
+	<td>가입날짜</td><td>회원유형</td><td>회원삭제</td></tr>
 <%
 //배열 접근 = for
 for(int i=0;i<userList.size();i++){
@@ -58,6 +58,13 @@ for(int i=0;i<userList.size();i++){
 	<td><%=dto.getBirth() %></td>
 	<td><%=dto.getAddress1() %> | <%=dto.getAddress2() %></td>
 	<td><%=dto.getEmail() %></td><td><%=dto.getJoindate() %></td>
+	<td>
+	<% if (dto.getUtype() == 1) { %>
+       일반회원
+    <% } else if (dto.getUtype() == 2) { %>
+       사장님
+    <% } %>
+	</td>
 	<td><a href="AdminUserDelete.ad?id=<%=dto.getId()%>">회원삭제</a></td></tr>
 	<%
 }

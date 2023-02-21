@@ -20,10 +20,10 @@ public class MemberFindPassPro implements Action{
 
 		UserDAO dao = new UserDAO();
 		UserDTO dto = dao.getUser(id);
-		dto.setId(id);
+//		dto.setId(id);
 			
 		String email = dao.findEmail(id);
-		dto.setEmail(email);
+//		dto.setEmail(email);
 		
 		// 이동
 		ActionForward forward = new ActionForward();
