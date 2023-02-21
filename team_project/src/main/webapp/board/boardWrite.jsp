@@ -29,8 +29,6 @@ if(id==null){
 }
 %>
 
-<h3>board/boardWrite.jsp</h3>
-
 
 <!-- 부트스트랩 사용하기 위해 -->
 
