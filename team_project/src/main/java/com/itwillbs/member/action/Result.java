@@ -18,6 +18,7 @@ public class Result implements Action {
 		
 		
 		request.setCharacterEncoding("utf-8");
+		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 		ProductDAO dao=new ProductDAO();
 		int pageSize=9;
 		String pageNum=request.getParameter("pageNum");
@@ -33,8 +34,10 @@ public class Result implements Action {
 		String outdate=request.getParameter("outdate");
 		int guest=Integer.parseInt(request.getParameter("guest"));
 		String region=request.getParameter("region");
-		
-		
+		System.out.println(indate);
+		System.out.println(outdate);
+		System.out.println(guest);
+		System.out.println(region);
 		
 		
 		// 한 화면에 보여줄 페이지 개수 설정
@@ -65,9 +68,6 @@ public class Result implements Action {
 			endPage = pageCount;
 		}
 		
-		System.out.println("st" + startRow);
-		System.out.println(pageSize);
-
 		
 		
 		
@@ -83,7 +83,7 @@ public class Result implements Action {
 		request.setAttribute("outdate", outdate);
 		request.setAttribute("guest", guest);
 		request.setAttribute("region", region);
-
+		request.setAttribute("Date", Date);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/result.jsp");

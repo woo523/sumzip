@@ -37,7 +37,9 @@
         <link rel="stylesheet" href="css1/style.css">
 </head>
 <body><!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
-
+<%
+String Date=(String)request.getAttribute("Date");
+%>
 <header class="header-section">
 	<div class="top-nav">
             <div class="container">
@@ -133,32 +135,21 @@
                         <div class="col-md-9">
                             <div class="boking_table">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                    	<form action="Result.me" method="post">
+                                  <div class="col-md-4">              
+                                    <form action="Result.me" method="post">                      	
                                     	<div class="book_tabel_item">
-                                            <div class="form-group">
-<!--                                                 <div class='input-group date' id='datetimepicker11'> -->
-                                                    <input type='date' name="indate" class="form-control" placeholder="입실일"/>
-<!--                                                     <span class="input-group-addon"> -->
-<!--                                                         <i class="fa fa-calendar" aria-hidden="true"></i> -->
-<!--                                                     </span> -->
-<!--                                                 </div> -->
+                                            <div class="form-group">  
+                                                    <input type='date' name="indate" class="form-control" value="<%=Date%>"/>
                                             </div>
                                             <div class="form-group">
-<!--                                                 <div class='input-group date' id='datetimepicker1'> -->
-                                                    <input type='date' name="outdate" class="form-control" placeholder="퇴실일"/>
-<!--                                                     <span class="input-group-addon"> -->
-<!--                                                         <i class="fa fa-calendar" aria-hidden="true"></i> -->
-<!--                                                     </span> -->
-<!--                                                 </div> -->
+                                                    <input type='date' name="outdate" class="form-control" value="<%=Date%>"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-<!--                                         <div class="book_tabel_item"> -->
                                             <div class="input-group">
                                                 <select class="wide" name="guest">
-                                                    <option data-display="인원 수">인원 수 선택</option>
+                                                    <option value="0">인원수</option>
                                                     <option value="1">1명</option>
                                                     <option value="2">2명</option>
                                                     <option value="3">3명</option>
@@ -172,19 +163,17 @@
                                             </div>
                                             <div class="input-group">
                                                 <select class="wide" name="region">
-                                                    <option data-display="지역">지역 선택</option>
+                                                    <option value="시">지역 선택</option>
                                                     <option value="서귀포시">서귀포시</option>
                                                     <option value="제주시">제주시</option>
                                                 </select>
                                             </div>
-<!--                                         </div> -->
                                     </div>
                                     <div class="col-md-4">
                                       <input type="submit" class="book_now_btn button_hover" value="검색">
-                                    </form>
-                                    </div>
+                                      </form>
+                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>

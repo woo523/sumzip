@@ -14,6 +14,10 @@ public class Main implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		ProductDAO dao=new ProductDAO();
+		
+        
+        String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+        
 		int pageSize=9; // 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
 		if(pageNum==null){
@@ -39,6 +43,7 @@ public class Main implements Action {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
+		request.setAttribute("Date", Date);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("main/main.jsp");

@@ -15,6 +15,7 @@ public class Recommend implements Action{
 		
 		request.setCharacterEncoding("utf-8");
 		ProductDAO dao=new ProductDAO();
+		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 		int pageSize=9;
 		String pageNum=request.getParameter("pageNum");
 		if(pageNum==null){
@@ -63,7 +64,7 @@ public class Recommend implements Action{
 		request.setAttribute("pageBlock", pageBlock);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
-
+		request.setAttribute("Date", Date);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/recommend.jsp");
