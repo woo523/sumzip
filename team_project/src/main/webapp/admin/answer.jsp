@@ -48,12 +48,12 @@ if(id==null){
 	</table>
 	
 	
-	<input type="button" value="글입력" 
+	<input type="button" value="글수정" 
 	onclick="location.href='AdminAnswerUpdateForm.ad?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글삭제" 
 	onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
 	<input type="button" value="글목록" 
-	onclick="location.href='qnaList.qa'"> 
+	onclick="location.href='AdminQnaList.ad'"> 
 
 </body>
 </html>
