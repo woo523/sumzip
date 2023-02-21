@@ -16,9 +16,8 @@
 <style>
   	article {
   		font-family: 'NanumSquareNeo';
- 		max-width: 750px;
+  		max-width: 750px;
  		margin: 0 auto;
- 		height: 100%;
  		padding: 20px;
  		box-sizing: border-box;
  	}
@@ -30,13 +29,14 @@
 	#reviewList li {
 		list-style: none;
 	}
-	#reviewList h4 {
+	article h4 {
 		font-family: 'NanumSquareNeo';
-		margin: 0px 20px 10px 20px;
+		margin: 20px;
 		display: inline-block;
 	}
 	#reviewList #stars {
 		float: right;
+		margin: 20px;
 	}
 	#reviewList #img {
  		margin: 0px 20px 10px 0px;
@@ -63,6 +63,14 @@
 <article>
 <h2>Reviews</h2>
 <%
+
+	// 작성된 리뷰 확인 
+	if(reviewList.size() == 0) {
+		%>
+		<h4>작성된 리뷰가 없습니다.</h4>
+		<%
+	} else {
+		
 	for(int i = 0; i < reviewList.size(); i++) {
 		ReviewDTO rdto = reviewList.get(i);
 		
@@ -71,6 +79,7 @@
 		LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 		System.out.println(rdto.getPno());
 		
+		// 해당 펜션 리뷰 들고오기
 		if(rdto.getPno() == pno) {
 %>
 	<!-- 후기 리스트  -->
@@ -117,22 +126,10 @@
 			<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
 			<%
 		}
-	
-		if(currentPage > 1) {
-			%>
-			<a href="ProductContent.pr?pageNum=<%=currentPage-1%>&pno=<%=pno %>">[1 페이지 이전]</a>
-			<%
-		}
 		
 		for(i = startPage; i <= endPage; i++) {
 			%>
 			<a href="ProductContent.pr?pageNum=<%=i%>&pno=<%=pno %>"><%=i %></a>
-			<%
-		}
-		
-		if(currentPage < pageCount) {
-			%>
-			<a href="ProductContent.pr?pageNum=<%=currentPage+1%>&pno=<%=pno %>">[1 페이지 다음]</a>
 			<%
 		}
 		
@@ -142,13 +139,11 @@
 			<%
 		}
 
-	} // if 
+	} // 해당 펜션 리뷰 if 
 		
-}// for
-%>
+	}// for
 	
-<%
-	
+} // 작성리뷰 확인 if
 %>
 </article>
 	
