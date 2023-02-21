@@ -21,15 +21,23 @@ public class AppointmentDAO {
 	public void insertAppointment(AppointmentDTO dto) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
+		ResultSet rs=null;
 		try {
 			con=getConnection();
-			String sql="insert into Appointment(ano,pno,no,astatus,adate) values(?,?,?,?,?)";
+			int ano=1;
+			String sql="select max(ano) from appointment";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, dto.getAno());  
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				ano=rs.getInt("max(ano)")+1;
+			}
+
+			sql="insert into Appointment(ano,pno,no,astatus,adate) values(?,?,?,1,?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, ano);  
 			pstmt.setInt(2, dto.getPno()); 
 			pstmt.setInt(3, dto.getNo());
-			pstmt.setInt(4, dto.getAstatus());
-			pstmt.setTimestamp(5, dto.getAdate());
+			pstmt.setTimestamp(4, dto.getAdate());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -280,4 +288,39 @@ public class AppointmentDAO {
 		}
 	}//updateAppointment()
 	
-}
+	public AppointmentDTO getAppointment(int no, int pno) { // 방금 예약한 예약정보 들고 오기
+		AppointmentDTO dto=null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select * from appointment where no= ? and pno =? order by adate desc limit 1";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, pno);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				dto = new AppointmentDTO();
+				dto.setAno(rs.getInt("ano"));
+				dto.setPno(rs.getInt("pno"));
+				dto.setNo(rs.getInt("no"));
+				dto.setAstatus(rs.getInt("status"));
+				dto.setAdate(rs.getTimestamp("adate"));
+		}} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return dto;
+	}
+		
+	
+	
+	
+	}
+	
+
+
