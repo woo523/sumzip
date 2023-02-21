@@ -44,13 +44,14 @@ int qno=(Integer)request.getAttribute("qno");
 	<tr><td>글내용</td><td><%=qdto.getQcontent() %></td></tr>
 	<tr><td colspan="2">
 	
-	<input type="button" value="글목록" 
-	onclick="location.href='AdminQnaList.ad'">
+	<div class="btn-group" role="group" aria-label="Basic example">
+	<button type="button" class="btn btn-secondary"
+	onclick="location.href='AdminQnaList.ad'">글목록</button>
 	
 	<!-- 답변이 있을때만 답변확인버튼 보이게 -->
-	<div class="btn-group" role="group" aria-label="Basic example">
-	<button type="button" class="btn btn-secondary" onclick="location.href='AdminQnaAnswer.ad?qno=<%=qdto.getQno() %>'">답변확인</button>
-	<button type="button" class="btn btn-secondary" onclick="location.href='AdminAnswerWriteForm.ad?qno=<%=qdto.getQno() %>'">답변쓰기</button>
+	
+	<button type="button" class="btn btn-outline-secondary" onclick="location.href='AdminQnaAnswer.ad?qno=<%=qdto.getQno() %>'">답변확인</button>
+	<button type="button" class="btn btn-outline-secondary" onclick="location.href='AdminAnswerWriteForm.ad?qno=<%=qdto.getQno() %>'">답변쓰기</button>
 	</div>
 	</td></tr>
 </table>
