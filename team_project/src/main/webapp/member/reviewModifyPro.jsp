@@ -23,6 +23,6 @@
 	ReviewDAO rdao = new ReviewDAO();
 	rdao.updateReview(rdto);
 	
-	response.sendRedirect("myList.jsp");
+	response.sendRedirect("MemberMyList.me");
 	
 %>

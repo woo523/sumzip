@@ -28,7 +28,6 @@
 	String rtitle = request.getParameter("title");
 	String rstar = request.getParameter("rating"); 
 	String rcontent = request.getParameter("content");
-	int rcount = 0;
 	Timestamp rdate = new Timestamp(System.currentTimeMillis());
 // 	String rpic1 = multi.getFilesystemName("rpic1");
 	
@@ -45,7 +44,6 @@
  	dto.setRtitle(rtitle);
  	dto.setRstar(rstar);
  	dto.setRcontent(rcontent);
- 	dto.setRcount(rcount);
  	dto.setRdate(rdate);
 //  	dto.setRpic1(rpic1);
  
@@ -53,7 +51,7 @@
  	ReviewDAO dao = new ReviewDAO();
  	dao.insertReview(dto);
  	
- 	response.sendRedirect("myList.jsp");
+ 	response.sendRedirect("MemberMyList.me");
 	
 
 %>

@@ -84,13 +84,13 @@ if(id != null){
 <input type="button" value="상품목록"
  onclick="history.back()">
  <input type="button" value="숙소예약"
- onclick="location.href='ProductsAppointment.pr?pno=<%=dto.getPno() %>'">
+ onclick="location.href='ProductAppointment.pr?pno=<%=dto.getPno() %>'">
 
 
  </td></tr>
  </table>
 
-<jsp:include page="productReviewList.jsp" flush="false" />
+<jsp:include page="ProductReviewList.pr" flush="false" />
  
  <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />

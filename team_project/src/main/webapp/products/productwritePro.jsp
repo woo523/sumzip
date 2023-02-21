@@ -56,7 +56,7 @@ ProductDAO dao=new ProductDAO();
 dao.insertProduct(dto);
 
 // 글목록(productList.jsp)으로 이동
-response.sendRedirect("productList.jsp");
+response.sendRedirect("ProductList.me");
 
 
 %>

@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/list.css" type="text/css">
+    <link rel="stylesheet" href="css/insert.css" type="text/css">
+    <link rel="stylesheet" href="css/mainList.css" type="text/css">
+    
     
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -63,13 +67,13 @@
 								if(id!=null){
 									if(dto.getUtype()==1){
 									%>
-										<div id="login">♥<%=id %> 님♥ |
+										<div id="login">♥ <%=id %> 님 ♥ |
 										<a href="MemberLogout.me">Logout</a>	|
 										<a href="MemberMyPage_user.me">Mypage</a></div>
 										<% 
 									}else if(dto.getUtype()==2){
-										%>
-										<div id="login">♥<%=id %> 님♥ |
+										%> 
+										<div id="login">♥ <%=id %> 님 ♥ |
 										<a href="MemberLogout.me">Logout</a>	|
 										<a href="MemberMyPage_owner.me">Mypage</a></div>
 										<%
@@ -79,7 +83,7 @@
 								}else{
 									%>
 									<div id="login"><a href="MemberLogin.me">Login</a> |
-													<a href="../member/agree.jsp">Join</a></div>	
+													<a href="MemberAgree.me">Join</a></div>	
 									<%
 								}
 							%>
@@ -103,9 +107,9 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul> 
-                                    <li><a href="#">지역별 조회</a></li>
-                                    <li><a href="#">테마별 조회</a></li>
-                                    <li><a href="#">추천 펜션</a></li>
+                                    <li><a href="Region1.me">제주시 펜션</a></li>
+                                    <li><a href="Region2.me">서귀포시 펜션</a></li>
+                                    <li><a href="Recommend.me">추천 펜션</a></li>
                                     <li><a href="BoardList.bo">공지사항</a></li>
                                     <li><a href="QnaList.qa">Q&A</a></li>
                                 </ul>

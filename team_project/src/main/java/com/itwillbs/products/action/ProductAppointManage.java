@@ -17,11 +17,11 @@ import products.ProductDTO;
 import products.SalesDAO;
 import products.SalesDTO;
 
-public class ProductsAppointManage implements Action{
+public class ProductAppointManage implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ProductsAppointManage execute()");
+		System.out.println("ProductAppointManage execute()");
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("id");
 		

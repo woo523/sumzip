@@ -45,7 +45,7 @@ UserDTO udto = (UserDTO)request.getAttribute("udto");
                     
                     <div class="col-lg-5 offset-lg-1">
                       
-                        <form action="ProductsAppointmentPro.pr" method="post">
+                        <form action="ProductAppointmentPro.pr" method="post">
                             <h2>예약자 정보확인</h2>
                             <br>
                             <ul class="ap-services">

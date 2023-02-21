@@ -10,5 +10,5 @@
 	ReviewDAO rdao = new ReviewDAO();
 	rdao.deleteReview(ano);
 	
-	response.sendRedirect("myList.jsp");
+	response.sendRedirect("MemberMyList.me");
 %>

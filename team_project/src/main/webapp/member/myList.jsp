@@ -81,7 +81,7 @@
 <!-- header -->
 <jsp:include page="../inc/header.jsp" />
 
-<form name="myListForm" action="" id="myList" method="get">
+<form name="myListForm.me" action="" id="myList" method="get">
 <h3>내 이용 내역</h3>
 <% 
 	// 예약 내역 확인
@@ -174,7 +174,7 @@
    				alert("로그인을 해주세요");
  			</script>
 			<%
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("MemberLogin.me");
 		} %>
 	</ul> <% // id 확인 메서드
 	

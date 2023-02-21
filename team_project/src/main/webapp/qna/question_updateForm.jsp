@@ -40,8 +40,8 @@ QnaDTO dto = (QnaDTO)request.getAttribute("dto");
 
 <h4>Question 수정</h4>
 <form action="QuestionUpdatePro.qa" method="post"> 
-	<table border="1">
 		<input type="hidden" name="qno" value="<%=dto.getQno() %>">
+	<table border="1">
 			<tr><td>작성자번호</td>
 			<td><input type="text" name="no" value="<%=dto.getNo() %>" readonly></td></tr>
 			<tr><td>제목</td>

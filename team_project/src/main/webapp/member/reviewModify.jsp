@@ -95,7 +95,7 @@
     			alert("로그인을 해주세요");
   		</script>
 		<%
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("MemberLogin.me");
 	}
 	
 	ReviewDTO rdto = (ReviewDTO)request.getAttribute("rdto");

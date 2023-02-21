@@ -25,6 +25,10 @@
     	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     	<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     	<link rel="stylesheet" href="css/style.css" type="text/css">
+    	<link rel="stylesheet" href="css/list.css" type="text/css">
+	    <link rel="stylesheet" href="css/insert.css" type="text/css">
+	    <link rel="stylesheet" href="css/mainList.css" type="text/css">
+    
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
@@ -59,13 +63,13 @@ String Date=(String)request.getAttribute("Date");
 								if(id!=null){
 									if(dto.getUtype()==1){
 									%>
-										<div id="login">♥<%=id %> 님♥ |
+										<div id="login">♥ <%=id %> 님 ♥ |
 										<a href="MemberLogout.me">Logout</a>	|
 										<a href="MemberMyPage_user.me">Mypage</a></div>
 										<% 
 									}else if(dto.getUtype()==2){
-										%>
-										<div id="login">♥<%=id %> 님♥ |
+										%> 
+										<div id="login">♥ <%=id %> 님 ♥ |
 										<a href="MemberLogout.me">Logout</a>	|
 										<a href="MemberMyPage_owner.me">Mypage</a></div>
 										<%
@@ -75,7 +79,7 @@ String Date=(String)request.getAttribute("Date");
 								}else{
 									%>
 									<div id="login"><a href="MemberLogin.me">Login</a> |
-													<a href="../member/agree.jsp">Join</a></div>	
+													<a href="MemberAgree.me">Join</a></div>	
 									<%
 								}
 							%>
@@ -163,7 +167,7 @@ String Date=(String)request.getAttribute("Date");
                                             </div>
                                             <div class="input-group">
                                                 <select class="wide" name="region">
-                                                    <option value="시">지역 선택</option>
+                                                    <option value="서귀포시">서귀포시</option>
                                                     <option value="서귀포시">서귀포시</option>
                                                     <option value="제주시">제주시</option>
                                                 </select>

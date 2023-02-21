@@ -7,5 +7,5 @@ session.invalidate();
 %>
 <script>
 	alert("로그아웃");
-	location.href="../main/main.jsp";
+	location.href="Main.me";
 </script>

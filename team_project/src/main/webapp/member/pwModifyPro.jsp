@@ -29,7 +29,7 @@ if(dto!=null){
 	// => dao.updateMember(updateDto) 메서드 호출
 	// => ../main/main.jsp 이동
 	dao.modifyPass(modifyPassDto); 
-    response.sendRedirect("login.jsp");
+    response.sendRedirect("MemberLogin.me");
 }else{
 	// 아이디 비밀번호 틀림 => 빈바구니 주소 가져오기
 	// => 데이터 없으면 false => 아이디 비밀번호 틀림

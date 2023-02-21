@@ -29,6 +29,6 @@ dto.setCdate(cdate);
 CommendDAO dao = new CommendDAO();
 dao.insertCommend(dto);
 
-response.sendRedirect("boardContent.jsp");
+response.sendRedirect("BoardContent.bo");
 
 %>

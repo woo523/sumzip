@@ -18,11 +18,11 @@ import products.ProductDTO;
 import products.SalesDAO;
 import products.SalesDTO;
 
-public class ProductsAppointmentPro implements Action {
+public class ProductAppointmentPro implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-			System.out.println("ProductsAppointmentPro execute()");
+			System.out.println("ProductAppointmentPro execute()");
 
 			int pno=Integer.parseInt(request.getParameter("pno"));
 			int no=Integer.parseInt(request.getParameter("no"));
@@ -76,7 +76,7 @@ public class ProductsAppointmentPro implements Action {
 			out.println("alert('총 "+daycount+"박 숙박료 "+sprice+"원 입니다')");
 			out.println("alert('예약 입금 대기 되었습니다.')");
 			out.println("alert('입금 확인 후 예약 완료 됩니다.')");
-			out.println("location.href='ProductsAppointManage.pr';");
+			out.println("location.href='ProductAppointManage.pr';");
 			out.println("</script>");
 			out.close();
 

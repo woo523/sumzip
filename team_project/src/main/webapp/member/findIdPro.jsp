@@ -65,7 +65,7 @@ UserDTO dto = dao.findId(uname, email);
 		    	</div>
 		    	<div class="login-btn">
 		     		<input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
-		     		<a href="join.jsp"><input type="button" id="btnjoin" value="회원가입"></a>
+		     		<a href="MemberAgree.me"><input type="button" id="btnjoin" value="회원가입"></a>
 		    	</div> 
 		    	<%
 		  		}

@@ -32,12 +32,12 @@
 		<!-- 헤더들어가는 곳 -->
 		<nav id="sidebar">
 			<ul>
-				<li><a href="MemberMyPage_owner">내 정보 조회</a></li>
+				<li><a href="MemberMyPage_owner.me">내 정보 조회</a></li>
 				<li><a href="#">내 이용목록</a></li>
-				<li><a href="../products/productList.jsp">내 펜션조회</a></li>
-				<li><a href="../products/appointManage.jsp">예약관리</a></li>
-				<li><a href="#">찜 목록</a></li>
-				<li><a href="deleteForm.jsp">회원탈퇴</a></li>
+				<li><a href="ProductList.pr">내 펜션조회</a></li>
+				<li><a href="ProductsAppointManage.pr">예약관리</a></li>
+				<li><a href="MemberWishList.me">찜 목록</a></li>
+				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -95,8 +95,8 @@
 						</div>
 						
 						<div class="btnChange">
-							<a href="updateForm.jsp"><input type="button" name="user_modify"
-								value="회원정보 수정"></a> <a href="pwModify.jsp"><input
+							<a href="MemberUpdateForm.me"><input type="button" name="user_modify"
+								value="회원정보 수정"></a> <a href="MemberPwModify.me"><input
 								type="button" name="pw_modify" value="비밀번호 수정"></a>
 						</div>
 					</form>

@@ -13,6 +13,6 @@ ProductDAO dao=new ProductDAO();
 
 dao.deleteProduct(pno);
 
-response.sendRedirect("productList.jsp");
+response.sendRedirect("ProductList.pr");
 
 %>

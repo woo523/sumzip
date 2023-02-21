@@ -26,7 +26,7 @@ if(dto != null){
 	// => 세션값 초기화
 // 	session.invalidate();		
 	// => appointManage.jsp 이동
-	response.sendRedirect("appointManage.jsp");
+	response.sendRedirect("ProductAppointManage.pr");
 }else{
 	// 일치하지 않을 시
     %>

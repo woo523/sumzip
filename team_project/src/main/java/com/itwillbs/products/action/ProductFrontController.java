@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class ProductsFrontController extends HttpServlet {
+public class ProductFrontController extends HttpServlet {
 	
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -85,32 +85,32 @@ public class ProductsFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}	
-			}if(sPath.equals("/ProductsAppointment.pr")) {
-				action=new ProductsAppointment();
+			}if(sPath.equals("/ProductAppointment.pr")) {
+				action=new ProductAppointment();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else if(sPath.equals("/ProductsAppointmentPro.pr")) {
+			}else if(sPath.equals("/ProductAppointmentPro.pr")) {
 				
 				// 부모 = 자식 객체생성
-				action=new ProductsAppointmentPro();
+				action=new ProductAppointmentPro();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				
-			}else if(sPath.equals("/ProductsAppointManage.pr")) {
-				action=new ProductsAppointManage();
+			}else if(sPath.equals("/ProductAppointManage.pr")) {
+				action=new ProductAppointManage();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}else if(sPath.equals("/ProductsAppointManagePro.pr")) {
-				action=new ProductsAppointManagePro();
+			}else if(sPath.equals("/ProductAppointManagePro.pr")) {
+				action=new ProductAppointManagePro();
 				try {
 					forward=action.execute(request, response);
 				} catch (Exception e) {

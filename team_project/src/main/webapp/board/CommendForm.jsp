@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/list.css" type="text/css">
+    <link rel="stylesheet" href="css/insert.css" type="text/css">
+    <link rel="stylesheet" href="css/mainList.css" type="text/css">
+    
 </head>
 <body>
 <%

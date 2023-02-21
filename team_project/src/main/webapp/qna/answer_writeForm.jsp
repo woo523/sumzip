@@ -19,12 +19,12 @@ int no = rdto.getNo();
 
 //로그인 되어있지 않으면 로그인화면으로
 if(id==null){
-	response.sendRedirect("../member/login.jsp");
+	response.sendRedirect("AdminLogin.jsp");
 }
 %>
 
 <h1>답변</h1>
-	<form action="answer_writePro.jsp" method="post"> 
+	<form action="AnswerWritePro.qa" method="post"> 
 		<input type="hidden" name="no" value="<%=no%>">
 		<input type="hidden" name="qno" value="<%=qno%>">
 			<table border="1">

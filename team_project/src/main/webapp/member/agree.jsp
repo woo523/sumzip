@@ -52,7 +52,7 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
 <div class="top">
 <!-- 헤더들어가는 곳 -->
 <div class="logo" style="margin-bottom: 10px;">
-     <a href="/Main.me">
+     <a href="Main.me">
      <img src="img/logo.png" alt="섬집"></a>
  </div>
 <form action="MemberJoin.me" id="agreeForm" name="ac">

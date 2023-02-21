@@ -45,7 +45,7 @@ ProductDAO dao=new ProductDAO();
 
 dao.updateProduct(dto);
 
-response.sendRedirect("productList.jsp");
+response.sendRedirect("ProductList.pr");
 
 %>
 </body>

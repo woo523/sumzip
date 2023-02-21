@@ -30,5 +30,5 @@ dao.insertReply(dto);
 %>
 
 <script type="text/javascript">
-location.href="CommendUpdatePro.jsp?bno=<%=bno%>";
+location.href="BoardCommendUpdatePro.bo?bno=<%=bno%>";
 </script>

@@ -11,11 +11,11 @@ import member.UserDTO;
 import products.ProductDAO;
 import products.ProductDTO;
 
-public class ProductsAppointment implements Action{
+public class ProductAppointment implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ProductsAppointment execute()");
+		System.out.println("ProductAppointment execute()");
 		HttpSession session = request.getSession();
 		
 		String id=(String)session.getAttribute("id");
