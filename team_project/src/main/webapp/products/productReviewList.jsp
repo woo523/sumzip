@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -18,8 +20,9 @@
   		font-family: 'NanumSquareNeo';
   		max-width: 750px;
  		margin: 0 auto;
+/*  		height: 500px; */
  		padding: 20px;
- 		box-sizing: border-box;
+/*  		box-sizing: border-box; */
  	}
  	
  	#reviewList {
@@ -50,7 +53,6 @@
 	ArrayList<ReviewDTO> reviewList = (ArrayList<ReviewDTO>)request.getAttribute("reviewList");
 	
 	int pno = Integer.parseInt(request.getParameter("pno"));
-	System.out.println(pno);
 
 	int currentPage = (Integer)request.getAttribute("currentPage");
 	int startPage = (Integer)request.getAttribute("startPage");
@@ -77,15 +79,14 @@
 		// 작성일자 포맷 변경
 		Timestamp getDate = rdto.getRdate();
 		LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
-		System.out.println(rdto.getPno());
 		
 		// 해당 펜션 리뷰 들고오기
-		if(rdto.getPno() == pno) {
+// 		if(rdto.getPno() == pno) {
 %>
 	<!-- 후기 리스트  -->
 	<ul id="reviewList">
 		<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">
-		<li id="stars">
+		<li id="stars"><%=rdto.getRstar() %> 점
 		<%
 			String star = rdto.getRstar();
 			int getStar = Integer.parseInt(star);
@@ -96,6 +97,12 @@
 			}
 		%>
 		</li>
+		<%
+		UserDAO rudao = new UserDAO();
+		UserDTO rudto = rudao.getUserNo(rdto.getNo());
+		
+		%>
+		<li>작성자 : <%=rudto.getId() %></li>
 		<li>작성일자 : <%=getDateFm %></li>
 		<li id="contents"><%=rdto.getRcontent() %></li>
 		
@@ -120,14 +127,20 @@
 			<li id="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="150"></li>
 		<% } %>
 	</ul>
-	<% 
+<%
+	} // 해당 펜션 리뷰 if 
+		
+	}// for
+	
+ // 작성리뷰 확인 if
+ 
 		if(startPage > pageBlock) {
 			%>
 			<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
 			<%
 		}
 		
-		for(i = startPage; i <= endPage; i++) {
+		for(int i = startPage; i <= endPage; i++) {
 			%>
 			<a href="ProductContent.pr?pageNum=<%=i%>&pno=<%=pno %>"><%=i %></a>
 			<%
@@ -138,12 +151,6 @@
 			<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]</a>
 			<%
 		}
-
-	} // 해당 펜션 리뷰 if 
-		
-	}// for
-	
-} // 작성리뷰 확인 if
 %>
 </article>
 	

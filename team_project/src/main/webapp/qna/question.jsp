@@ -49,28 +49,28 @@ int qno=(Integer)request.getAttribute("qno");
 		// 글쓴이,세션값 => 일치 => 자기자신이 쓴 글(글수정, 글삭제 보이기)
 		if(id.equals(udto.getId())){
 	%>
-	<input type="button" value="글수정" 
-	onclick="location.href='QuestionUpdateForm.qa?qno=<%=qdto.getQno() %>'">
-	<input type="button" value="글삭제" 
-	onclick="location.href='QuestionDelete.qa?qno=<%=qdto.getQno() %>'">
+	<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-outline-secondary" onclick="location.href='QuestionUpdateForm.qa?qno=<%=qdto.getQno() %>'">글수정</button>
+  <button type="button" class="btn btn-outline-secondary" onclick="location.href='QuestionDelete.qa?qno=<%=qdto.getQno() %>'">글삭제</button>
+
+
 	<%
 		}
 	}
 	%>
-	<input type="button" value="글목록" 
-	onclick="location.href='QnaList.qa'">
+	<button type="button" class="btn btn-outline-secondary" onclick="location.href='QnaList.qa'">글목록</button>
 	
-	<!-- 답변이 있을때만 답변확인버튼 보이게 -->
+<!-- 답변이 있을때만 답변확인버튼 보이게 -->
 	<%
 	if(qdto.getQstatus()==0){
 		if(id.equals(udto.getId())){
 	%>
-	<input type="button" value="답변확인" 
-	onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">
+	<button type="button" class="btn btn-secondary" onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">답변확인</button>
 	<%
 		}
 	}
 	%>
+	</div>
 	</td></tr>
 </table>
 </body>

@@ -24,33 +24,33 @@
 <%
 request.setCharacterEncoding("UTF-8");
 String id = request.getParameter("id");
-// String email = request.getParameter("email");
+
 
 UserDAO dao = new UserDAO();
 UserDTO dto = dao.getUser(id);
 	
-dto.setId(id);
-	
+//dto.setId(id);
+
 String email = dao.findEmail(id);
-dto.setEmail(email);
+//dto.setEmail(email);
 %>
 	<div id="wrap">
 		<form name="passsearch" method="post">
 	<%
 	//전송할 이메일 보여주기
-	if(dto != null) {
+	if(dto!=null) {
 	%>
 		<div class="found-success">
 		<h3>임시 비밀번호 발급</h3>
 		<p>아래 이메일로 임시 비밀번호를 전송합니다.</p>
 		<p><%=dto.getEmail() %></p>
 		</div>
-
+		<a href="MemberLogin.me"><input type="button" name=login value="로그인하기"></a>
 	<%			
 	} else {
 	%>
 		<div class="found-fail">
-		<p>회원정보가 없습니다</p>
+		<h3>회원정보가 없습니다</h3>
 	    <p><a href='javascript:history.back()'>[다시시도]</a></p>
 	    </div>
 		<%
@@ -66,7 +66,6 @@ dto.setEmail(email);
 	//임시 비밀번호 메일로 전송
 	dao.sendTmpPw(tmpPasswd, dto);	
 %>
-	<a href="MemberLogin.me"><input type="button" name=login value="로그인하기"></a>
 	
 <jsp:include page="../inc/footer.jsp" />
 </body>

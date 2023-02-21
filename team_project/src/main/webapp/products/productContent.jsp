@@ -88,12 +88,10 @@ if(id != null){
  </td></tr>
  </table>
 
-<jsp:include page="productReviewList.jsp" flush="false">
-	<jsp:param value="<%=dto.getPno() %>" name="getPno"/>
-</jsp:include>
+<jsp:include page="productReviewList.jsp" flush="false" />
  
  <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>

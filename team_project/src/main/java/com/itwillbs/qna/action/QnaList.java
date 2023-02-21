@@ -12,6 +12,7 @@ public class QnaList implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		System.out.println("QnaList execute()");
 		 
 		// 디비 데이터 가져오기

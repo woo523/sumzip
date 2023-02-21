@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,6 +11,18 @@
 <head>
 <meta charset="UTF-8">
 <title>qna/qnaList.jsp</title>
+<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
+<style>
+.table thead.thead-primary{
+	background: #99b19c;
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #000;
+}
+</style>
+
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -55,10 +69,12 @@ String qstatus = "";
 %>
 
 <article>
-<h3>Q&A</h3>
-	<table border="1">
-		<tr><td>글번호</td><td>작성자</td><td>제목</td>
-		<td>글쓴날짜</td><td>답변상태</td><td>조회수</td></tr>
+<h3 class="heading-section">Q&A</h3>
+	<table class="table">
+	<thead class="thead-primary">
+		<tr><td>No</td><td>Writer</td><td>Title</td>
+		<td>Date</td><td>Answer Status</td><td>View</td></tr>
+		</thead>
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
@@ -72,7 +88,12 @@ if(dto.getQstatus()==0){
 }
 %>
 	<tr><td><%=dto.getQno() %></td>
-		<td><%=dto.getNo() %></td>
+	<%
+	// id값 받아오기
+	UserDAO qudao = new UserDAO();
+	UserDTO qudto = qudao.getUserNo(dto.getNo());
+	%>
+		<td><%=qudto.getId() %></td>
 		<td><a href="QnaQuestion.qa?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 		<td><%=dateFormat.format(dto.getQdate()) %></td>
 		<td><%=qstatus%></td>	
@@ -82,7 +103,7 @@ if(dto.getQstatus()==0){
 %>
 </table>
 <div id="table_search">
-<input type="button" value="글쓰기" class="write" onclick="location.href='QuestionWriteForm.qa'"><br>
+<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
 </div>
 
 <!-- 페이징 처리 -->

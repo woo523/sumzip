@@ -9,13 +9,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/admain.css" type="text/css" >
 <title>Insert title here</title>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
-
+		
+<!-- Backgrounds -->
+<div class="menu-item">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-2">
+				<div class="sidenav">		
+					<button class="dropdown-btn">Q&A <i class="fa fa-caret-down"></i>
+					</button>
+				<div class="dropdown-container">
+					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a> 
+				</div>
+					<button class="dropdown-btn">공지사항 <i class="fa fa-caret-down"></i>
+					</button>
+				<div class="dropdown-container">
+					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+				</div> 
+					<a href="AdminAppointNow.ad">숙소예약현황</a> 
+					<a href="AdminUserList.ad">유저관리</a>
+					<button class="dropdown-btn">기타 <i class="fa fa-caret-down"></i>
+					</button>
+				<div class="dropdown-container">
+					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link 3</a>
+				</div>	
+				</div>
+			</div>
+			
+<div class="col-lg-10">
+	<div class="content-main">			
 <%
 // UserDAO dao=new UserDAO();
 //한 페이지레 보여줄 글개수 설정
@@ -47,7 +76,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 <table border="1">
 <tr><td>이름</td><td>아이디</td>
 	<td>생일</td><td>주소</td><td>이메일</td>
-	<td>가입날짜</td><td>회원삭제</td></tr>
+	<td>가입날짜</td><td>회원유형</td><td>회원삭제</td></tr>
 <%
 //배열 접근 = for
 for(int i=0;i<userList.size();i++){
@@ -58,7 +87,14 @@ for(int i=0;i<userList.size();i++){
 	<td><%=dto.getBirth() %></td>
 	<td><%=dto.getAddress1() %> | <%=dto.getAddress2() %></td>
 	<td><%=dto.getEmail() %></td><td><%=dto.getJoindate() %></td>
-	<td><a href="AdminUserDelete.ad?id=<%=dto.getId()%>">회원삭제</a></td></tr>
+	<td>
+	<% if (dto.getUtype() == 1) { %>
+       일반회원
+    <% } else if (dto.getUtype() == 2) { %>
+       사장님
+    <% } %>
+	</td>
+	<td><a href="AdminUserDelete.ad?id=<%=dto.getId()%>" onclick="return confirm('회원을 삭제하시겠습니까?')">회원삭제</a></td></tr>
 	<%
 }
 %>
@@ -103,5 +139,10 @@ if(endPage < pageCount){
 %>
 </div>
 </form>
+</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

@@ -59,7 +59,6 @@ public class MemberReviewPro implements Action {
 	 	dto.setRtitle(rtitle);
 	 	dto.setRstar(rstar);
 	 	dto.setRcontent(rcontent);
-	 	dto.setRcount(rcount);
 	 	dto.setRdate(rdate);
 	 	dto.setRpic1(rpic1);
 	 	dto.setRpic2(rpic2);

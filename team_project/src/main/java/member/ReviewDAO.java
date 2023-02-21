@@ -35,8 +35,8 @@ public class ReviewDAO {
 			if(rs.next()) {
 				rno = rs.getInt("max(rno)") + 1;
 			}
-			sql = "insert into review(rno, no, pno, ano, rtitle, rstar, rcontent, rcount, rdate, rpic1, rpic2, rpic3)"
-			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into review(rno, no, pno, ano, rtitle, rstar, rcontent, rdate, rpic1, rpic2, rpic3)"
+			    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rno);  // 게시글번호
 			pstmt.setInt(2, dto.getNo()); // 유저번호
@@ -45,12 +45,13 @@ public class ReviewDAO {
 			pstmt.setString(5, dto.getRtitle());
 			pstmt.setString(6, dto.getRstar());
 			pstmt.setString(7, dto.getRcontent());
-			pstmt.setInt(8, dto.getRcount());
-			pstmt.setTimestamp(9, dto.getRdate());
-			pstmt.setString(10, dto.getRpic1());
-			pstmt.setString(11, dto.getRpic2());
-			pstmt.setString(12, dto.getRpic3());
+			pstmt.setTimestamp(8, dto.getRdate());
+			pstmt.setString(9, dto.getRpic1());
+			pstmt.setString(10, dto.getRpic2());
+			pstmt.setString(11, dto.getRpic3());
+			
 			pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -149,6 +150,7 @@ public class ReviewDAO {
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				ReviewDTO rdto=new ReviewDTO();
+				rdto.setNo(rs.getInt("no"));
 				rdto.setRno(rs.getInt("rno"));
 				rdto.setPno(rs.getInt("pno"));
 				rdto.setRtitle(rs.getString("rtitle"));
