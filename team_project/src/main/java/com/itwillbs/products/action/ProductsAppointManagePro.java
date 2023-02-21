@@ -17,8 +17,7 @@ public class ProductsAppointManagePro implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ProductsAppointManagePro execute()");
 
-		
-		// 가져온 넘버값 num에 저장
+
 		int ano=Integer.parseInt(request.getParameter("ano"));
 	
 		
@@ -32,7 +31,7 @@ public class ProductsAppointManagePro implements Action {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		out.println("<script type='text/javascript'>");
-		out.println("alert('예약정보가 삭제됩니다.');");
+		out.println("alert('숙소 예약이 취소됩니다.');");
 		out.println("location.href='ProductsAppointManage.pr'");
 		out.println("</script>");
 		out.close();

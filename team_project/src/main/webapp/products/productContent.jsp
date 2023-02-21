@@ -1,3 +1,4 @@
+<%@page import="member.UserDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="products.ProductDAO"%>
@@ -66,21 +67,22 @@ UserDTO udto=(UserDTO)request.getAttribute("udto");
 <tr><td colspan="2">
 <%
 // 로그인 => 세션값 있음
+UserDAO pudao = new UserDAO();
+UserDTO pudto = pudao.getUserNo(dto.getNo()); // 상품 올린 user 정보 가져오기
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-	if(id.equals("owner")){
+	if(id.equals(pudto.getId())){
 		%>
 <input type="button" value="상품수정"
  onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">
  <input type="button" value="상품삭제"
  onclick="location.href='ProductDeletePro.pr?pno=<%=dto.getPno() %>'">		
-
 		<%
 	}
 }
 %>
 <input type="button" value="상품목록"
- onclick="location.href='ProductList.pr'">
+ onclick="history.back()">
  <input type="button" value="숙소예약"
  onclick="location.href='ProductsAppointment.pr?pno=<%=dto.getPno() %>'">
 

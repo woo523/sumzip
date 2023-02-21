@@ -29,7 +29,9 @@ public class ProductsAppointment implements Action{
 			out.println("</script>");
 			out.close();	
 		}else {
-		
+			
+			
+			
 		int pno = Integer.parseInt(request.getParameter("pno"));
 		ProductDAO pdao = new ProductDAO();
 		ProductDTO pdto = pdao.getProduct(pno);
@@ -40,6 +42,7 @@ public class ProductsAppointment implements Action{
 		
 		request.setAttribute("pdto", pdto);
 		request.setAttribute("udto", udto);
+		
 		
 		forward = new ActionForward();
 		forward.setPath("products/appointment.jsp");
