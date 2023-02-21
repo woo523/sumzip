@@ -21,9 +21,6 @@
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
-<h3>임시 비밀번호 발급</h3>
-<p>아래 이메일로 임시 비밀번호를 전송합니다.</p>
-
 <%
 request.setCharacterEncoding("UTF-8");
 String id = request.getParameter("id");
@@ -31,21 +28,37 @@ String id = request.getParameter("id");
 
 UserDAO dao = new UserDAO();
 UserDTO dto = dao.getUser(id);
-
 	
-	dto.setId(id);
+dto.setId(id);
 	
-	String email = dao.findEmail(id);
-	dto.setEmail(email);
-	
+String email = dao.findEmail(id);
+dto.setEmail(email);
+%>
+	<div id="wrap">
+		<form name="passsearch" method="post">
+	<%
 	//전송할 이메일 보여주기
-	if(email.length()<1) {
-		out.println("<p>회원정보가 없습니다</p>");
-	    out.println("<p><a href='javascript:history.back()'>[다시시도]</a></p>");			
+	if(dto != null) {
+	%>
+		<div class="found-success">
+		<h3>임시 비밀번호 발급</h3>
+		<p>아래 이메일로 임시 비밀번호를 전송합니다.</p>
+		<p><%=dto.getEmail() %></p>
+		</div>
+
+	<%			
 	} else {
-		out.println("<p>이메일 : " + email + "</p>");
+	%>
+		<div class="found-fail">
+		<p>회원정보가 없습니다</p>
+	    <p><a href='javascript:history.back()'>[다시시도]</a></p>
+	    </div>
+		<%
 	}
-	
+	%>
+	</form>
+	</div>
+	<%
 	//임시 비밀번호 생성
 	String tmpPasswd = dao.tmpPasswd(dto);
 	//out.print(tmpPasswd);
