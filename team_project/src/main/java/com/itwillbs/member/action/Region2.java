@@ -15,8 +15,10 @@ public class Region2 implements Action{
 		
 		request.setCharacterEncoding("utf-8");
 		ProductDAO dao=new ProductDAO();
+		//오늘 날짜
 		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-		int pageSize=9;
+		//페이징
+		int pageSize=9;// 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
 		if(pageNum==null){
 			pageNum="1";
@@ -56,7 +58,7 @@ public class Region2 implements Action{
 		}
 			
 		
-		// dto request 담아서 이동
+		// request 담아서 이동
 		ArrayList<ProductDTO> ProductList=dao.getRegion2ProductList(startRow, pageSize);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("ProductList", ProductList);
