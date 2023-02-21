@@ -13,8 +13,6 @@ import member.ReviewDAO;
 import member.ReviewDTO;
 import member.UserDAO;
 import member.UserDTO;
-import products.ProductDAO;
-import products.ProductDTO;
 
 public class MemberReviewPro implements Action {
 
