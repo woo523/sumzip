@@ -38,7 +38,7 @@ public class ProductWritePro implements Action {
 		String paddress2= multi.getParameter("paddress2");
 		String ptel= multi.getParameter("ptel");
 		String checkin=multi.getParameter("checkin");
-		String checkout=multi.getParameter("checkin");
+		String checkout=multi.getParameter("checkout");
 		int pprice= Integer.parseInt(multi.getParameter("pprice"));
 		int max_men= Integer.parseInt(multi.getParameter("max_men"));
 		int expiration= Integer.parseInt(multi.getParameter("expiration"));
