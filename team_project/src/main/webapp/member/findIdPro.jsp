@@ -6,7 +6,6 @@
 <html>
 <head>
 <title>아이디 찾기 결과</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<!-- 헤더들어가는 곳 -->
