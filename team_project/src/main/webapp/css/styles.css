@@ -19,7 +19,7 @@ body {
 	padding: 0;
 	margin-left: 0;
 	height: 100%;
-	background-color: #CAF0D3;
+	background-color: #99b19c;
 	display: inline-block;
 	overflow: hidden;
 }
@@ -67,7 +67,7 @@ body {
 	letter-spacing: 2px;
 	font-size: 20px;
 	padding: 14px;
-	background-color: #00B72E;
+	background-color: #113000;
 }
 
 .form-group input {
@@ -107,7 +107,7 @@ body {
 }
 
 .forgot-password a {
-	color: #00B72E;
+	color: #113000;
 	opacity: 0.6;
 }
 
@@ -156,11 +156,11 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #00B72E;
+  background-color: #113000;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px ##00B72E;
+  box-shadow: 0 0 1px #113000;
 }
 
 input:checked + .slider:before {
