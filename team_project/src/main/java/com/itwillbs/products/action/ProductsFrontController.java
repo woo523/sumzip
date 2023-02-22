@@ -117,14 +117,6 @@ public class ProductsFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 				
-			} else if(sPath.equals("/ProductReviewList.pr")) {
-				action = new ProductReviewList();
-				try {
-					forward=action.execute(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
 			}
 			
 	
