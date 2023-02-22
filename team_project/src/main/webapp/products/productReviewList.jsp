@@ -20,7 +20,6 @@
   		font-family: 'NanumSquareNeo';
   		max-width: 750px;
  		margin: 0 auto;
-/*  		height: 500px; */
  		padding: 20px;
   		box-sizing: border-box;
  	}
@@ -45,7 +44,7 @@
  		margin: 0px 20px 10px 0px;
  		color : black;
         display: inline-block;
-	}
+	}	
 </style>
 <body>
 <%
@@ -79,9 +78,7 @@
 		// 작성일자 포맷 변경
 		Timestamp getDate = rdto.getRdate();
 		LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
-		
-		// 해당 펜션 리뷰 들고오기
-// 		if(rdto.getPno() == pno) {
+
 %>
 	<!-- 후기 리스트  -->
 	<ul id="reviewList">
@@ -108,49 +105,49 @@
 		
 		<!-- 사진 1이 없을 때 안보이게 하기 -->
 		<% if(rdto.getRpic1() == null) { %>
-			<input type="hidden" name="rpic1" value="<%=rdto.getRpic1() %>">
+			<li><input type="hidden" name="rpic1" value="<%=rdto.getRpic1() %>"></li>
 		<% } else { %>
-			<li id="img"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="150"></li>
+			<li id="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
 		<% } %>
 		
 		<!-- 사진 2가 없을 때 안보이게 하기 -->
 		<% if(rdto.getRpic2() == null) { %>
-			<input type="hidden" name="rpic2" value="<%=rdto.getRpic2() %>">
+			<li><input type="hidden" name="rpic2" value="<%=rdto.getRpic2() %>"></li>
 		<% } else { %>
-			<li id="img"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="150"></li>
+			<li id="img"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 		<% } %>
 		
 		<!-- 사진 3이 없을 때 안보이게 하기 -->
 		<% if(rdto.getRpic3() == null) { %>
-			<input type="hidden" name="rpic3" value="<%=rdto.getRpic3() %>">
+			<li><input type="hidden" name="rpic3" value="<%=rdto.getRpic3() %>"></li>
 		<% } else { %>
 			<li id="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="150"></li>
 		<% } %>
 	</ul>
 <%
-	} // 해당 펜션 리뷰 if 
+	} // for
 		
-	}// for
+	} // 작성리뷰 확인 if
 	
- // 작성리뷰 확인 if
- 
-		if(startPage > pageBlock) {
-			%>
-			<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
-			<%
-		}
-		
-		for(int i = startPage; i <= endPage; i++) {
-			%>
-			<a href="ProductContent.pr?pageNum=<%=i%>&pno=<%=pno %>"><%=i %></a>
-			<%
-		}
-		
-		if(endPage < pageCount) {
-			%>
-			<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]</a>
-			<%
-		}
+	
+	// 페이징
+	if(startPage > pageBlock) {
+		%>
+		<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
+		<%
+	}
+	
+	for(int i = startPage; i <= endPage; i++) {
+		%>
+		<a href="ProductContent.pr?pageNum=<%=i%>&pno=<%=pno %>"><%=i %></a>
+		<%
+	}
+	
+	if(endPage < pageCount) {
+		%>
+		<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]</a>
+		<%
+	}
 %>
 </article>
 	
