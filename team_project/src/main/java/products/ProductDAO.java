@@ -241,7 +241,7 @@ public class ProductDAO {
 					ResultSet rs=null;
 					try {
 						con=getConnection();
-						String sql="select p.pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from sales s join products p on s.pno = p.pno group by pno order by count(sno) desc limit ?,?";
+						String sql="select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from(select p.pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from sales s join products p on s.pno = p.pno group by pno order by count(sno) desc) a union select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from products where pno not in (select p.pno from sales s join products p on s.pno = p.pno group by pno) limit ?,?";
 						pstmt=con.prepareStatement(sql);
 						pstmt.setInt(1, startRow-1);
 						pstmt.setInt(2, pageSize);
@@ -259,6 +259,7 @@ public class ProductDAO {
 							dto.setPexplain(rs.getString("pexplain"));
 							productList.add(dto);
 						}
+						
 					} catch (Exception e) {
 						e.printStackTrace();
 					}finally {
@@ -267,7 +268,7 @@ public class ProductDAO {
 						if(con!=null) try { con.close();} catch (Exception e2) {}
 					}
 					return productList;
-				}// getCommendProductList()
+				}// getRecommendProductList()
 	
 	// pno로 펜션 조회
 	public ProductDTO getProduct(int pno) {

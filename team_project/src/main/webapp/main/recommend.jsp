@@ -75,7 +75,7 @@ String Date=(String)request.getAttribute("Date");
 								}else{
 									%>
 									<div id="login"><a href="MemberLogin.me">Login</a> |
-													<a href="MemberAgree.me">Join</a></div>	
+													<a href="../member/agree.jsp">Join</a></div>	
 									<%
 								}
 							%>
@@ -106,6 +106,9 @@ String Date=(String)request.getAttribute("Date");
                                     <li><a href="QnaList.qa">Q&A</a></li>
                                 </ul>
                             </nav>
+                            <div class="nav-right search-switch">
+                                <i class="icon_search"></i>
+                            </div>
                         </div>
                     </div>
                 </div>

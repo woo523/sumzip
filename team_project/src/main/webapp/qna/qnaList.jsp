@@ -24,8 +24,7 @@ article{
 .table thead.thead-primary{
 	background: #99b19c;
 	font-weight: bold;
-	color: #FFFFFF;
-	
+	color: #FFFFFF;	
 }
 
 .heading-section {
@@ -36,8 +35,7 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    margin: 10px; 
-     
+    margin: 10px;     
 }
 
 #table_search{
@@ -97,8 +95,8 @@ String qstatus = "";
 	</div>
 		<table class="table">
 			<thead class="thead-primary">
-				<tr><td>No</td><td>Writer</td><td>Title</td>
-				<td>Date</td><td>Answer Status</td><td>View</td></tr>
+				<tr><td>번호</td><td>작성자</td><td>제목</td>
+				<td>질문일자</td><td>답변상태</td><td>조회수</td></tr>
 			</thead>
 
 
