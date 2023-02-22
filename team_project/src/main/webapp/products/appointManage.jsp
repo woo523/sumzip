@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="products.SalesDTO"%>
 <%@page import="products.SalesDAO"%>
 <%@page import="products.ProductDAO"%>
@@ -15,13 +16,16 @@
 <meta charset="UTF-8">
 <title>products/appointManage</title>
 <style type="text/css">
+#sidebar{
+    width: 250px; 
+      height: 1000px;   
+   float: left;
+}
 article{
 	font-family: 'NanumSquareNeo';
   	max-width: 1000px;
  	margin: 0 auto;
  	padding: 50px;
- 	height: auto;
- 	
 }
 .table thead.thead-primary{
 	background: #99b19c;
@@ -62,7 +66,7 @@ float: right;
  int endPage=(Integer)request.getAttribute("endPage");
  int pageCount=(Integer)request.getAttribute("pageCount");
 	
-	
+ SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 	
  	%>
 		<nav id="sidebar">
@@ -79,7 +83,7 @@ float: right;
  <article>	
   <div class="breadcrumb-section">  
                <div class="col-lg-12">           
-                     <h4 class="heading-section">예약관리</h4><br> 
+                     <h3 class="heading-section">Reservation</h3><br> 
                      <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
                      	예금주 : (주)섬집</a>
         		 </div> 
@@ -109,7 +113,7 @@ float: right;
  	    }else if(adto.getAstatus()==3){
  	    	out.print("예약완료");
   	    }%> </td>
-	    <td> <%=adto.getAdate()%> </td> 
+	    <td> <%=dateFormat.format(adto.getAdate())%> </td> 
 	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductAppointManagePro.pr?ano=<%=adto.getAno()%>'">Cancel</button></td></tr>
 		<%
  	}
