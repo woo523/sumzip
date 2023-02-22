@@ -2,7 +2,7 @@
 
 .mainsearch_button{
 	border-radius: 16px;
-	background: #F7CA18;
+	background: #F2C887;
 	width: 35%;
   display: block;
   color: #8C8C8C;
@@ -18,7 +18,7 @@
 	cursor: pointer;
 	display: block;
 	position: relative;
-	border: 2px solid #F7CA18;
+	border: 2px solid #F2C887;
 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
@@ -42,7 +42,7 @@ a.mainsearch_button:before {
 	z-index: -1;
 	content: '';
 	color: #000 !important;
-	background: #F7CA18;
+	background: #F7CD8A;
 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
@@ -51,7 +51,7 @@ a.mainsearch_button:before {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 40px 50px 30px;
+  padding: 2px 50px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,3 +60,8 @@ a.mainsearch_button:before {
 .boking-table{
 margin-left: -50px;
 }
+
+.nice-select.wide {
+    width: 100%;
+     }
+

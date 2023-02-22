@@ -73,7 +73,7 @@ UserDAO pudao = new UserDAO();
 UserDTO pudto = pudao.getUserNo(dto.getNo()); // 상품 올린 user 정보 가져오기
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-	if(id.equals(pudto.getId())){
+	if(id.equals("owner")){
 		%>
 <input type="button" value="상품수정"
  onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">
