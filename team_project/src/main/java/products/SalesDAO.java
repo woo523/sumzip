@@ -105,6 +105,38 @@ public class SalesDAO {
 		return dto;
 	}//getSales()
 	
+	// 날짜 기준으로 회원별 sales테이블 조회
+	public SalesDTO getSalesAno(int ano) {
+		SalesDTO dto=null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select * from sales where ano=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, ano);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				dto=new SalesDTO();
+				dto.setSno(rs.getInt("sno"));
+				dto.setAno(rs.getInt("ano"));
+				dto.setPno(rs.getInt("pno"));
+				dto.setSdate(rs.getTimestamp("sdate"));
+				dto.setIndate(rs.getString("indate"));
+				dto.setOutdate(rs.getString("outdate"));
+				dto.setSprice(rs.getInt("sprice"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return dto;
+	}//getSalesAno()
+	
 	// sales 테이블 조회
 	public ArrayList<SalesDTO> getSalesList(){
 		ArrayList<SalesDTO> SalesList=new ArrayList<SalesDTO>();
