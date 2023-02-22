@@ -133,12 +133,12 @@ String Date=(String)request.getAttribute("Date");
        
             <div class="hotel_booking_area position">
                 <div class="container">
-                    <div class="hotel_booking_table">
+                    <div class="hotel_booking-table">
                         <div class="col-md-3">
-                            <h2>펜션<br> 검색하기</h2>
+                            <h4>언제 떠날까요?</h4>
                         </div>
                         <div class="col-md-9">
-                            <div class="boking_table">
+                            <div class="boking-table">
                                 <div class="row">
                                 
                                     <div class="col-md-4">
@@ -147,6 +147,7 @@ String Date=(String)request.getAttribute("Date");
                                             <div class="form-group">  
                                                     <input type='date' name="indate" class="form-control" value="<%=Date%>"/>
                                             </div>
+                                            <br>
                                             <div class="form-group">
                                                     <input type='date' name="outdate" class="form-control" value="<%=Date%>"/>
                                             </div>
@@ -167,6 +168,7 @@ String Date=(String)request.getAttribute("Date");
                                                     <option value="9">9명</option>
                                                 </select>
                                             </div>
+                                            <br>
                                             <div class="input-group">
                                                 <select class="wide" name="region">
                                                     <option value="시">지역 선택</option>
@@ -176,7 +178,7 @@ String Date=(String)request.getAttribute("Date");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
-                                      <input type="submit" class="book_now_btn button_hover" value="검색">
+                                      <input type="submit" class="mainaa" value="검색">
                                      </form>
                                     </div>
                                    

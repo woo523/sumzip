@@ -124,7 +124,7 @@ for(int i=0; i<boardList.size(); i++){
  -->
 <!-- 게시판 글 검색부분 -->
 <div id="table_search">
-<form action="BoardList.bo"  method="post">
+<form action="BoardList.bo?search="  method="post">
 <input type="text" name="search">
 <button type="submit" class="btn btn-outline-success">Search</button>
 </form>
