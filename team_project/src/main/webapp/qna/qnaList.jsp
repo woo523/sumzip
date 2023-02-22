@@ -91,6 +91,8 @@ String qstatus = "";
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 <!-- 헤더들어가는 곳 -->
+
+
 <article>
 <div class="qnalistContainer">
 	<h3 class="heading-section">Q&A</h3>
@@ -100,7 +102,10 @@ String qstatus = "";
 				<tr><td>번호</td><td>작성자</td><td>제목</td>
 				<td>질문일자</td><td>답변상태</td><td>조회수</td></tr>
 			</thead>
-
+			
+<div id="table_search">
+<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
+</div>
 
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
@@ -129,9 +134,7 @@ if(dto.getQstatus()==0){
 }
 %>
 </table>
-<div id="table_search">
-<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
-</div>
+
 
 <!-- 페이징 처리 -->
 	<%
@@ -149,11 +152,16 @@ if(dto.getQstatus()==0){
 // if(endPage > pageCount){
 // 	endPage = pageCount;
 // }
-
+%>
+<!-- 페이징 -->
+ <div class="col-lg-12">
+ <div class="room-pagination">
+<%
 // 10페이지 이전
 if(startPage > pageBlock){
 	%>
- 	<a href="QnaList.qa?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
+ 	<a href="QnaList.qa?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]
+ 	<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
@@ -166,11 +174,13 @@ for(int i=startPage;i<=endPage;i++){
 // 10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="QnaList.qa?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]</a>
+	<a href="QnaList.qa?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]
+	<i class="fa fa-long-arrow-right"></i></a>
 		<%
 }
 %>
-
+   </div>
+</div>
 </article>	
 
 <!-- 푸터 들어가는 곳 -->
