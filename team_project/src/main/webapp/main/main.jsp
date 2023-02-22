@@ -133,19 +133,16 @@ String Date2=(String)request.getAttribute("Date2");
                         <div class="col-md-9">
                             <div class="boking-table">
                                 <div class="row">
-                                
                                     <div class="col-md-4">
                                     	<form action="Result.me" method="post">
                                     	<div class="book_tabel_item">
                                             <div class="form-group">  
                                                     <input type='date' name="indate" class="form-control" value="<%=Date%>"/>
                                             </div>
-                                            <br>
-                                            <div class="form-group">
-                                          
-                                            
+                                             <h5>∼</h5> 
+                                            <div class="form-group">                                                                       
                                                     <input type='date' name="outdate" class="form-control" value="<%=Date2%>"/>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -173,6 +170,7 @@ String Date2=(String)request.getAttribute("Date2");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
+                                    <br>
                                       <input type="submit" class="mainsearch_button" value="검색">
                                      </form>
                                     </div>
