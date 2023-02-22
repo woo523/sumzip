@@ -41,9 +41,10 @@
 		margin: 20px;
 	}
 	#reviewList .img {
- 		margin: 0px 20px 10px 0px;
+ 		margin: 20px 20px 10px 0px;
  		color : black;
         display: inline-block;
+        
 	}	
 	#reviewList .hiddenImg {
  		margin: 0px 20px 10px 0px;
