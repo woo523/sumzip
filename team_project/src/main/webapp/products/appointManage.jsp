@@ -9,15 +9,42 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>products/appointManage</title>
 <style type="text/css">
-#sidebar{
- 	width: 250px; 
-   	height: 1000px;   
-/*  	background-color: #98FD5D;  */
-	float: left;
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 1000px;
+ 	margin: 0 auto;
+ 	padding: 50px;
+ 	height: auto;
+ 	
+}
+.table thead.thead-primary{
+	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+	height: 30px;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+     
+}
+.table td.a{
+color: #22741C;
+font-weight: bold;
+}
+
+.count{
+float: right;	
 }
 </style>
 </head>
@@ -49,22 +76,20 @@
 		</nav>
 
  	
- 	
-  <div class="breadcrumb-section">
-        <div class="container"> 
-            <div class="row"> 
-               <div class="col-lg-12"> 
-                   <div class="breadcrumb-text"> 
-                       <h2>예약 관리</h2> 
-                    </div>
-               </div> 
-            </div> 
-         </div> 
+ <article>	
+  <div class="breadcrumb-section">  
+               <div class="col-lg-12">           
+                     <h4 class="heading-section">예약관리</h4><br> 
+                     <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
+                     	예금주 : (주)섬집</a>
+        		 </div> 
     </div>
-	<div class="tb"><table border="1"> 
+	<div><table class="table">
+	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
- 	<tr><td class="tb"> 예약번호 </td><td class="tb"> 펜션이름 </td><td class="tb"> 예약상태 </td> 
- 	<td class="tb"> 예약일자 </td><td class="tb"> 예약취소 </td></tr> 
+ 	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
+ 	<td> 예약일자 </td><td> 예약취소 </td></tr> 
+ 	</thead>
  	<% 
  	for(int i=0;i<AppointmentList.size();i++){
  		//배열 한칸에 내용 가져오기 
@@ -74,9 +99,9 @@
 		ProductDTO pdto = pdao.getProduct(adto.getPno());
  		
  		%> 
- 	<tr><td class="tb"> <%=adto.getAno()%> </td> 
-	    <td class="tb"> <%=pdto.getPname()%> </td> 
-	        <td class="tb"> <% 
+ 	<tr><td> <%=adto.getAno()%> </td> 
+	    <td> <%=pdto.getPname()%> </td> 
+	        <td class="a"> <% 
 	    if(adto.getAstatus()==1){
  	    	out.print("입금대기");
  	    }else if(adto.getAstatus()==2){
@@ -84,9 +109,8 @@
  	    }else if(adto.getAstatus()==3){
  	    	out.print("예약완료");
   	    }%> </td>
-	    <td class="tb"> <%=adto.getAdate()%> </td> 
-	    <td class="tb"><a href="ProductsAppointManagePro.pr?ano=<%=adto.getAno()%>">취소하기</a></td></tr>
-
+	    <td> <%=adto.getAdate()%> </td> 
+	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductAppointManagePro.pr?ano=<%=adto.getAno()%>'">Cancel</button></td></tr>
 		<%
  	}
  	%> 
@@ -151,10 +175,11 @@ if(endPage < pageCount){
  }
  %>
 
-
+</article>
 
 <!-- <!-- 푸터 들어가는 곳 --> 
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
 <!-- <!-- 푸터 들어가는 곳 -->
+
 </body>
 </html>
