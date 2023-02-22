@@ -155,10 +155,15 @@ for(int i=0; i<boardList.size(); i++){
 // }
 
 if(search==null){
-
+%>
+<!-- 페이징 -->
+ <div class="col-lg-12">
+ <div class="room-pagination">
+<%
 if(startPage > pageBlock){
 	%>
-<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]
+<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
@@ -170,14 +175,16 @@ for(int i=startPage;i<=endPage;i++){
 
 if(endPage < pageCount){
 	%>
-<a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+<a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
 }else{
 	if(startPage > pageBlock){
 		%>
-	<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]</a>
+	<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]
+	<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
 
@@ -189,7 +196,8 @@ if(endPage < pageCount){
 
 	if(endPage < pageCount){
 		%>
-	<a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]</a>
+	<a href="BoardList.bo?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]
+	<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
 }

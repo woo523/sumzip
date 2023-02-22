@@ -12,7 +12,8 @@
 	}
 
 	#wrap {
-		margin: 60px auto;
+		margin: 30px auto;
+		margin-bottom: 50px;
 		width: 90%;
 		max-width: 600px;
 		padding: 20px;
@@ -27,8 +28,10 @@
 
 	form {
 		background-color: white;
-		padding: 20px;
+		padding: 30px;
+		padding-bottom: 0;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+		border-radius: 5px; 
 	}
 
 	label {
@@ -43,7 +46,7 @@
 		padding: 10px;
 		margin-bottom: 20px;
 		border: none;
-		border-radius: 3px;
+		border-radius: 5px;
 		background-color: #fff;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 	}
@@ -52,12 +55,12 @@
 		display: block;
 		width: 100%;
 		padding: 10px;
-		margin-top: 20px;
+		margin-top: 10px;
 		background-color: #99b19c;
 		color: #fff;
 		font-weight: bold;
 		border: none;
-		border-radius: 3px;
+		border-radius: 5px;
 		cursor: pointer;
 	}
 

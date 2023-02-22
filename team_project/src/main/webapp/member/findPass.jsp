@@ -13,6 +13,14 @@
     margin: 0;
     padding: 0;
   }
+  #wrap {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+ }
   
   /* 로고와 제목 */
    .header { 
@@ -28,7 +36,7 @@
   /* 비밀번호 찾기 폼 */
   .form-container {
     background-color: #fff;
-    margin: 30px auto;
+    margin: 50px auto;
     margin-bottom: 70px;
     max-width: 600px;
     padding: 30px;
@@ -92,7 +100,7 @@ function pass_search() {
 <body>
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
-
+<div id="wrap">
 <div class="header">
 <h2>비밀번호 찾기</h2>
 </div>
@@ -106,6 +114,7 @@ function pass_search() {
 	<input type="button" name="enter" value="다음"  onClick="pass_search()">
 <!-- 	<button>다음</button> -->
 </form>
+</div>
 </div>
 <jsp:include page="../inc/footer.jsp" />
 </body>
