@@ -87,3 +87,11 @@ margin-left: -50px;
     margin-top: 1.3px;
     margin-bottom: 1.3px;
 }
+
+.topBtn {cursor:pointer;
+text-align: right;
+font-size: 20px;
+font-weight: bold;
+color: #99b19c;
+}
+

@@ -193,6 +193,7 @@ String Date2=(String)request.getAttribute("Date2");
     <!-- 펜션 정보 리스트 -->
 <jsp:include page="maindetail.jsp" />
     
+<div class=topBtn onclick="window.scrollTo(0,0);">TOP ⇡</div>    
     
     <!-- Breadcrumb Section End -->
 
