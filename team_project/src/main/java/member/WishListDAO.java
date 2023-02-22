@@ -79,16 +79,13 @@ public boolean WishCheck(int no,int pno) {
 		String sql = "select * from Wish_List where no=? and pno=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1,no);
-		pstmt.setInt(2, pno);
+		pstmt.setInt(2,pno);
 		
 		rs = pstmt.executeQuery();
-		System.out.println("rs.next()"+rs.next());
-		if (rs.next()==false) { 
-			result= false; //db insert가능
-		}else {
-			result= true;
-		}
-
+		result=rs.next();
+		System.out.println("rs.next()="+result);
+	
+		return result;
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
