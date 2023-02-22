@@ -39,8 +39,10 @@ article{
 }
 
 #table_search{
-	float: right;
-   
+	float: right;  
+}
+.table tr.qna:hover{
+	background: #E1E1E1;
 }
 
 </style>
@@ -112,7 +114,7 @@ if(dto.getQstatus()==0){
 	qstatus="답변미등록";
 }
 %>
-	<tr><td><%=dto.getQno() %></td>
+	<tr class="qna"><td><%=dto.getQno() %></td>
 	<%
 	// id값 받아오기
 	UserDAO qudao = new UserDAO();

@@ -50,31 +50,6 @@ article{
 
 <!-- 한페이지에 보여줄 글 개수 -->
 <%
-// //QnaDAO 객체 생성
-// QnaDAO dao=new QnaDAO();
-
-// //한페이지에 보여줄 글개수 설정
-// int pageSize=10;
-
-// //현 페이지 번호 가져오기 => 페이지 번호가 없으면 1페이지 설정
-// String pageNum=request.getParameter("pageNum");
-// if(pageNum==null){
-// 	// => 페이지 번호가 없으면 1페이지 설정
-// 	pageNum="1";
-// }
-
-// // pageNum => 숫자변경
-// int currentPage=Integer.parseInt(pageNum);
-
-// //시작하는 행번호 구하기
-// int startRow=(currentPage-1)*pageSize+1;
-
-// //끝나는 행번호 구하기
-// int endRow=startRow+pageSize-1;
-
-// //메서드 호출
-// ArrayList<QnaDTO> qnaList = dao.getQnaList(startRow, pageSize); 
-
 ArrayList<QnaDTO> qnaList = (ArrayList<QnaDTO>)request.getAttribute("qnaList");
 int currentPage =(Integer)request.getAttribute("currentPage");
 int pageBlock =(Integer)request.getAttribute("pageBlock");
@@ -89,81 +64,79 @@ String qstatus = "";
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
-
-<article>
-<div class="qnalistContainer">
-	<h3 class="heading-section">Q&A</h3>
+<!-- Backgrounds -->
+<div class="menu-item">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-2">
+				
+			</div>
+			
+			<div class="col-lg-10">
+				<div class="content-main">		
+					<article>
+					<div class="qnalistContainer">
+						<h3 class="heading-section">Q&A</h3>
+					</div>
+						<table class="table">
+							<thead class="thead-primary">
+								<tr><td>No</td><td>Writer</td><td>Title</td>
+								<td>Date</td><td>Answer Status</td><td>View</td></tr>
+							</thead>
+						<%
+						//배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
+						for(int i=0;i<qnaList.size();i++){
+							QnaDTO dto= qnaList.get(i);
+						
+						// 답변 상태
+						if(dto.getQstatus()==0){ 
+							qstatus = "답변완료";
+						}else{
+							qstatus="답변미등록";
+						}
+						%>
+							<tr><td><%=dto.getQno() %></td>
+								<td><%=dto.getNo() %></td>
+								<td><a href="AdminQnaQuestion.ad?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
+								<td><%=dateFormat.format(dto.getQdate()) %></td>
+								<td><%=qstatus%></td>	
+								<td><%=dto.getQcount()%></td></tr>	
+							<%
+						}
+						%>
+						</table>
+						<div id="table_search">
+							<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
+						</div>
+						<!-- 페이징 처리 -->
+							<%
+						// 10페이지 이전
+						if(startPage > pageBlock){
+							%>
+						 	<a href="AdminQnaList.ad?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
+							<%
+						}
+						
+						for(int i=startPage;i<=endPage;i++){
+							%>
+							<a href="AdminQnaList.ad?pageNum=<%=i %>"><%=i %></a>
+							<%
+						}
+						
+						// 10페이지 다음
+						if(endPage < pageCount){
+							%>
+							<a href="AdminQnaList.ad?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]</a>
+								<%
+						}
+						%>
+					
+					</article>		
+				</div>
+			</div>
+		</div>
 	</div>
-	<table class="table">
-			<thead class="thead-primary">
-				<tr><td>No</td><td>Writer</td><td>Title</td>
-				<td>Date</td><td>Answer Status</td><td>View</td></tr>
-			</thead>
-<%
-//배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
-for(int i=0;i<qnaList.size();i++){
-	QnaDTO dto= qnaList.get(i);
-
-// 답변 상태
-if(dto.getQstatus()==0){ 
-	qstatus = "답변완료";
-}else{
-	qstatus="답변미등록";
-}
-%>
-	<tr><td><%=dto.getQno() %></td>
-		<td><%=dto.getNo() %></td>
-		<td><a href="AdminQnaQuestion.ad?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
-		<td><%=dateFormat.format(dto.getQdate()) %></td>
-		<td><%=qstatus%></td>	
-		<td><%=dto.getQcount()%></td></tr>	
-	<%
-}
-%>
-</table>
-<div id="table_search">
-<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
 </div>
-
-<!-- 페이징 처리 -->
-	<%
-// // 한화면에 보여줄 페이지 개수 설정
-// int pageBlock=10;
-// // 시작하는 페이지 번호 구하기
-// int startPage=(currentPage-1)/pageBlock*pageBlock+1;
-// // 끝나는 페이지 번호 구하기
-// int endPage=startPage+pageBlock-1;
-
-// int count = dao.getQnaCount();
-
-// // 전체페이지(pageCount) 구하기 
-// int pageCount=count/pageSize+(count%pageSize==0?0:1); 
-// if(endPage > pageCount){
-// 	endPage = pageCount;
-// }
-
-// 10페이지 이전
-if(startPage > pageBlock){
-	%>
- 	<a href="AdminQnaList.ad?pageNum=<%=currentPage-pageBlock %>">[10페이지 이전]</a>
-	<%
-}
-
-for(int i=startPage;i<=endPage;i++){
-	%>
-	<a href="AdminQnaList.ad?pageNum=<%=i %>"><%=i %></a>
-	<%
-}
-
-// 10페이지 다음
-if(endPage < pageCount){
-	%>
-	<a href="AdminQnaList.ad?pageNum=<%=startPage+pageBlock %>">[10페이지 다음]</a>
-		<%
-}
-%>
-
-</article>		
 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>

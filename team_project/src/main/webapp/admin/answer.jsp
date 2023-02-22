@@ -14,6 +14,16 @@
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
+<!-- Backgrounds -->
+<div class="menu-item">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-2">
+				
+			</div>
+			
+			<div class="col-lg-10">
+				<div class="content-main">		
 <%
 //request에 저장된 qno 파라미터값 가져오기
 // int qno=Integer.parseInt(request.getParameter("qno"));
@@ -38,22 +48,26 @@ if(id==null){
 	response.sendRedirect("AdminLogin.ad");
 }
 %>
-
-<h4>answer</h4>
-
-<table border="1">
-	<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
-	<tr><td>글쓴날짜</td><td><%=qdto.getQadate() %></td></tr> 
-	<tr><td>글내용</td><td><%=qdto.getAnswer() %></td></tr>
-	</table>
 	
-	
-	<input type="button" value="글수정" 
-	onclick="location.href='AdminAnswerUpdateForm.ad?qno=<%=qdto.getQno() %>'">
-	<input type="button" value="글삭제" 
-	onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
-	<input type="button" value="글목록" 
-	onclick="location.href='AdminQnaList.ad'"> 
-
+					<h4>answer</h4>
+					
+					<table border="1">
+						<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
+						<tr><td>글쓴날짜</td><td><%=qdto.getQadate() %></td></tr> 
+						<tr><td>글내용</td><td><%=qdto.getAnswer() %></td></tr>
+					</table>
+					
+					
+					<input type="button" value="글수정" 
+					onclick="location.href='AdminAnswerUpdateForm.ad?qno=<%=qdto.getQno() %>'">
+					<input type="button" value="글삭제" 
+					onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
+					<input type="button" value="글목록" 
+					onclick="location.href='AdminQnaList.ad'"> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

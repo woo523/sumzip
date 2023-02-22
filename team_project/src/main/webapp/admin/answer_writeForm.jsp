@@ -23,17 +23,32 @@ if(id==null){
 }
 %>
 <jsp:include page="../inc/ad_header.jsp" />
-<h1>답변</h1>
-	<form action="AdminAnswerWritePro.ad" method="post"> 
-		<input type="hidden" name="no" value="<%=no%>">
-		<input type="hidden" name="qno" value="<%=qno%>">
-			<table border="1">
-				<tr><td>작성자</td>
-				<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
-				<tr><td>내용</td>
-				<td><textarea name="answer" rows="10" cols="20"></textarea></td></tr>
-				<tr><td colspan="2"><input type="submit" value="글쓰기"></td></tr>
-			</table>
-	</form>
+<!-- Backgrounds -->
+<div class="menu-item">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-2">
+				
+			</div>
+			
+			<div class="col-lg-10">
+				<div class="content-main">		
+					<h1>답변</h1>
+					<form action="AdminAnswerWritePro.ad" method="post"> 
+						<input type="hidden" name="no" value="<%=no%>">
+						<input type="hidden" name="qno" value="<%=qno%>">
+							<table border="1">
+								<tr><td>작성자</td>
+								<td><input type="text" name="name" value="<%=id %>" readonly></td></tr>
+								<tr><td>내용</td>
+								<td><textarea name="answer" rows="10" cols="20"></textarea></td></tr>
+								<tr><td colspan="2"><input type="submit" value="글쓰기"></td></tr>
+							</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
