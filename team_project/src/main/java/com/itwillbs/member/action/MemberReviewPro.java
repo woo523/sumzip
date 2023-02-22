@@ -23,9 +23,6 @@ public class MemberReviewPro implements Action {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		// 임시 데이터
-//		int pno = 100;
-		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		

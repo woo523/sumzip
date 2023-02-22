@@ -105,7 +105,7 @@ public class SalesDAO {
 		return dto;
 	}//getSales()
 	
-	// 날짜 기준으로 회원별 sales테이블 조회
+	// 회원별 sales테이블 조회
 	public SalesDTO getSalesAno(int ano) {
 		SalesDTO dto=null;
 		Connection con=null;

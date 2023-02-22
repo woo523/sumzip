@@ -32,12 +32,6 @@ public class MemberMyList implements Action{
 		UserDAO udao = new UserDAO();
 		UserDTO udto = udao.getUser(id);
 		int no = udto.getNo();
-		
-		// 판매정보 => 입실일 / 퇴실일
-		SalesDAO salesdao = new SalesDAO();
-		SalesDTO salesdto = salesdao.getSales(no);
-		
-		request.setAttribute("salesdto", salesdto);
 
 		
 		// 페이징

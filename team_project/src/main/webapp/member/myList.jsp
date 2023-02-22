@@ -1,3 +1,4 @@
+<%@page import="products.SalesDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="products.SalesDTO"%>
@@ -68,9 +69,6 @@
 	// 예약정보
 	ArrayList<AppointmentDTO> userappointmentlist = (ArrayList<AppointmentDTO>)request.getAttribute("userappointmentlist");
 	
-	// 체크인 / 체크아웃 날짜
-	SalesDTO salesdto = (SalesDTO)request.getAttribute("salesdto");
-	
 	// 페이징
 	int currentPage = (Integer)request.getAttribute("currentPage");
 	int startPage = (Integer)request.getAttribute("startPage");
@@ -85,7 +83,7 @@
 <h3>내 이용 내역</h3>
 <% 
 	// 예약 내역 확인
-	if(salesdto == null) {
+	if(userappointmentlist.size() == 0) {
 		%>
 		<p>예약된 내역이 없습니다.</p>
 		<%
@@ -101,6 +99,10 @@
 		String houseName = pdto.getPname(); // 펜션 이름
 		String houseInTime = pdto.getCheckin(); // 체크인 시간
 		String houseOutTime = pdto.getCheckout(); // 체크아웃 시간
+		
+		// 체크인 / 체크아웃 날짜
+		SalesDAO salesdao = new SalesDAO();
+		SalesDTO salesdto = salesdao.getSalesAno(adto.getAno());
 		
 		String appointIndateSt = salesdto.getIndate(); // 체크인 날짜
 		String appointOutdateSt = salesdto.getOutdate(); // 체크아웃 날짜
