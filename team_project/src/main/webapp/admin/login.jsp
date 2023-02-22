@@ -47,7 +47,7 @@
                     </div>
                   
                     <br>
-                    <button type="submit" class="btn btn-lg btn-block btn-success">로그인</button>
+                    <button type="submit" class="btn btn-lg btn-block btn-success" style="border:none;">로그인</button>
                   </form>
              <!-- End Loging form -->
 
