@@ -50,7 +50,12 @@
  		display: inline-block;
  		display: none;
 	}	
+	
+	footer {
+		padding-top: 50px;
+	}
 </style>
+
 <body>
 <%
 	// 	해당 펜션 리뷰 리스트 출력
@@ -64,81 +69,82 @@
 	int endPage = (Integer)request.getAttribute("endPage");
 	int pageCount = (Integer)request.getAttribute("pageCount");
 %>
-
-
-<article>
-<h2>Reviews</h2>
+<div class="wrap">
+	<article>
+		<h2>Reviews</h2>
 <%
-
-	// 작성된 리뷰 확인 
-	if(reviewList.size() == 0) {
-		%>
-		<h4>작성된 리뷰가 없습니다.</h4>
-		<%
-	} else {
-		
-	for(int i = 0; i < reviewList.size(); i++) {
-		ReviewDTO rdto = reviewList.get(i);
-		
-		// 작성일자 포맷 변경
-		Timestamp getDate = rdto.getRdate();
-		LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
+		// 작성된 리뷰 확인 
+		if(reviewList.size() == 0) {
+			%>
+			<h4>작성된 리뷰가 없습니다.</h4>
+			<%
+		} else {
+			
+		for(int i = 0; i < reviewList.size(); i++) {
+			ReviewDTO rdto = reviewList.get(i);
+			
+			// 작성일자 포맷 변경
+			Timestamp getDate = rdto.getRdate();
+			LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 
 %>
-	<!-- 후기 리스트  -->
-	<ul id="reviewList">
-		<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">
-		<li id="stars"><%=rdto.getRstar() %> 점
+		<!-- 후기 리스트  -->
+		<ul id="reviewList">
+			<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">
+			<li id="stars"><%=rdto.getRstar() %> 점
+			<%
+				String star = rdto.getRstar();
+				int getStar = Integer.parseInt(star);
+				for(int j = 1; j <= getStar; j++) {
+					%>
+					<img src="img/review/yellowStar.png" width="25" height="25">
+					<%
+				}
+			%>
+			</li>
+			<%
+			UserDAO rudao = new UserDAO();
+			UserDTO rudto = rudao.getUserNo(rdto.getNo());
+			
+			%>
+			<li>작성자 : <%=rudto.getId() %></li>
+			<li>작성일자 : <%=getDateFm %></li>
+			<li id="contents"><%=rdto.getRcontent() %></li>
+			
+			<!-- 사진 1이 없을 때 안보이게 하기 -->
+			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("null")) { %>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
+			<% } else { %>
+				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
+			<% } %>
+			
+			<!-- 사진 2가 없을 때 안보이게 하기 -->
+			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("null")) { %>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
+			<% } else { %>
+				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
+			<% } %>
+			
+			<!-- 사진 3이 없을 때 안보이게 하기 -->
+			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("null")) { %>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
+			<% } else { %>
+				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
+			<% } %>
+		</ul>
 		<%
-			String star = rdto.getRstar();
-			int getStar = Integer.parseInt(star);
-			for(int j = 1; j <= getStar; j++) {
-				%>
-				<img src="img/review/yellowStar.png" width="25" height="25">
-				<%
-			}
+		} // for
+		
+		} // 작성리뷰 확인 if
 		%>
-		</li>
-		<%
-		UserDAO rudao = new UserDAO();
-		UserDTO rudto = rudao.getUserNo(rdto.getNo());
-		
-		%>
-		<li>작성자 : <%=rudto.getId() %></li>
-		<li>작성일자 : <%=getDateFm %></li>
-		<li id="contents"><%=rdto.getRcontent() %></li>
-		
-		<!-- 사진 1이 없을 때 안보이게 하기 -->
-		<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("null")) { %>
-			<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
-		<% } else { %>
-			<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
-		<% } %>
-		
-		<!-- 사진 2가 없을 때 안보이게 하기 -->
-		<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("null")) { %>
-			<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
-		<% } else { %>
-			<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
-		<% } %>
-		
-		<!-- 사진 3이 없을 때 안보이게 하기 -->
-		<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("null")) { %>
-			<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
-		<% } else { %>
-			<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
-		<% } %>
-	</ul>
+	</article>
+
+	<div class="room-pagination">
 <%
-	} // for
-		
-	} // 작성리뷰 확인 if
-	
-	
-	// 페이징
+	//페이징
 	if(startPage > pageBlock) {
 		%>
-		<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]</a>
+		<a href="ProductContent.pr?pageNum=<%=startPage-pageBlock%>&pno=<%=pno %>">[5 페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
 	
@@ -150,11 +156,15 @@
 	
 	if(endPage < pageCount) {
 		%>
-		<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]</a>
+		<a href="ProductContent.pr?pageNum=<%=startPage+pageBlock%>&pno=<%=pno %>">[5 페이지 다음]<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
 %>
-</article>
+	</div>
+	
+</div>
+
+<footer></footer>
 	
 </body>
 </html>

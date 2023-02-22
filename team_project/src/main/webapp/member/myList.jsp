@@ -20,10 +20,14 @@
 <meta charset="UTF-8">
 <title>myList.JSP</title>
 <style type="text/css">
-  	#myList {
+	.wrap #sidebar {
+		float: left;
+	}
+	
+  	.wrap #myList {
  		font-family: 'NanumSquareNeo';
 		max-width: 750px;
-		height: 1000px;
+		height: 100%;
 		margin: 0 auto;
 		height: 100%;
 		padding: 20px;
@@ -58,6 +62,13 @@
  		margin-top: 10px;
  		display: inline-block;
  	}
+ 	
+ 	#myList ul #btns {
+ 		width: 150px;
+ 	}
+ 	footer {
+ 		clear: left;
+ 	}
 </style>
 </head>
 
@@ -79,8 +90,19 @@
 <!-- header -->
 <jsp:include page="../inc/header.jsp" />
 
-<form name="myListForm.me" action="" id="myList" method="get">
-<h3>내 이용 내역</h3>
+<div class="wrap">
+	<nav id="sidebar">
+		<ul>
+			<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
+			<li><a href="MemberMyList.me">내 이용목록</a></li>
+			<li><a href="ProductAppointManage.pr">예약관리</a></li>
+			<li><a href="MemberWishList.me">찜 목록</a></li>
+			<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
+		</ul>
+	</nav>
+	
+	<form name="myListForm.me" action="" id="myList" method="get">
+	<h3>내 이용 내역</h3>
 <% 
 	// 예약 내역 확인
 	if(userappointmentlist.size() == 0) {
@@ -148,8 +170,8 @@
 						// 후기 작성 가능
 						System.out.println("appointOutdate is before today");
 						%>
-						<li><button type="button" class="btn btn-outline-success" onclick="location.href='MemberReviewModifyForm.me?ano=<%=adto.getAno()%>'">후기 수정하기</button>
-							<button type="button" class="btn btn-outline-secondary" onclick="location.href='MemberReviewDelete.me?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
+						<li><button type="button" id="btns" class="btn btn-outline-success" onclick="location.href='MemberReviewModifyForm.me?ano=<%=adto.getAno()%>'">후기 수정하기</button>
+							<button type="button" id="btns" class="btn btn-outline-secondary" onclick="location.href='MemberReviewDelete.me?ano=<%=adto.getAno()%>'">후기 삭제하기</button></li>
 						<%
 					}
 				}
@@ -185,11 +207,12 @@
 	} // 예약 내역 확인 if 문
 %>
 
+<div class="room-pagination">
 <% 
 	// 페이징
 	if(startPage > pageBlock) {
 		%>
-		<a href="MemberMyList.me?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]</a>
+		<a href="MemberMyList.me?pageNum=<%=startPage-pageBlock%>">[5 페이지 이전]<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
 	
@@ -201,15 +224,19 @@
 	
 	if(endPage < pageCount) {
 		%>
-		<a href="MemberMyList.me?pageNum=<%=startPage+pageBlock%>">[5 페이지 다음]</a>
+		<a href="MemberMyList.me?pageNum=<%=startPage+pageBlock%>">[5 페이지 다음]<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
 %>
-	
-</form>
+</div>
+	</form>
+</div>
+
 
 <!-- footer -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<footer>
+	<jsp:include page="../inc/footer.jsp" />
+</footer>
 
 </body>
 </html>
