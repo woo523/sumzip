@@ -32,7 +32,7 @@ public class AppointmentDAO {
 				ano=rs.getInt("max(ano)")+1;
 			}
 
-			sql="insert into Appointment(ano,pno,no,astatus,adate) values(?,?,?,1,?)";
+			sql="insert into Appointment(ano,pno,no,astatus,adate) values(?,?,?,1,?) where pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, ano);  
 			pstmt.setInt(2, dto.getPno()); 

@@ -34,7 +34,7 @@ public class SalesDAO {
 		if(rs.next()) {
 			sno=rs.getInt("max(sno)")+1;
 		}
-		sql="insert into sales(sno, ano, pno, no, sdate, indate, outdate, sprice) values(?,?,?,?,?,?,?,?)";
+		sql="insert into sales(sno, ano, pno, no, sdate, indate, outdate, sprice) values(?,?,?,?,?,?,?,?) where pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
 		pstmt=con.prepareStatement(sql);
 		pstmt.setInt(1, sno);  
 		pstmt.setInt(2, dto.getAno()); 
