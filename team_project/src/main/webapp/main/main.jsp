@@ -64,20 +64,10 @@ String Date=(String)request.getAttribute("Date");
                         		UserDTO dto = dao.getUser(id);
 
 								if(id!=null){
-									if(dto.getUtype()==1){
 									%>
 										<div id="login">♥ <%=id %> 님 ♥ |
 										<a href="MemberLogout.me">Logout</a>	|
 										<a href="MemberMyPage_user.me">Mypage</a></div>
-										<% 
-									}else if(dto.getUtype()==2){
-										%> 
-										<div id="login">♥ <%=id %> 님 ♥ |
-										<a href="MemberLogout.me">Logout</a>	|
-										<a href="MemberMyPage_owner.me">Mypage</a></div>
-										<%
-									}
-									%>
 								 <%
 								}else{
 									%>
