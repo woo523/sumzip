@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>board/boardContent.jsp</title>
+<link rel="stylesheet" href="css/insert.css" type="text/css" >
 </head>
 <body>
 <!-- 헤더 들어가는 곳 -->
@@ -26,7 +27,7 @@ String id=(String)session.getAttribute("id");
 BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 
 %>
-
+<article>
 <!-- 공지사항 내용 -->
 <h2>글내용 [로그인 : <%=id %>]</h2>
 <table border="1">
@@ -54,7 +55,7 @@ if(id != null){
  
 <!-- 댓글 영역 들어가는 곳 -->
  <jsp:include page="replyForm.jsp" />
- 
+ </article>
 <!--  푸터 들어가는 곳 -->
 <%--  <jsp:include page="../inc/footer.jsp" /> --%>
  
