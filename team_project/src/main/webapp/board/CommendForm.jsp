@@ -28,7 +28,9 @@
     <link rel="stylesheet" href="css/list.css" type="text/css">
     <link rel="stylesheet" href="css/insert.css" type="text/css">
     <link rel="stylesheet" href="css/mainList.css" type="text/css">
-    
+    <link rel="stylesheet" href="css/insert.css" type="text/css" >
+ 
+
 </head>
 <body>
 <%
@@ -57,6 +59,7 @@ int rno =(Integer)request.getAttribute("rno");
 
 
 <!-- 답댓글 작성 폼 -->
+<article>
    <section class="blog-details-section">
         <div class="conainer">
             <div class="row">
@@ -84,9 +87,11 @@ int rno =(Integer)request.getAttribute("rno");
                   </div>
                 </div>
              </section>
+           </article>
 
 
-
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
 

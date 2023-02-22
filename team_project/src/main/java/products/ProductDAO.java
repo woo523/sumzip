@@ -6,6 +6,7 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -125,7 +126,7 @@ public class ProductDAO {
 		ResultSet rs=null;
 		try {
 			con=getConnection();
-			String sql="select * from products where max_men>=? && paddress like ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?) order by pno desc limit ?,?";
+			String sql="select * from products where max_men>=? && paddress like ? && pno not in (select pno from sales where (indate >= ? && indate < ?)|| (outdate > ? && outdate <= ?)) order by pno desc limit ?,?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, guest);
 			pstmt.setString(2, "%"+region+"%");
@@ -432,7 +433,7 @@ public class ProductDAO {
 		int count=0;
 		try {
 			con=getConnection();
-			String sql="select count(*) from products where max_men>=? && paddress like ? && pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
+			String sql="select count(*) from(select * from products where max_men>=? && paddress like ? && pno not in (select pno from sales where (indate >= ? && indate < ?)|| (outdate > ? && outdate <= ?))) a;";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, guest);
 			pstmt.setString(2, "%"+region+"%");
@@ -504,6 +505,5 @@ public class ProductDAO {
 	}//updateProduct()
 	
 	
-		
 }//class
 	   

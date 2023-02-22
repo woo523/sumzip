@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<link rel="stylesheet" href="css/insert.css" type="text/css" >
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -136,43 +137,124 @@ $(document).ready(function(){
 </script>
 
 <style>
-body {
-  background: #C5E1A5;
-}
-form {
-  width: 60%;
-  margin: 60px auto;
-  background: #efefef;
-  padding: 60px 120px 80px 120px;
-  text-align: center;
-  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+#wrap {
+  width: 700px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
 }
 
-.label-txt {
-  position: absolute;
-  top: -1.6em;
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
   padding: 10px;
-  font-family: sans-serif;
-  font-size: .8em;
-  letter-spacing: 1px;
-  color: rgb(120,120,120);
-  transition: ease .3s;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #99b19c;
 }
 
+select option {
+  font-size: 1rem;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-block;
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #99b19c;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #113000;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
+
+#error-msg {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.divresult {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.address-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#sample4_postcode {
+  width: 150px;
+  margin-right: 10px;
+}
+
+#sample4_roadAddress {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#sample4_detailAddress {
+  flex: 1;
+}
 </style>
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
+<article>
 <div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/header.jsp" />
-		<!-- 헤더들어가는 곳 -->
-	<article>
+		
+	
 		<form action="MemberJoinPro.me" name="joinform" id="join" method="post">
 			<fieldset>
-				<legend>회원가입</legend>		
+				<legend>회원가입</legend>
+				<div class="radio-wrap">		
 				<input type="radio" name="utype" value="1" checked>일반회원	 
 		  		<input type="radio" name="utype" value="2">사장님<br>
+		  		</div>
+		  		 <div class="form-group">
 				<label>아이디</label> 
 				<input type="text" name="id" class="id">
 				<input type="button" value="중복확인" class="dup"><br>
@@ -201,6 +283,7 @@ form {
 				<input type="text" id="sample4_roadAddress" class="address1" placeholder="도로명주소" name="address1">				
 				<span id="guide" style="color:#999;display:none"></span><br>
 				<input type="text" id="sample4_detailAddress" class="address2" placeholder="상세주소" name="address2">
+				</div>
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons">
@@ -210,8 +293,9 @@ form {
 				
 			</div>
 		</form>
-	</article>
-<%-- 	<jsp:include page="../inc/footer.jsp" /> --%>
+
 </div>
+	</article>
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>

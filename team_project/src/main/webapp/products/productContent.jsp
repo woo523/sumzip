@@ -7,12 +7,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<style>input.heart {
-    background-image: url(/img/heart.png);</style>
 <head>
 <meta charset="UTF-8">
 <title>products/productContent.jsp</title>
 </head>
+<style>
+form {
+    display: inline;
+}</style>
 <body>
 
 <!-- 헤더파일들어가는 곳 -->
@@ -87,16 +89,13 @@ if(id != null){
  onclick="history.back()">
  <input type="button" value="숙소예약"
  onclick="location.href='ProductAppointment.pr?pno=<%=dto.getPno() %>'">
-<!-- <input type="text" id="user-id"> -->
 <form action="MemberWishListPro.me">
-<!-- <input type="submit" name="button" value="찜"> -->
-<input type="image" src="/img/heart.png" alt="submit" class="heart">
+<input type="image" src="upload/heart.png" alt="submit" width="30" height="30">
 <input type="hidden" name="pno" value=<%=dto.getPno() %>>
 <input type="hidden" name="button" value="찜">
 </form>
  </td></tr>
  </table>
-
 <jsp:include page="productReviewList.jsp" />
  
  <!-- 푸터 들어가는 곳 -->

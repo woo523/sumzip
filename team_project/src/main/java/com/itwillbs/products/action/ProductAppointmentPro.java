@@ -42,6 +42,32 @@ public class ProductAppointmentPro implements Action {
 			ProductDTO pdto = pdao.getProduct(pno);
 			int sprice = pdto.getPprice()*daycount;
 				
+			SalesDAO sdao = new SalesDAO();
+			// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
+			boolean check1=sdao.checksSales1(pno, indate, outdate);
+			if(check1==true){
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('퇴실일이 입실일 이전이거나 입실일과 같습니다.')");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+			}else {
+			// 이미 예약된 경우 경고창 띄우고 history.back
+			boolean check2=sdao.checksSales2(pno, indate, outdate);
+			if(check2==true) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('이미 예약된 날짜입니다.')");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+			
+			// 예약 가능한 날짜일 경우 진행
+			}else if(check2!=true) {
+			
 			//Appointment dto에 값 저장
 			AppointmentDTO adto=new AppointmentDTO();
 			adto.setPno(pno);
@@ -66,7 +92,7 @@ public class ProductAppointmentPro implements Action {
 			sdto.setOutdate(outdate);
 			sdto.setSprice(sprice);
 			
-			SalesDAO sdao = new SalesDAO();
+			
 			sdao.insertSales(sdto);
 			
 			
@@ -79,8 +105,8 @@ public class ProductAppointmentPro implements Action {
 			out.println("location.href='ProductAppointManage.pr';");
 			out.println("</script>");
 			out.close();
-
-	
+			}
+			}
 		return null;	
 	}
 	

@@ -92,7 +92,7 @@ float: right;
 	<thead class="thead-primary"> 
 <!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
  	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
- 	<td> 예약일자 </td><td> 예약취소 </td></tr> 
+ 	<td> 예약일자 </td><td>총 금액</td><td> 예약취소 </td></tr> 
  	</thead>
  	<% 
  	for(int i=0;i<AppointmentList.size();i++){
@@ -101,7 +101,8 @@ float: right;
  		
 		ProductDAO pdao = new ProductDAO();
 		ProductDTO pdto = pdao.getProduct(adto.getPno());
- 		
+ 		SalesDAO sdao = new SalesDAO();
+ 		SalesDTO sdto = sdao.getSalesAno(adto.getAno());
  		%> 
  	<tr><td> <%=adto.getAno()%> </td> 
 	    <td> <%=pdto.getPname()%> </td> 
@@ -114,6 +115,13 @@ float: right;
  	    	out.print("예약완료");
   	    }%> </td>
 	    <td> <%=dateFormat.format(adto.getAdate())%> </td> 
+	    <td>
+	     <script type="text/javascript">
+          var num = <%=sdto.getSprice()%>;
+          document.write(num.toLocaleString()+"원");
+         </script>
+         /<%=sdto.getSprice()/pdto.getPprice()%>박
+	    </td>
 	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductAppointManagePro.pr?ano=<%=adto.getAno()%>'">Cancel</button></td></tr>
 		<%
  	}
@@ -155,7 +163,7 @@ float: right;
 
 if(startPage > pageBlock){
 	%>
-	<a href="ProductsAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+	<a href="ProductAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
 }
  %>
@@ -164,7 +172,7 @@ if(startPage > pageBlock){
  for(int i=startPage;i<=endPage;i++){
 	%>
 	
-	<a href="ProductsAppointManage.pr?pageNum=<%=i%>"><%=i%></a>
+	<a href="ProductAppointManage.pr?pageNum=<%=i%>"><%=i%></a>
 	<%
 }
  %> 
@@ -174,7 +182,7 @@ if(startPage > pageBlock){
 // //10페이지 다음
 if(endPage < pageCount){
 	%>
-	<a href="ProductsAppointManage.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+	<a href="ProductAppointManage.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 	<%
  }
  %>

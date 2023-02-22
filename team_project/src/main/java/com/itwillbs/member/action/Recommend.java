@@ -17,6 +17,14 @@ public class Recommend implements Action{
 		ProductDAO dao=new ProductDAO();
 		//오늘 날짜
 		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+//		String Date2 = Date.replaceAll("[-]", "");
+//        int Date3=Integer.parseInt(Date);
+//        Date3+=1;
+//        Date=Integer.toString(Date3);
+//        String Date4=Date.substring(0, 4);
+//        String Date5=Date.substring(4, 6);
+//        String Date6=Date.substring(6);
+//        Date2=Date4+"-"+Date5+"-"+Date6;
 		//페이징
 		int pageSize=9;// 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
@@ -67,6 +75,7 @@ public class Recommend implements Action{
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("Date", Date);
+//		request.setAttribute("Date2", Date2);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/recommend.jsp");

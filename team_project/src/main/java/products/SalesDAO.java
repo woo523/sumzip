@@ -3,6 +3,7 @@ package products;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -34,7 +35,7 @@ public class SalesDAO {
 		if(rs.next()) {
 			sno=rs.getInt("max(sno)")+1;
 		}
-		sql="insert into sales(sno, ano, pno, no, sdate, indate, outdate, sprice) values(?,?,?,?,?,?,?,?) where pno not in (select pno from sales where indate between ? and ? || outdate between ? and ?)";
+		sql="insert into sales(sno, ano, pno, no, sdate, indate, outdate, sprice) values(?,?,?,?,?,?,?,?)";
 		pstmt=con.prepareStatement(sql);
 		pstmt.setInt(1, sno);  
 		pstmt.setInt(2, dto.getAno()); 
@@ -53,7 +54,68 @@ public class SalesDAO {
 		
 	}
 	
+	// pno로 리뷰 작성여부 조회
+			public boolean checksSales1(int pno, String indate, String outdate) {
+				Connection con = null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				boolean checkSales1 = true;
+				try {
+					con = getConnection();
+					String sql = "select * from sales where pno=? && ? >= ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, pno);
+					pstmt.setString(2, indate);
+					pstmt.setString(3, outdate);
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
+						checkSales1 = true;
+					} else {
+						checkSales1 = false;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				} finally {
+					if(con != null) try {con.close();} catch (Exception e2) {}
+					if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+					if(rs != null) try {rs.close();} catch (SQLException e) {}
+				}
+				return checkSales1;
+			}
 	
+	// pno로 리뷰 작성여부 조회
+		public boolean checksSales2(int pno, String indate, String outdate) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			boolean checkSales2 = true;
+			try {
+				con = getConnection();
+				String sql = "select * from sales where pno=? && ano in (select ano from sales where (indate >= ? && indate < ?)|| (outdate > ? && outdate <= ?))";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, pno);
+				pstmt.setString(2, indate);
+				pstmt.setString(3, outdate);
+				pstmt.setString(4, indate);
+				pstmt.setString(5, outdate);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					checkSales2 = true;
+				} else {
+					checkSales2 = false;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			} finally {
+				if(con != null) try {con.close();} catch (Exception e2) {}
+				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+				if(rs != null) try {rs.close();} catch (SQLException e) {}
+			}
+			return checkSales2;
+		}
+						
 	public void deleteSales(int ano) {
 		Connection con =null;
 		PreparedStatement pstmt=null;

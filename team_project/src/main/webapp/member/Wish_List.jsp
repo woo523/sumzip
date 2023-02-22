@@ -97,7 +97,7 @@ article{
 		System.out.println("i="+i);
 		int ppno=d.getPno();
 	%>
-		<tr class="wish">
+		<tr>
           <td><%=d.getPname()%></td><td><%=d.getPprice()%></td><td><%=d.getPaddress()%></td>
 
 <td id="button"><form action="MemberWishListPro.me">

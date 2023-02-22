@@ -42,7 +42,7 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 .footBtwrap>li{float: left;width: 50%;height: 60px;}
 .footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 18px;text-align: center;line-height: 60px;}
 .fpmgBt1{background-color: #bbb;color:#FFFFFF; font-weight: bold; border-width: 0px;}
-.fpmgBt2{background-color: #119208;color: #FFFFFF; font-weight: bold; border-width: 0px;}
+.fpmgBt2{background-color: #113000;color: #FFFFFF; font-weight: bold; border-width: 0px;}
 .logo{width: 500px;margin: 0 auto;}
 a{color:#FFFFFF;}
 a:hover {color: #E0FF8B;text-decoration: underline;}
