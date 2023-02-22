@@ -37,6 +37,8 @@ public class QnaList implements Action{
 			endPage = pageCount;
 		}
 		
+		
+		
 		// request 데이터 담기
 		request.setAttribute("qnaList", qnaList);
 		request.setAttribute("currentPage", currentPage);

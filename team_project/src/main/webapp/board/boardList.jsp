@@ -33,8 +33,13 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    margin: 10px; 
-     
+    margin: 10px;    
+}
+
+#table_search{
+	padding: 10px;
+ 	width:350px;
+	margin:auto;
 }
 </style>
 
@@ -86,9 +91,9 @@ String search=(String)request.getAttribute("search");
 	<table class="table">
 		<thead class="thead-primary">
 			<tr>
-				<td>번호</td><td>유저번호</td>
-				<td>제목</td><td>작성날짜</td>
-				<td>조회수</td>
+				<td>No</td><td>User</td>
+				<td>Title</td><td>Date</td>
+				<td>View</td>
 			</tr>
 		</thead>
 
@@ -120,12 +125,8 @@ for(int i=0; i<boardList.size(); i++){
 <!-- 게시판 글 검색부분 -->
 <div id="table_search">
 <form action="BoardList.bo"  method="post">
-<table border="1" width="50%"> 
-<tr><td align="center">
 <input type="text" name="search">
-<input type="submit" value="검색">
-</td></tr>
-</table>
+<button type="submit" class="btn btn-outline-success">Search</button>
 </form>
 </div>
 

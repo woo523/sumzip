@@ -13,9 +13,9 @@
 			<attribute name="owner.project.facets" value="jst.web;#system#"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/activation.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/cos.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ITWILL/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ITWILL/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ITWILL/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ITWILL/git/itwill_team3/team_project/src/main/webapp/WEB-INF/lib/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

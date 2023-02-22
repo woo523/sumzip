@@ -90,6 +90,7 @@ textarea.form-control{
 <%
 // id값 받아오기
 String id=(String)session.getAttribute("id");
+
 int no = 0;
 //로그인 되어있지 않으면 로그인화면으로
 if(id==null){
