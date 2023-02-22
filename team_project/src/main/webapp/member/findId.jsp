@@ -14,22 +14,35 @@
         #wrap {
             width: 100%;
             max-width: 800px;
-            margin: 60px auto;
-            padding: 20px;
+            margin: 30px auto;
+            margin-bottom: 50px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            border-radius: 10px;
         }
         .form-container {
-            background-color: #fff;
-            margin: 20px auto;
-            max-width: 600px;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+             background-color: #fff; 
+             margin: 20px auto; 
+             max-width: 600px; 
+             padding: 20px;
+             padding-bottom: 50px; 
+             border-radius: 10px; 
+             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
+            
         }
 
         h2 {
             margin: 0;
             font-size: 24px;
         }
+        .header { 
+     	display: flex; 
+     	align-items: center; 
+     	justify-content: center; 
+     	background-color: white; 
+     	color: #fff; 
+     	height: 80px; 
+  		 } 
 
         /* 폼 스타일 */
         form {
@@ -50,6 +63,7 @@
             margin-bottom: 20px;
             font-size: 16px;
             border: 1px solid #ccc;
+            border-radius: 5px;
         }
         input[type="button"] {
             background-color: #99b19c;
@@ -59,6 +73,8 @@
             margin-right: 10px;
             font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
+            float: right;
         }
         input[type="button"]:hover {
             background-color: #113000;
@@ -94,7 +110,9 @@ function id_search() {
 
 <form name="idfindscreen" method = "POST" >
 
+	<div class="header">
 		<h2>아이디찾기</h2>
+	</div>
 		<div class="form-container">
 		<section class = "form-search">
 			<div class = "find-name">

@@ -18,18 +18,13 @@
 	// MemberDTO dto = getMember(id) 메서드호출
  	UserDTO dto = dao.getUser(id);
 	%>
-	<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
+			<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/my_header.jsp" />
 		<!-- 헤더들어가는 곳 -->
-
-	</div>
-
+<div id="wrap">
 	<div class="content-main">
 		<div class="row">
 			<div class="col-sm-9">
-<!-- 				<h1>My Page</h1> -->
-<!-- 				<hr> -->
 				<div class="bg-white rounded shadow-sm container p-3">
 					<form method="POST" action="updateAction" name="updateForm"
 						onsubmit="return updateValidate();" class="form-horizontal"
@@ -77,7 +72,7 @@
 							</div>		
 						</div>
 						
-						<div class="btnChange">
+						<div id="buttons">
 							<a href="MemberUpdateForm.me">
 							<input type="button" name="user_modify" value="회원정보 수정"></a> 
 							<a href="MemberPwModify.me">
@@ -88,7 +83,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->

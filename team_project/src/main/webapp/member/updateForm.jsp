@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>jsp3/updateForm.jsp</title>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample4_execDaumPostcode() {
@@ -57,17 +58,6 @@
 </script>
 </head>
 <body>
-<div id="wrap">
-<!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
-<!-- 헤더들어가는 곳 -->
-
-<!-- 본문들어가는 곳 -->
-<!-- 본문메인이미지 -->
-<div id="sub_img_member"></div>
-<!-- 본문메인이미지 -->
-<!-- 왼쪽메뉴 -->
-
 <%
 //세션에서 "id" 값을 가져오기 => 변수저장
 String id=(String)session.getAttribute("id");
@@ -76,27 +66,64 @@ UserDAO dao=new UserDAO();
 //UserDTO dto =  getMember(id) 메서드 호출
 UserDTO dto=dao.getUser(id);
 %>
-<section class="hero-section">
+<!-- <section class="hero-section"> -->
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/my_header.jsp" />
+<!-- 헤더들어가는 곳 -->
+
+<div id="wrap">
+<!-- 본문들어가는 곳 -->
     <div class="container">
         <div class="row">
+        <div class="col-sm-9">
+				<div class="bg-white rounded shadow-sm container p-3">
 			<form action="MemberUpdatePro.me" id="join" method="post">
 			<fieldset>
 				<legend>개인정보 수정</legend>
+				<div class="row mb-3 form-row">
+					<div class="col-md-3">
 				<label>아이디</label>
 				<input type="text" name="id" class="id" value="<%=id%>" readonly><br>
+					</div>
+				</div>
+				
+				<div class="row mb-3 form-row">
+					<div class="col-md-3">
 				<label>비밀번호</label>
 				<input type="password" name="pass" value="<%=dto.getPass()%>"><br>
+					</div>
+				</div>
+				
+				<div class="row mb-3 form-row">
+					<div class="col-md-3">
 				<label>이름</label>
 				<input type="text" name="uname" value="<%=dto.getUname()%>"><br>
+					</div>
+				</div>
+				
+				<div class="row mb-3 form-row">
+					<div class="col-md-3">
 				<label>이메일</label>
 				<input type="email" name="email" value="<%=dto.getEmail()%>"><br>
+					</div>
+				</div>
+				
+				<div class="row mb-3 form-row">
+					<div class="col-md-3">
 				<label>주소</label>
 				<input type="text" id="sample4_postcode" name="postnum" value="<%=dto.getPostnum()%>" placeholder="우편번호">
 				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ><br>
 				<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="address1" value="<%=dto.getAddress1()%>"><br>				
 				<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="address2" value="<%=dto.getAddress2()%>"><br>
+					</div>
+				</div>
+				
+				<div class="row mb-3 form-row">
+					<div class="col-md-3">
 				<label>전화번호</label>
 				<input type="text" name="tel" value="<%=dto.getTel()%>"><br>
+					</div>
+				</div>
 			</fieldset>
 			<div id="buttons">
 			<input type="submit" value="Submit" class="submit">
@@ -105,14 +132,17 @@ UserDTO dto=dao.getUser(id);
 			</form>
 		</div>
 	</div>
-</section>
+</div>
+</div>
+<!-- </section> -->
 <!-- 본문내용 -->
 <!-- 본문들어가는 곳 -->
 
 <div class="clear"></div>
-<!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
-<!-- 푸터 들어가는 곳 -->
+
 </div>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html>

@@ -8,6 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+  #wrap {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+ }
+ 
 #sidebar{
  	width: 250px; 
    	height: 1000px;   
@@ -17,10 +26,11 @@
 </style>
 </head>
 <body>
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/header.jsp" />
+<!-- 헤더들어가는 곳 -->
 	<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/header.jsp" />
-		<!-- 헤더들어가는 곳 -->
+		
 		<nav id="sidebar">
 		<ul>
 		<%
@@ -28,7 +38,6 @@
             UserDAO dao = new UserDAO();
             // MemberDTO dto = getMember(id) 메서드호출
             UserDTO dto = dao.getUser(id);
-
 			if(id!=null){
 				if(dto.getUtype()==1){
 			%>
