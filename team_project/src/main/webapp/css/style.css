@@ -140,7 +140,7 @@ ul, ol {
 	bottom: -5px;
 	width: 100%;
 	height: 2px;
-	background: #119208;
+	background: #113000;
 	content: "";
 }
 /* Preloder */
@@ -1176,7 +1176,7 @@ ul, ol {
 	margin-bottom: 17px;
 }
 .room-item .ri-text h3 {
-	color: #C5E1A5;
+	color: #99b19c;
 	font-weight: 700;
 	margin-bottom: 14px;
 }
@@ -1207,7 +1207,7 @@ ul, ol {
 .room-pagination a {
 	font-size: 16px;
 	color: #707079;
-	border: 1px solid #C5E1A5;
+	border: 1px solid #99b19c;
 	border-radius: 2px;
 	padding: 7px 13px 5px;
 	margin-right: 7px;
@@ -1220,7 +1220,7 @@ ul, ol {
 	margin-right: 0;
 }
 .room-pagination a:hover {
-	background: #C5E1A5;
+	background: #99b19c;
 /* 	background: #dfa974; */
 	color: #ffffff;
 }
