@@ -55,11 +55,41 @@ public class SalesDAO {
 	}
 	
 	// pno로 리뷰 작성여부 조회
-		public boolean checksSales(int pno, String indate, String outdate) {
+			public boolean checksSales1(int pno, String indate, String outdate) {
+				Connection con = null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				boolean checkSales1 = true;
+				try {
+					con = getConnection();
+					String sql = "select * from sales where pno=? && ? >= ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, pno);
+					pstmt.setString(2, indate);
+					pstmt.setString(3, outdate);
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
+						checkSales1 = true;
+					} else {
+						checkSales1 = false;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				} finally {
+					if(con != null) try {con.close();} catch (Exception e2) {}
+					if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+					if(rs != null) try {rs.close();} catch (SQLException e) {}
+				}
+				return checkSales1;
+			}
+	
+	// pno로 리뷰 작성여부 조회
+		public boolean checksSales2(int pno, String indate, String outdate) {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
-			boolean checkSales = true;
+			boolean checkSales2 = true;
 			try {
 				con = getConnection();
 				String sql = "select * from sales where pno=? && ano in (select ano from sales where (indate >= ? && indate < ?)|| (outdate > ? && outdate <= ?))";
@@ -71,9 +101,9 @@ public class SalesDAO {
 				pstmt.setString(5, outdate);
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
-					checkSales = true;
+					checkSales2 = true;
 				} else {
-					checkSales = false;
+					checkSales2 = false;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -83,7 +113,7 @@ public class SalesDAO {
 				if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
 				if(rs != null) try {rs.close();} catch (SQLException e) {}
 			}
-			return checkSales;
+			return checkSales2;
 		}
 						
 	public void deleteSales(int ano) {
