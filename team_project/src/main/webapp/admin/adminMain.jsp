@@ -20,11 +20,11 @@ RegionDTO dto = c.getsalesproduct();
 <!-- 헤더들어가는 곳 -->
 <!-- Backgrounds -->
 <div class="menu-item">
-<div class="container">
-   	<div class="row">
-       	<div class="col-lg-2">
-			
-		</div>
+	<div class="container">
+	   	<div class="row">
+	       	<div class="col-lg-2">
+				
+			</div>
 		
 			<div class="col-lg-10">
 				<div class="content-main">		
@@ -60,7 +60,7 @@ RegionDTO dto = c.getsalesproduct();
 					               'titleTextStyle' : {
 					                  fontSize: 30
 					                  },
-					                 'width':1000,
+					                 'width':1500,
 					                 'height':800};
 					
 					  // Instantiate and draw our chart, passing in some options.
