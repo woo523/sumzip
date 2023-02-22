@@ -93,7 +93,7 @@ for (i = 0; i < dropdown.length; i++) {
          <div class="container">
              <div class="row">
                  <div class="col-lg-6">
-                     <ul class="tn-left"></ul>
+                     <a href="AdminMain.ad"><p><b style="color:#777; font-size:20px;">Admin Page</b><p></a>
                  </div>
                  <div class="col-lg-6">
                      <div class="tn-right">
@@ -117,32 +117,24 @@ for (i = 0; i < dropdown.length; i++) {
         </div>
     </div>
     <!-- Backgrounds -->
-<div class="menu-item">
    <div class="container">
        <div class="row">
            <div class="col-lg-2">
-            <div class="sidenav">   
-               <a href="AdminUserList.ad">유저관리</a>
-               <a href="AdminAppointNow.ad">숙소예약현황</a> 
-               <a href="AdminQnaList.ad">Q&A 관리</a> 
-               <button class="dropdown-btn">공지사항
-                  <i class="fa fa-caret-down"></i>
-               </button>
-               <div class="dropdown-container">
-                  <a href="AdminBoardList.ad">공지사항 리스트</a>
-                  <a href="AdminBoardWriteForm.ad">공지사항 작성</a>
-               </div> 
-            </div>
-         </div>
-         
-         <div class="col-lg-10">
-            <div class="content-main">
-               <h1 style="color:#777;">Admin Page</h1>   
-            </div>
+	            <div class="sidenav">   
+	               <a href="AdminUserList.ad">유저관리</a>
+	               <a href="AdminAppointNow.ad">숙소예약현황</a> 
+	               <a href="AdminQnaList.ad">Q&A 관리</a> 
+	               <button class="dropdown-btn">공지사항
+	                  <i class="fa fa-caret-down"></i>
+	               </button>
+	               <div class="dropdown-container">
+	                  <a href="AdminBoardList.ad">공지사항 리스트</a>
+	                  <a href="AdminBoardWriteForm.ad">공지사항 작성</a>
+	               </div> 
+	            </div>
          </div>
       </div>
    </div>   
-</div>
       
 
 </header>

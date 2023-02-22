@@ -1,3 +1,7 @@
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="board.BoardDTO"%>
+<%@page import="board.BoardDAO"%>
 <%@page import="chart.RegionDTO"%>
 <%@page import="chart.CountRegion"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,15 +23,40 @@ RegionDTO dto = c.getsalesproduct();
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
 	   	<div class="row">
-	       	<div class="col-lg-2">
+	       	<div class="col-lg-5">
+				<h2 class="kokuchi_title">공지사항</h2>
+				<div id="news_notice">
+					<table class="kokuchi">
+							<tr><th>공지사항 제목</th><th>공지사항 작성시간</th></tr>
+							<%
+							BoardDAO dao=new BoardDAO();
+							ArrayList<BoardDTO> boardList=dao.getBoardList(1, 10);
+							for(int i=0;i<boardList.size();i++){
+								BoardDTO dto1=boardList.get(i);
+								
+								
+								%>
+								<tr>
+									<td>
+										<a href="AdminBoardContent.ad?bno=<%=dto1.getBno() %>""><%=dto1.getBtitle() %></a>
+									</td> 
+								    <td><%=dto1.getBdate() %></td>
+							    </tr>			
+								<%
+							}
+							%>
+					</table>
+				</div>
+				
+				
 				
 			</div>
 		
-			<div class="col-lg-10">
-				<div class="content-main">		
+			<div class="col-lg-5">
+				<div class="content-main" style="width:800; height:800;">	
+				<div id="chart_div" ></div> 	
 					<!--Load the AJAX API-->
 					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 					<script type="text/javascript">
@@ -49,10 +78,10 @@ RegionDTO dto = c.getsalesproduct();
 					  data.addColumn('number', 'Slices');
 					  data.addRows([
 					    ['애월읍', <%=dto.get애월읍()%>],
-					['성산읍', <%=dto.get성산읍()%>],
-					['중문', <%=dto.get중문()%>],
-					['우도', <%=dto.get우도()%>],
-					['그외', <%=dto.get그외()%>]
+						['성산읍', <%=dto.get성산읍()%>],
+						['중문', <%=dto.get중문()%>],
+						['우도', <%=dto.get우도()%>],
+						['그외', <%=dto.get그외()%>]
 					  ]);
 					
 					  // Set chart options
@@ -60,8 +89,8 @@ RegionDTO dto = c.getsalesproduct();
 					               'titleTextStyle' : {
 					                  fontSize: 30
 					                  },
-					                 'width':1500,
-					                 'height':800};
+					                 'width':700,
+					                 'height':500};
 					
 					  // Instantiate and draw our chart, passing in some options.
 					  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -72,14 +101,13 @@ RegionDTO dto = c.getsalesproduct();
 			</div>
 		</div>
 	</div>
-</div>
     
 </head>
 <body>
     <!--Div that will hold the pie chart-->
     
  
-    <div id="chart_div"></div>      
+         
       
    
 </body>
