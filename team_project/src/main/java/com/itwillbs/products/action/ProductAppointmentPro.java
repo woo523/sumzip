@@ -43,6 +43,7 @@ public class ProductAppointmentPro implements Action {
 			int sprice = pdto.getPprice()*daycount;
 				
 			SalesDAO sdao = new SalesDAO();
+			// 이미 예약된 경우 경고창 띄우고 history.back
 			boolean check=sdao.checksSales(pno, indate, outdate);
 			if(check==true) {
 				response.setContentType("text/html; charset=UTF-8");
@@ -52,7 +53,8 @@ public class ProductAppointmentPro implements Action {
 				out.println("history.back();");
 				out.println("</script>");
 				out.close();
-				
+			
+			// 예약 가능한 날짜일 경우 진행
 			}else if(check!=true) {
 			
 			//Appointment dto에 값 저장
