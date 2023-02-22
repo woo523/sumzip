@@ -13,6 +13,10 @@
 
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 <style>
+	header {
+		padding-bottom: 50px;
+	}
+	
 	.reviewContainer h3 {
 		font-family: 'NanumSquareNeoBold';
 		margin: 10px;
@@ -108,6 +112,10 @@
 		background-color: #FCC419;
 	}
 	
+	footer {
+		padding-top: 50px;
+	}
+	
 </style>
 </head>
 
@@ -131,7 +139,9 @@
 	
 %>
 	<!-- 헤더 들어가는 곳 -->
- 	<jsp:include page="../inc/header.jsp" />
+	<header>
+		<jsp:include page="../inc/header.jsp" />
+	</header>
  	
 	<div class="reviewContainer">
 		<article>
@@ -183,7 +193,10 @@
 	</div>
 	
 	<!-- footer -->
-	<jsp:include page="../inc/footer.jsp" />
+	<footer>
+		<jsp:include page="../inc/footer.jsp" />
+	</footer>
+	
 
 </body>
 <script type="text/javascript">

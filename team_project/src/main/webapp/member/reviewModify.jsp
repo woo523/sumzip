@@ -1,4 +1,3 @@
-reviewModify.jsp
 <%@page import="member.ReviewDAO"%>
 <%@page import="member.ReviewDTO"%>
 <%@page import="member.UserDTO"%>
