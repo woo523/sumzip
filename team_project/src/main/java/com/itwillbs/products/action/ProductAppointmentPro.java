@@ -42,6 +42,19 @@ public class ProductAppointmentPro implements Action {
 			ProductDTO pdto = pdao.getProduct(pno);
 			int sprice = pdto.getPprice()*daycount;
 				
+			SalesDAO sdao = new SalesDAO();
+			boolean check=sdao.checksSales(pno, indate, outdate);
+			if(check==true) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('이미 예약된 날짜입니다.')");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+				
+			}else if(check!=true) {
+			
 			//Appointment dto에 값 저장
 			AppointmentDTO adto=new AppointmentDTO();
 			adto.setPno(pno);
@@ -66,7 +79,7 @@ public class ProductAppointmentPro implements Action {
 			sdto.setOutdate(outdate);
 			sdto.setSprice(sprice);
 			
-			SalesDAO sdao = new SalesDAO();
+			
 			sdao.insertSales(sdto);
 			
 			
@@ -79,7 +92,7 @@ public class ProductAppointmentPro implements Action {
 			out.println("location.href='ProductAppointManage.pr';");
 			out.println("</script>");
 			out.close();
-
+			}
 	
 		return null;	
 	}
