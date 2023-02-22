@@ -40,10 +40,15 @@
 		float: right;
 		margin: 20px;
 	}
-	#reviewList #img {
+	#reviewList .img {
  		margin: 0px 20px 10px 0px;
  		color : black;
         display: inline-block;
+	}	
+	#reviewList .hiddenImg {
+ 		margin: 0px 20px 10px 0px;
+/*         display: none; */
+		visibility: hidden;
 	}	
 </style>
 <body>
@@ -105,23 +110,24 @@
 		
 		<!-- 사진 1이 없을 때 안보이게 하기 -->
 		<% if(rdto.getRpic1() == null) { %>
-			<li><input type="hidden" name="rpic1" value="<%=rdto.getRpic1() %>"></li>
+			<li class="hiddenImg"><input type="hidden" name="rpic1" value="<%=rdto.getRpic1() %>"></li>
 		<% } else { %>
-			<li id="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
+			<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
 		<% } %>
 		
 		<!-- 사진 2가 없을 때 안보이게 하기 -->
 		<% if(rdto.getRpic2() == null) { %>
-			<li><input type="hidden" name="rpic2" value="<%=rdto.getRpic2() %>"></li>
+			<li class="hiddenImg"><input type="hidden" name="rpic2" value="<%=rdto.getRpic2() %>"></li>
 		<% } else { %>
-			<li id="img"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
+			<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
 		<% } %>
 		
 		<!-- 사진 3이 없을 때 안보이게 하기 -->
 		<% if(rdto.getRpic3() == null) { %>
-			<li><input type="hidden" name="rpic3" value="<%=rdto.getRpic3() %>"></li>
+<%-- 			<li><input type="hidden" name="rpic3" value="<%=rdto.getRpic3() %>"></li> --%>
+			<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
 		<% } else { %>
-			<li id="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="150"></li>
+			<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
 		<% } %>
 	</ul>
 <%
