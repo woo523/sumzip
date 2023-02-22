@@ -18,6 +18,8 @@
 
 <!--  한페이지에 보여줄 글 개수 -->
 <%
+
+String id=(String)session.getAttribute("id");
 // ProductDAO dao= new ProductDAO();
 
 // int pageSize=10;
@@ -48,15 +50,23 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <!-- 글쓰기 버튼 부분 -->
 <h3>products/productList.jsp</h3>
 
+
+
 <table border="0" width="64%">
 <tbody><tr align="right">
+<% 
+if(id!=null){
+	if(id.equals("owner")){
+%>
 <td>
 <button type="button" onclick="location.href='ProductWriteForm.pr'">
 상품등록</button></td>
 </tr>
 </tbody></table>
-
-
+<%
+	}
+}
+%>
 <!-- 펜션리스트 부분 -->
 <table border="1">
 <tr><td>상품번호</td>
