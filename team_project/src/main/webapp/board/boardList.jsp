@@ -91,9 +91,9 @@ String search=(String)request.getAttribute("search");
 	<table class="table">
 		<thead class="thead-primary">
 			<tr>
-				<td>No</td><td>User</td>
-				<td>Title</td><td>Date</td>
-				<td>View</td>
+				<td>번호</td><td>작성자</td>
+				<td>제목</td><td>작성일자</td>
+				<td>조회수</td>
 			</tr>
 		</thead>
 

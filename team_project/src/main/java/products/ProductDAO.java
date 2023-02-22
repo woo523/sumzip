@@ -241,7 +241,7 @@ public class ProductDAO {
 					ResultSet rs=null;
 					try {
 						con=getConnection();
-						String sql="select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from(select p.pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from sales s join products p on s.pno = p.pno group by pno order by count(sno) desc) a union select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from products where pno not in (select p.pno from sales s join products p on s.pno = p.pno group by pno) limit ?,?";
+						String sql="select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from(select p.pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from sales s join products p on s.pno = p.pno group by pno order by count(sno) desc) a union select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from products limit ?,?";
 						pstmt=con.prepareStatement(sql);
 						pstmt.setInt(1, startRow-1);
 						pstmt.setInt(2, pageSize);
@@ -392,22 +392,33 @@ public class ProductDAO {
 				public int getRecommendProductCount() {
 					Connection con=null;
 					PreparedStatement pstmt=null;
+					PreparedStatement pstmt2=null;
 					ResultSet rs=null;
+					ResultSet rs2=null;
 					int count=0;
 					try {
 						con=getConnection();
-						String sql="select count(distinct(s.pno)) from sales s join Products p on s.pno = p.pno;";
+						String sql="select count(*) from(select p.pno from sales s join products p on s.pno = p.pno group by pno) a";
 						pstmt=con.prepareStatement(sql);
 						rs=pstmt.executeQuery();
+						String sql2="select count(*) from(select pno, pname, paddress, paddress2, checkin, checkout, pprice, ppic1, pexplain from products where pno not in (select p.pno from sales s join products p on s.pno = p.pno group by pno)) a";
+						pstmt2=con.prepareStatement(sql2);
+						rs2=pstmt2.executeQuery();
 						if(rs.next()) {
 							count=rs.getInt("count(*)");
-							System.out.println(count);
 						}
+						if(rs2.next()) {
+							count+=rs2.getInt("count(*)");
+						}
+						System.out.println(count);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}finally {
 							if(rs!=null) try { rs.close();} catch (Exception e2) {}
 							if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+							if(rs2!=null) try { rs2.close();} catch (Exception e2) {}
+							if(pstmt2!=null) try { pstmt2.close();} catch (Exception e2) {}
+							
 							if(con!=null) try { con.close();} catch (Exception e2) {}
 					}
 					return count;
