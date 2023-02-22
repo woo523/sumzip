@@ -90,7 +90,7 @@ if(id != null){
 <!-- <input type="text" id="user-id"> -->
 <form action="MemberWishListPro.me">
 <!-- <input type="submit" name="button" value="찜"> -->
-<input type="image" src="../img/heart.png" alt="submit" class="heart">
+<input type="image" src="/img/heart.png" alt="submit" class="heart">
 <input type="hidden" name="pno" value=<%=dto.getPno() %>>
 <input type="hidden" name="button" value="찜">
 </form>
