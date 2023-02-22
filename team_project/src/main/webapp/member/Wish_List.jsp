@@ -5,6 +5,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
     <head>
     <meta charset="UTF-8">
     <title>Wish_List</title>
@@ -24,9 +26,6 @@
 		</nav>
 	</div>
 
-
-<h2>위시리스트</h2>
-
 <%
 request.setCharacterEncoding("utf-8");
 String id=(String)session.getAttribute("id");
@@ -42,47 +41,52 @@ if(id!=null){
 	%>
 
     <style>
-      table {
-    text-align:center;
-    width: 80%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #444444;
-    padding: 10px;
-  }
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 1000px;
+ 	margin: 0 auto;
+ 	padding: 50px;
+}
+ .table thead.thead-primary{
+	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;	
+	
+}
+  .heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+        
+}
 
- 
   
-  #end{
-  	border:none;
-  }
-  
-  #button{
-  	padding-top: 5px;
-  	text-align:left;
-  	border-top: none;
-  	border-right: none;
-  	border-bottom:none;
-  }
-  
-  input{
-  margin-top: 10px;
-  }
+  #table_search{
+	float: right;  
+}
   
   #sidebar{
  	width: 250px; 
    	height: 1000px;   
-/*  	background-color: #98FD5D;  */
+/*  	background-color: #98FD5D;  */ 
 	float: left;
 }
     </style>
   
+  <article>
+<div class="wishlistContainer">
+	<h3 class="heading-section">Wish List</h3>
+	</div>
 
-    <table>
-      <thead>
+    <table class="wish table">
+      <thead class="thead-primary">
         <tr>
-          <th>숙소이름</th><th>숙박가격</th><th>주소</th><th id="end"></th>
+          <th>숙소이름</th><th>숙박가격</th><th>주소</th><th>찜해제</th>
         </tr>
       </thead>
       <tbody>
@@ -93,18 +97,21 @@ if(id!=null){
 		System.out.println("i="+i);
 		int ppno=d.getPno();
 	%>
-		<tr>
+		<tr class="wish">
           <td><%=d.getPname()%></td><td><%=d.getPprice()%></td><td><%=d.getPaddress()%></td>
 
 <td id="button"><form action="MemberWishListPro.me">
 <input type="hidden" name="pno" value=<%=ppno%>>
-<input type="submit" name="button" value="찜해제">
+<input type="submit" name="button" class="btn btn-outline-secondary" value="찜해제">
 </form></td>
 		<%System.out.println("ppno="+ppno);%>
         </tr><%} %>
       </tbody>
     </table>
-<a href="MemberMyPage_user.me">마이페이지로 돌아가기</a><br><%
+    <div id="table_search">
+    <button type="button" class="btn btn-outline-success" onclick="location.href='MemberMyPage_user.me'">마이페이지로 돌아가기</button><br>
+</div>
+<%
         }else {
 	response.sendRedirect("MemberLogin.me");
 }
@@ -112,7 +119,7 @@ if(id!=null){
 
 
 
-
+</article>
 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
