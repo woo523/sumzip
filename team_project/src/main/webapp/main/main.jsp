@@ -114,7 +114,8 @@ String Date=(String)request.getAttribute("Date");
     <!-- Header End -->
 
 <!-- Breadcrumb Section Begin -->
-    <div class="breadcrumb-section">
+    <div class="productsearch-section">
+    <h3 class="search_name">언제, 어디로 떠날까요 ?</h3><br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -127,7 +128,7 @@ String Date=(String)request.getAttribute("Date");
                 <div class="container">
                     <div class="hotel_booking-table">
                         <div class="col-md-3">
-                            <h4>언제 떠날까요?</h4>
+<!--                             <h4>언제, 어디로 떠날까요?</h4> -->
                         </div>
                         <div class="col-md-9">
                             <div class="boking-table">
