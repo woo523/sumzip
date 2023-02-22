@@ -90,7 +90,7 @@ if(id != null){
  </td></tr>
  </table>
 
-<jsp:include page="ProductReviewList.pr" flush="false" />
+<jsp:include page="productReviewList.jsp" />
  
  <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />

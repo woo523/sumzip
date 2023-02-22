@@ -6,9 +6,43 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>board/boardList.jsp</title>
+<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
+<style>
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 1000px;
+ 	margin: 0 auto;
+ 	padding: 50px;
+}
+.table thead.thead-primary{
+	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;    
+}
+
+#table_search{
+	padding: 10px;
+ 	width:350px;
+	margin:auto;
+}
+</style>
+
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -48,57 +82,51 @@ String search=(String)request.getAttribute("search");
 
 
 %>
-<!-- 글쓰기 버튼 부분 -->
-<h3>board/boardList.jsp</h3>
-
-<div id="table_search">
-<table border="0" width="50%">
-<tbody><tr align="right">
-<td>
-<button type="button" onclick="location.href='BoardWriteForm.bo'">
-글쓰기</button></td>
-</tr>
-</tbody></table>
-</div>
 
 <!-- 공지사항 리스트 부분 -->
-<table border="1" width="50%">
-<tbody>
-<tr>
-<td width="5%" align="center">번호</td><td width="5%" align="center">유저번호</td>
-<td width="15%" align="center">제목</td><td width="20%" align="center">작성날짜</td>
-<td width="5%" align="center">조회수</td>
-</tr>
-
-<tr><td colspan="5" align="center"></td></tr>
+<article>
+	<div class="qnalistContainer">
+		<h3 class="heading-section">Board List</h3>
+	</div>
+	<table class="table">
+		<thead class="thead-primary">
+			<tr>
+				<td>No</td><td>User</td>
+				<td>Title</td><td>Date</td>
+				<td>View</td>
+			</tr>
+		</thead>
 
 <%
 for(int i=0; i<boardList.size(); i++){
 	BoardDTO dto= boardList.get(i);
 %>
-<tr><td align="center"><%=dto.getBno() %></td>
-<td align="center"><%=dto.getNo() %></td>
-    <td align="center">
+<tr><td><%=dto.getBno() %></td>
+<td><%=dto.getNo() %></td>
+    <td>
     <a href="BoardContent.bo?bno=<%=dto.getBno() %>">
     <%=dto.getBtitle() %>
     </a></td>
-<td align="center"><%=dto.getBdate() %></td>
-<td align="center"><%=dto.getBcount() %></td></tr>
+<td><%=dateFormat.format(dto.getBdate()) %></td>
+<td><%=dto.getBcount() %></td></tr>
 
 <% 
 }
 %>
 </tbody>
 </table>
+
+<!-- 글쓰기 버튼 부분 -->
+
+<!-- <div id="table_search">
+<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='BoardWriteForm.bo'">글쓰기</button><br>
+</div>
+ -->
 <!-- 게시판 글 검색부분 -->
 <div id="table_search">
 <form action="BoardList.bo"  method="post">
-<table border="1" width="50%"> 
-<tr><td align="center">
 <input type="text" name="search">
-<input type="submit" value="검색">
-</td></tr>
-</table>
+<button type="submit" class="btn btn-outline-success">Search</button>
 </form>
 </div>
 
@@ -162,7 +190,7 @@ if(endPage < pageCount){
 	}
 }
 %>
-
+</article>
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
 
