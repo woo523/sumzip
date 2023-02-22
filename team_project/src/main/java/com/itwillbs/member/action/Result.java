@@ -1,5 +1,7 @@
 package com.itwillbs.member.action;
 
+import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +20,36 @@ public class Result implements Action {
 		
 		
 		request.setCharacterEncoding("utf-8");
+		
+		String indate=request.getParameter("indate");
+		String outdate=request.getParameter("outdate");
+		int guest=Integer.parseInt(request.getParameter("guest"));
+		String region=request.getParameter("region");
+		
+		ProductDAO dao=new ProductDAO();
+		LocalDate startDate = LocalDate.parse(indate);
+		LocalDate endDate = LocalDate.parse(outdate);
+		boolean result = endDate.isAfter(startDate);
+		if(result==false) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('퇴실일이 입실일 이전이거나 입실일과 같습니다.')");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}
+		
 		//오늘 날짜
 		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-		ProductDAO dao=new ProductDAO();
+		String Date2 = Date.replaceAll("[-]", "");
+        int Date3=Integer.parseInt(Date);
+        Date3+=1;
+        Date=Integer.toString(Date3);
+        String Date4=Date.substring(0, 4);
+        String Date5=Date.substring(4, 6);
+        String Date6=Date.substring(6);
+        Date2=Date4+"-"+Date5+"-"+Date6;
 		//페이징
 		int pageSize=9;// 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
@@ -32,14 +61,9 @@ public class Result implements Action {
 		int endRow = startRow+pageSize-1;
 		
 		
-		String indate=request.getParameter("indate");
-		String outdate=request.getParameter("outdate");
-		int guest=Integer.parseInt(request.getParameter("guest"));
-		String region=request.getParameter("region");
-		System.out.println(indate);
-		System.out.println(outdate);
-		System.out.println(guest);
-		System.out.println(region);
+		
+		
+		
 		
 		
 		// 한 화면에 보여줄 페이지 개수 설정
@@ -86,10 +110,13 @@ public class Result implements Action {
 		request.setAttribute("guest", guest);
 		request.setAttribute("region", region);
 		request.setAttribute("Date", Date);
+		request.setAttribute("Date2", Date2);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/result.jsp");
 		forward.setRedirect(false);
+		
+		
 		return forward;
 	}
 

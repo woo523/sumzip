@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
@@ -46,6 +47,7 @@
 <!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
 String Date=(String)request.getAttribute("Date");
+String Date2=(String)request.getAttribute("Date2");
 %>
 <header class="header-section">
 	<div class="top-nav">
@@ -139,7 +141,9 @@ String Date=(String)request.getAttribute("Date");
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                    <input type='date' name="outdate" class="form-control" value="<%=Date%>"/>
+                                          
+                                            
+                                                    <input type='date' name="outdate" class="form-control" value="<%=Date2%>"/>
                                             </div>
                                         </div>
                                     </div>
