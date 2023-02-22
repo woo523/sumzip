@@ -64,7 +64,9 @@ article{
     margin: 10px; 
         
 }
-
+  .table tr.wish:hover{
+	background: #E1E1E1;
+}
   
   #table_search{
 	float: right;  
@@ -97,7 +99,7 @@ article{
 		System.out.println("i="+i);
 		int ppno=d.getPno();
 	%>
-		<tr>
+		<tr class="wish">
           <td><%=d.getPname()%></td><td><%=d.getPprice()%></td><td><%=d.getPaddress()%></td>
 
 <td id="button"><form action="MemberWishListPro.me">
