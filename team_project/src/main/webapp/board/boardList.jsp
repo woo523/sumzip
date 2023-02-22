@@ -41,6 +41,10 @@ article{
  	width:350px;
 	margin:auto;
 }
+
+.table tr.boa:hover{
+	background: #E1E1E1;
+}
 </style>
 
 </head>
@@ -101,7 +105,7 @@ String search=(String)request.getAttribute("search");
 for(int i=0; i<boardList.size(); i++){
 	BoardDTO dto= boardList.get(i);
 %>
-<tr><td><%=dto.getBno() %></td>
+<tr class="boa"><td><%=dto.getBno() %></td>
 <td><%=dto.getNo() %></td>
     <td>
     <a href="BoardContent.bo?bno=<%=dto.getBno() %>">

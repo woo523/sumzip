@@ -64,9 +64,7 @@ article{
     margin: 10px; 
         
 }
-  .table tr.wish:hover{
-	background: #E1E1E1;
-}
+
   
   #table_search{
 	float: right;  
