@@ -46,7 +46,7 @@ public class BoardList implements Action {
 		
 		int count = 0;
 		//검색어
-		if(search==""){
+		if(search==null){
 			//검색어 없음
 			count=dao.getBoardCount();
 		}else {
@@ -68,7 +68,8 @@ public class BoardList implements Action {
 		request.setAttribute("pageCount", pageCount);
 		
 		request.setAttribute("search", search);
-		
+		System.out.println("startpage "+startPage);
+		System.out.println("endpage "+endPage);
 		// 이동
 		ActionForward forward = new ActionForward();
 		forward.setPath("board/boardList.jsp");

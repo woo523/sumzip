@@ -168,7 +168,7 @@ String Date=(String)request.getAttribute("Date");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
-                                      <input type="submit" class="mainaa" value="검색">
+                                      <input type="submit" class="mainsearch_button" value="검색">
                                      </form>
                                     </div>
                                    

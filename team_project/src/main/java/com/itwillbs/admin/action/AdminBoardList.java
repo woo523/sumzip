@@ -43,7 +43,7 @@ public class AdminBoardList implements Action {
 		
 		int count = 0;
 		//검색어
-		if(search==""){
+		if(search==null){
 			//검색어 없음
 			count=dao.getBoardCount();
 		}else {
