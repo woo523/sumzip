@@ -39,13 +39,6 @@ public class BoardFrontController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setPath("board/boardWrite.jsp");
 			forward.setRedirect(false);
-//		}else if(sPath.equals("/BoardWritePro.bo")) {
-//			action=new BoardWritePro();
-//			try {
-//				forward=action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
 		}else if(sPath.equals("/BoardList.bo")){
 			action = new BoardList();
 			try {
@@ -60,27 +53,6 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//		}else if(sPath.equals("/BoardUpdateForm.bo")) {
-//			action=new BoardUpdateForm();
-//			try {
-//				forward=action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}else if(sPath.equals("/BoardUpdatePro.bo")) {
-//			action=new BoardUpdatePro();
-//			try {
-//				forward=action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}else if(sPath.equals("/BoardDeletePro.bo")) {
-//			action=new BoardDeletePro();
-//			try {
-//				forward=action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}	
 		}else if(sPath.equals("/BoardReplyInsert.bo")) {
 			action = new BoardReplyInsert();
 			try {
