@@ -89,11 +89,11 @@ for (i = 0; i < dropdown.length; i++) {
 </head>
 <body>
 <header class="header-section">
-   <div class="top-nav">
          <div class="container">
              <div class="row">
                  <div class="col-lg-6">
-                     <a href="AdminMain.ad"><p><b style="color:#777; font-size:20px;">Admin Page</b><p></a>
+                     <a href="AdminMain.ad"><b class="adminLogo">Admin Page</b></a>
+                     
                  </div>
                  <div class="col-lg-6">
                      <div class="tn-right">
@@ -103,21 +103,19 @@ for (i = 0; i < dropdown.length; i++) {
                           // MemberDTO dto = getMember(id) 메서드호출
                           UserDTO dto = dao.getUser(id);
                           if(id!=null){
-                  %>
-                  <div id="login">♥ <%=id %> 님 ♥ |
-                     <a href="AdminLogout.ad">Logout</a> | 
-                     <a href="Main.me">유저 페이지</a>
-                  </div>
-                  <%
-                  }
-                  %>
-               </div>
+		                  %>
+		                  <div id="login">♥ <%=id %> 님 ♥ |
+		                     <a style="color:black;" href="AdminLogout.ad">Logout</a> | 
+		                     <a style="color:black;" href="Main.me">섬집</a>
+		                  </div>
+		                  <%
+		                  }
+		                  %>
+               		</div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- Backgrounds -->
-   <div class="container">
        <div class="row">
            <div class="col-lg-2">
 	            <div class="sidenav">   
@@ -134,7 +132,6 @@ for (i = 0; i < dropdown.length; i++) {
 	            </div>
          </div>
       </div>
-   </div>   
       
 
 </header>

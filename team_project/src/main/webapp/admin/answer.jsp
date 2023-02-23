@@ -15,7 +15,6 @@
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -68,6 +67,5 @@ if(id==null){
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

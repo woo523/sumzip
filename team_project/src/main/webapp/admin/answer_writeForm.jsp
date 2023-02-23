@@ -24,7 +24,6 @@ if(id==null){
 %>
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -49,6 +48,5 @@ if(id==null){
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

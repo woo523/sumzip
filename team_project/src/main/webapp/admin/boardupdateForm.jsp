@@ -11,7 +11,6 @@
 <body>
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -47,6 +46,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

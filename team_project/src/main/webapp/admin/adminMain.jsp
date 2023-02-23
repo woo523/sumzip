@@ -29,7 +29,6 @@ RegionDTO dto = c.getsalesproduct();
 				<h2 class="kokuchi_title">공지사항</h2>
 				<div id="news_notice">
 					<table class="kokuchi">
-							<tr><th>공지사항 제목</th><th>공지사항 작성시간</th></tr>
 							<%
 							BoardDAO dao=new BoardDAO();
 							ArrayList<BoardDTO> boardList=dao.getBoardList(1, 10);
@@ -55,7 +54,7 @@ RegionDTO dto = c.getsalesproduct();
 			</div>
 		
 			<div class="col-lg-5">
-				<div class="content-main" style="width:800; height:800;">	
+				<div class="content-main" style="width:1000; height:1000;">	
 				<div id="chart_div" ></div> 	
 					<!--Load the AJAX API-->
 					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -89,8 +88,8 @@ RegionDTO dto = c.getsalesproduct();
 					               'titleTextStyle' : {
 					                  fontSize: 30
 					                  },
-					                 'width':700,
-					                 'height':500};
+					                 'width':900,
+					                 'height':700};
 					
 					  // Instantiate and draw our chart, passing in some options.
 					  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));

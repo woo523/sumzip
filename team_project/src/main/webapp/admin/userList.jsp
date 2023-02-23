@@ -18,7 +18,6 @@
 <!-- 헤더들어가는 곳 -->
 		
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -123,7 +122,6 @@ if(endPage < pageCount){
 %>
 </div>
 </form>
-</div>
 </div>
 </div>
 </div>

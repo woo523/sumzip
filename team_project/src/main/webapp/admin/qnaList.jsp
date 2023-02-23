@@ -65,7 +65,6 @@ String qstatus = "";
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- 헤더들어가는 곳 -->
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -136,7 +135,6 @@ String qstatus = "";
 			</div>
 		</div>
 	</div>
-</div>
 
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
