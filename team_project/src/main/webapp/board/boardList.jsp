@@ -40,7 +40,8 @@ article{
 #table_search{
 	padding: 10px;
  	width:350px;
-	margin:0 auto;	
+	margin:auto;
+	text-align: center;
 }
 .table tr.boa{
     text-align: center;
@@ -110,6 +111,7 @@ for(int i=0; i<boardList.size(); i++){
 %>
 <tr class="boa">
 	<td><%=dto.getBno() %></td>
+
     <td>
     <a href="BoardContent.bo?bno=<%=dto.getBno() %>">
     <%=dto.getBtitle() %>
