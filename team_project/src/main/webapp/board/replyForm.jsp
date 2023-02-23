@@ -13,8 +13,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -88,7 +88,7 @@ ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replyl
                     <div class="blog-details-text">
                        <div class="leave-comment">
 <!-- 댓글쓰기 폼 -->
-                            <h4>댓글 쓰기</h4>
+                            <h3 class="heading-section">Comment</h3>
                             <form action="BoardReplyInsert.bo" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">

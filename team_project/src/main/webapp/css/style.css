@@ -1828,7 +1828,7 @@ ul, ol {
 	padding-top: 12px;
 }
 .blog-details-text .leave-comment .comment-form textarea:focus {
-	border-color: #008000;
+	border-color: #99b19c;
 }
 .blog-details-text .leave-comment .comment-form button {
 	font-size: 13px;
@@ -1836,7 +1836,7 @@ ul, ol {
 	text-transform: uppercase;
 	color: #ffffff;
 	letter-spacing: 2px;
-	background: #008000;
+	background: #99b19c;
 	border: none;
 	padding: 14px 42px 13px;
 	display: inline-block;
