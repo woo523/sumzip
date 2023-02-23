@@ -59,14 +59,13 @@
 						
 						<!-- 공지사항 리스트 부분 -->
 						<table border="1" class="teeburu">
-							<tr><td>번호</td><td>유저번호</td><td>제목</td><td>작성날짜</td><td>조회수</td></tr>
+							<tr><th>번호</th><th>제목</th><th>작성날짜</th><th>조회수</th></tr>
 								<%
 								for(int i=0; i<boardList.size(); i++){
 									BoardDTO dto= boardList.get(i);
 								%>
 								<tr>
 									<td><%=dto.getBno() %></td>
-									<td><%=dto.getNo() %></td>
 								    <td>
 								    	<a href="AdminBoardContent.ad?bno=<%=dto.getBno() %>"><%=dto.getBtitle() %></a>
 								    </td>

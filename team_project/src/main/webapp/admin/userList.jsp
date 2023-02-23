@@ -52,7 +52,7 @@
 				<form action="AdminUserDelete.ad" id="user_delete" method="post">
 					<div>
 						<table border="1" class="teeburu">
-						<tr><td>이름</td><td>아이디</td><td>생일</td><td>이메일</td><td>가입날짜</td><td>회원유형</td><td>회원삭제</td></tr>
+						<tr><th>이름</th><th>아이디</th><th>생일</th><th>이메일</th><th>가입날짜</th><th>회원유형</th><th>회원삭제</th></tr>
 						<%
 						//배열 접근 = for
 						for(int i=0;i<userList.size();i++){
@@ -63,7 +63,8 @@
 							<td> <%=dto.getUname() %> </td>
 							<td> <%=dto.getId() %> </td>
 							<td> <%=dto.getBirth() %> </td>
-							<td> <%=dto.getEmail() %></td><td><%=dateFormat.format(dto.getJoindate()) %></td>
+							<td> <%=dto.getEmail() %></td>
+							<td><%=dateFormat.format(dto.getJoindate()) %></td>
 							<td>
 								<% if (dto.getUtype() == 1) { %>
 							        일반회원 

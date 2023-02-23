@@ -55,7 +55,7 @@
 					<form action="AdminAppointNowUpdate.ad" method="post">
 						<div>
 							<table border="1" class="teeburu">
-							<tr><td>예약번호</td><td>유저번호</td><td>예약상태</td><td>예약상태 변경</td><td>예약일자</td><td>예약취소</td></tr>
+							<tr><th>예약번호</th><th>유저번호</th><th>예약상태</th><th>예약상태 변경</th><th>예약일자</th><th>예약취소</th></tr>
 							<%
 							 for(int i=0;i<AppointmentList.size();i++){
 							 	//배열 한칸에 내용 가져오기

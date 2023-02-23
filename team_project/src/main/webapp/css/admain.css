@@ -108,7 +108,7 @@
 
 .adminichi{
 	width: 1000px;
-    height: 800px;
+    height: 600px;
 }
 
 .teeburu{
@@ -133,8 +133,8 @@
     border-radius: 2px;
     padding: 7px 7px 5px;
     position:absolute;
-    right: 170px;
-    bottom: 360px;
+    right: 10px;
+    bottom: -10px;
 }
 .migi{
 	padding-left: 660px;
@@ -160,9 +160,17 @@
     display:block;
     
 }
-.teeburu tr td {
-	padding: 0 5px;
+.teeburu tr th {
+	text-align: center;
+	background-color: #113000;
+	color: white;
+	padding: 7px 0;
 }
+.teeburu tr td {
+	text-align: center;
+	padding: 3px 0;
+}
+
 .peigingu .pp{
 	color: white;
     background-color: #113000;
@@ -170,6 +178,7 @@
     height:24px;
     border-radius: 2px;
     display:inline-block;
+    margin: px 5px;
 }
 .pojisyonn{
 	position:relative;

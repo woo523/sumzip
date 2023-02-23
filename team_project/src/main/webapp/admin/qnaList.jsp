@@ -41,7 +41,7 @@ String qstatus = "";
 					<h1 class="taitoru">Q&A List</h1>
 					<div>
 						<table border="1" class="teeburu">
-							<tr><td>번호</td><td>유저번호</td><td>제목</td><td>작성날짜</td><td>답변 상태</td><td>조회수</td></tr>
+							<tr><th>번호</th><th>유저번호</th><th>제목</th><th>작성날짜</th><th>답변 상태</th><th>조회수</th></tr>
 						<%
 						String id=(String)session.getAttribute("id");
 						
