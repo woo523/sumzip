@@ -13,7 +13,7 @@
 	}
 
 	#wrap {
-		margin: 60px auto;
+		margin: 100px auto;
 		width: 90%;
 		max-width: 600px;
 		padding: 20px;
@@ -64,8 +64,8 @@ UserDTO dto = dao.findId(uname, email);
 		      		<h3>등록된 정보가 없습니다.</h3>
 		    	</div>
 		    	<div class="login-btn">
-		     		<input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
-		     		<a href="MemberAgree.me"><input type="button" id="btnjoin" value="회원가입"></a>
+		     		<input type="button" id="btnback" class="btn btn-outline-success" value="다시 찾기" onClick="history.back()"/>
+		     		<a href="MemberAgree.me"><input type="button" id="btnjoin" class="btn btn-outline-success" value="회원가입"></a>
 		    	</div> 
 		    	<%
 		  		}
