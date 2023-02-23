@@ -69,6 +69,7 @@
     <script src="js1/bootstrap.min.js"></script>
     
 <title>Insert title here</title>
+
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -88,6 +89,7 @@ for (i = 0; i < dropdown.length; i++) {
 </script>
 </head>
 <body>
+
 <header class="header-section">
          <div class="container">
              <div class="row">
@@ -133,6 +135,9 @@ for (i = 0; i < dropdown.length; i++) {
          </div>
       </div>
       
-
+	
+	
+	
+	
 </header>
     <!-- Header End -->
