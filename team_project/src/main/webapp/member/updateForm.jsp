@@ -197,8 +197,8 @@ UserDTO dto=dao.getUser(id);
 				<input type="text" name="tel" value="<%=dto.getTel()%>"><br>
 			</fieldset>
 			<div id="buttons">
-			<input type="submit" value="Submit" class="submit">
-			<input type="reset" value="Cancel" class="cancel">
+			<input type="submit" value="수정" class="submit">
+			<input type="reset" value="취소" class="cancel">
 			</div>
 			</form>
 		</div>

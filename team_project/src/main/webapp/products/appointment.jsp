@@ -90,7 +90,7 @@ UserDTO udto = (UserDTO)request.getAttribute("udto");
             </section>
 
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->
 </body>
 </html>
