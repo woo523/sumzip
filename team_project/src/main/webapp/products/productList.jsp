@@ -39,8 +39,10 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <table border="0" width="64%">
 <tbody><tr align="right">
 <% 
+UserDAO dao = new UserDAO();
+UserDTO udto = dao.getUser(id);
 if(id!=null){
-	if(id.equals("owner")){
+	if(udto.getUtype()==2){
 %>
 <td>
 <button type="button" onclick="location.href='ProductWriteForm.pr'">

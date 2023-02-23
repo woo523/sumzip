@@ -1,4 +1,6 @@
 
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="products.ProductDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -30,9 +32,11 @@ ProductDTO dto=new ProductDTO();
 String id=(String)session.getAttribute("id");
 // String utype=(String)session.getAttribute("utype");
 
+UserDAO dao = new UserDAO();
+UserDTO udto = dao.getUser(id);
 if(id==null){
 	response.sendRedirect("MemberLogin.me");	
-}else if(id.equals("owner")){
+}else if(udto.getUtype()==2){
 	
 }else{
 	%>
