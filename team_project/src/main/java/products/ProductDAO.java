@@ -118,6 +118,56 @@ public class ProductDAO {
 		return productList;
 	}// getProductList()
 	
+	public ArrayList<ProductDTO> getProductList(int startRow, int pageSize, String id){
+		System.out.println("ProductDAO getProductList()");
+		ArrayList<ProductDTO> productList1=new ArrayList<ProductDTO>();
+		Connection con =null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		System.out.println(id);
+		try {
+			con=getConnection();
+			String sql="select * from products where no=(select no from users where id = ?) order by pno desc limit ?,?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, startRow-1);
+			pstmt.setInt(3, pageSize);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ProductDTO dto=new ProductDTO();
+				System.out.println("상품정보저장 주소 : "+dto);
+				dto.setPno(rs.getInt("pno"));
+				dto.setNo(rs.getInt("no"));
+				dto.setPname(rs.getString("pname"));
+				dto.setPaddress(rs.getString("paddress"));
+				dto.setPpostnum(rs.getInt("ppostnum"));
+				dto.setPaddress2(rs.getString("paddress2"));
+				dto.setPtel(rs.getString("ptel"));		
+				dto.setCheckin(rs.getString("checkin"));
+				dto.setCheckout(rs.getString("checkout"));
+				dto.setPprice(rs.getInt("pprice"));
+				dto.setMax_men(rs.getInt("max_men"));
+				dto.setExpiration(rs.getInt("expiration"));
+				dto.setReser_date(rs.getTimestamp("reser_date"));		
+				dto.setPpic1(rs.getString("ppic1"));
+				dto.setPpic2(rs.getString("ppic2"));
+				dto.setPpic3(rs.getString("ppic3"));
+				dto.setCaution(rs.getString("caution"));
+				dto.setPexplain(rs.getString("pexplain"));
+				productList1.add(dto);
+				
+			}
+			System.out.println(productList1.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return productList1;
+	}// getProductList()
+	
 	// 펜션 검색
 	public ArrayList<ProductDTO> getSearchProductList(String indate, String outdate, int guest, String region, int startRow, int pageSize) {
 		ArrayList<ProductDTO> productList=new ArrayList<ProductDTO>();

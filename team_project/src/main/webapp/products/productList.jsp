@@ -15,35 +15,17 @@
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
-
 <!--  한페이지에 보여줄 글 개수 -->
 <%
 
 String id=(String)session.getAttribute("id");
-// ProductDAO dao= new ProductDAO();
 
-// int pageSize=10;
-
-// String pageNum=request.getParameter("pageNum");
-// if(pageNum==null){
-// 	 pageNum="1";
-// 	}
-
-// int currentPage=Integer.parseInt(pageNum);
-
-// int startRow=(currentPage-1)*pageSize+1;
-
-// int endRow= startRow+pageSize-1;
-
-// ArrayList<ProductDTO> productList=dao.getProductList(startRow, pageSize);
-
-ArrayList<ProductDTO> productList = (ArrayList<ProductDTO>)request.getAttribute("productList");
+ArrayList<ProductDTO> productList1 = (ArrayList<ProductDTO>)request.getAttribute("productList1");
 int currentPage =(Integer)request.getAttribute("currentPage");
 int pageBlock =(Integer)request.getAttribute("pageBlock");
 int startPage =(Integer)request.getAttribute("startPage");
 int endPage =(Integer)request.getAttribute("endPage");
 int pageCount =(Integer)request.getAttribute("pageCount");
-
 
 %>
 
@@ -82,8 +64,8 @@ if(id!=null){
     </tr>
    
 <%
-for(int i=0; i<productList.size(); i++){
-	ProductDTO dto=productList.get(i);
+for(int i=0; i<productList1.size(); i++){
+	ProductDTO dto=productList1.get(i);
 %>
     <tr><td><%=dto.getPno() %></td>
 <%--     <td><%=dto.getNo() %></td> --%>
@@ -107,24 +89,6 @@ for(int i=0; i<productList.size(); i++){
 
 <!-- 페이징 부분 -->
 <% 
-// // 한 화면에 보여줄 페이지개수
-// int pageBlock=10;
-
-// // 시작하는 페이지 번호
-// int startPage=(currentPage-1)/pageBlock*pageBlock+1;
-
-// // 끝나는 페이지 번호
-// int endPage=startPage+pageBlock-1;
-
-// // 전체글 개수를 정의한 getBoardCount()메서드 호출
-// int count= dao.getProductCount();
-
-// // 전체페이지
-// int pageCount=count/pageSize+(count%pageSize==0?0:1);
-// if(endPage > pageCount){
-// 	endPage = pageCount;
-// }
-
 
 if(startPage > pageBlock){
 	%>
