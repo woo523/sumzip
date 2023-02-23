@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -24,31 +24,19 @@
 			<div class="col-lg-10">
 				<div class="content-main">		
 <%
-//request에 저장된 qno 파라미터값 가져오기
-// int qno=Integer.parseInt(request.getParameter("qno"));
-
-//QnaDAO 객체생성
-// QnaDAO dao=new QnaDAO();
-
-// QnaDTO dto = dao.getQna(qno);  
-
-//id 세션값 가져오기
 String id=(String)session.getAttribute("id");
-// int no=dto.getNo();
-// UserDAO udao = new UserDAO();
-// UserDTO udto = udao.getUserNo(no);
 QnaDTO qdto = (QnaDTO)request.getAttribute("qdto");
 UserDTO udto = (UserDTO)request.getAttribute("udto");
 int qno=(Integer)request.getAttribute("qno");
 
 
 //로그인 되어있지 않으면 로그인화면으로
-if(id==null){
+if(id==null && id.equals("admin")){
 	response.sendRedirect("AdminLogin.ad");
 }
 %>
 	
-					<h4>answer</h4>
+					<h1>AnswerList</h1>
 					
 					<table border="1">
 						<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin/boardList.jsp</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -16,7 +16,6 @@
 
 <!-- 한페이지에 보여줄 글 개수 -->
 <!-- Backgrounds -->
-<div class="menu-item">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -39,7 +38,7 @@
 					%>
 					
 					<!-- 글쓰기 버튼 부분 -->
-					<h3>admin/boardList.jsp</h3>
+					<h1>BoardList</h1>
 					
 					<div id="table_search">
 						<table border="0" width="50%">
@@ -145,7 +144,6 @@
 			</div>
 		</div>
 	</div>
-</div>
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
 

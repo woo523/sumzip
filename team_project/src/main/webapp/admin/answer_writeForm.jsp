@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin/answer_writeForm.jsp</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <%
@@ -32,7 +32,7 @@ if(id==null){
 			
 			<div class="col-lg-10">
 				<div class="content-main">		
-					<h1>답변</h1>
+					<h1>AnswerWrite</h1>
 					<form action="AdminAnswerWritePro.ad" method="post"> 
 						<input type="hidden" name="no" value="<%=no%>">
 						<input type="hidden" name="qno" value="<%=qno%>">

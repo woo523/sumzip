@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin/appointNow</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -26,7 +26,7 @@
 			
 			<div class="col-lg-10">
 				<div class="content-main">		
-                    <h2>숙소 예약 현황 (관리자용)</h2>
+                    <h1>AppointmentList</h1>
 					                    
 					<%
 					ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");

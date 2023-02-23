@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/admain.css" type="text/css" >
-<title>Insert title here</title>
+<title>섬집 관리자 페이지</title>
 <%
 CountRegion c = new CountRegion();
 RegionDTO dto = c.getsalesproduct();
@@ -26,7 +26,7 @@ RegionDTO dto = c.getsalesproduct();
 	<div class="container">
 	   	<div class="row">
 	       	<div class="col-lg-5">
-				<h2 class="kokuchi_title">공지사항</h2>
+				<h1 class="kokuchi_title">공지사항</h1>
 				<div id="news_notice">
 					<table class="kokuchi">
 							<%

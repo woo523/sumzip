@@ -10,7 +10,7 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>qna/qnaList.jsp</title>
+<title>섬집 관리자 페이지</title>
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 <style>
 article{
@@ -73,10 +73,8 @@ String qstatus = "";
 			
 			<div class="col-lg-10">
 				<div class="content-main">		
+					<h1>Q&AList</h1>
 					<article>
-					<div class="qnalistContainer">
-						<h3 class="heading-section">Q&A</h3>
-					</div>
 						<table class="table">
 							<thead class="thead-primary">
 								<tr><td>No</td><td>Writer</td><td>Title</td>

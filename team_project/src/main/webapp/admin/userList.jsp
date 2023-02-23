@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/admain.css" type="text/css" >
-<title>Insert title here</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -18,6 +18,7 @@
 <!-- 헤더들어가는 곳 -->
 		
 <!-- Backgrounds -->
+ <section class="rooms-section spad">
 	<div class="container">
     	<div class="row">
         	<div class="col-lg-2">
@@ -27,22 +28,6 @@
 <div class="col-lg-10">
 	<div class="content-main">			
 <%
-// UserDAO dao=new UserDAO();
-//한 페이지레 보여줄 글개수 설정
-// int pageSize=10;
-//현 페이지 번호 가져오기 => 페이지번호가 없으면 1페이지 설정
-// String pageNum=request.getParameter("pageNum");
-// if(pageNum==null){
-	//=>페이지번호가 없으면 1페이지 설정
-// 	pageNum="1";
-// }
-//pageNum => 숫자변경
-// int currentPage=Integer.parseInt(pageNum);
-// 시작하는 행번호 구하기
-// int startRow=(currentPage-1)*pageSize+1;
-//끝나는 행번호 구하기
-// int endRow =startRow+pageSize-1;
-
 String id=(String)session.getAttribute("id");
 ArrayList<UserDTO> userList =(ArrayList<UserDTO>)request.getAttribute("userList");
 
@@ -85,20 +70,6 @@ for(int i=0;i<userList.size();i++){
 <div id="page_control">
 
 <%
-// 한 화면에 보여줄 페이지 개수 설정
-// int pageBlock=10;
-//시작하는 페이지 번호 구하기
-// int startPage=(currentPage-1)/pageBlock*pageBlock+1;
-//끝나는 페이지 번호 구하기
-// int endPage=startPage+pageBlock-1;
-
-// int count = dao.getUserCount();
-
-// int pageCount=count/pageSize+(count%pageSize==0?0:1);
-// if(endPage > pageCount){
-// 	endPage = pageCount;
-// }
-
 // 10페이지 이전
 if(startPage > pageBlock){
 	%>
@@ -126,5 +97,6 @@ if(endPage < pageCount){
 </div>
 </div>
 </div>
+</section>
 </body>
 </html>

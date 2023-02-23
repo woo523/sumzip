@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin/boardContent.jsp</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <!-- 헤더 들어가는 곳 -->
@@ -36,7 +36,7 @@
 					%>
 					
 					<!-- 공지사항 내용 -->
-					<h2>글내용 [로그인 : <%=id %>]</h2>
+					<h1>BoardDetail</h1>
 					<table border="1">
 					<tr><td>공지사항 번호</td><td><%=dto.getBno() %></td></tr>
 					<tr><td>유저번호</td><td><%=dto.getNo() %></td></tr>

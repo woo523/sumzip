@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>qna/a_update_Form.jsp</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <%

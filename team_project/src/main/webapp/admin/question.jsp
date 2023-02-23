@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin/question.jsp</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -29,7 +29,7 @@
 				UserDTO udto = (UserDTO)request.getAttribute("udto");
 				int qno=(Integer)request.getAttribute("qno");
 				%>
-				<h4>question</h4>
+				<h1>Question</h1>
 					<table border="1">
 						<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
 						<tr><td>작성자</td><td><%=udto.getId() %></td></tr>

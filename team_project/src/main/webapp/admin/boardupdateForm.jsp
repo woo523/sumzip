@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>admin/boardupdateForm.jsp</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 <jsp:include page="../inc/ad_header.jsp" />
@@ -28,7 +28,7 @@
 					
 					BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 					%>
-					<h2>글수정</h2>
+					<h1>BoardUpdate</h1>
 				
 					<form action="AdminBoardUpdatePro.ad" method="post">
 					<input type="hidden" name="bno" value="<%=dto.getBno()%>">

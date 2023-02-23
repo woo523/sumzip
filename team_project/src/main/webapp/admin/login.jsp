@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="kr">
-<html>
 <head>
 <meta charset="UTF-8">
 	<!-- Required meta tags -->
@@ -17,7 +16,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-<title>Insert title here</title>
+<title>섬집 관리자 페이지</title>
 </head>
 <body>
 
