@@ -1,3 +1,4 @@
+<%@page import="board.ReplyDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -49,6 +50,11 @@ article{
 .table tr.boa:hover{
 	background: #E1E1E1;
 }
+
+span{
+font-size : 11px;
+color : red;
+}
 </style>
 
 </head>
@@ -89,6 +95,8 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 String search=(String)request.getAttribute("search");
 
 
+
+
 %>
 
 <!-- 공지사항 리스트 부분 -->
@@ -108,13 +116,16 @@ String search=(String)request.getAttribute("search");
 <%
 for(int i=0; i<boardList.size(); i++){
 	BoardDTO dto= boardList.get(i);
+
+ReplyDAO rdao = new ReplyDAO();
+int Rcount = rdao.countReply(dto.getBno());
 %>
 <tr class="boa">
 	<td><%=dto.getBno() %></td>
 
     <td>
     <a href="BoardContent.bo?bno=<%=dto.getBno() %>">
-    <%=dto.getBtitle() %>
+    <%=dto.getBtitle() %>   <span>&nbsp;댓글 <%=Rcount%></span>
     </a></td>
 <td><%=dateFormat.format(dto.getBdate()) %></td>
 <td><%=dto.getBcount() %></td></tr>
