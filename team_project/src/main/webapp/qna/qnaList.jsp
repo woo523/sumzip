@@ -103,10 +103,6 @@ String qstatus = "";
 				<td>질문일자</td><td>답변상태</td><td>조회수</td></tr>
 			</thead>
 			
-<div id="table_search">
-<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
-</div>
-
 <%
 //배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 for(int i=0;i<qnaList.size();i++){
@@ -153,9 +149,13 @@ if(dto.getQstatus()==0){
 // 	endPage = pageCount;
 // }
 %>
+
 <!-- 페이징 -->
  <div class="col-lg-12">
  <div class="room-pagination">
+ <div id="table_search">
+<button type="button" class="btn btn-outline-success" value="글쓰기" onclick="location.href='QuestionWriteForm.qa'">글쓰기</button><br>
+</div>
 <%
 // 10페이지 이전
 if(startPage > pageBlock){
@@ -181,6 +181,8 @@ if(endPage < pageCount){
 %>
    </div>
 </div>
+
+
 </article>	
 
 <!-- 푸터 들어가는 곳 -->

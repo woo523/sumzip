@@ -27,7 +27,7 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    margin: 10px; 
+    margin: 25px; 
      
 }
 .tt{
@@ -57,7 +57,7 @@ float: right;
 </head>
 
 
-<body style="background-color:#E7E7E7 ">
+<body>
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 <!-- 헤더들어가는 곳 -->

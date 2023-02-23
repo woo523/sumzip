@@ -17,12 +17,13 @@ article{
 	font-family: 'NanumSquareNeo';
   	max-width: 1000px;
  	margin: 0 auto;
- 	padding: 50px;
+ 	padding: 70px;
 }
 .table thead.thead-primary{
 	background: #99b19c;
 	font-weight: bold;
 	color: #FFFFFF;	
+	text-align: center;
 }
 
 .heading-section {
@@ -33,15 +34,17 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    margin: 10px;    
+     margin: 25px;    
 }
 
 #table_search{
 	padding: 10px;
  	width:350px;
-	margin:auto;
+	margin:0 auto;	
 }
-
+.table tr.boa{
+    text-align: center;
+}
 .table tr.boa:hover{
 	background: #E1E1E1;
 }
@@ -95,7 +98,7 @@ String search=(String)request.getAttribute("search");
 	<table class="table">
 		<thead class="thead-primary">
 			<tr>
-				<td>번호</td><td>작성자</td>
+				<td>번호</td>
 				<td>제목</td><td>작성일자</td>
 				<td>조회수</td>
 			</tr>
@@ -105,8 +108,8 @@ String search=(String)request.getAttribute("search");
 for(int i=0; i<boardList.size(); i++){
 	BoardDTO dto= boardList.get(i);
 %>
-<tr class="boa"><td><%=dto.getBno() %></td>
-<td><%=dto.getNo() %></td>
+<tr class="boa">
+	<td><%=dto.getBno() %></td>
     <td>
     <a href="BoardContent.bo?bno=<%=dto.getBno() %>">
     <%=dto.getBtitle() %>
@@ -130,7 +133,7 @@ for(int i=0; i<boardList.size(); i++){
 <div id="table_search">
 <form action="BoardList.bo"  method="post">
 <input type="text" name="search">
-<button type="submit" class="btn btn-outline-success">Search</button>
+<button type="submit" class="btn btn-outline-success">검색</button>
 </form>
 </div>
 
