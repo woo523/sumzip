@@ -107,7 +107,6 @@ public class ProductAppointmentPro implements Action {
 								SalesDTO sdto = new SalesDTO();
 								sdto.setAno(ano);
 								sdto.setPno(pno);
-								sdto.setNo(no);
 								sdto.setSdate(sdate);
 								sdto.setIndate(indate);
 								sdto.setOutdate(outdate);

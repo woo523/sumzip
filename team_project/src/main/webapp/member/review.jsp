@@ -14,7 +14,7 @@
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 <style>
 	header {
-		padding-bottom: 30px;
+		padding-bottom: 50px;
 	}
 	
 	.reviewContainer h3 {

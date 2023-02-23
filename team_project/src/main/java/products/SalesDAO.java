@@ -35,16 +35,15 @@ public class SalesDAO {
 		if(rs.next()) {
 			sno=rs.getInt("max(sno)")+1;
 		}
-		sql="insert into sales(sno, ano, pno, no, sdate, indate, outdate, sprice) values(?,?,?,?,?,?,?,?)";
+		sql="insert into sales(sno, ano, pno, sdate, indate, outdate, sprice) values(?,?,?,?,?,?,?)";
 		pstmt=con.prepareStatement(sql);
 		pstmt.setInt(1, sno);  
 		pstmt.setInt(2, dto.getAno()); 
 		pstmt.setInt(3, dto.getPno());
-		pstmt.setInt(4, dto.getNo());
-		pstmt.setTimestamp(5, dto.getSdate());
-		pstmt.setString(6, dto.getIndate());
-		pstmt.setString(7, dto.getOutdate());
-		pstmt.setInt(8, dto.getSprice());
+		pstmt.setTimestamp(4, dto.getSdate());
+		pstmt.setString(5, dto.getIndate());
+		pstmt.setString(6, dto.getOutdate());
+		pstmt.setInt(7, dto.getSprice());
 		pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -133,40 +132,7 @@ public class SalesDAO {
 		}
 	}//deleteSales
 	
-	
-	
-	// 날짜 기준으로 회원별 sales테이블 조회
-	public SalesDTO getSales(int no) {
-		SalesDTO dto=null;
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		try {
-			con=getConnection();
-			String sql="select * from sales where no=? order by sdate desc";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			rs=pstmt.executeQuery();
-			if(rs.next()){
-				dto=new SalesDTO();
-				dto.setSno(rs.getInt("sno"));
-				dto.setAno(rs.getInt("ano"));
-				dto.setPno(rs.getInt("pno"));
-				dto.setSdate(rs.getTimestamp("sdate"));
-				dto.setIndate(rs.getString("indate"));
-				dto.setOutdate(rs.getString("outdate"));
-				dto.setSprice(rs.getInt("sprice"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if(rs!=null) try { rs.close();} catch (Exception e2) {}
-			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
-			if(con!=null) try { con.close();} catch (Exception e2) {}
-		}
-		return dto;
-	}//getSales()
-	
+
 	// 회원별 sales테이블 조회
 	public SalesDTO getSalesAno(int ano) {
 		SalesDTO dto=null;
