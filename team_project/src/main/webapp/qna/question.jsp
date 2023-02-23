@@ -19,6 +19,7 @@ article{
  	padding: 20px;
  	margin-bottom: 70px;
 }
+
 .heading-section {
     font-size: 28px;
     color: #393939;
@@ -27,9 +28,9 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    margin: 25px; 
-     
+    margin: 25px;      
 }
+
 .tt{
 background-color: #99b19c;
 text-align: center;
@@ -47,9 +48,11 @@ background-color: white;
 .btn-group{
 	float: left;
 }
+
 .btn-group2{
 float: right;
 }
+
 #table_search{
 	float: right;  
 }
@@ -84,7 +87,7 @@ int qno=(Integer)request.getAttribute("qno");
 <article>
 <div class="container">
 <h3 class="heading-section">question</h3>
-<table class="table table">
+<table class="table">
 
 	<tr><td class="tt">글번호</td><td class="tt2"><%=qdto.getQno() %></td></tr>
 	<tr><td class="tt">작성자</td><td class="tt2"><%=udto.getId() %></td></tr>

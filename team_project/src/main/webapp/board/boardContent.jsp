@@ -6,11 +6,52 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>board/boardContent.jsp</title>
 <link rel="stylesheet" href="css/insert.css" type="text/css" >
+<style>
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 300px;
+ 	margin: 0 auto;
+ 	padding: 20px;
+ 	margin-bottom: 70px;
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px;      
+}
+
+.tt2{
+text-align: center;
+background-color: white;
+} 
+
+.co{
+ height: 300px;
+}
+
+.tt{
+background-color: #99b19c;
+text-align: center;
+}
+#table_search{
+	float: right;  
+}
+</style>
 </head>
+
+
 <body>
 <!-- 헤더 들어가는 곳 -->
  	<jsp:include page="../inc/header.jsp" />
@@ -29,14 +70,14 @@ BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 %>
 <article>
 <!-- 공지사항 내용 -->
-<h2>글내용 [로그인 : <%=id %>]</h2>
-<table border="1">
-<tr><td>공지사항 번호</td><td><%=dto.getBno() %></td></tr>
-<tr><td>유저번호</td><td><%=dto.getNo() %></td></tr>
-<tr><td>제목</td><td><%=dto.getBtitle() %></td></tr>
-<tr><td>내용</td><td><%=dto.getBcontent() %></td></tr>
-<tr><td>조회수</td><td><%=dto.getBcount() %></td></tr>
-<tr><td>작성날짜</td><td><%=dto.getBdate() %></td></tr>
+<h3 class="heading-section">Notice</h3>
+<table class="table">
+<thead class="thead-primary">
+<tr><td class="tt">공지사항 번호</td><td class="tt2"><%=dto.getBno() %></td></tr>
+<tr><td class="tt">작성날짜</td><td class="tt2"><%=dto.getBdate() %></td></tr>
+<tr><td class="tt">조회수</td><td class="tt2"><%=dto.getBcount() %></td></tr>
+<tr><td class="tt">제목</td><td class="tt2"><%=dto.getBtitle() %></td></tr>
+<tr class="co"><td class="tt">내용</td><td class="tt2"><%=dto.getBcontent() %></td></tr>
 <tr><td colspan="2">
 <% 
 // 로그인 => 세션값 있음
@@ -45,12 +86,14 @@ if(id != null){
 
 }
 %>
+<div id="table_search">
+<button type="button" class="btn btn-outline-success" value="글목록" onclick="location.href='BoardList.bo'">글목록</button><br>
+</div>
 
- <input type="button" value="글목록"
- onclick="location.href='BoardList.bo'">
 	
  
  </td></tr>
+ </thead>
  </table>
  
 <!-- 댓글 영역 들어가는 곳 -->
