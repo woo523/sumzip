@@ -10,12 +10,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>qna/q_writeForm.jsp</title>
 <style>
-article{
+#wrap{
 	font-family: 'NanumSquareNeo';
-  	max-width: 750px;
+  	max-width: 1000px;
  	margin: 0 auto;
  	padding: 20px;
- 	margin-bottom: 70px
+ 	margin-bottom: 70px;
 }
 
 .table thead.thead-primary{
@@ -86,7 +86,7 @@ textarea.form-control{
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
-
+<div id="wrap">
 <%
 // id값 받아오기
 String id=(String)session.getAttribute("id");
@@ -103,7 +103,7 @@ no = rdto.getNo();
 }
 
 %>
-<article>
+
 <div class="qna_writeContainer">
 <!-- 게시판 글쓰기 부분 -->
 <form action="QuestionWritePro.qa" method="post"> 
@@ -125,7 +125,7 @@ no = rdto.getNo();
 </div>
 </form>
 </div>
-</article>
+</div>
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />

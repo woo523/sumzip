@@ -7,6 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+ #wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+ }
+</style>
+
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  	// jQurery 준비 => 대상.함수()
@@ -41,7 +51,7 @@
 <body>
 <div id="wrap">
 <!-- 헤더들어가는 곳 -->
-<jsp:include page="../inc/header.jsp"/>
+<jsp:include page="../inc/my_header.jsp"/>
 <!-- 헤더들어가는 곳 -->
 <%
 
@@ -53,7 +63,7 @@ String id=(String)session.getAttribute("id");
 
 UserDTO dto=(UserDTO)request.getAttribute("dto");
  %> 
-<article>
+<div id="wrap">
 	<form action="MemberPwModifyPro.me" name="passForm" id="pass_modify" method="post">
 		<div id="pass_modify">
 			<h3>비밀번호 변경</h3>
@@ -66,12 +76,13 @@ UserDTO dto=(UserDTO)request.getAttribute("dto");
 			</div>
 		</div>
 	</form>
-</article>
+</div>
 	
 <div class="clear"></div>
+
+</div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
-<!-- 푸터 들어가는 곳 -->
-</div>	
+<!-- 푸터 들어가는 곳 -->	
 </body>
 </html>

@@ -7,6 +7,108 @@
 <head>
 <meta charset="UTF-8">
 <title>myPage_u</title>
+<style type="text/css">
+ #rap {
+  width: 600px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #99b19c;
+}
+
+select option {
+  font-size: 1rem;
+}
+
+  input[type="button"],  
+  input[type="submit"],  
+  input[type="reset"] {  
+    display: inline-block;  
+    padding: 10px;  
+    font-size: 1rem;  
+    color: #fff;  
+    background-color: #fba45c;  
+    border-radius: 5px;  
+    border: none;  
+    cursor: pointer;  
+  }  
+
+  input[type="button"]:hover,  
+  input[type="submit"]:hover,  
+  input[type="reset"]:hover {  
+    background-color: #fccc9c; 
+  }  
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
+
+#error-msg {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.divresult {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.address-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#sample4_postcode {
+  width: 150px;
+  margin-right: 10px;
+}
+
+#sample4_roadAddress {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#sample4_detailAddress {
+  flex: 1;
+}
+</style>
 </head>
 <body>
 	<%
@@ -21,69 +123,45 @@
 			<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/my_header.jsp" />
 		<!-- 헤더들어가는 곳 -->
-<div id="wrap">
-	<div class="content-main">
-		<div class="row">
-			<div class="col-sm-9">
-				<div class="bg-white rounded shadow-sm container p-3">
+<div id="rap">
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-sm-9"> -->
 					<form method="POST" action="updateAction" name="updateForm"
 						onsubmit="return updateValidate();" class="form-horizontal"
 						role="form">
+<!-- 						<fieldset> -->
 						<!-- 이름 -->
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>이름</label> <input type="text" name="uname"
-									value="<%=dto.getUname()%>" readonly>
-							</div>
-						</div>
+						<label>이름</label> 
+						<input type="text" name="uname" value="<%=dto.getUname()%>" readonly>
 
 						<!-- 아이디 -->
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>아이디</label> <input type="text" name="id" value="<%=id%>"
-									readonly>
-							</div>
-						</div>
-
+						<label>아이디</label> 
+						<input type="text" name="id" value="<%=id%>" readonly>
 
 						<!-- 이름 -->
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>전화번호</label> <input type="text" name="tel"
-									value="<%=dto.getTel()%>" readonly>
-							</div>
-						</div>
+						<label>전화번호</label> 
+						<input type="text" name="tel" value="<%=dto.getTel()%>" readonly>
 
 						<!-- 이름 -->
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>이메일</label> <input type="text" name="email"
-									value="<%=dto.getEmail()%>" readonly>
-							</div>
-						</div>
+						<label>이메일</label> 
+						<input type="text" name="email" value="<%=dto.getEmail()%>" readonly>
 
 						<!-- 이름 -->
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>주소</label> <input type="text" name="adrress1"
-									value="<%=dto.getAddress1()%>" readonly> <input
-									type="text" name="adrress2" value="<%//=dto.getAddress2()%>"
-									readonly>
-							</div>		
-						</div>
+						<label>주소</label> 
+						<input type="text" name="adrress1" value="<%=dto.getAddress1()%>" readonly> 
+						<input type="text" name="adrress2" value="<%//=dto.getAddress2()%>" readonly>
+<!-- 						</fieldset> -->
 						
 						<div id="buttons">
 							<a href="MemberUpdateForm.me">
-							<input type="button" name="user_modify" value="회원정보 수정"></a> 
+							<input type="button" name="user_modify"  value="회원정보 수정"></a> 
 							<a href="MemberPwModify.me">
 								<input type="button" name="pass_modify" value="비밀번호 수정"></a>
 						</div>
 					</form>
 				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<!-- 			</div> -->
+<!-- 		</div> -->
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->
