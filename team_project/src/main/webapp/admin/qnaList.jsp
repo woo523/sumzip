@@ -67,12 +67,9 @@ String qstatus = "";
 <!-- Backgrounds -->
 	<div class="container">
     	<div class="row">
-        	<div class="col-lg-2">
-				
-			</div>
 			
-			<div class="col-lg-10">
-				<div class="content-main">		
+			<div class="col-lg-12">
+				<div class="content-main adminichi">		
 					<h1>Q&AList</h1>
 					<article>
 						<table class="table">

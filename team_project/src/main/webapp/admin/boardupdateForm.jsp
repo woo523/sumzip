@@ -13,12 +13,8 @@
 <!-- Backgrounds -->
 	<div class="container">
     	<div class="row">
-        	<div class="col-lg-2">
-				
-			</div>
-			
-			<div class="col-lg-10">
-				<div class="content-main">		
+			<div class="col-lg-12">
+				<div class="content-main adminichi">		
 					<%
 					// int bno=Integer.parseInt(request.getParameter("bno"));
 					

@@ -18,12 +18,9 @@
 <!-- Backgrounds -->
 	<div class="container">
     	<div class="row">
-        	<div class="col-lg-2">
-				
-			</div>
 			
-			<div class="col-lg-10">
-				<div class="content-main">		
+			<div class="col-lg-12">
+				<div class="content-main adminichi">		
 			
 					<%
 					String id=(String)session.getAttribute("id");
@@ -42,7 +39,7 @@
 					}
 					%>
 					
-					<h2>admin/boardWrite.jsp</h2>
+					<h1>BoardWrite</h1>
 					
 					
 					<!-- 부트스트랩 사용하기 위해 -->
@@ -58,8 +55,6 @@
 						<form action="AdminBoardWritePro.ad" method="post" >
 						
 							<div class="container">
-							
-							<h2>게시판 글쓰기</h2>          
 							
 								<table class="table table-hover">
 								

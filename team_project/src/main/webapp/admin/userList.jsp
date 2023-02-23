@@ -21,12 +21,9 @@
  <section class="rooms-section spad">
 	<div class="container">
     	<div class="row">
-        	<div class="col-lg-2">
-				
-			</div>
 			
 <div class="col-lg-10">
-	<div class="content-main">			
+	<div class="content-main adminichi">			
 <%
 String id=(String)session.getAttribute("id");
 ArrayList<UserDTO> userList =(ArrayList<UserDTO>)request.getAttribute("userList");

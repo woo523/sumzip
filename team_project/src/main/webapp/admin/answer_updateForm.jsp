@@ -19,13 +19,9 @@ QnaDTO dto = dao.getQna(qno);
 <!-- Backgrounds -->
 	<div class="container">
     	<div class="row">
-        	<div class="col-lg-2">
-				
-			</div>
-			
-			<div class="col-lg-10">
-				<div class="content-main">		
-				<h1>답변수정</h1>
+			<div class="col-lg-12">
+				<div class="content-main adminichi">		
+				<h1>AnswerUpdate</h1>
 				<form action="AdminAnswerUpdatePro.ad" method="post"> 
 						<input type="hidden" name="qno" value="<%=qno %>">
 					<table border="1">
