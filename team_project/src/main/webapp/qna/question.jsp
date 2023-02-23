@@ -50,7 +50,9 @@ background-color: white;
 .btn-group2{
 float: right;
 }
-
+#table_search{
+	float: right;  
+}
 </style>
 </head>
 
@@ -114,9 +116,9 @@ int qno=(Integer)request.getAttribute("qno");
 	if(qdto.getQstatus()==0){
 		if(id.equals(udto.getId())){
 	%>
-
+<div id="table_search">
 	<button type="button" class="btn btn-success" onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">답변확인</button>
-
+</div>	
 	<%
 		}
 	}

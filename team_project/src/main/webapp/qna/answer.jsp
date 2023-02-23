@@ -6,9 +6,55 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title></title>
+<style>
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 300px;
+ 	margin: 0 auto;
+ 	padding: 20px;
+ 	margin-bottom: 70px;
+}
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+     
+}
+.tt{
+background-color: #99b19c;
+text-align: center;
+}
+
+.co{
+ height: 300px;
+}
+
+.tt2{
+text-align: center;
+background-color: white;
+}
+
+.btn-group{
+	float: left;
+}
+
+.ans{
+float: right;
+}
+#table_search{
+	float: right;  
+}
+</style>
 </head>
 <body>
 <!-- 헤더들어가는 곳 -->
@@ -38,17 +84,20 @@ if(id==null){
 	response.sendRedirect("AdminLogin.ad");
 }
 %>
+<article>
+<div class="container">
+<h3 class="heading-section">answer</h3>
 
-<h4>answer</h4>
-
-<table border="1">
-	<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
-	<tr><td>글쓴날짜</td><td><%=qdto.getQadate() %></td></tr> 
-	<tr><td>글내용</td><td><%=qdto.getAnswer() %></td></tr>
+<table class="table table">
+	<tr><td class="tt">글번호</td><td class="tt2"><%=qdto.getQno() %></td></tr>
+	<tr><td class="tt">글쓴날짜</td><td class="tt2"><%=qdto.getQadate() %></td></tr> 
+	<tr class="co"><td class="tt">글내용</td><td class="tt2"><%=qdto.getAnswer() %></td></tr>
 	</table>
-	
-	<input type="button" value="글목록" 
-	onclick="location.href='QnaList.qa'"> 
+<div id="table_search">
+<button type="button" class="btn btn-outline-success" value="글목록" onclick="location.href='QnaList.qa'">글목록</button><br>
+</div>	
 
+</div>
+</article>
 </body>
 </html>
