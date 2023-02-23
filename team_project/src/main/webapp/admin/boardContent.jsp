@@ -18,7 +18,6 @@
     	<div class="row">	
 			<div class="col-lg-12">
 				<div class="content-main adminichi">			
-			 	
 					<%
 					String id=(String)session.getAttribute("id");
 					
@@ -34,13 +33,10 @@
 					</script>
 					<%
 					}
-					
 					BoardDTO dto=(BoardDTO)request.getAttribute("dto");
-					
 					%>
-					
 					<!-- 공지사항 내용 -->
-					<h1>BoardDetail</h1>
+					<h1 class="taitoru">Board Detail</h1>
 					<table border="1">
 					<tr><td>공지사항 번호</td><td><%=dto.getBno() %></td></tr>
 					<tr><td>유저번호</td><td><%=dto.getNo() %></td></tr>
@@ -49,6 +45,10 @@
 					<tr><td>조회수</td><td><%=dto.getBcount() %></td></tr>
 					<tr><td>작성날짜</td><td><%=dto.getBdate() %></td></tr>
 					<tr><td colspan="2">
+					
+					<input type="button" value="글목록"
+					onclick="location.href='AdminBoardList.ad'">
+					
 					<% 
 					// 로그인 => 세션값 있음
 					if(id != null){
@@ -63,11 +63,6 @@
 						}
 					}
 					%>
-					
-					<input type="button" value="글목록"
-					onclick="location.href='AdminBoardList.ad'">
-							
-					
 					</td></tr>
 					</table>
 			

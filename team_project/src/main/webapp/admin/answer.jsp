@@ -39,7 +39,7 @@ history.back();
 }
 %>
 	
-					<h1>AnswerList</h1>
+					<h1 class="taitoru">Answer List</h1>
 					
 					<table border="1">
 						<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
