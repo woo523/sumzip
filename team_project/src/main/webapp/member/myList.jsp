@@ -156,7 +156,7 @@
 		int resultOut = appointOutdate.compareTo(today);
 		
 		if(id != null) {
-			// 후기 작성 여부 확인
+			// 후기 작성 여부 확인, true = 후기 작성 O
 			if(rdao.checkReview(adto.getAno()) == true) {
 				// 입실일이 지나면 예약완료 상태로 갈음
 				if(resultIn < 0) {
@@ -166,7 +166,7 @@
 						// 퇴실일 지나기전 후기 작성 불가
 						System.out.println("appointOutdate is after today");
 					} else if(resultOut <= 0){
-						// 후기 작성 가능
+						// 후기를 작성하였으므로 수정, 삭제만 가능
 						System.out.println("appointOutdate is before today");
 						%>
 						<li><button type="button" id="btns" class="btn btn-outline-success" onclick="location.href='MemberReviewModifyForm.me?ano=<%=adto.getAno()%>'">후기 수정하기</button>
@@ -176,6 +176,7 @@
 				}
 			} else {
 				// rdao.checkReview(no, adto.getPno()) == false
+				// false = 후기 작성 X
 				if(resultIn < 0) {
 					System.out.println("appointIndate is before today");
 					
