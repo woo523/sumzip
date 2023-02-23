@@ -30,22 +30,29 @@
 					</script>
 					<%
 					}
-					
 					BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 					%>
-					<h1>BoardUpdate</h1>
+					<h1 class="taitoru">Board Update</h1>
 				
 					<form action="AdminBoardUpdatePro.ad" method="post">
 					<input type="hidden" name="bno" value="<%=dto.getBno()%>">
-						<table border="1">
-							<tr><td>글쓴이</td>
-							    <td><input type="text" name="no" value="<%=dto.getNo() %>" readonly></td></tr>
-							<tr><td>글제목</td>
-							    <td><input type="text" name="btitle" value="<%=dto.getBtitle() %>"></td></tr>   
-							<tr><td>글내용</td>
-							    <td><textarea name="bcontent" rows="10" cols="20"><%=dto.getBcontent() %></textarea></td></tr>
-							<tr><td colspan="2"><input type="submit" value="글수정"></td></tr>    
-						</table>
+						<div>
+							<table class="teeburu">
+								<div class="mb-3">
+									<label for="exampleFormControlInput1" class="form-label">작성자</label>
+									<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="no" readonly>
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlInput1" class="form-label">글제목</label>
+									<input type="text" class="form-control" id="exampleFormControlInput1" name="btitle" value="<%=dto.getBtitle() %>">
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
+									<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="bcontent"><%=dto.getBcontent() %></textarea>
+								</div>
+							</table>
+							<input type="submit" class="botann" value="글수정">
+						</div>
 					</form>
 				</div>
 			</div>

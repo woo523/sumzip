@@ -36,9 +36,26 @@ history.back();
     	<div class="row">
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
-				<h1>AnswerUpdate</h1>
+				<h1 class="taitoru">Answer Update</h1>
 				<form action="AdminAnswerUpdatePro.ad" method="post"> 
-						<input type="hidden" name="qno" value="<%=qno %>">
+					<input type="hidden" name="qno" value="<%=qno %>">
+					<div>
+						<table class="teeburu">
+							<div>
+								<input type="checkbox" name="qstate" value="0" checked>답변완료
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">작성자</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="no" readonly>
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
+								<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer"><%=dto.getBcontent() %></textarea>
+							</div>
+						</table>
+						<input type="submit" class="botann" value="글수정">
+					</div>
+						
 					<table border="1">
 							<tr><td colspan="2"><input type="checkbox" name="qstate" value="0" checked>답변완료</td></tr>
 							<tr><td>작성자번호</td>

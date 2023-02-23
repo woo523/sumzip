@@ -11,17 +11,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <title>섬집 관리자 페이지</title>
 </head>
+<!-- 부트스트랩 사용하기 위해 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- Backgrounds -->
 	<div class="container">
     	<div class="row">
-			
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
-			
 					<%
 					String id=(String)session.getAttribute("id");
 					
@@ -38,56 +38,27 @@
 					<%
 					}
 					%>
-					
-					<h1>BoardWrite</h1>
-					
-					
-					<!-- 부트스트랩 사용하기 위해 -->
-					
-					
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-					
-					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-					
-					
+					<h1 class="taitoru">Board Write</h1>
 					<!-- 게시판 글쓰기 부분 -->
-					
-						<form action="AdminBoardWritePro.ad" method="post" >
-						
-							<div class="container">
-							
-								<table class="table table-hover">
-								
-									<tbody>
-									
-										<tr>
-										
-											<td><input type="text" class="form-control" placeholder="유저번호" name="id" value=<%=id %> maxlength="40" readonly></td>
-										
-										</tr>
-										
-										<tr>
-										
-											<td><input type="text" class="form-control" placeholder="글 제목" name="btitle" maxlength="40"></td>
-										
-										</tr>
-										
-										<tr>
-										
-										<td><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="bcontent" maxlength="1024" style="height: 400px;"></textarea></td>
-										
-										</tr>
-									
-									</tbody>
-								
-								</table>
-							
-							<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
-							
-							</div>
-						</form>
-
-
+					<form action="AdminBoardWritePro.ad" method="post" >
+						<div>
+							<table class="teeburu">
+								<div class="mb-3">
+									<label for="exampleFormControlInput1" class="form-label">작성자</label>
+									<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="id" readonly>
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlInput1" class="form-label">글제목</label>
+									<input type="text" class="form-control" id="exampleFormControlInput1" name="btitle">
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
+									<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="bcontent" placeholder="글 내용을 작성하세요"></textarea>
+								</div>
+							</table>
+							<input type="submit" class="botann" value="글쓰기">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

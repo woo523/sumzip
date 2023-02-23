@@ -40,7 +40,7 @@
 				UserDTO udto = (UserDTO)request.getAttribute("udto");
 				int qno=(Integer)request.getAttribute("qno");
 				%>
-				<h1>Question</h1>
+				<h1 class="taitoru">Question</h1>
 					<table border="1">
 						<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
 						<tr><td>작성자</td><td><%=udto.getId() %></td></tr>
