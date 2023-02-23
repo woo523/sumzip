@@ -82,9 +82,9 @@ UserDTO dto = dao.findId(uname, email);
 %>
 
 	<div id="wrap">
-		<div class="result">
-		아이디 찾기 결과
-		</div>
+<!-- 		<div class="result"> -->
+		<h2 class="result">아이디 찾기 결과</h2>
+<!-- 		</div> -->
 		<form name="idsearch" method="post">
       		<%
        			if (dto != null) {

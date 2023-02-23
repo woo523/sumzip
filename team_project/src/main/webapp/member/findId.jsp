@@ -46,8 +46,19 @@
      	background-color: white; 
      	color: #fff; 
      	height: 80px;
-     	 
-  		 } 
+     	font-family: "Poppins", Arial, sans-serif;
+  		 }
+  		 
+   		.heading-section { 
+     	font-size: 40px; 
+    	color: #393939; 
+    	line-height: 1.5;     	
+    	font-weight: 400; 
+    	font-family: "Poppins", Arial, sans-serif;  
+     	font-weight: bold;  
+     	text-align: center; 
+     	margin: 10px;  
+        }  
 
         /* 폼 스타일 */
         form {
@@ -116,7 +127,7 @@ function id_search() {
 <form name="idfindscreen" method = "POST" >
 
 	<div class="header">
-		<h2>아이디찾기</h2>
+		<h2 class="heading-section">아이디찾기</h2>
 	</div>
 		<div class="form-container">
 		<section class = "form-search">

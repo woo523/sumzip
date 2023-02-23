@@ -98,7 +98,7 @@
 	
 <!-- 	<div class="content-main"> -->
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-10">
 				<h1>My Page</h1>
 				<hr>
 <!-- 				<div class="bg-white rounded shadow-sm container p-3"> -->
