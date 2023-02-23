@@ -149,7 +149,7 @@ label {
 						<!-- 이름 -->
 						<label>주소</label> 
 						<input type="text" name="adrress1" value="<%=dto.getAddress1()%>" readonly> 
-						<input type="text" name="adrress2" value="<%//=dto.getAddress2()%>" readonly>
+						<input type="text" name="adrress2" value="<%=dto.getAddress2()%>" readonly>
 <!-- 						</fieldset> -->
 						
 						<div id="buttons">

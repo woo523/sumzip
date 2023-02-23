@@ -44,18 +44,18 @@
 				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
 				<li><a href="MemberWishList.me">찜 목록</a></li>
 				<li><a href="ProductAppointManage.pr">예약내역</a></li>
-				<li><a href="MemberMyList.me">이용목록</a></li>
+				<li><a href="MemberMyList.me">이용내역</a></li>
 				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
 			
 				<% 
 				}else if(dto.getUtype()==2){
 				%>
 			
-				<li><a href="MemberMyPage_owner.me">내 정보 조회</a></li>
+				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
 				<li><a href="ProductList.pr">등록 펜션조회</a></li>
 				<li><a href="MemberWishList.me">찜 목록</a></li>
 				<li><a href="ProductAppointManage.pr">예약내역</a></li>
-				<li><a href="MemberMyList.me">이용목록</a></li>
+				<li><a href="MemberMyList.me">이용내역</a></li>
 				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
 			
 				<% 
