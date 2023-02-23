@@ -62,12 +62,9 @@ public class AdminFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(sPath.equals("/AdminMain.ad")) {
-			action = new AdminUserCheck();
-			try {
-				forward=action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			forward = new ActionForward();
+			forward.setPath("admin/adminMain.jsp");
+			forward.setRedirect(false);				
 		}else if(sPath.equals("/AdminLogin.ad")) {
 			forward = new ActionForward();
 			forward.setPath("admin/login.jsp");
