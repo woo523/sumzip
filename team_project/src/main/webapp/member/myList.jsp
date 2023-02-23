@@ -20,8 +20,8 @@
 <meta charset="UTF-8">
 <title>myList.JSP</title>
 <style type="text/css">
-	.wrap #sidebar {
-		float: left;
+	header {
+		padding-bottom: 50px;
 	}
 	
   	.wrap #myList {
@@ -71,9 +71,9 @@
         margin:0 auto;
  	}
  	
-
  	footer {
  		clear: left;
+ 		padding-top: 50px;
  	}
 </style>
 </head>
@@ -94,19 +94,12 @@
 	int pageCount = (Integer)request.getAttribute("pageCount");
 %>
 <!-- header -->
-<jsp:include page="../inc/header.jsp" />
+<header>
+	<jsp:include page="../inc/header.jsp" />
+	<jsp:include page="../inc/my_header.jsp" />
+</header>
 
 <div class="wrap">
-	<nav id="sidebar">
-		<ul>
-			<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-			<li><a href="MemberMyList.me">내 이용목록</a></li>
-			<li><a href="ProductAppointManage.pr">예약관리</a></li>
-			<li><a href="MemberWishList.me">찜 목록</a></li>
-			<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
-		</ul>
-	</nav>
-	
 	<form name="myListForm.me" action="" id="myList" method="get">
 	<h3>내 이용 내역</h3>
 <% 
@@ -213,7 +206,7 @@
 	} // 예약 내역 확인 if 문
 %>
 
-<div class="room-pagination">
+	<div class="room-pagination">
 <% 
 	// 페이징
 	if(startPage > pageBlock) {
@@ -234,7 +227,7 @@
 		<%
 	}
 %>
-</div>
+	</div>
 	</form>
 </div>
 
