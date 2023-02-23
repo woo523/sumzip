@@ -16,11 +16,20 @@
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
 					<%
-					// int bno=Integer.parseInt(request.getParameter("bno"));
+					String id=(String)session.getAttribute("id");
 					
-					// BoardDAO dao=new BoardDAO();
+					if(id==null){
+						response.sendRedirect("AdminLogin.ad");
+					}else if(id.equals("admin")){
 					
-					// BoardDTO dto=dao.getBoard(bno);
+					}else{
+						%>
+					<script type="text/javascript">
+					alert("접근 권한이 없습니다.");
+					history.back();
+					</script>
+					<%
+					}
 					
 					BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 					%>

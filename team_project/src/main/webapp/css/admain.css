@@ -132,6 +132,9 @@
     font-size: 16px;
     border-radius: 2px;
     padding: 7px 7px 5px;
+    position:absolute;
+    right: 170px;
+    bottom: 360px;
 }
 .migi{
 	padding-left: 660px;
@@ -146,6 +149,7 @@
     padding: 3px 10px;
 }
 .peigingu{
+    padding-top: 20px;
     text-align: center;
     font-size: 16px;
     color: #113000;
@@ -153,7 +157,20 @@
     border-radius: 2px;
     padding: 7px 13px 5px;
     margin-right: 7px;
+    display:block;
+    
 }
 .teeburu tr td {
 	padding: 0 5px;
+}
+.peigingu .pp{
+	color: white;
+    background-color: #113000;
+    width:24px;
+    height:24px;
+    border-radius: 2px;
+    display:inline-block;
+}
+.pojisyonn{
+	position:relative;
 }

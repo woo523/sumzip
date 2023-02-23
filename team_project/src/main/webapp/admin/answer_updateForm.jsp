@@ -14,6 +14,21 @@ int qno=Integer.parseInt(request.getParameter("qno"));
 
 QnaDAO dao=new QnaDAO();
 QnaDTO dto = dao.getQna(qno); 
+
+String id=(String)session.getAttribute("id");
+
+if(id==null){
+	response.sendRedirect("AdminLogin.ad");
+}else if(id.equals("admin")){
+
+}else{
+	%>
+<script type="text/javascript">
+alert("접근 권한이 없습니다.");
+history.back();
+</script>
+<%
+}
 %>
 <jsp:include page="../inc/ad_header.jsp" />
 <!-- Backgrounds -->

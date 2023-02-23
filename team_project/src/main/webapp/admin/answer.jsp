@@ -25,10 +25,17 @@ QnaDTO qdto = (QnaDTO)request.getAttribute("qdto");
 UserDTO udto = (UserDTO)request.getAttribute("udto");
 int qno=(Integer)request.getAttribute("qno");
 
-
-//로그인 되어있지 않으면 로그인화면으로
-if(id==null && id.equals("admin")){
+if(id==null){
 	response.sendRedirect("AdminLogin.ad");
+}else if(id.equals("admin")){
+
+}else{
+	%>
+<script type="text/javascript">
+alert("접근 권한이 없습니다.");
+history.back();
+</script>
+<%
 }
 %>
 	

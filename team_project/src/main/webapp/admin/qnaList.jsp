@@ -43,6 +43,21 @@ String qstatus = "";
 						<table border="1" class="teeburu">
 							<tr><td>번호</td><td>유저번호</td><td>제목</td><td>작성날짜</td><td>답변 상태</td><td>조회수</td></tr>
 						<%
+						String id=(String)session.getAttribute("id");
+						
+						if(id==null){
+							response.sendRedirect("AdminLogin.ad");
+						}else if(id.equals("admin")){
+						
+						}else{
+							%>
+						<script type="text/javascript">
+						alert("접근 권한이 없습니다.");
+						history.back();
+						</script>
+						<%
+						}
+						
 						//배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 						for(int i=0;i<qnaList.size();i++){
 							QnaDTO dto= qnaList.get(i);
@@ -65,6 +80,7 @@ String qstatus = "";
 						%>
 						</table>
 						</div>
+						<div class="pojisyonn">
 						<!-- 페이징 처리 -->
 							<%
 						// 10페이지 이전
@@ -74,11 +90,11 @@ String qstatus = "";
 							<%
 						}
 						%>
-						<div class="room-pagination">
+						<div class="peigingu">
 						<% 
 						for(int i=startPage;i<=endPage;i++){
 							%>
-							<a href="AdminQnaList.ad?pageNum=<%=i %>"><%=i %></a>
+							<a href="AdminQnaList.ad?pageNum=<%=i %>"  class="pp"><%=i %></a>
 							<%
 						}
 						%>
@@ -91,8 +107,7 @@ String qstatus = "";
 								<%
 						}
 						%>
-					
-					</article>		
+						</div>
 				</div>
 			</div>
 		</div>

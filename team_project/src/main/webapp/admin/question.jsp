@@ -22,6 +22,20 @@
 				<div class="content-main adminichi">		
 				<%
 				String id=(String)session.getAttribute("id");
+				
+				if(id==null){
+					response.sendRedirect("AdminLogin.ad");
+				}else if(id.equals("admin")){
+				
+				}else{
+					%>
+				<script type="text/javascript">
+				alert("접근 권한이 없습니다.");
+				history.back();
+				</script>
+				<%
+				}
+				
 				QnaDTO qdto = (QnaDTO)request.getAttribute("qdto");
 				UserDTO udto = (UserDTO)request.getAttribute("udto");
 				int qno=(Integer)request.getAttribute("qno");

@@ -17,9 +17,17 @@ UserDAO rdao=new UserDAO();
 UserDTO rdto=rdao.getUser(id);
 int no = rdto.getNo();
 
-//로그인 되어있지 않으면 로그인화면으로
 if(id==null){
 	response.sendRedirect("AdminLogin.ad");
+}else if(id.equals("admin")){
+
+}else{
+	%>
+<script type="text/javascript">
+alert("접근 권한이 없습니다.");
+history.back();
+</script>
+<%
 }
 %>
 <jsp:include page="../inc/ad_header.jsp" />

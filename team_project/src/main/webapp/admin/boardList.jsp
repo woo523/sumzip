@@ -21,6 +21,21 @@
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
 					<%
+					String id=(String)session.getAttribute("id");
+					
+					if(id==null){
+						response.sendRedirect("AdminLogin.ad");
+					}else if(id.equals("admin")){
+					
+					}else{
+						%>
+					<script type="text/javascript">
+					alert("접근 권한이 없습니다.");
+					history.back();
+					</script>
+					<%
+					}
+					
 					SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 					
 					ArrayList<BoardDTO> boardList = (ArrayList<BoardDTO>)request.getAttribute("boardList");
@@ -63,47 +78,23 @@
 								%>
 						</table>
 					</div>
-					
-					<!-- 페이징 처리 -->
-					<% 
-					
-					if(search==null){
+					<div class="pojisyonn">
+						<!-- 페이징 처리 -->
+						<% 
 						
-					if(startPage > pageBlock){
-						%>
-					<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
-						<%
-					}
-					%>
-					<div class="room-pagination">
-					<%
-					for(int i=startPage;i<=endPage;i++){
-						%>
-						<a href="AdminBoardList.ad?pageNum=<%=i%>"><%=i %></a> 
-						<%
-					}
-					%>
-					</div>
-					<%
-					if(endPage < pageCount){
-						%>
-					<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
-						<%
-					}
-					
-					
-					}else{
+						if(search==null){
+							
 						if(startPage > pageBlock){
 							%>
-						<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]</a>
+						<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 							<%
 						}
 						%>
-						<div class="room-pagination">
+						<div class="peigingu">
 						<%
 						for(int i=startPage;i<=endPage;i++){
 							%>
-							<a href="AdminBoardList.ad?pageNum=<%=i%>&search=<%=search%>"><%=i %></a> 
+							<a href="AdminBoardList.ad?pageNum=<%=i%>" class="pp"><%=i %></a> 
 							<%
 						}
 						%>
@@ -111,15 +102,40 @@
 						<%
 						if(endPage < pageCount){
 							%>
-						<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]</a>
+						<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 							<%
 						}
-					}
-					
-					%>
-					
-					<div>
-						<button type="button" onclick="location.href='AdminBoardWriteForm.ad'" class="botann">글쓰기</button>
+						
+						
+						}else{
+							if(startPage > pageBlock){
+								%>
+							<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]</a>
+								<%
+							}
+							%>
+							<div class="peigingu">
+							<%
+							for(int i=startPage;i<=endPage;i++){
+								%>
+								<a href="AdminBoardList.ad?pageNum=<%=i%>&search=<%=search%>" class="pp"><%=i %></a> 
+								<%
+							}
+							%>
+							</div>
+							<%
+							if(endPage < pageCount){
+								%>
+							<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]</a>
+								<%
+							}
+						}
+						
+						%>
+						
+						<div >
+							<button type="button" onclick="location.href='AdminBoardWriteForm.ad'" class="botann">글쓰기</button>
+						</div>
 					</div>
 				</div>
 			</div>

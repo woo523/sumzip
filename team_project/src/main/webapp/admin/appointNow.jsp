@@ -26,6 +26,21 @@
                     <h1 class="taitoru">Appointment List</h1>
 					                    
 					<%
+					String id=(String)session.getAttribute("id");
+					
+					if(id==null){
+						response.sendRedirect("AdminLogin.ad");
+					}else if(id.equals("admin")){
+					
+					}else{
+						%>
+					<script type="text/javascript">
+					alert("접근 권한이 없습니다.");
+					history.back();
+					</script>
+					<%
+					}
+					
 					SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 					ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
 					
@@ -33,6 +48,8 @@
 					int pageBlock=(Integer)request.getAttribute("pageBlock");
 					int endPage=(Integer)request.getAttribute("endPage");
 					int pageCount=(Integer)request.getAttribute("pageCount");
+					
+					
 					
 					%>
 					<form action="AdminAppointNowUpdate.ad" method="post">
@@ -76,20 +93,21 @@
 							</table>
 						</div>
 					</form>
+					<div class="pojisyonn">
 					<%
-					//10페이지 이전
+										//10페이지 이전
 					if(startPage > pageBlock){
 					%>
 						<a href="AdminAppointNow.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 					<%
 					}
 					%>
-					<div class="room-pagination">
+					<div class="peigingu">
 					<%
 					for(int i=startPage;i<=endPage;i++){
 					%>
 						
-						<a href="AdminAppointNow.ad?pageNum=<%=i%>"><%=i%></a>
+						<a href="AdminAppointNow.ad?pageNum=<%=i%>" class="pp"><%=i%></a>
 					<%
 					}
 					%>
@@ -102,6 +120,7 @@
 					<%
 					}
 					 %> 
+					 </div>
 				</div>
 			</div>
 		</div>

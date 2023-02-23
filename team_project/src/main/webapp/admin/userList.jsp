@@ -24,8 +24,22 @@
 		<div class="col-lg-12">
 			<div class="content-main adminichi">			
 				<%
-				SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 				String id=(String)session.getAttribute("id");
+				
+				if(id==null){
+					response.sendRedirect("AdminLogin.ad");
+				}else if(id.equals("admin")){
+				
+				}else{
+					%>
+				<script type="text/javascript">
+				alert("접근 권한이 없습니다.");
+				history.back();
+				</script>
+				<%
+				}
+				
+				SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 				ArrayList<UserDTO> userList =(ArrayList<UserDTO>)request.getAttribute("userList");
 				
 				int startPage=(Integer)request.getAttribute("startPage");
@@ -38,7 +52,7 @@
 				<form action="AdminUserDelete.ad" id="user_delete" method="post">
 					<div>
 						<table border="1" class="teeburu">
-						<tr><td>이름</td><td>아이디</td><td>생일</td><td>주소</td><td>이메일</td><td>가입날짜</td><td>회원유형</td><td>회원삭제</td></tr>
+						<tr><td>이름</td><td>아이디</td><td>생일</td><td>이메일</td><td>가입날짜</td><td>회원유형</td><td>회원삭제</td></tr>
 						<%
 						//배열 접근 = for
 						for(int i=0;i<userList.size();i++){
@@ -49,7 +63,6 @@
 							<td> <%=dto.getUname() %> </td>
 							<td> <%=dto.getId() %> </td>
 							<td> <%=dto.getBirth() %> </td>
-							<td> <%=dto.getAddress1() %> | <%=dto.getAddress2() %> </td>
 							<td> <%=dto.getEmail() %></td><td><%=dateFormat.format(dto.getJoindate()) %></td>
 							<td>
 								<% if (dto.getUtype() == 1) { %>
@@ -70,6 +83,7 @@
 						</table>
 					</div>
 				</form>
+				<div class="pojisyonn">
 				<%
 				// 10페이지 이전
 				if(startPage > pageBlock){
@@ -78,11 +92,11 @@
 					<%
 				}
 				%>
-				<div class="room-pagination">
+				<div class="peigingu">
 				<%
 				for(int i=startPage;i<=endPage;i++){
 					%>
-					<a href="AdminUserList.ad?pageNum=<%=i%>"><%=i %></a>
+					<a href="AdminUserList.ad?pageNum=<%=i%>" class="pp"><%=i %></a>
 					<%
 				}
 				%>
@@ -95,6 +109,7 @@
 					<%
 				}
 				%>
+				</div>
 			</div>
 		</div>
 	</div>
