@@ -53,7 +53,7 @@
 				%>
 			
 				<li><a href="MemberMyPage_owner.me">내 정보 조회</a></li>
-				<li><a href="#">내 이용목록</a></li>
+				<li><a href="MemberMyList.me">내 이용목록</a></li>
 				<li><a href="ProductList.pr">내 펜션조회</a></li>
 				<li><a href="ProductAppointManage.pr">예약관리</a></li>
 				<li><a href="MemberWishList.me">찜 목록</a></li>
