@@ -50,20 +50,11 @@ history.back();
 							</div>
 							<div class="mb-3">
 								<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
-								<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer"><%=dto.getBcontent() %></textarea>
+								<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer"><%=dto.getAnswer() %></textarea>
 							</div>
 						</table>
 						<input type="submit" class="botann" value="글수정">
 					</div>
-						
-					<table border="1">
-							<tr><td colspan="2"><input type="checkbox" name="qstate" value="0" checked>답변완료</td></tr>
-							<tr><td>작성자번호</td>
-							<td><input type="text" name="no" value="<%=dto.getNo() %>" readonly></td></tr>
-							<tr><td>내용</td>
-							<td><textarea name="answer" rows="10" cols="20"><%=dto.getAnswer() %></textarea></td></tr>
-							<tr><td colspan="2"><input type="submit" value="글수정"></td></tr>
-					</table>
 				</form>
 				</div>
 			</div>

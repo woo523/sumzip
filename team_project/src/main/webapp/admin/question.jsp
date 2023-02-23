@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="member.UserDTO"%>
 <%@page import="member.UserDAO"%>
 <%@page import="qna.QnaDTO"%>
@@ -21,6 +22,7 @@
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
 				<%
+				SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 				String id=(String)session.getAttribute("id");
 				
 				if(id==null){
@@ -44,7 +46,7 @@
 					<table border="1">
 						<tr><td>글번호</td><td><%=qdto.getQno() %></td></tr>
 						<tr><td>작성자</td><td><%=udto.getId() %></td></tr>
-						<tr><td>글쓴날짜</td><td><%=qdto.getQdate() %></td></tr> 
+						<tr><td>글쓴날짜</td><td><%=dateFormat.format(qdto.getQdate()) %></td></tr> 
 						<tr><td>조회수</td><td><%=qdto.getQcount() %></td></tr>
 						<tr><td>글제목</td><td><%=qdto.getQtitle() %></td></tr>
 						<tr><td>글내용</td><td><%=qdto.getQcontent() %></td></tr>
