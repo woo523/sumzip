@@ -1,5 +1,7 @@
 package com.itwillbs.board.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,12 +20,15 @@ public class BoardCommendDeletePro implements Action{
 		int bno = dto.getBno();
 		dao.deleteCommend(cno);
 
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script type='text/javascript'>");
+		out.println("alert('답댓글이 삭제되었습니다.');");
+		out.println("location.href='BoardContent.bo?bno="+bno+"'");
+		out.println("</script>");
+		out.close();	
 		
-		ActionForward forward = new ActionForward();
-		forward.setPath("BoardContent.bo?bno="+bno);
-		forward.setRedirect(true);
-		
-		return forward;
+		return null;
 		
 	}
 
