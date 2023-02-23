@@ -40,7 +40,7 @@ public class ProductDAO {
 		if(rs.next()) {
 			pno=rs.getInt("max(pno)")+1;
 		}
-		sql="insert into products(pno,no,pname,paddress,ppostnum,paddress2,ptel,checkin,checkout,pprice,max_men,expiration,reser_date,ppic1,ppic2,ppic3,caution,pexplain) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql="insert into products(pno,no,pname,paddress,ppostnum,paddress2,ptel,checkin,checkout,pprice,max_men,reser_date,ppic1,ppic2,ppic3,caution,pexplain) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		pstmt=con.prepareStatement(sql);
 		pstmt.setInt(1, pno);
 		pstmt.setInt(2, dto.getNo());
@@ -53,13 +53,12 @@ public class ProductDAO {
 		pstmt.setString(9, dto.getCheckout());
 		pstmt.setInt(10, dto.getPprice());
 		pstmt.setInt(11, dto.getMax_men());
-		pstmt.setInt(12, dto.getExpiration());
-		pstmt.setTimestamp(13, dto.getReser_date());
-		pstmt.setString(14, dto.getPpic1());
-		pstmt.setString(15, dto.getPpic2());
-		pstmt.setString(16, dto.getPpic3());
-		pstmt.setString(17, dto.getCaution());
-		pstmt.setString(18, dto.getPexplain());
+		pstmt.setTimestamp(12, dto.getReser_date());
+		pstmt.setString(13, dto.getPpic1());
+		pstmt.setString(14, dto.getPpic2());
+		pstmt.setString(15, dto.getPpic3());
+		pstmt.setString(16, dto.getCaution());
+		pstmt.setString(17, dto.getPexplain());
 		pstmt.executeUpdate();
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -99,7 +98,6 @@ public class ProductDAO {
 				dto.setCheckout(rs.getString("checkout"));
 				dto.setPprice(rs.getInt("pprice"));
 		dto.setMax_men(rs.getInt("max_men"));
-		dto.setExpiration(rs.getInt("expiration"));
 		dto.setReser_date(rs.getTimestamp("reser_date"));		
 				dto.setPpic1(rs.getString("ppic1"));
 		dto.setPpic2(rs.getString("ppic2"));
@@ -147,7 +145,6 @@ public class ProductDAO {
 				dto.setCheckout(rs.getString("checkout"));
 				dto.setPprice(rs.getInt("pprice"));
 				dto.setMax_men(rs.getInt("max_men"));
-				dto.setExpiration(rs.getInt("expiration"));
 				dto.setReser_date(rs.getTimestamp("reser_date"));		
 				dto.setPpic1(rs.getString("ppic1"));
 				dto.setPpic2(rs.getString("ppic2"));
@@ -347,7 +344,6 @@ public class ProductDAO {
 				dto.setCheckout(rs.getString("checkout"));
 				dto.setPprice(rs.getInt("pprice"));
 				dto.setMax_men(rs.getInt("max_men"));
-				dto.setExpiration(rs.getInt("expiration"));
 				dto.setReser_date(rs.getTimestamp("reser_date"));
 				dto.setPpic1(rs.getString("ppic1"));
 				dto.setPpic2(rs.getString("ppic2"));
@@ -531,20 +527,19 @@ public class ProductDAO {
 		PreparedStatement pstmt=null;
 		try {
 			con=getConnection();
-			String sql="update products set pname=?, checkin=?, checkout=?,pprice=?, max_men=?, expiration=?, ppic1=?, ppic2=?, ppic3=?,caution=?, pexplain=? where pno=?";
+			String sql="update products set pname=?, checkin=?, checkout=?,pprice=?, max_men=?, ppic1=?, ppic2=?, ppic3=?,caution=?, pexplain=? where pno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, dto.getPname());
 			pstmt.setString(2, dto.getCheckin());
 			pstmt.setString(3, dto.getCheckout());
 			pstmt.setInt(4, dto.getPprice());
 			pstmt.setInt(5, dto.getMax_men());
-			pstmt.setInt(6, dto.getExpiration());
-			pstmt.setString(7, dto.getPpic1());
-			pstmt.setString(8, dto.getPpic2());
-			pstmt.setString(9, dto.getPpic3());
-			pstmt.setString(10, dto.getCaution());
-			pstmt.setString(11, dto.getPexplain());
-			pstmt.setInt(12, dto.getPno());
+			pstmt.setString(6, dto.getPpic1());
+			pstmt.setString(7, dto.getPpic2());
+			pstmt.setString(8, dto.getPpic3());
+			pstmt.setString(9, dto.getCaution());
+			pstmt.setString(10, dto.getPexplain());
+			pstmt.setInt(11, dto.getPno());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

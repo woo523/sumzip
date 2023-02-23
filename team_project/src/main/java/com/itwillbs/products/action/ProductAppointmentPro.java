@@ -52,20 +52,21 @@ public class ProductAppointmentPro implements Action {
 				ProductDTO pdto = pdao.getProduct(pno);
 				int sprice = pdto.getPprice()*daycount;
 				
-				if(guest>pdto.getMax_men()) { // 입실 가능 인원 초과인 경우 
-				response.setContentType("text/html; charset=UTF-8");
-				PrintWriter out = response.getWriter();
-				out.println("<script type='text/javascript'>");
-				out.println("alert('입실 가능 인원 초과입니다.')");
-				out.println("alert('현재 펜션은 "+pdto.getMax_men()+"명 이하만 입실 가능합니다.')");
-				out.println("history.back();");
-				out.println("</script>");
-				out.close();
-				} else { // 입실 가능한 인원 수 입력되어 있으면
-				SalesDAO sdao = new SalesDAO();
-				// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
-				boolean check1=sdao.checksSales1(pno, indate, outdate);
-					if(check1==true){
+					if(guest>pdto.getMax_men()) { // 입실 가능 인원 초과인 경우 
+						response.setContentType("text/html; charset=UTF-8");
+						PrintWriter out = response.getWriter();
+						out.println("<script type='text/javascript'>");
+						out.println("alert('입실 가능 인원 초과입니다.')");
+						out.println("alert('현재 펜션은 "+pdto.getMax_men()+"명 이하만 입실 가능합니다.')");
+						out.println("history.back();");
+						out.println("</script>");
+						out.close();
+					} else { // 입실 가능한 인원 수 입력되어 있으면
+						SalesDAO sdao = new SalesDAO();
+						// 퇴실일이 입실일보다 이전이거나 같은경우 경고창 띄우고 history.back
+						boolean check1=sdao.checksSales1(pno, indate, outdate);
+					
+						if(check1==true){
 						response.setContentType("text/html; charset=UTF-8");
 						PrintWriter out = response.getWriter();
 						out.println("<script type='text/javascript'>");
@@ -73,59 +74,59 @@ public class ProductAppointmentPro implements Action {
 						out.println("history.back();");
 						out.println("</script>");
 						out.close();
-					} else {
+						} else {
 						// 이미 예약된 경우 경고창 띄우고 history.back
-						boolean check2=sdao.checksSales2(pno, indate, outdate);
-						if(check2==true) {
-							response.setContentType("text/html; charset=UTF-8");
-							PrintWriter out = response.getWriter();
-							out.println("<script type='text/javascript'>");
-							out.println("alert('이미 예약된 날짜입니다.')");
-							out.println("history.back();");
-							out.println("</script>");
-							out.close();
+							boolean check2=sdao.checksSales2(pno, indate, outdate);
+							if(check2==true) {
+								response.setContentType("text/html; charset=UTF-8");
+								PrintWriter out = response.getWriter();
+								out.println("<script type='text/javascript'>");
+								out.println("alert('이미 예약된 날짜입니다.')");
+								out.println("history.back();");
+								out.println("</script>");
+								out.close();
 			
 							// 예약 가능한 날짜일 경우 진행
-						}else if(check2!=true) {
+							}else if(check2!=true) {
 			
-							//Appointment dto에 값 저장
-							AppointmentDTO adto=new AppointmentDTO();
-							adto.setPno(pno);
-							adto.setNo(no);
-							adto.setAdate(adate);
+								//Appointment dto에 값 저장
+								AppointmentDTO adto=new AppointmentDTO();
+								adto.setPno(pno);
+								adto.setNo(no);
+								adto.setAdate(adate);
 
-							AppointmentDAO dao=new AppointmentDAO();
-							// DB에 예약정보 저장
-							dao.insertAppointment(adto);
+								AppointmentDAO dao=new AppointmentDAO();
+								// DB에 예약정보 저장
+								dao.insertAppointment(adto);
 
-							// 저장된 예약정보 ano 가져오기
-							adto = dao.getAppointment(no, pno);
-							int ano = adto.getAno();
+								// 저장된 예약정보 ano 가져오기
+								adto = dao.getAppointment(no, pno);
+								int ano = adto.getAno();
 			
-							// Sales dto에 값 저장
-							SalesDTO sdto = new SalesDTO();
-							sdto.setAno(ano);
-							sdto.setPno(pno);
-							sdto.setNo(no);
-							sdto.setSdate(sdate);
-							sdto.setIndate(indate);
-							sdto.setOutdate(outdate);
-							sdto.setSprice(sprice);
+								// Sales dto에 값 저장
+								SalesDTO sdto = new SalesDTO();
+								sdto.setAno(ano);
+								sdto.setPno(pno);
+								sdto.setNo(no);
+								sdto.setSdate(sdate);
+								sdto.setIndate(indate);
+								sdto.setOutdate(outdate);
+								sdto.setSprice(sprice);
 			
-							sdao.insertSales(sdto);
+								sdao.insertSales(sdto);
 					
-							response.setContentType("text/html; charset=UTF-8");
-							PrintWriter out = response.getWriter();
-							out.println("<script type='text/javascript'>");
-							out.println("alert('총 "+daycount+"박 숙박료 "+sprice+"원 입니다')");
-							out.println("alert('예약 입금 대기 되었습니다.')");
-							out.println("alert('입금 확인 후 예약 완료 됩니다.')");
-							out.println("location.href='ProductAppointManage.pr';");
-							out.println("</script>");
-							out.close();
+								response.setContentType("text/html; charset=UTF-8");
+								PrintWriter out = response.getWriter();
+								out.println("<script type='text/javascript'>");
+								out.println("alert('총 "+daycount+"박 숙박료 "+sprice+"원 입니다')");
+								out.println("alert('예약 입금 대기 되었습니다.')");
+								out.println("alert('입금 확인 후 예약 완료 됩니다.')");
+								out.println("location.href='ProductAppointManage.pr';");
+								out.println("</script>");
+								out.close();
+							}
 						}
 					}
-				}
 				}
 		return null;	
 	}

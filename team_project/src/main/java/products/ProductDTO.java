@@ -15,7 +15,6 @@ public class ProductDTO {
    private String checkout; // 체크아웃시간
    private int pprice; // 가격
    private int max_men; // 최대숙박인원
-   private int expiration; // 등록유효기간
    private Timestamp reser_date; // 숙소등록일
    private String ppic1; // 펜션사진1
    private String ppic2; // 펜션사진2
@@ -88,12 +87,6 @@ public class ProductDTO {
    }
    public void setMax_men(int max_men) {
       this.max_men = max_men;
-   }
-   public int getExpiration() {
-      return expiration;
-   }
-   public void setExpiration(int expiration) {
-      this.expiration = expiration;
    }
    public Timestamp getReser_date() {
       return reser_date;
