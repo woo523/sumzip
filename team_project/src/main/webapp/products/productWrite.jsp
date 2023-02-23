@@ -7,6 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>products/productWrite.jsp</title>
+<style>
+#wrap{
+	font-family: 'NanumSquareNeo';
+  	max-width: 1000px;
+ 	margin: 0 auto;
+ 	padding: 20px;
+ 	margin-bottom: 70px;
+}
+</style>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
@@ -34,7 +43,7 @@ if(id==null){
 	<%
 }
 %>
-
+<div id="wrap">
 <h3>상품등록</h3>
 
 <div class="content-main">
@@ -47,7 +56,7 @@ if(id==null){
 
 						<div class="row mb-3 form-row">
 							<div class="col-md-3">
-								<label>유저번호</label> <input type="text" name="no" value="<%=id%>"
+								<label>아이디</label> <input type="text" name="no" value="<%=id%>"
 									readonly>
 							</div>
 						</div>
@@ -152,9 +161,9 @@ if(id==null){
 			</div>
 		</div>
 	</div>
-
+</div>
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>
