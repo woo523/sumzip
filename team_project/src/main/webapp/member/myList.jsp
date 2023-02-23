@@ -26,7 +26,7 @@
 	
   	.wrap #myList {
  		font-family: 'NanumSquareNeo';
-		max-width: 750px;
+		max-width: 800px;
 		height: 100%;
 		margin: 0 auto;
 		height: 100%;
@@ -50,6 +50,7 @@
  	
  	#myList ul li {
  		list-style: none;
+ 		
  	}
  	
  	#myList #timecheck {
@@ -60,12 +61,17 @@
  	
  	#myList ul button {
  		margin-top: 10px;
- 		display: inline-block;
+ 		display:block;
+        margin:auto;
  	}
  	
  	#myList ul #btns {
  		width: 150px;
+ 		display:block;
+        margin:0 auto;
  	}
+ 	
+
  	footer {
  		clear: left;
  	}
@@ -144,7 +150,7 @@
 		
 	%>
 	<ul>
-		<li>예약일자 : <%=appointdate %></li>
+		<hr><li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
 		<li id="timecheck">체크인 <%=format.format(appointIndate) %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(3) %>분</li>
 		<li id="timecheck">체크아웃 <%=format.format(appointOutdate) %> <%=houseOutTime.substring(0, 2) %>시 <%=houseOutTime.substring(3) %>분</li>
