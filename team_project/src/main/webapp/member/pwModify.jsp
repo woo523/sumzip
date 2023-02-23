@@ -9,11 +9,105 @@
 <title>Insert title here</title>
 <style type="text/css">
  #wrap {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  #rap {
+  width: 600px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
   border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #99b19c;
+}
+
+select option {
+  font-size: 1rem;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-block;
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #fba45c;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+  input[type="button"]:hover,  
+  input[type="submit"]:hover,  
+  input[type="reset"]:hover {  
+    background-color: #fccc9c;  
+  }  */
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
+
+#error-msg {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.divresult {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.address-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#sample4_postcode {
+  width: 150px;
+  margin-right: 10px;
+}
+
+#sample4_roadAddress {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#sample4_detailAddress {
+  flex: 1;
  }
 </style>
 
@@ -44,15 +138,120 @@
 			}
 		});
 	});
-	
-
 </script>
+
+<style>
+#rap {
+  width: 600px;
+  margin: 10px auto;
+  margin-bottom: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #99b19c;
+}
+
+select option {
+  font-size: 1rem;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-block;
+  padding: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #fba45c;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+  input[type="button"]:hover,  
+  input[type="submit"]:hover,  
+  input[type="reset"]:hover {  
+    background-color: #fccc9c;  
+  }  */
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
+
+#error-msg {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.divresult {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.address-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#sample4_postcode {
+  width: 150px;
+  margin-right: 10px;
+}
+
+#sample4_roadAddress {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#sample4_detailAddress {
+  flex: 1;
+}
+</style>
+
 </head>
 <body>
-<div id="wrap">
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../inc/my_header.jsp"/>
 <!-- 헤더들어가는 곳 -->
+
+<div id="rap">
+
 <%
 
 String id=(String)session.getAttribute("id");
@@ -63,22 +262,25 @@ String id=(String)session.getAttribute("id");
 
 UserDTO dto=(UserDTO)request.getAttribute("dto");
  %> 
-<div id="wrap">
+
 	<form action="MemberPwModifyPro.me" name="passForm" id="pass_modify" method="post">
-		<div id="pass_modify">
-			<h3>비밀번호 변경</h3>
-			<label>아이디</label>: <input type="text" name="id" class="id" value="<%=id%>" readonly><br>
-			<label>새 비밀번호</label>: <input type="password" name="pass" class="pass" ><br>
-			<label>비밀번호 재확인</label>: <input type="password" name="pass2" class="pass2"><br>
-			<div id="buttons">
+		<fieldset>
+			<legend>비밀번호 변경</legend>
+			<label>아이디</label>
+			<input type="text" name="id" class="id" value="<%=id%>" readonly><br>
+			<label>새 비밀번호</label> 
+			<input type="password" name="pass" class="pass" ><br>
+			<label>비밀번호 재확인</label> 
+			<input type="password" name="pass2" class="pass2"><br>
+		</fieldset>
+		<div id="buttons">
 			<input type="submit" value="변경" class="submit" >
 			<input type="reset" value="취소" class="cancel">
-			</div>
 		</div>
 	</form>
-</div>
+
 	
-<div class="clear"></div>
+
 
 </div>
 <!-- 푸터 들어가는 곳 -->

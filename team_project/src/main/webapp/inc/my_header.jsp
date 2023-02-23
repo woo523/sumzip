@@ -17,11 +17,37 @@
   border-radius: 10px;
  }
  
-#sidebar{
- 	width: 250px; 
-   	height: 1000px;   
-	float: left;
-}
+#sidebar{ 
+  	width: 250px;  
+    height: 1000px;    
+ 	float: left; 
+ }
+ 
+#sidebar ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+
+#sidebar li {
+	margin-bottom: 10px;
+	}
+
+#sidebar li a {
+	display: block;
+	color: #333;
+	font-weight: bold;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+	}
+
+#sidebar li a:hover {
+	background-color: #99b19c;
+	color: #fff;
+	}
+
+
 </style>
 </head>
 <body>
@@ -41,22 +67,22 @@
 				if(dto.getUtype()==1){
 			%>
 			
-				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="MemberWishList.me">찜 목록</a></li>
-				<li><a href="ProductAppointManage.pr">예약내역</a></li>
-				<li><a href="MemberMyList.me">이용내역</a></li>
-				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
+				<li><a href="MemberMyPage_user.me">♥ 내 정보 조회</a></li>
+				<li><a href="MemberWishList.me">♥ 찜 목록</a></li>
+				<li><a href="ProductAppointManage.pr">♥ 예약내역</a></li>
+				<li><a href="MemberMyList.me">♥ 이용내역</a></li>
+				<li><a href="MemberDeleteForm.me">♥ 회원탈퇴</a></li>
 			
 				<% 
 				}else if(dto.getUtype()==2){
 				%>
 			
-				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="ProductList.pr">등록 펜션조회</a></li>
-				<li><a href="MemberWishList.me">찜 목록</a></li>
-				<li><a href="ProductAppointManage.pr">예약내역</a></li>
-				<li><a href="MemberMyList.me">이용내역</a></li>
-				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
+				<li><a href="MemberMyPage_user.me">♥ 내 정보 조회</a></li>
+				<li><a href="ProductList.pr">♥ 등록 펜션조회</a></li>
+				<li><a href="MemberWishList.me">♥ 찜 목록</a></li>
+				<li><a href="ProductAppointManage.pr">♥ 예약내역</a></li>
+				<li><a href="MemberMyList.me">♥ 이용내역</a></li>
+				<li><a href="MemberDeleteForm.me">♥ 회원탈퇴</a></li>
 			
 				<% 
 				}

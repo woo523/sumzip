@@ -176,10 +176,7 @@ UserDTO dto=dao.getUser(id);
 
 <div id="rap">
 <!-- 본문들어가는 곳 -->
-<!--     <div class="container"> -->
-<!--         <div class="row"> -->
-        <div class="col-sm-9">
-<!-- 				<div class="bg-white rounded shadow-sm container p-3"> -->
+
 			<form action="MemberUpdatePro.me" id="join" method="post">
 			<fieldset>
 				<legend>개인정보 수정</legend>
@@ -205,10 +202,7 @@ UserDTO dto=dao.getUser(id);
 			</div>
 			</form>
 		</div>
-	</div>
-<!-- </div> -->
-<!-- </div> -->
-<!-- </section> -->
+
 <!-- 본문내용 -->
 <!-- 본문들어가는 곳 -->
 

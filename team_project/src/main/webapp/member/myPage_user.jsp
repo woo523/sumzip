@@ -11,6 +11,7 @@
  #rap {
   width: 600px;
   margin: 30px auto;
+  margin-bottom: 50px;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -55,7 +56,7 @@ select option {
     padding: 10px;  
     font-size: 1rem;  
     color: #fff;  
-    background-color: #fba45c;  
+    background-color: #99b19c;  
     border-radius: 5px;  
     border: none;  
     cursor: pointer;  
@@ -64,7 +65,7 @@ select option {
   input[type="button"]:hover,  
   input[type="submit"]:hover,  
   input[type="reset"]:hover {  
-    background-color: #fccc9c; 
+    background-color: #113000; 
   }  
 
 label {
