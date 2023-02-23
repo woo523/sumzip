@@ -66,7 +66,7 @@ ProductDTO dto = productlist.get(i);
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>
-                                        <td><%=dto.getPaddress2() %></td>
+                                        <td><%=dto.getPaddress() %></td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크인 :</td>
