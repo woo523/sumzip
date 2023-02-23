@@ -13,6 +13,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -23,11 +25,13 @@
 	}
 
 	#wrap {
-		margin: 60px auto;
+		margin: 40px auto;
 		width: 90%;
+		margin-bottom: 60px;
 		max-width: 600px;
 		padding: 20px;
 		background-color: #fff;
+		font-family: 'NanumSquareNeo';
 	}
 	
 	form {
@@ -36,7 +40,27 @@
 		max-width: 600px;
 		padding: 20px;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+		font-size: 30px;
+		text-align: center;
 	}
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"] {
+ 			background-color: #99b19c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+	}
+
+  input[type="button"]:hover,  
+  input[type="submit"]:hover,  
+  input[type="reset"]:hover {  
+  		  background-color: #113000;  
+  } 
 	
 </style>
 </head>
@@ -64,7 +88,7 @@ String email = dao.findEmail(id);
 	if(dto!=null) {
 	%>
 		<div class="found-success">
-		<h3>임시 비밀번호 발급</h3>
+		임시 비밀번호 발급
 		<p>아래 이메일로 임시 비밀번호를 전송합니다.</p>
 		<p><%=dto.getEmail() %></p>
 		</div>
@@ -73,7 +97,7 @@ String email = dao.findEmail(id);
 	} else {
 	%>
 		<div class="found-fail">
-		<h3>회원정보가 없습니다</h3>
+			회원정보가 없습니다			
 	    <p><a href='javascript:history.back()'>[다시시도]</a></p>
 	    </div>
 		<%

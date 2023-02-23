@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -17,7 +19,8 @@
             margin: 30px auto;
             margin-bottom: 50px;
             padding: 10px;
-            font-family: Arial, sans-serif;
+/*             font-family: Arial, sans-serif; */
+			font-family: 'NanumSquareNeo';
             border-radius: 10px;
         }
         .form-container {
@@ -34,6 +37,7 @@
         h2 {
             margin: 0;
             font-size: 24px;
+            font-family: 'NanumSquareNeo';
         }
         .header { 
      	display: flex; 
@@ -41,7 +45,8 @@
      	justify-content: center; 
      	background-color: white; 
      	color: #fff; 
-     	height: 80px; 
+     	height: 80px;
+     	 
   		 } 
 
         /* 폼 스타일 */

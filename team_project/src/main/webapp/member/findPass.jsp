@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -18,7 +20,8 @@
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 100px;
-  font-family: Arial, sans-serif;
+/*   font-family: Arial, sans-serif; */
+  font-family: 'NanumSquareNeo';
   border-radius: 10px;
  }
   
@@ -36,8 +39,8 @@
   /* 비밀번호 찾기 폼 */
   .form-container {
     background-color: #fff;
-    margin: 50px auto;
-    margin-bottom: 70px;
+    margin: 30px auto;
+    margin-bottom: 100px;
     max-width: 600px;
     padding: 30px;
     padding-bottom: 60px;
@@ -60,6 +63,7 @@
   .form-container input[type="text"] {
     width: 100%;
     padding: 10px;
+    margin-top :30px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -107,7 +111,7 @@ function pass_search() {
 
 <div class="form-container">
 
-<p>비밀번호를 찾고자 하는 아이디를 입력해 주세요.</p>
+비밀번호를 찾고자 하는 아이디를 입력해 주세요.
 <form action="MemberFindPassPro.me" name="passfindscreen" method = "POST">
 	<input type="text" name="id" id="id">
 	<br><br>
