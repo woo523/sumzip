@@ -2,7 +2,7 @@
 
 .mainsearch_button{
 	border-radius: 16px;
-	background:#F7CD8A; 
+	background:#FFA75A; 
 	width: 35%;
   display: block;
   color: #3B3B3B;
@@ -17,7 +17,7 @@
 	cursor: pointer;
 	display: block;
 	position: relative;
-	border: 2px solid #F7CD8A;
+	border: 2px solid #FFA75A;
 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
