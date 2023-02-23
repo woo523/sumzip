@@ -1,3 +1,4 @@
+<%@page import="board.ReplyDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -63,6 +64,7 @@
 								<%
 								for(int i=0; i<boardList.size(); i++){
 									BoardDTO dto= boardList.get(i);
+									
 								%>
 								<tr>
 									<td><%=dto.getBno() %></td>

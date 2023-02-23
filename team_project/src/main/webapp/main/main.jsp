@@ -40,6 +40,9 @@
         <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
         <link rel="stylesheet" href="css1/style.css">
+        
+        <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+
 </head>
 
 <body>
