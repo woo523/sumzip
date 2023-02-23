@@ -16,24 +16,33 @@
     padding: 0;
   }
   #wrap {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  margin-bottom: 100px;
-/*   font-family: Arial, sans-serif; */
-  font-family: 'NanumSquareNeo';
-  border-radius: 10px;
+   width: 100%;
+   max-width: 800px;
+   margin: 0 auto;
+   margin-bottom: 100px;
+   font-family: 'NanumSquareNeo';
+   border-radius: 10px;
  }
   
   /* 로고와 제목 */
-   .header { 
-     display: flex; 
-     align-items: center; 
-     justify-content: center; 
-     background-color: white; 
-     color: #fff; 
-     height: 80px; 
-     margin: 40px auto;
+  .header { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: white; 
+    color: #fff; 
+    height: 80px; 
+    margin: 40px auto;
+   }
+  .heading-section { 
+    font-size: 40px; 
+    color: #393939; 
+    line-height: 1.5;     	
+    font-weight: 400; 
+    font-family: "Poppins", Arial, sans-serif;  
+    font-weight: bold;  
+    text-align: center; 
+    margin: 10px;  
    } 
   
   /* 비밀번호 찾기 폼 */
@@ -106,7 +115,7 @@ function pass_search() {
 <jsp:include page="../inc/header.jsp" />
 <div id="wrap">
 <div class="header">
-<h2>비밀번호 찾기</h2>
+<h2 class="heading-section">비밀번호 찾기</h2>
 </div>
 
 <div class="form-container">

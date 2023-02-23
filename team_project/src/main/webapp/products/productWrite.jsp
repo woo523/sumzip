@@ -4,22 +4,63 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>products/productWrite.jsp</title>
 <style>
-#wrap{
-	font-family: 'NanumSquareNeo';
-  	max-width: 1000px;
- 	margin: 0 auto;
- 	padding: 20px;
- 	margin-bottom: 70px;
+#rap{
+  width: 600px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+/*   font-family: Arial, sans-serif; */
+  font-family: 'NanumSquareNeo';
 }
+td.thead {
+	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	
+}
+
+.heading-section {
+    font-size: 35px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: 'NanumSquareNeo'; 
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+     
+}
+
+#table_search{
+	float: right;
+   
+}
+
+input[type="text"],
+input[type="time"],
+input[type="file"], 
+select {
+          width: 100%;
+          padding: 15px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
 </style>
 </head>
 <body>
 <!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
+<jsp:include page="../inc/my_header.jsp" />
 
 
 <!-- 상품등록 하기 -->
@@ -43,125 +84,64 @@ if(id==null){
 	<%
 }
 %>
-<div id="wrap">
-<h3>상품등록</h3>
+<article>
+<div id="rap">
+<h3 class="heading-section">상품등록</h3>
 
-<div class="content-main">
-		<div class="row">
-			<div class="col-sm-9">
-				<hr>
-				<div class="bg-white rounded shadow-sm container p-3">
-					<form action="ProductWritePro.pr" method="POST" enctype="multipart/form-data"
-						 class="form-horizontal" role="form">
+<form action="ProductUpdatePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
+	<table border="1" class="table">
+		<tr><td class="thead">아이디</td> 
+			<td class="tcontent"><input type="text" name="no" value="<%=id%>" readonly></td></tr>
+						
+		<tr><td class="thead">펜션이름</td>
+			<td class="tcontent"><input type="text" name="pname"></td></tr>
 
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>아이디</label> <input type="text" name="no" value="<%=id%>"
-									readonly>
-							</div>
-						</div>
+		<tr><td class="thead">펜션주소</td> 
+		<td class="tcontent"><label>우편번호</label> <input type="text" name="ppostnum"><br>
+							 <label>주소</label> <input type="text" name="paddress" ><br>
+							 <label>상세주소</label> <input type="text" name="paddress2"></td></tr>
 
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>펜션이름</label> <input type="text" name="pname">
-							</div>
-						</div>
+						
+		<tr><td class="thead">전화번호</td> 
+		<td class="tcontent"><input type="tel" name="ptel"></td></tr> 
 
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>펜션주소</label> <input type="text" name="paddress" >
-							</div>
-						</div>
+		<tr><td class="thead">체크인<br>시간</td> 
+			<td class="tcontent"><input type="time" name="checkin" ></td></tr> 
+						
+		<tr><td class="thead">체크아웃<br>시간</td> 
+			<td class="tcontent"><input type="time" name="checkout" ></td></tr> 
 
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>우편번호</label> <input type="text" name="ppostnum"> 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>상세주소</label> <input type="text" name="paddress2"> 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>전화번호</label> <input type="tel" name="ptel"> 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>체크인시간</label> <input type="time" name="checkin" > 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>체크아웃시간</label> <input type="time" name="checkout" > 
-							</div>		
-						</div>						
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>가격</label> <input type="text" name="pprice" > 
-							</div>		
-						</div>
+		<tr><td class="thead">가격</td> 
+		<td class="tcontent"><input type="text" name="pprice" ></td></tr> 
 
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>최대숙박인원</label> <input type="text" name="max_men" > 
-							</div>		
-						</div>
+		<tr><td class="thead">최대숙박<br>인원</td> 
+			<td class="tcontent"><input type="text" name="max_men" ></td></tr> 
 
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>등록유효기간</label> <input type="text" name="expiration" > 
-							</div>		
-						</div>
-																								
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>펜션사진1</label> <input type="file" name="ppic1" > 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>펜션사진2</label> <input type="file" name="ppic2" > 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>펜션사진3</label> <input type="file" name="ppic3" > 
-							</div>		
-						</div>												
-	
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>주의사항</label> <input type="text" name="caution" > 
-							</div>		
-						</div>
-						
-						<div class="row mb-3 form-row">
-							<div class="col-md-3">
-								<label>펜션 설명</label> <input type="text" name="pexplain" > 
-							</div>		
-						</div>
-										
-							<input type="submit" class="btnChange" value="상품등록">											
+		<tr><td class="thead">펜션사진1</td> 
+			<td class="tcontent"><input type="file" name="ppic1" ></td></tr> 
+
+		<tr><td class="thead">펜션사진2</td> 
+			<td class="tcontent"><input type="file" name="ppic2" ></td></tr> 
+
+		<tr><td class="thead">펜션사진3</td> 
+			<td class="tcontent"><input type="file" name="ppic3" ></td></tr> 
+
+		<tr><td class="thead">주의사항</td> 
+			<td class="tcontent"><input type="text" name="caution" ></td></tr> 
+			
+		<tr><td class="thead">펜션 설명</td> 
+			<td class="tcontent"><input type="text" name="pexplain" ></td></tr> 
+		</table>
+		<div id="table_search">								
+			<input type="submit" class="btn btn-outline-success" value="상품등록">
+		</div>											
 <!-- 						<div class="btnChange"> -->
 <!-- 							<a href="ProductWritePro.pr"><input type="button"  -->
 <!-- 								value="상품등록"></a>  -->
 <!-- 						</div> -->
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+</form>
 </div>
+</article>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
 

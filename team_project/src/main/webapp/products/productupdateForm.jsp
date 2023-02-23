@@ -31,52 +31,22 @@ td.thead {
 	text-align: center;
 	
 }
-/* td.tcontent{ */
-/* text-align: center; */
-/* background-color: white; */
-/* } */
 
 .heading-section {
     font-size: 35px;
     color: #393939;
     line-height: 1.5;
     font-weight: 400;
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: 'NanumSquareNeo';
     font-weight: bold;
     text-align: center;
     margin: 10px; 
      
 }
 
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #99b19c;
-    border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-input.form-control[readonly]{
-	background-color: #99b19c;
-	opacity: 1;
-    color: #fff;
-    font-weight: bold;
-}
-
 #table_search{
 	float: right;
    
-}
-textarea.form-control{
-	resize: none;  
 }
 
 input[type="text"],
@@ -85,7 +55,6 @@ input[type="file"],
 select {
           width: 100%;
           padding: 15px;
-/*           margin-bottom: 10px; */
           font-size: 16px;
           border: 1px solid #ccc;
           border-radius: 5px;
@@ -109,7 +78,7 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 <div id="wrap">
 <h2 class="heading-section">등록펜션 수정</h2>
 
-<form action="ProductUpdatePro.pr" method="post" enctype="multipart/form-data">
+<form action="ProductUpdatePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
 <input type="hidden" name="pno" value="<%=dto.getPno()%>">
 <table border="1" class="table">
 <!-- <thead class="thead-primary"> -->
