@@ -1,3 +1,5 @@
+<%@page import="member.UserDAO"%>
+<%@page import="member.UserDTO"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="products.ProductDAO"%>
 
@@ -52,12 +54,9 @@ if(id!=null){
 <!-- 펜션리스트 부분 -->
 <table border="1">
 <tr><td>상품번호</td>
-<!--     <td>유저번호</td> -->
 	<td>펜션이름</td>
 	<td>펜션주소</td>
 	<td>상세주소</td>
-<!-- 	<td>체크인</td> -->
-<!-- 	<td>체크아웃</td> -->
     <td>가격</td>
     <td>펜션사진</td>
     <td>펜션설명</td>
@@ -68,15 +67,12 @@ for(int i=0; i<productList1.size(); i++){
 	ProductDTO dto=productList1.get(i);
 %>
     <tr><td><%=dto.getPno() %></td>
-<%--     <td><%=dto.getNo() %></td> --%>
     <td>
     <a href="ProductContent.pr?pno=<%=dto.getPno()%>">
     <%=dto.getPname() %>
     </a></td>
     <td><%=dto.getPaddress() %></td>
     <td><%=dto.getPaddress2() %></td>
-<%--     <td><%=dto.getCheckin() %></td> --%>
-<%--     <td><%=dto.getCheckout() %></td> --%>
     <td><%=dto.getPprice() %></td>
 	<td><img src="upload/<%=dto.getPpic1() %>" width="200" height="200"></td>
 	<td><%=dto.getPexplain() %></td></tr>

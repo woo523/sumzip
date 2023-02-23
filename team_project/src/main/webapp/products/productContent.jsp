@@ -32,7 +32,7 @@ form {
 
 String id=(String)session.getAttribute("id");
 
-int pno = (Integer)request.getAttribute("pno");
+// int pno = (Integer)request.getAttribute("pno");
 
 ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 UserDTO udto=(UserDTO)request.getAttribute("udto");
@@ -51,7 +51,7 @@ UserDTO udto=(UserDTO)request.getAttribute("udto");
 <tr><td>체크아웃시간</td><td><%=dto.getCheckout() %></td></tr>
 <tr><td>가격</td><td><%=dto.getPprice() %></td></tr>
 <tr><td>최대숙박인원</td><td><%=dto.getMax_men() %></td></tr>
-<tr><td>등록유효기간</td><td><%=dto.getExpiration() %></td></tr>
+
 <tr><td>숙소등록일</td><td><%=dto.getReser_date() %></td></tr>
 <tr><td>펜션사진1</td>
 <td>
@@ -75,7 +75,7 @@ UserDAO pudao = new UserDAO();
 UserDTO pudto = pudao.getUserNo(dto.getNo()); // 상품 올린 user 정보 가져오기
 if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-	if(id.equals("owner")){
+	if(id.equals(pudto.getId())){
 		%>
 <input type="button" value="상품수정"
  onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">

@@ -125,8 +125,6 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
     <td class="tcontent"><input type="text" name="pprice" value="<%=dto.getPprice() %>"></td></tr>   
 <tr><td class="thead">최대숙박인원</td>
     <td class="tcontent"><input type="text" name="max_men" value="<%=dto.getMax_men() %>"></td></tr>    
-<tr><td class="thead">등록유효기간</td>
-    <td class="tcontent"><input type="text" name="expiration" value="<%=dto.getExpiration() %>"></td></tr>
 <tr><td class="thead">펜션사진1</td>
     <td class="tcontent"><input type="file" name="ppic1" value="<%=dto.getPpic1()%>">
     <input type="hidden" name="oldppic1" value="<%=dto.getPpic1()%>">

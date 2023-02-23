@@ -250,7 +250,7 @@ String Date2=(String)request.getAttribute("Date2");
         <script src="js1/stellar.js"></script>
         <script src="vendors/lightbox/simpleLightbox.min.js"></script>
         <script src="js1/custom.js"></script>
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footerTest.jsp" />
 </div>
 </body>
 </html>

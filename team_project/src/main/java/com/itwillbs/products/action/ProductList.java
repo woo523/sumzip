@@ -47,6 +47,7 @@ public class ProductList implements Action {
 		 request.setAttribute("endPage", endPage);
 		 request.setAttribute("pageCount", pageCount);
 			System.out.println(productList1.size());
+			
 		 // 이동
 		 ActionForward forward = new ActionForward();
 		 forward.setPath("products/productList.jsp");

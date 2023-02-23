@@ -9,8 +9,7 @@ request.setCharacterEncoding("utf-8");
 
 // [all 컬럼] 변수에 저장
 // int pno = Integer.parseInt(request.getParameter("pno"));
-// int no = Integer.parseInt(request.getParameter("no"));
-int no=13;
+int no = Integer.parseInt(request.getParameter("no"));
 System.out.println("num="+no);
 String pname= request.getParameter("pname");
 String paddress= request.getParameter("paddress");
@@ -21,7 +20,6 @@ String checkin=request.getParameter("checkin");
 String checkout=request.getParameter("checkout");
 int pprice= Integer.parseInt(request.getParameter("pprice"));
 int max_men= Integer.parseInt(request.getParameter("max_men"));
-int expiration= Integer.parseInt(request.getParameter("expiration"));
 Timestamp reser_date=new Timestamp(System.currentTimeMillis());
 String ppic1= request.getParameter("ppic1");
 String ppic2= request.getParameter("ppic2");
@@ -43,7 +41,6 @@ dto.setCheckin(checkin);
 dto.setCheckout(checkout);
 dto.setPprice(pprice);
 dto.setMax_men(max_men);
-dto.setExpiration(expiration);
 dto.setReser_date(reser_date);
 dto.setPpic1(ppic1);
 dto.setPpic2(ppic2);
@@ -56,7 +53,7 @@ ProductDAO dao=new ProductDAO();
 dao.insertProduct(dto);
 
 // 글목록(productList.jsp)으로 이동
-response.sendRedirect("ProductList.me");
+response.sendRedirect("ProductList.pr");
 
 
 %>
