@@ -63,10 +63,22 @@ UserDTO udto = (UserDTO)request.getAttribute("udto");
 							<li><i class="icon_check"></i>숙박료 : <input type="text" name="price" value="<%=pdto.getPprice()%>원 /1박" readonly></li>
 							<li><i class="icon_check"></i>입실일 : <input type="date" name="indate" id="inDate"></li>
 							<li><i class="icon_check"></i>퇴실일 : <input type="date" name="outdate"></li>
+							<li><i class="icon_check"></i>인원수 : <select name="guest">
+                                                    <option value="1">1명</option>
+                                                    <option value="2">2명</option>
+                                                    <option value="3">3명</option>
+                                                    <option value="4">4명</option>
+                                                    <option value="5">5명</option>
+                                                    <option value="6">6명</option>
+                                                    <option value="7">7명</option>
+                                                    <option value="8">8명</option>
+                                                    <option value="9">9명</option></select></li>
 
-
+							<li><input type="submit" value="예약하기"></li>
 							</ul>
-							<button type="submit"> 예약하기</button>
+							
+							
+							
 							<input type="hidden" name="no" value="<%=udto.getNo()%>">
 							<input type="hidden" name="pno" value="<%=pdto.getPno()%>">
 							</form>
