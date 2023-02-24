@@ -7,23 +7,16 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">  
     <head>
     <meta charset="UTF-8">
     <title>Wish_List</title>
     </head>
 <div id="wrap">
 		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/header.jsp" />
+		<jsp:include page="../inc/my_header.jsp" />
 		<!-- 헤더들어가는 곳 -->
-		<nav id="sidebar">
-			<ul>
-				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="MemberMyList.me">내 이용목록</a></li>
-				<li><a href="ProductAppointManage.pr">예약관리</a></li>
-				<li><a href="MemberWishList.me">찜 목록</a></li>
-				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
-			</ul>
-		</nav>
+		
 	</div>
 
 <%
@@ -41,11 +34,13 @@ if(id!=null){
 	%>
 
     <style>
+
 article{
 	font-family: 'NanumSquareNeo';
-  	max-width: 1000px;
- 	margin: 0 auto;
- 	padding: 50px;
+  	width: 900px;
+ 	margin-left: 700;
+ 	margin-top: 40;
+ 	margin-bottom: 300;
 }
 
 
@@ -74,7 +69,7 @@ article{
   
   #sidebar{
  	width: 250px; 
-   	height: 1000px;   
+   	height: 500px;   
 /*  	background-color: #98FD5D;  */ 
 	float: left;
 }
@@ -92,7 +87,7 @@ a.tablelink:active {
 }
     </style>
   
-  <article style="width: 70%">
+  <article>
 <div class="wishlistContainer">
 	<h3 class="heading-section">Wish List</h3>
 	</div>
@@ -136,5 +131,5 @@ a.tablelink:active {
 </article>
 
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->

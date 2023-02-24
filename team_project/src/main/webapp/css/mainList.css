@@ -31,19 +31,6 @@
 	right: auto;
 	width: 100%;
 }
-/* a.mainsearch_button:before { */
-/* 	display: block; */
-/* 	position: absolute; */
-/* 	top: 0px; */
-/* 	right: 0px; */
-/* 	height: 100%; */
-/* 	width: 0px; */
-/* 	z-index: -1; */
-/* 	content: ''; */
-/* 	color: #000 !important; */
-/* 	background: #F7CD8A; */
-/* 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1); */
-/* } */
 
 .hotel_booking-table{
 	background: #FFFFFF;

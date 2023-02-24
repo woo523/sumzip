@@ -99,7 +99,7 @@ String Date2=(String)request.getAttribute("Date2");
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="Main.me">
-                                <img src="img/islandzip3.png"; alt="">
+                                <img src="img/islandzip3.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -177,6 +177,7 @@ String Date2=(String)request.getAttribute("Date2");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
+                                    <br>
                                       <input type="submit" class="mainsearch_button" value="검색">
                                         </form>
                                      </div>
@@ -364,8 +365,9 @@ if(endPage < pageCount){
        		</div>
          </div>    
      </section>  
+     
      <div class=topBtn onclick="window.scrollTo(0,0);">TOP ⇡</div>
-     <jsp:include page="../inc/footerTest.jsp" />
+     <jsp:include page="../inc/footer.jsp" />
        
 
 <!-- Optional JavaScript -->

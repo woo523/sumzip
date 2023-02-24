@@ -14,10 +14,10 @@ String result="";
 //dto null 이면  아이디 없음, 아이디 사용가능
 if(dto!=null){
 	// 아이디 있음, 아이디 중복
-	result="이미 사용중인 아이디입니다.";
+	result="중복";
 }else{
 	// 아이디 없음, 아이디 사용가능
-	result="사용가능한 아이디입니다.";
+	result="중복아님";
 }
 %>
-<%= result%>
+<%=result%>
