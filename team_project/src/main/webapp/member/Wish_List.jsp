@@ -7,6 +7,7 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">  
     <head>
     <meta charset="UTF-8">
     <title>Wish_List</title>
@@ -136,5 +137,5 @@ a.tablelink:active {
 </article>
 
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->

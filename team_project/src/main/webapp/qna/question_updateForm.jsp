@@ -40,5 +40,7 @@ QnaDTO dto = (QnaDTO)request.getAttribute("dto");
 			<tr><td colspan="2"><input type="submit" value="글수정"></td></tr>
 	</table>
 </form>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
