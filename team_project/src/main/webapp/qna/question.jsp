@@ -34,6 +34,7 @@ article{
 .tt{
 background-color: #99b19c;
 text-align: center;
+width: 180px;
 }
 
 .co{

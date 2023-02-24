@@ -17,15 +17,17 @@
 <style>
 article{
 	font-family: 'NanumSquareNeo';
-  	max-width: 1000px;
+  	max-width: 1200px;
  	margin: 0 auto;
- 	padding: 50px;
+ 	padding: 100px;
 }
 
 .table thead.thead-pri{
 	background: #99b19c;
 	font-weight: bold;
 	color: #FFFFFF;	
+	width: 500px;
+	text-align: center;
 }
 
 .heading-section {
@@ -71,7 +73,7 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <!-- 펜션리스트 부분 -->
 <table class="table">
 <thead class="thead-pri">
-<tr><td>상품번호</td>
+<tr><td>상품<br>번호</td>
 	<td>펜션이름</td>
 	<td>펜션주소</td>
 	<td>상세주소</td>
