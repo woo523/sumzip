@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 </head>
 <body>
