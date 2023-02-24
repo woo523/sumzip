@@ -23,7 +23,17 @@ $(document).ready(function(){
 		alert("아이디를 입력하세요.");
 		$('.id').focus();
 		return false;
+	}	
+	if($('#idcheck').val()==""){
+		alert("중복 확인을 해주세요.");
+		$('.id').focus();
+		return false;		
 	}
+	if($('#idcheck').val()=="n"){
+		alert("아이디가 중복입니다. 다른 아이디로 다시시도 하세요.");
+		$('.id').focus();
+		return false;		
+	}	
 	if($('.pass').val()==""){
 		alert("비밀번호를 입력하세요.");
 		$('.pass').focus();
@@ -64,9 +74,19 @@ $(document).ready(function(){
 		$('.tel').focus();
 		return false;
 	}
-	if($('.address').val()==""){
+	if($('.postnum').val()==""){
+		alert("우편번호를 입력하세요.");
+		$('.postnum').focus();
+		return false;
+	}
+	if($('.address1').val()==""){
 		alert("주소를 입력하세요.");
-		$('.address').focus();
+		$('.address1').focus();
+		return false;
+	}
+	if($('.address2').val()==""){
+		alert("상세주소를 입력하세요.");
+		$('.address2').focus();
 		return false;
 	}
 		}); //
@@ -81,10 +101,12 @@ $(document).ready(function(){
 		url:'member/idCheck.jsp',
 		data:{'id':$('.id').val()},
 		success:function(result){
-			if(result.trim()=="중복확인"){
-				$('.divresult').html(result).css("color","red");	
+			if(result.trim()=="중복"){
+				$('.divresult').html('이미 사용중인 아이디입니다.').css("color","red");	
+				$('#idcheck').val('n');
 			}else{
-				$('.divresult').html(result).css("color","green");	
+				$('.divresult').html('사용가능한 아이디입니다.').css("color","green");
+				$('#idcheck').val('y');
 			}			
 		}
 	});
@@ -154,6 +176,7 @@ legend {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
+  float: center;
 }
 
 fieldset {
@@ -261,6 +284,7 @@ label {
 				<label>아이디</label> 
 				<input type="text" name="id" class="id">
 				<input type="button" value="중복확인" class="dup"><br>
+				<input type="hidden" name="idcheck" value="" id="idcheck">
 				<div class="divresult"> </div><br> 
 				<label>비밀번호</label> 
 				<input type="password" name="pass" class="pass"><br> 

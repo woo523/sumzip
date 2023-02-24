@@ -9,6 +9,7 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
 <title>board/boardList.jsp</title>
@@ -195,8 +196,15 @@ if(endPage < pageCount){
 <i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
-
+%>
+</div>
+</div>
+<%
 }else{
+%>
+ <div class="col-lg-12">
+ <div class="room-pagination">
+<%
 	if(startPage > pageBlock){
 		%>
 	<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]
@@ -216,11 +224,16 @@ if(endPage < pageCount){
 	<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
+	%>
+	</div>
+	</div>
+	<%
 }
 %>
+
 </article>
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>

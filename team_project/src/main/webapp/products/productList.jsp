@@ -27,7 +27,7 @@ article{
 	font-weight: bold;
 	color: #FFFFFF;	
 	width: 500px;
-	text-align: center;
+
 }
 
 .heading-section {
@@ -73,12 +73,11 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 <!-- 펜션리스트 부분 -->
 <table class="table">
 <thead class="thead-pri">
-<tr><td>상품<br>번호</td>
+<tr><td>상품번호</td>
 	<td>펜션이름</td>
 	<td>펜션주소</td>
 	<td>상세주소</td>
     <td>가격</td>
-    <td>펜션사진</td>
     <td>펜션설명</td>
     </tr></thead>
    
@@ -94,7 +93,6 @@ for(int i=0; i<productList1.size(); i++){
     <td><%=dto.getPaddress() %></td>
     <td><%=dto.getPaddress2() %></td>
     <td><%=dto.getPprice() %></td>
-	<td><img src="upload/<%=dto.getPpic1() %>" width="200" height="200"></td>
 	<td><%=dto.getPexplain() %></td></tr>
 
 	<%
@@ -147,7 +145,8 @@ if(endPage < pageCount){
 %>
 </div>
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+
 </article>
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>

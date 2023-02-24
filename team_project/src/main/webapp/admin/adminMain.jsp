@@ -47,7 +47,7 @@ history.back();
 	       	<div class="col-lg-5">
 				<h1 class="kokuchi_title">공지사항</h1>
 				<div id="news_notice">
-					<table class="kokuchi">
+					<table class="table table-striped kokuchi">
 							<%
 							BoardDAO dao=new BoardDAO();
 							ArrayList<BoardDTO> boardList=dao.getBoardList(1, 10);
@@ -57,6 +57,7 @@ history.back();
 								
 								%>
 								<tr>
+									<td style="width:50px"><%=dto1.getBno() %></td>
 									<td>
 										<a href="AdminBoardContent.ad?bno=<%=dto1.getBno() %>"><%=dto1.getBtitle()%></a>
 									</td> 
@@ -119,6 +120,23 @@ history.back();
 			</div>
 		</div>
 	</div>
+    
+    <div class="container">
+	   	<div class="row">
+	       	<div class="col-lg-3">
+    		</div>
+    		<div class="col-lg-3">
+    		</div>
+    		<div class="col-lg-3">
+    		</div>
+    		<div class="col-lg-3">
+    		</div>
+    	</div>
+    </div>
+    
+    
+    
+    
     
 </head>
 <body>

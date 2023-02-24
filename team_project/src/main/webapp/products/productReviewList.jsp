@@ -79,7 +79,6 @@
 	
 	ReviewDAO dao = new ReviewDAO();
 	int getSumStar = dao.sumStar(pno);
-	System.out.println(getSumStar);
 
 	int currentPage = (Integer)request.getAttribute("currentPage");
 	int startPage = (Integer)request.getAttribute("startPage");

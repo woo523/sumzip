@@ -7,6 +7,7 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">  
     <head>
     <meta charset="UTF-8">
     <title>Wish_List</title>
@@ -41,6 +42,44 @@ if(id!=null){
 	%>
 
     <style>
+      #wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto;
+/*   font-family: Arial, sans-serif; */
+  font-family: 'NanumSquareNeo';
+  border-radius: 10px;
+ }
+ 
+#sidebar{ 
+  	width: 250px;  
+    height: 1000px;    
+ 	float: left; 
+ }
+ 
+#sidebar ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+
+#sidebar li {
+	margin-bottom: 10px;
+	}
+
+#sidebar li a {
+	display: block;
+	color: #333;
+/* 	font-weight: bocld; */
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+	}
+
+#sidebar li a:hover {
+	background-color: #99b19c;
+	color: #fff;
+	}
 article{
 	font-family: 'NanumSquareNeo';
   	max-width: 1000px;
@@ -136,5 +175,5 @@ a.tablelink:active {
 </article>
 
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->
