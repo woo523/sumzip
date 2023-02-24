@@ -91,6 +91,8 @@
 			LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 
 %>
+		총 후기 개수 <%=rdto.getRno() %>
+		
 		<!-- 후기 리스트  -->
 		<ul id="reviewList">
 			<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">

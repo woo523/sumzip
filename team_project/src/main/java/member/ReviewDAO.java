@@ -142,7 +142,14 @@ public class ReviewDAO {
 		ResultSet rs = null;
 		try {
 			con = getConnection();
-			String sql="select * from review where pno = ? order by pno desc limit ?, ?";
+			int rno = 0;
+			String sql = "select max(rno) from review";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				rno = rs.getInt("max(rno)") + 1;
+			}
+			sql="select * from review where pno = ? order by pno desc limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pno);
 			pstmt.setInt(2, startRow-1);
