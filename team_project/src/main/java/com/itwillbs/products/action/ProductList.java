@@ -15,8 +15,9 @@ public class ProductList implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ProductList execute()");
-		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		
+		 HttpSession session = request.getSession();
+		 String id = (String)session.getAttribute("id");
 		
 		 ProductDAO dao= new ProductDAO();
 		 int pageSize=10;
@@ -34,7 +35,7 @@ public class ProductList implements Action {
 		 int pageBlock=10;
 		 int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 		 int endPage=startPage+pageBlock-1;
-		 int count = dao.getProductCount();
+		 int count = productList1.size();
 		 int pageCount=count/pageSize+(count%pageSize==0?0:1);
 		 if(endPage > pageCount){
 			 endPage = pageCount;
@@ -47,6 +48,7 @@ public class ProductList implements Action {
 		 request.setAttribute("endPage", endPage);
 		 request.setAttribute("pageCount", pageCount);
 			System.out.println(productList1.size());
+			
 		 // 이동
 		 ActionForward forward = new ActionForward();
 		 forward.setPath("products/productList.jsp");

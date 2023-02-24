@@ -1,3 +1,4 @@
+<%@page import="board.ReplyDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
 <title>섬집 관리자 페이지</title>
 </head>
@@ -21,6 +23,21 @@
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
 					<%
+					String id=(String)session.getAttribute("id");
+					
+					if(id==null){
+						response.sendRedirect("AdminLogin.ad");
+					}else if(id.equals("admin")){
+					
+					}else{
+						%>
+					<script type="text/javascript">
+					alert("접근 권한이 없습니다.");
+					history.back();
+					</script>
+					<%
+					}
+					
 					SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 					
 					ArrayList<BoardDTO> boardList = (ArrayList<BoardDTO>)request.getAttribute("boardList");
@@ -44,14 +61,14 @@
 						
 						<!-- 공지사항 리스트 부분 -->
 						<table border="1" class="teeburu">
-							<tr><td>번호</td><td>유저번호</td><td>제목</td><td>작성날짜</td><td>조회수</td></tr>
+							<tr><th>번호</th><th>제목</th><th>작성날짜</th><th>조회수</th></tr>
 								<%
 								for(int i=0; i<boardList.size(); i++){
 									BoardDTO dto= boardList.get(i);
+									
 								%>
 								<tr>
 									<td><%=dto.getBno() %></td>
-									<td><%=dto.getNo() %></td>
 								    <td>
 								    	<a href="AdminBoardContent.ad?bno=<%=dto.getBno() %>"><%=dto.getBtitle() %></a>
 								    </td>
@@ -63,47 +80,23 @@
 								%>
 						</table>
 					</div>
-					
-					<!-- 페이징 처리 -->
-					<% 
-					
-					if(search==null){
+					<div class="pojisyonn">
+						<!-- 페이징 처리 -->
+						<% 
 						
-					if(startPage > pageBlock){
-						%>
-					<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
-						<%
-					}
-					%>
-					<div class="room-pagination">
-					<%
-					for(int i=startPage;i<=endPage;i++){
-						%>
-						<a href="AdminBoardList.ad?pageNum=<%=i%>"><%=i %></a> 
-						<%
-					}
-					%>
-					</div>
-					<%
-					if(endPage < pageCount){
-						%>
-					<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
-						<%
-					}
-					
-					
-					}else{
+						if(search==null){
+							
 						if(startPage > pageBlock){
 							%>
-						<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]</a>
+						<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 							<%
 						}
 						%>
-						<div class="room-pagination">
+						<div class="peigingu">
 						<%
 						for(int i=startPage;i<=endPage;i++){
 							%>
-							<a href="AdminBoardList.ad?pageNum=<%=i%>&search=<%=search%>"><%=i %></a> 
+							<a href="AdminBoardList.ad?pageNum=<%=i%>" class="pp"><%=i %></a> 
 							<%
 						}
 						%>
@@ -111,15 +104,40 @@
 						<%
 						if(endPage < pageCount){
 							%>
-						<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]</a>
+						<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
 							<%
 						}
-					}
-					
-					%>
-					
-					<div>
-						<button type="button" onclick="location.href='AdminBoardWriteForm.ad'" class="botann">글쓰기</button>
+						
+						
+						}else{
+							if(startPage > pageBlock){
+								%>
+							<a href="AdminBoardList.ad?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]</a>
+								<%
+							}
+							%>
+							<div class="peigingu">
+							<%
+							for(int i=startPage;i<=endPage;i++){
+								%>
+								<a href="AdminBoardList.ad?pageNum=<%=i%>&search=<%=search%>" class="pp"><%=i %></a> 
+								<%
+							}
+							%>
+							</div>
+							<%
+							if(endPage < pageCount){
+								%>
+							<a href="AdminBoardList.ad?pageNum=<%=startPage+pageBlock%>&search=<%=search%>">[10페이지 다음]</a>
+								<%
+							}
+						}
+						
+						%>
+						
+						<div >
+							<button type="button" onclick="location.href='AdminBoardWriteForm.ad'" class="botann">글쓰기</button>
+						</div>
 					</div>
 				</div>
 			</div>

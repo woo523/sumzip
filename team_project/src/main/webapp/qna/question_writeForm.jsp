@@ -6,9 +6,10 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>qna/q_writeForm.jsp</title>
+<title>섬집</title>
 <style>
 #wrap{
 	font-family: 'NanumSquareNeo';
@@ -115,7 +116,7 @@ no = rdto.getNo();
 	 <tbody>
 <!-- 	<table border="1"> -->
 		<tr><td><input type="text" name="name" class="form-control" maxlength="40" value="<%=id %>" readonly></td></tr>
-		<tr><td><input type="text" name="qtitle" class="form-control" maxlength="40" placeholder="글 제목"></td></tr>
+		<tr><td><input type="text" name="qtitle" class="form-control" maxlength="40" placeholder="제목을 작성하세요"></td></tr>
 		<tr><td><textarea name="qcontent" class="form-control" maxlength="1024" style="height: 400px;" placeholder="글 내용을 작성하세요"></textarea></td></tr>
 		</tbody>
 	</table>

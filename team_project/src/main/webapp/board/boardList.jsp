@@ -1,3 +1,4 @@
+<%@page import="board.ReplyDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -8,6 +9,7 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
 <title>board/boardList.jsp</title>
@@ -49,6 +51,11 @@ article{
 .table tr.boa:hover{
 	background: #E1E1E1;
 }
+
+span{
+font-size : 11px;
+color : red;
+}
 </style>
 
 </head>
@@ -89,6 +96,8 @@ int pageCount =(Integer)request.getAttribute("pageCount");
 String search=(String)request.getAttribute("search");
 
 
+
+
 %>
 
 <!-- 공지사항 리스트 부분 -->
@@ -108,13 +117,16 @@ String search=(String)request.getAttribute("search");
 <%
 for(int i=0; i<boardList.size(); i++){
 	BoardDTO dto= boardList.get(i);
+
+ReplyDAO rdao = new ReplyDAO();
+int Rcount = rdao.countReply(dto.getBno());
 %>
 <tr class="boa">
 	<td><%=dto.getBno() %></td>
 
     <td>
     <a href="BoardContent.bo?bno=<%=dto.getBno() %>">
-    <%=dto.getBtitle() %>
+    <%=dto.getBtitle() %>   <span>&nbsp;댓글 <%=Rcount%></span>
     </a></td>
 <td><%=dateFormat.format(dto.getBdate()) %></td>
 <td><%=dto.getBcount() %></td></tr>
@@ -184,8 +196,15 @@ if(endPage < pageCount){
 <i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
-
+%>
+</div>
+</div>
+<%
 }else{
+%>
+ <div class="col-lg-12">
+ <div class="room-pagination">
+<%
 	if(startPage > pageBlock){
 		%>
 	<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]
@@ -205,11 +224,16 @@ if(endPage < pageCount){
 	<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
+	%>
+	</div>
+	</div>
+	<%
 }
 %>
+
 </article>
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 
 </body>
 </html>

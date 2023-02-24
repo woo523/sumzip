@@ -56,7 +56,7 @@ public class ProductContent implements Action{
 		
 		int endPage = (startPage+pageBlock)-1;
 		
-		int count = rdao.getReviewCount();
+		int count = reviewList.size();
 		
 		int pageCount = count/pageSize + (count%pageSize == 0 ? 0 : 1);
 		if(endPage > pageCount) {

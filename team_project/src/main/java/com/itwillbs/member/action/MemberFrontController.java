@@ -129,11 +129,7 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("member/myPage_user.jsp");
 			forward.setRedirect(false);	
-	   } else if(sPath.equals("/MemberMyPage_owner.me")) {
-			forward = new ActionForward();
-			forward.setPath("member/myPage_owner.jsp");
-			forward.setRedirect(false);	
-	   } else if(sPath.equals("/MemberPwModify.me")) {
+	  } else if(sPath.equals("/MemberPwModify.me")) {
 			action = new MemberPwModify();
 			try {
 				forward=action.execute(request, response);

@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>섬집 관리자 페이지</title>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 </head>
 <body>
 <jsp:include page="../inc/ad_header.jsp" />
@@ -16,27 +17,45 @@
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
 					<%
-					// int bno=Integer.parseInt(request.getParameter("bno"));
+					String id=(String)session.getAttribute("id");
 					
-					// BoardDAO dao=new BoardDAO();
+					if(id==null){
+						response.sendRedirect("AdminLogin.ad");
+					}else if(id.equals("admin")){
 					
-					// BoardDTO dto=dao.getBoard(bno);
-					
+					}else{
+						%>
+					<script type="text/javascript">
+					alert("접근 권한이 없습니다.");
+					history.back();
+					</script>
+					<%
+					}
 					BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 					%>
-					<h1>BoardUpdate</h1>
+					<h1 class="taitoru">Board Update</h1>
 				
 					<form action="AdminBoardUpdatePro.ad" method="post">
 					<input type="hidden" name="bno" value="<%=dto.getBno()%>">
-						<table border="1">
-							<tr><td>글쓴이</td>
-							    <td><input type="text" name="no" value="<%=dto.getNo() %>" readonly></td></tr>
-							<tr><td>글제목</td>
-							    <td><input type="text" name="btitle" value="<%=dto.getBtitle() %>"></td></tr>   
-							<tr><td>글내용</td>
-							    <td><textarea name="bcontent" rows="10" cols="20"><%=dto.getBcontent() %></textarea></td></tr>
-							<tr><td colspan="2"><input type="submit" value="글수정"></td></tr>    
-						</table>
+						<div>
+							<table class="teeburu">
+							<div class="iro">
+								<div class="mb-3 ">
+									<label for="exampleFormControlInput1" class="form-label">작성자</label>
+									<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="no" readonly>
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlInput1" class="form-label">글제목</label>
+									<input type="text" class="form-control" id="exampleFormControlInput1" name="btitle" value="<%=dto.getBtitle() %>">
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
+									<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="bcontent"><%=dto.getBcontent() %></textarea>
+								</div>
+							</div>
+							</table>
+							<input type="submit" class="botann" style="right: 55px; bottom: -35px;" value="글수정">
+						</div>
 					</form>
 				</div>
 			</div>

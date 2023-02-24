@@ -8,6 +8,7 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
 <title>board/boardContent.jsp</title>
@@ -44,9 +45,16 @@ background-color: white;
 .tt{
 background-color: #99b19c;
 text-align: center;
+width: 100px;
 }
 #table_search{
 	float: right;  
+}
+
+.b_content{
+	border: none;
+	resize:none;
+	text-align: center;
 }
 </style>
 </head>
@@ -77,7 +85,8 @@ BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 <tr><td class="tt">작성날짜</td><td class="tt2"><%=dto.getBdate() %></td></tr>
 <tr><td class="tt">조회수</td><td class="tt2"><%=dto.getBcount() %></td></tr>
 <tr><td class="tt">제목</td><td class="tt2"><%=dto.getBtitle() %></td></tr>
-<tr class="co"><td class="tt">내용</td><td class="tt2"><%=dto.getBcontent() %></td></tr>
+<tr class="co"><td class="tt">내용</td>
+<td class="tt2"><textarea type="text" class="b_content" style="height: 250px; width: 800px;" rows="3" placeholder="<%=dto.getBcontent() %>" readonly></textarea></td></tr>
 <tr><td colspan="2">
 <% 
 // 로그인 => 세션값 있음
@@ -99,8 +108,8 @@ if(id != null){
 <!-- 댓글 영역 들어가는 곳 -->
  <jsp:include page="replyForm.jsp" />
  </article>
-<!--  푸터 들어가는 곳 -->
-<%--  <jsp:include page="../inc/footer.jsp" /> --%>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
  
 </body>
 </html>

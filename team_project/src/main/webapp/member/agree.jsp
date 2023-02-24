@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>섬집</title>
 <script type="text/javascript">
 function fun1() {
 	   if(document.ac.chk1.checked==false && document.ac.chk2.checked==false){
@@ -51,10 +52,11 @@ a:hover {color: #E0FF8B;text-decoration: underline;}
 <body>
 <div class="top">
 <!-- 헤더들어가는 곳 -->
-<div class="logo" style="margin-bottom: 10px;">
-     <a href="Main.me">
-     <img src="img/logo.png" alt="섬집"></a>
- </div>
+<div class="logo" style="width: 150px;">
+    <a href="Main.me">
+    	<img src="img/islandzip3.png" alt="섬집" style="width: 150px;">
+    </a>
+</div>
 <form action="MemberJoin.me" id="agreeForm" name="ac">
   <ul class="join_box">
      <li class="checkBox check01">

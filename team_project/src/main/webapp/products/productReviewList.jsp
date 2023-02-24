@@ -13,7 +13,7 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>reviewList.JSP</title>
+<title>섬집</title>
 </head>
 <style>
   	article {
@@ -23,7 +23,17 @@
  		padding: 20px;
   		box-sizing: border-box;
  	}
- 	
+ 	.heading {
+	    font-size: 28px;
+	    color: #393939;
+	    line-height: 1.5;
+	    font-weight: 400;
+	    font-family: "Poppins", Arial, sans-serif;
+	    font-weight: bold;
+	    text-align: center;
+	    margin: 10px; 
+	     
+	}
  	#reviewList {
  		padding: 20px;
  	}
@@ -35,6 +45,9 @@
 		font-family: 'NanumSquareNeo';
 		margin: 20px;
 		display: inline-block;
+		font-style: normal;
+		color: #10620A;
+		font-weight: bold;
 	}
 	#reviewList #stars {
 		float: right;
@@ -63,6 +76,9 @@
 	ArrayList<ReviewDTO> reviewList = (ArrayList<ReviewDTO>)request.getAttribute("reviewList");
 	
 	int pno = Integer.parseInt(request.getParameter("pno"));
+	
+	ReviewDAO dao = new ReviewDAO();
+	int getSumStar = dao.sumStar(pno);
 
 	int currentPage = (Integer)request.getAttribute("currentPage");
 	int startPage = (Integer)request.getAttribute("startPage");
@@ -72,7 +88,7 @@
 %>
 <div class="wrap">
 	<article>
-		<h2>Reviews</h2>
+		<h2 class="heading">Reviews</h2>
 <%
 		// 작성된 리뷰 확인 
 		if(reviewList.size() == 0) {
@@ -84,11 +100,15 @@
 		for(int i = 0; i < reviewList.size(); i++) {
 			ReviewDTO rdto = reviewList.get(i);
 			
+			double getAvgStar = getSumStar / reviewList.size(); 
+			
 			// 작성일자 포맷 변경
 			Timestamp getDate = rdto.getRdate();
 			LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 
 %>
+		총 후기 개수 <%=reviewList.size() %> / 
+		평균평점 <%=getAvgStar %> <img src="img/review/yellowStar.png" width="25" height="25">
 		<!-- 후기 리스트  -->
 		<ul id="reviewList">
 			<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">
@@ -113,24 +133,24 @@
 			<li id="contents"><%=rdto.getRcontent() %></li>
 			
 			<!-- 사진 1이 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("null")) { %>
-				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
+			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("noimg.jpg")) { %>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="200"></li>
 			<% } else { %>
-				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
-			<% } %>
+				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="200"></li>
+			<% } %> 
 			
 			<!-- 사진 2가 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("null")) { %>
-				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
+			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("noimg.jpg")) { %>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 			<% } else { %>
-				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
+				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 			<% } %>
 			
 			<!-- 사진 3이 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("null")) { %>
-				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
+			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("noimg.jpg")) { %>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } else { %>
-				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
+				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } %>
 		</ul>
 		<%

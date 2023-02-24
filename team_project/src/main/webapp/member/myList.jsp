@@ -16,14 +16,11 @@
 <!DOCTYPE html>
 <html>
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>myList.JSP</title>
+<title>섬집</title>
 <style type="text/css">
-	header {
-		padding-bottom: 50px;
-	}
-	
   	.wrap #myList {
  		font-family: 'NanumSquareNeo';
 		max-width: 800px;
@@ -95,7 +92,6 @@
 %>
 <!-- header -->
 <header>
-	<jsp:include page="../inc/header.jsp" />
 	<jsp:include page="../inc/my_header.jsp" />
 </header>
 

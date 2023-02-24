@@ -7,65 +7,50 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="ft-about">
-                            <div class="logo">
+                            <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/footer-logo.png" alt="">
+                                    <img src="img/islandzip_footer.png"; alt="" >
                                 </a>
                             </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
-                            <div class="fa-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            </div>
+                            <p id="footer_G">  the beauty of things<br />   passing by..</p>                           
                         </div>
                     </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-contact">
-                            <h6>Contact Us</h6>
-                            <ul>
-                                <li>(12) 345 67890</li>
-                                <li>info.colorlib@gmail.com</li>
-                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
-                            </ul>
+
+                        <div class="ft-contact">                                                
+                            <div class="sns">
+                            <br>
+                            <br>
+                             <a href="https://www.facebook.com/allpension"><img src="img/sns-facebook.svg" width="40px"></a>
+                             <a href="https://www.youtube.com/watch?v=HfQyHXbVkoo"><img src="img/sns-youtube.svg" width="40px"></a>  
+                             <a href="https://www.instagram.com/explore/tags/%ED%8E%9C%EC%85%98/?hl=ko"><img src="img/sns-insta.svg" width="40px"></a>
+                            </div><br>
+                               <div class="copyright">Copyrightⓒislandhouse</div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
+                        <p id="footer-sos">　　　　　　</p>
+                        
+                        <div id="footer-qna">
+                        <br>
+                        <br>
+<!--                         <button type="button" class="wh">1:1 문의</button> -->
+<!--                         <button type="button" class="wh">입점 문의</button> -->
+<!--                         <button type="button" class="wh">제휴 문의</button> -->
+<!--                         <button type="button" class="wh">컨설팅 문의</button> -->
+                        <p id="footer-tel"> Tel.1670-4123</p>
+                        <p>고객센터 영업시간 : 10:00am~18:00pm<br>
+                        계좌번호 : 72402170917 (아이티윌뱅크 (주)섬집)</p>
+                        
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright-option">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <a target="_blank" href="https://icons8.com/icon/61893/quote-left">Quote Left</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> | 
-						<a target="_blank" href="https://icons8.com/icon/61891/get-quote">Get Quote</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        
+
+            <p id="footer-line">┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈</p>
+        <p id="footer-info" style="word-break: keep-all;">상호명 (주)섬집 |  대표자 김삼조 | 주소 서울특별시 종로구 자하문로9길 24, 2층(통인동)
+         | 전화 1670-4123 | admin@sumzip.com<br>사업자등록번호 676-87-00055 | 통신판매업신고 제2015-서울종로-0499호 | 
+         관광사업자등록 일반여행업 2018-000049호(종로구청)<br>
+         (주)섬집은 통신판매 중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.
+         </p>
+         <br>
+         <br>
+
     </footer>
 <!-- Footer Section End -->
 

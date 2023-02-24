@@ -8,9 +8,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>jsp3/updateForm.jsp</title>
+<title>섬집</title>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -65,7 +68,8 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  font-family: Arial, sans-serif;
+/*   font-family: Arial, sans-serif; */
+  font-family: 'NanumSquareNeo';
 }
 
 legend {
@@ -105,7 +109,7 @@ input[type="reset"] {
   padding: 10px;
   font-size: 1rem;
   color: #fff;
-  background-color: #fba45c;
+  background-color: #99b19c;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -114,7 +118,7 @@ input[type="reset"] {
   input[type="button"]:hover,  
   input[type="submit"]:hover,  
   input[type="reset"]:hover {  
-    background-color: #fccc9c;  
+    background-color: #113000;  
   }  */
 
 label {

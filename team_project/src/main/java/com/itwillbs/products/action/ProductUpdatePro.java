@@ -30,7 +30,6 @@ public class ProductUpdatePro implements Action {
 		String checkout=multi.getParameter("checkout");
 		int pprice=Integer.parseInt(multi.getParameter("pprice"));
 		int max_men=Integer.parseInt(multi.getParameter("max_men"));
-		int expiration=Integer.parseInt(multi.getParameter("expiration"));
 		String ppic1=multi.getFilesystemName("ppic1");
 		String ppic2=multi.getFilesystemName("ppic2");
 		String ppic3=multi.getFilesystemName("ppic3");
@@ -54,7 +53,6 @@ public class ProductUpdatePro implements Action {
 		dto.setCheckout(checkout);
 		dto.setPprice(pprice);
 		dto.setMax_men(max_men);
-		dto.setExpiration(expiration);
 		dto.setPpic1(ppic1);
 		dto.setPpic2(ppic2);
 		dto.setPpic3(ppic3);

@@ -3,8 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>섬집</title>
 
 <link rel="stylesheet" href="css/insert.css" type="text/css" >
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -20,7 +23,17 @@ $(document).ready(function(){
 		alert("아이디를 입력하세요.");
 		$('.id').focus();
 		return false;
+	}	
+	if($('#idcheck').val()==""){
+		alert("중복 확인을 해주세요.");
+		$('.id').focus();
+		return false;		
 	}
+	if($('#idcheck').val()=="n"){
+		alert("아이디가 중복입니다. 다른 아이디로 다시시도 하세요.");
+		$('.id').focus();
+		return false;		
+	}	
 	if($('.pass').val()==""){
 		alert("비밀번호를 입력하세요.");
 		$('.pass').focus();
@@ -61,9 +74,19 @@ $(document).ready(function(){
 		$('.tel').focus();
 		return false;
 	}
-	if($('.address').val()==""){
+	if($('.postnum').val()==""){
+		alert("우편번호를 입력하세요.");
+		$('.postnum').focus();
+		return false;
+	}
+	if($('.address1').val()==""){
 		alert("주소를 입력하세요.");
-		$('.address').focus();
+		$('.address1').focus();
+		return false;
+	}
+	if($('.address2').val()==""){
+		alert("상세주소를 입력하세요.");
+		$('.address2').focus();
 		return false;
 	}
 		}); //
@@ -78,10 +101,12 @@ $(document).ready(function(){
 		url:'member/idCheck.jsp',
 		data:{'id':$('.id').val()},
 		success:function(result){
-			if(result.trim()=="중복확인"){
-				$('.divresult').html(result).css("color","red");	
+			if(result.trim()=="중복"){
+				$('.divresult').html('이미 사용중인 아이디입니다.').css("color","red");	
+				$('#idcheck').val('n');
 			}else{
-				$('.divresult').html(result).css("color","green");	
+				$('.divresult').html('사용가능한 아이디입니다.').css("color","green");
+				$('#idcheck').val('y');
 			}			
 		}
 	});
@@ -144,13 +169,14 @@ $(document).ready(function(){
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  font-family: Arial, sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
 legend {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
+  float: center;
 }
 
 fieldset {
@@ -254,18 +280,19 @@ label {
 				<input type="radio" name="utype" value="1" checked>일반회원	 
 		  		<input type="radio" name="utype" value="2">사장님<br>
 		  		</div>
-		  		 <div class="form-group">
+		  		<div class="form-group">
 				<label>아이디</label> 
-				<input type="text" name="id" class="id">
-				<input type="button" value="중복확인" class="dup"><br>
-				<div class="divresult"> </div><br> 
+				<input type="text" name="id" class="id" >
+				<input type="button" value="중복확인" class="dup" >
+				<input type="hidden" name="idcheck" value="" id="idcheck">
+				<div class="divresult"> </div><br>
 				<label>비밀번호</label> 
 				<input type="password" name="pass" class="pass"><br> 
 				<label>비밀번호 재확인</label> 
 				<input type="password" name="pass2" class="pass2"><br> 
 				<label>이름</label>
 				<input type="text" name="uname" class="uname"><br> 
-				성별
+				<label>성별</label>
 				<select name="gender">
 					<option value="남">남</option>
 					<option value="여">여</option>
@@ -278,15 +305,17 @@ label {
 				<label>전화번호</label> 
 				<input type="text" name="tel" class="tel"><br>
 				<label>주소</label>
-				<input type="text" id="sample4_postcode" name="postnum" class="postnum" placeholder="우편번호">
-				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+				<div>
+					<input type="text" id="sample4_postcode" name="postnum" style="width:530px; float:left;" class="postnum" placeholder="우편번호">
+					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="float:right;"><br> 
+				</div>
 				<input type="text" id="sample4_roadAddress" class="address1" placeholder="도로명주소" name="address1">				
 				<span id="guide" style="color:#999;display:none"></span><br>
 				<input type="text" id="sample4_detailAddress" class="address2" placeholder="상세주소" name="address2">
 				</div>
 			</fieldset>
 			<div class="clear"></div>
-			<div id="buttons">
+			<div id="buttons" style="text-align:center;">
 			
 				<input type="submit" value="가입하기" class="submit" onclick="fun1()"> 
 				<input type="reset" value="초기화하기" class="cancel">

@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -8,6 +10,7 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
 <title>섬집 관리자 페이지</title>
@@ -41,11 +44,28 @@ String qstatus = "";
 					<h1 class="taitoru">Q&A List</h1>
 					<div>
 						<table border="1" class="teeburu">
-							<tr><td>번호</td><td>유저번호</td><td>제목</td><td>작성날짜</td><td>답변 상태</td><td>조회수</td></tr>
+							<tr><th>번호</th><th>작성자</th><th>제목</th><th>작성날짜</th><th>답변 상태</th><th>조회수</th></tr>
 						<%
+						String id=(String)session.getAttribute("id");
+						
+						if(id==null){
+							response.sendRedirect("AdminLogin.ad");
+						}else if(id.equals("admin")){
+						
+						}else{
+							%>
+						<script type="text/javascript">
+						alert("접근 권한이 없습니다.");
+						history.back();
+						</script>
+						<%
+						}
+						
 						//배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 						for(int i=0;i<qnaList.size();i++){
 							QnaDTO dto= qnaList.get(i);
+							UserDAO udao = new UserDAO();
+							UserDTO udto = udao.getUserNo(dto.getNo());
 						
 						// 답변 상태
 						if(dto.getQstatus()==0){ 
@@ -55,7 +75,7 @@ String qstatus = "";
 						}
 						%>
 							<tr><td><%=dto.getQno() %></td>
-								<td><%=dto.getNo() %></td>
+								<td><%=udto.getId() %></td>
 								<td><a href="AdminQnaQuestion.ad?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 								<td><%=dateFormat.format(dto.getQdate()) %></td>
 								<td><%=qstatus%></td>	
@@ -65,6 +85,7 @@ String qstatus = "";
 						%>
 						</table>
 						</div>
+						<div class="pojisyonn">
 						<!-- 페이징 처리 -->
 							<%
 						// 10페이지 이전
@@ -74,11 +95,11 @@ String qstatus = "";
 							<%
 						}
 						%>
-						<div class="room-pagination">
+						<div class="peigingu">
 						<% 
 						for(int i=startPage;i<=endPage;i++){
 							%>
-							<a href="AdminQnaList.ad?pageNum=<%=i %>"><%=i %></a>
+							<a href="AdminQnaList.ad?pageNum=<%=i %>"  class="pp"><%=i %></a>
 							<%
 						}
 						%>
@@ -91,8 +112,7 @@ String qstatus = "";
 								<%
 						}
 						%>
-					
-					</article>		
+						</div>
 				</div>
 			</div>
 		</div>

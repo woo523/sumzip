@@ -34,6 +34,7 @@ article{
 .tt{
 background-color: #99b19c;
 text-align: center;
+width: 180px;
 }
 
 .co{
@@ -132,5 +133,7 @@ int qno=(Integer)request.getAttribute("qno");
 </table>
 </div>
 </article>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>

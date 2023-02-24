@@ -7,23 +7,16 @@
     pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">  
     <head>
     <meta charset="UTF-8">
     <title>Wish_List</title>
     </head>
 <div id="wrap">
 		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/header.jsp" />
+		<jsp:include page="../inc/my_header.jsp" />
 		<!-- 헤더들어가는 곳 -->
-		<nav id="sidebar">
-			<ul>
-				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="MemberMyList.me">내 이용목록</a></li>
-				<li><a href="ProductAppointManage.pr">예약관리</a></li>
-				<li><a href="MemberWishList.me">찜 목록</a></li>
-				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
-			</ul>
-		</nav>
+		
 	</div>
 
 <%
@@ -41,12 +34,16 @@ if(id!=null){
 	%>
 
     <style>
+
 article{
 	font-family: 'NanumSquareNeo';
-  	max-width: 1000px;
- 	margin: 0 auto;
- 	padding: 50px;
+  	width: 900px;
+ 	margin-left: 500;
+ 	margin-top: 40;
+ 	margin-bottom: 300;
 }
+
+
  .table thead.thead-primary{
 	background: #99b19c;
 	font-weight: bold;
@@ -72,9 +69,21 @@ article{
   
   #sidebar{
  	width: 250px; 
-   	height: 1000px;   
+   	height: 500px;   
 /*  	background-color: #98FD5D;  */ 
 	float: left;
+}
+a.tablelink:link {
+  color : black;
+}
+a.tablelink:visited {
+  color : black;
+}
+a.tablelink:hover {
+  color : black;
+}
+a.tablelink:active {
+  color : black;
 }
     </style>
   
@@ -98,7 +107,7 @@ article{
 		int ppno=d.getPno();
 	%>
 		<tr>
-          <td><%=d.getPname()%></td><td><%=d.getPprice()%></td><td><%=d.getPaddress()%></td>
+          <td><a href="ProductContent.pr?pno=<%=d.getPno()%>" class="tablelink"><%=d.getPname()%></a></td><td><a href="ProductContent.pr?pno=<%=d.getPno()%>" class="tablelink"><%=d.getPprice()%></a></td><td><a href="ProductContent.pr?pno=<%=d.getPno()%>" class="tablelink"><%=d.getPaddress()%></a></td>
 
 <td id="button"><form action="MemberWishListPro.me">
 <input type="hidden" name="pno" value=<%=ppno%>>
@@ -122,5 +131,5 @@ article{
 </article>
 
 <!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->

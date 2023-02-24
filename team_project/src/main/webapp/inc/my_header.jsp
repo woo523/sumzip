@@ -4,6 +4,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -11,15 +13,15 @@
   #wrap {
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
-/*   margin-bottom: 50px;  */
-  font-family: Arial, sans-serif;
+  margin: 20px auto;
+/*   font-family: Arial, sans-serif; */
+  font-family: 'NanumSquareNeo';
   border-radius: 10px;
  }
  
 #sidebar{ 
   	width: 250px;  
-    height: 1000px;    
+    height: 500px;    
  	float: left; 
  }
  
@@ -36,7 +38,7 @@
 #sidebar li a {
 	display: block;
 	color: #333;
-	font-weight: bold;
+/* 	font-weight: bocld; */
 	padding: 10px;
 	border-radius: 5px;
 	transition: background-color 0.3s ease;
@@ -95,15 +97,15 @@
 	
 	
 <!-- 	<div class="content-main"> -->
-		<div class="row">
-			<div class="col-sm-9">
-				<h1>My Page</h1>
-				<hr>
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-sm-10"> -->
+<!-- 				<h1>My Page</h1> -->
+<!-- 				<hr> -->
 <!-- 				<div class="bg-white rounded shadow-sm container p-3"> -->
 <!-- 				</div> -->
 			</div>
-		</div>
-	</div>
+<!-- 		</div> -->
+<!-- 	</div> -->
 <!-- 	</div> -->
 </body>
 </html>
