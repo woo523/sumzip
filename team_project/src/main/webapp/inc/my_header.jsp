@@ -97,15 +97,15 @@
 	
 	
 <!-- 	<div class="content-main"> -->
-		<div class="row">
-			<div class="col-sm-10">
-				<h1>My Page</h1>
-				<hr>
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-sm-10"> -->
+<!-- 				<h1>My Page</h1> -->
+<!-- 				<hr> -->
 <!-- 				<div class="bg-white rounded shadow-sm container p-3"> -->
 <!-- 				</div> -->
 			</div>
-		</div>
-	</div>
+<!-- 		</div> -->
+<!-- 	</div> -->
 <!-- 	</div> -->
 </body>
 </html>

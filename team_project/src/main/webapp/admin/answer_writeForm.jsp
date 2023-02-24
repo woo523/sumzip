@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 </head>
 <body>
@@ -41,19 +42,18 @@ history.back();
 					<form action="AdminAnswerWritePro.ad" method="post"> 
 						<input type="hidden" name="no" value="<%=no%>">
 						<input type="hidden" name="qno" value="<%=qno%>">
-						<div>
-							<table class="teeburu">
-								<div class="mb-3">
-									<label for="exampleFormControlInput1" class="form-label">작성자</label>
-									<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="name" readonly>
-								</div>
-								<div class="mb-3">
-									<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
-									<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer" placeholder="글 내용을 작성하세요"></textarea>
-								</div>
-							</table>
-							<input type="submit" class="botann" value="글쓰기">
+						<div class="iro">
+							<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">작성자</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="name" readonly>
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
+								<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer" placeholder="글 내용을 작성하세요"></textarea>
+							</div>
+							<input type="submit" class="botann" style="bottom: 50px; right: 56px;" value="글쓰기">
 						</div>
+					</form>
 				</div>
 			</div>
 		</div>

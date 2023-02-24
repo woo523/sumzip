@@ -1,3 +1,5 @@
+<%@page import="member.UserDAO"%>
+<%@page import="member.UserDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="products.ProductDAO"%>
 <%@page import="products.ProductDTO"%>
@@ -12,6 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 </head>
 <body>
@@ -51,19 +54,21 @@
 					
 					
 					
+					
 					%>
 					<form action="AdminAppointNowUpdate.ad" method="post">
 						<div>
 							<table border="1" class="teeburu">
-							<tr><th>예약번호</th><th>유저번호</th><th>예약상태</th><th>예약상태 변경</th><th>예약일자</th><th>예약취소</th></tr>
+							<tr><th>예약번호</th><th>작성자</th><th>예약상태</th><th>예약상태 변경</th><th>예약일자</th><th>예약취소</th></tr>
 							<%
 							 for(int i=0;i<AppointmentList.size();i++){
 							 	//배열 한칸에 내용 가져오기
 							 	AppointmentDTO dto=AppointmentList.get(i);
-							 	
+							 	UserDAO udao = new UserDAO();
+								UserDTO udto = udao.getUserNo(dto.getNo());
 							%>
 							<tr><td><%=dto.getAno()%></td>
-							    <td><%=dto.getNo()%></td>
+							    <td><%=udto.getId() %></td>
 							    <td><%
 							    if(dto.getAstatus()==1){
 							    	out.print("입금대기");

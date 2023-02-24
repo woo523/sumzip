@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <title>섬집 관리자 페이지</title>
 </head>
@@ -43,6 +43,7 @@
 					<form action="AdminBoardWritePro.ad" method="post" >
 						<div>
 							<table class="teeburu">
+							<div class="iro">
 								<div class="mb-3">
 									<label for="exampleFormControlInput1" class="form-label">작성자</label>
 									<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="id" readonly>
@@ -55,8 +56,9 @@
 									<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
 									<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="bcontent" placeholder="글 내용을 작성하세요"></textarea>
 								</div>
+							</div>
 							</table>
-							<input type="submit" class="botann" value="글쓰기">
+							<input type="submit" class="botann" style="right: 55px; bottom: 15px;" value="글쓰기">
 						</div>
 					</form>
 				</div>

@@ -13,7 +13,7 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>reviewList.JSP</title>
+<title>섬집</title>
 </head>
 <style>
   	article {
@@ -23,7 +23,17 @@
  		padding: 20px;
   		box-sizing: border-box;
  	}
- 	
+ 	.heading {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+     
+}
  	#reviewList {
  		padding: 20px;
  	}
@@ -36,7 +46,8 @@
 		margin: 20px;
 		display: inline-block;
 		font-style: normal;
-		color: black;
+		color: #10620A;
+		font-weight: bold;
 	}
 	#reviewList #stars {
 		float: right;
@@ -74,7 +85,7 @@
 %>
 <div class="wrap">
 	<article>
-		<h2>Reviews</h2>
+		<h2 class="heading">Reviews</h2>
 <%
 		// 작성된 리뷰 확인 
 		if(reviewList.size() == 0) {
@@ -91,7 +102,7 @@
 			LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 
 %>
-		총 후기 개수 <%=rdto.getRno() %>
+		총 후기 개수 <%=reviewList.size() %>
 		
 		<!-- 후기 리스트  -->
 		<ul id="reviewList">

@@ -6,14 +6,15 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>myPage_u</title>
+<title>섬집</title>
 <style type="text/css">
  #rap {
   width: 600px;
   margin: 30px auto;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -27,11 +28,7 @@ legend {
   margin-bottom: 20px;
 }
 
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
+
 
 input[type="text"],
 input[type="password"],
@@ -125,9 +122,12 @@ label {
 			<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/my_header.jsp" />
 		<!-- 헤더들어가는 곳 -->
+
 <div id="rap">
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-sm-9"> -->
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>My Page</h1>
+				<hr>
 					<form method="POST" action="updateAction" name="updateForm"
 						onsubmit="return updateValidate();" class="form-horizontal"
 						role="form">
@@ -162,8 +162,8 @@ label {
 						</div>
 					</form>
 				</div>
-<!-- 			</div> -->
-<!-- 		</div> -->
+			</div>
+		</div>
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../inc/footer.jsp" />
 <!-- 푸터 들어가는 곳 -->

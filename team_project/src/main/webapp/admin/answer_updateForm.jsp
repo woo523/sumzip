@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 </head>
 <body>
@@ -39,20 +40,21 @@ history.back();
 				<h1 class="taitoru">Answer Update</h1>
 				<form action="AdminAnswerUpdatePro.ad" method="post"> 
 					<input type="hidden" name="qno" value="<%=qno %>">
-					<div>
-						<table class="teeburu">
-							<div>
-								<input type="checkbox" name="qstate" value="0" checked>답변완료
-							</div>
-							<div class="mb-3">
-								<label for="exampleFormControlInput1" class="form-label">작성자</label>
-								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="no" readonly>
-							</div>
-							<div class="mb-3">
-								<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
-								<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer"><%=dto.getAnswer() %></textarea>
-							</div>
-						</table>
+						<div class="form-check">
+							<input class="form-check-input" name="qstate" type="checkbox" value="0" id="flexCheckDefault" checked>
+							<label class="form-check-label" for="flexCheckDefault" style="font-size:16px;">
+							 답변완료
+							</label>
+						</div>
+					<div class="iro">
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">작성자</label>
+							<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="no" readonly>
+						</div>
+						<div class="mb-3">
+							<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
+							<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="answer"><%=dto.getAnswer() %></textarea>
+						</div>
 						<input type="submit" class="botann" value="글수정">
 					</div>
 				</form>

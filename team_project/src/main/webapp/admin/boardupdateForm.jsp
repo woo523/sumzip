@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>섬집 관리자 페이지</title>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 </head>
 <body>
 <jsp:include page="../inc/ad_header.jsp" />
@@ -38,7 +39,8 @@
 					<input type="hidden" name="bno" value="<%=dto.getBno()%>">
 						<div>
 							<table class="teeburu">
-								<div class="mb-3">
+							<div class="iro">
+								<div class="mb-3 ">
 									<label for="exampleFormControlInput1" class="form-label">작성자</label>
 									<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="관리자" name="no" readonly>
 								</div>
@@ -50,8 +52,9 @@
 									<label for="exampleFormControlTextarea1" class="form-label">글내용</label>
 									<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 300px;" rows="3" name="bcontent"><%=dto.getBcontent() %></textarea>
 								</div>
+							</div>
 							</table>
-							<input type="submit" class="botann" value="글수정">
+							<input type="submit" class="botann" style="right: 55px; bottom: -35px;" value="글수정">
 						</div>
 					</form>
 				</div>

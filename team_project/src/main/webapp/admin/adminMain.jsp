@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/admain.css" type="text/css" >
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 <%
 SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");

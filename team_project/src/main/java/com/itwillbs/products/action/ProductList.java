@@ -35,7 +35,7 @@ public class ProductList implements Action {
 		 int pageBlock=10;
 		 int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 		 int endPage=startPage+pageBlock-1;
-		 int count = dao.getProductCount();
+		 int count = productList1.size();
 		 int pageCount=count/pageSize+(count%pageSize==0?0:1);
 		 if(endPage > pageCount){
 			 endPage = pageCount;

@@ -8,10 +8,45 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>products/productList.jsp</title>
-</head>
+<title>섬집</title>
+<style>
+article{
+	font-family: 'NanumSquareNeo';
+  	max-width: 1200px;
+ 	margin: 0 auto;
+ 	padding: 100px;
+}
+
+.table thead.thead-pri{
+	background: #99b19c;
+	font-weight: bold;
+	color: #FFFFFF;	
+	width: 500px;
+	text-align: center;
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold; 
+    text-align: center;
+    margin: 10px;     
+}
+#table_search{
+	float: right;  
+}
+</style>
+</head> 
+
+
 <body>
 
 <!-- 헤더파일들어가는 곳 -->
@@ -30,39 +65,22 @@ int endPage =(Integer)request.getAttribute("endPage");
 int pageCount =(Integer)request.getAttribute("pageCount");
 
 %>
-
+<article>
+<div class="qnalistContainer">
 <!-- 글쓰기 버튼 부분 -->
-<h3>products/productList.jsp</h3>
-
-
-
-<table border="0" width="64%">
-<tbody><tr align="right">
-<% 
-UserDAO dao = new UserDAO();
-UserDTO udto = dao.getUser(id);
-if(id!=null){
-	if(udto.getUtype()==2){
-%>
-<td>
-<button type="button" onclick="location.href='ProductWriteForm.pr'">
-상품등록</button></td>
-</tr>
-</tbody></table>
-<%
-	}
-}
-%>
+<h3 class="heading-section">My Pension List</h3>
+</div>
 <!-- 펜션리스트 부분 -->
-<table border="1">
-<tr><td>상품번호</td>
+<table class="table">
+<thead class="thead-pri">
+<tr><td>상품<br>번호</td>
 	<td>펜션이름</td>
 	<td>펜션주소</td>
 	<td>상세주소</td>
     <td>가격</td>
     <td>펜션사진</td>
     <td>펜션설명</td>
-    </tr>
+    </tr></thead>
    
 <%
 for(int i=0; i<productList1.size(); i++){
@@ -82,15 +100,35 @@ for(int i=0; i<productList1.size(); i++){
 	<%
 }
 %>    
-
 </table>
 
+
+
+<% 
+UserDAO dao = new UserDAO();
+UserDTO udto = dao.getUser(id);
+if(id!=null){
+	if(udto.getUtype()==2){
+%>
+ <div id="table_search">
+
+<button type="button" class="btn btn-outline-success" onclick="location.href='ProductWriteForm.pr'">
+상품등록</button>
+</div>
+
+<%
+	}
+}
+%>
+
+<div class="room-pagination">
 <!-- 페이징 부분 -->
 <% 
 
 if(startPage > pageBlock){
 	%>
-<a href="ProductList.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+<a href="ProductList.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]
+<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 
@@ -102,13 +140,14 @@ for(int i=startPage;i<=endPage;i++){
 
 if(endPage < pageCount){
 	%>
-<a href="ProductList.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]</a>
+<a href="ProductList.pr?pageNum=<%=startPage+pageBlock%>">[10페이지 다음]
+<i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
 %>
-
+</div>
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
-
+</article>
 </body>
 </html>
