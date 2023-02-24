@@ -26,8 +26,7 @@
                             </div><br>
                                <div class="copyright">Copyrightⓒislandhouse</div>
                         </div>
-                        
-                        <p id="footer-sos">고객센터</p>
+                        <p id="footer-sos">　　　　　　</p>
                         
                         <div id="footer-qna">
                         <br>
