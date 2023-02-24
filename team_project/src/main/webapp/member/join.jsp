@@ -280,11 +280,14 @@ label {
 				<input type="radio" name="utype" value="1" checked>일반회원	 
 		  		<input type="radio" name="utype" value="2">사장님<br>
 		  		</div>
-		  		 <div class="form-group">
+		  		<div class="form-group">
 				<label>아이디</label> 
-				<input type="text" name="id" class="id">
-				<input type="button" value="중복확인" class="dup"><br>
-				<input type="hidden" name="idcheck" value="" id="idcheck">
+				<div class="pojisyonn">
+					<input type="text" name="id" class="id" style="width:560px; float:left;">
+					<input type="button" value="중복확인" class="dup" style="float:right;">
+					<input type="hidden" name="idcheck" value="" id="idcheck">
+					<div class="divresult"> </div><br> 
+				</div>
 				<div class="divresult"> </div><br> 
 				<label>비밀번호</label> 
 				<input type="password" name="pass" class="pass"><br> 
@@ -305,15 +308,18 @@ label {
 				<label>전화번호</label> 
 				<input type="text" name="tel" class="tel"><br>
 				<label>주소</label>
-				<input type="text" id="sample4_postcode" name="postnum" class="postnum" placeholder="우편번호">
-				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+				<div>
+					<input type="text" id="sample4_postcode" name="postnum" style="width:530px; float:left;" class="postnum" placeholder="우편번호">
+					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="float:right;"><br>
+					<div class="divresult"> </div><br> 
+				</div>
 				<input type="text" id="sample4_roadAddress" class="address1" placeholder="도로명주소" name="address1">				
 				<span id="guide" style="color:#999;display:none"></span><br>
 				<input type="text" id="sample4_detailAddress" class="address2" placeholder="상세주소" name="address2">
 				</div>
 			</fieldset>
 			<div class="clear"></div>
-			<div id="buttons">
+			<div id="buttons" style="text-align:center;">
 			
 				<input type="submit" value="가입하기" class="submit" onclick="fun1()"> 
 				<input type="reset" value="초기화하기" class="cancel">
