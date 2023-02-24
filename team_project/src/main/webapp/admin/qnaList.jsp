@@ -1,3 +1,5 @@
+<%@page import="member.UserDTO"%>
+<%@page import="member.UserDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="qna.QnaDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,7 +44,7 @@ String qstatus = "";
 					<h1 class="taitoru">Q&A List</h1>
 					<div>
 						<table border="1" class="teeburu">
-							<tr><th>번호</th><th>유저번호</th><th>제목</th><th>작성날짜</th><th>답변 상태</th><th>조회수</th></tr>
+							<tr><th>번호</th><th>작성자</th><th>제목</th><th>작성날짜</th><th>답변 상태</th><th>조회수</th></tr>
 						<%
 						String id=(String)session.getAttribute("id");
 						
@@ -62,6 +64,8 @@ String qstatus = "";
 						//배열접근 => for => 배열 한칸에 내용 가져오기 => qnaDTO 저장 => 출력
 						for(int i=0;i<qnaList.size();i++){
 							QnaDTO dto= qnaList.get(i);
+							UserDAO udao = new UserDAO();
+							UserDTO udto = udao.getUserNo(dto.getNo());
 						
 						// 답변 상태
 						if(dto.getQstatus()==0){ 
@@ -71,7 +75,7 @@ String qstatus = "";
 						}
 						%>
 							<tr><td><%=dto.getQno() %></td>
-								<td><%=dto.getNo() %></td>
+								<td><%=udto.getId() %></td>
 								<td><a href="AdminQnaQuestion.ad?qno=<%=dto.getQno() %>"><%=dto.getQtitle() %></a></td>
 								<td><%=dateFormat.format(dto.getQdate()) %></td>
 								<td><%=qstatus%></td>	
