@@ -44,6 +44,7 @@ background-color: white;
 .tt{
 background-color: #99b19c;
 text-align: center;
+width: 100px;
 }
 #table_search{
 	float: right;  
