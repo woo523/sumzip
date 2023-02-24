@@ -18,15 +18,16 @@
 <title>products/appointManage</title>
 <style type="text/css">
 #sidebar{
-    width: 250px; 
-      height: 1000px;   
+   width: 250px; 
+   height: 500px;   
    float: left;
 }
-article{
-	font-family: 'NanumSquareNeo';
-  	max-width: 1000px;
- 	margin: 0 auto;
- 	padding: 50px;
+.art{
+	 font-family: 'NanumSquareNeo';
+    width: 800px;
+   padding-left: 100px;
+    margin-bottom: 100px;
+ 
 }
 .table thead.thead-primary{
 	background: #99b19c;
@@ -51,12 +52,20 @@ font-weight: bold;
 .count{
 float: right;	
 }
+.res{
+height: 150px;
+
+}
+
 </style>
 </head>
 <body>
-<!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
-<!-- 헤더파일들어가는 곳 -->
+<div id="wrap">
+		<!-- 헤더들어가는 곳 -->
+		<jsp:include page="../inc/my_header.jsp" />
+		<!-- 헤더들어가는 곳 -->
+		
+	</div>
     <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 
@@ -70,19 +79,11 @@ float: right;
  SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 	
  	%>
-		<nav id="sidebar">
-			<ul>
-				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="MemberMyList.me">내 이용목록</a></li>
-				<li><a href="ProductsAppointManage.pr">예약관리</a></li>
-				<li><a href="MemberWishList.me">찜 목록</a></li>
-				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
-			</ul>
-		</nav>
+		
 
  	
- <article>	
-  <div class="breadcrumb-section">  
+ <article class="art">	
+  <div class="res">  
                <div class="col-lg-12">           
                      <h3 class="heading-section">Reservation</h3><br> 
                      <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
