@@ -11,9 +11,10 @@
 <!DOCTYPE html>
 <html>
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>reviewList.JSP</title>
+<title>섬집</title>
 </head>
 <style>
   	article {
@@ -23,7 +24,17 @@
  		padding: 20px;
   		box-sizing: border-box;
  	}
- 	
+ 	.heading {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px; 
+     
+}
  	#reviewList {
  		padding: 20px;
  	}
@@ -36,7 +47,8 @@
 		margin: 20px;
 		display: inline-block;
 		font-style: normal;
-		color: black;
+		color: #10620A;
+		font-weight: bold;
 	}
 	#reviewList #stars {
 		float: right;
@@ -74,7 +86,7 @@
 %>
 <div class="wrap">
 	<article>
-		<h2>Reviews</h2>
+		<h2 class="heading">Reviews</h2>
 <%
 		// 작성된 리뷰 확인 
 		if(reviewList.size() == 0) {
