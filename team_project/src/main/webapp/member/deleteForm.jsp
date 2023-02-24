@@ -14,7 +14,7 @@
 #rap {
   width: 600px;
   margin: 50px auto;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
   background-color: #fff;
   padding: 20px;
   padding-bottom: 60px; 

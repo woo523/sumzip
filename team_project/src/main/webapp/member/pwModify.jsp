@@ -42,8 +42,8 @@
 <style>
 #rap {
   width: 600px;
-  margin: 30px auto;
-  margin-bottom: 50px;
+  margin: 50px auto;
+  margin-bottom: 200px;
   background-color: #fff;
   padding: 20px;
   padding-bottom: 60px; 
