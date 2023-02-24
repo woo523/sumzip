@@ -92,7 +92,7 @@ a.tablelink:active {
 }
     </style>
   
-  <article>
+  <article style="width: 70%">
 <div class="wishlistContainer">
 	<h3 class="heading-section">Wish List</h3>
 	</div>

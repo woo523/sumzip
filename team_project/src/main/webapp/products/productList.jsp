@@ -38,7 +38,7 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold; 
     text-align: center;
-    margin: 10px;     
+    margin: 25px;     
 }
 #table_search{
 	float: right;  
