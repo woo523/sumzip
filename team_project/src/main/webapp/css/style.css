@@ -39,7 +39,7 @@ html, body {
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5, h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
@@ -55,7 +55,9 @@ h3 {
 	font-size: 30px;
 }
 h4 {
-	font-size: 24px;
+	font-size: 20px;
+	color: red;
+	font-style: italic;
 }
 h5 {
 	font-size: 18px;
@@ -1758,7 +1760,7 @@ ul, ol {
 }
 .blog-details-text .comment-option .single-comment-item .sc-text span {
 	font-size: 12px;
-	color: #993800;
+	color: #7A7A7A;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
@@ -1788,9 +1790,9 @@ ul, ol {
 	margin-right: 10px;
 }
 .blog-details-text .comment-option .single-comment-item .sc-text a:hover {
-	background: #008000;
+	background: #99b19c;
 	color: #ffffff;
-	border-color: #008000;
+	border-color: #99b19c;
 }
 .blog-details-text .leave-comment h4 {
 	color: #19191a;
@@ -1810,12 +1812,12 @@ ul, ol {
 	transition: all 0.3s;
 }
 .blog-details-text .leave-comment .comment-form input:focus {
-	border-color: #008000;
+	border-color: #597812;
 }
 .blog-details-text .leave-comment .comment-form textarea {
 	width: 100%;
 	height: 116px;
-	color: #707079;
+	color: black;
 	font-size: 16px;
 	padding-left: 20px;
 	border: 1px solid #e5e5e5;
@@ -1828,7 +1830,7 @@ ul, ol {
 	padding-top: 12px;
 }
 .blog-details-text .leave-comment .comment-form textarea:focus {
-	border-color: #99b19c;
+	border-color: #597812;
 }
 .blog-details-text .leave-comment .comment-form button {
 	font-size: 13px;

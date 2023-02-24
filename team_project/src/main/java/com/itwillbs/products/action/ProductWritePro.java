@@ -30,8 +30,7 @@ public class ProductWritePro implements Action {
 		(request, uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 
 		// [all 컬럼] 변수에 저장
-//		 int no = Integer.parseInt(request.getParameter("no"));
-		int no=13;
+		int no = Integer.parseInt(request.getParameter("no"));
 		String pname= multi.getParameter("pname");
 		String paddress= multi.getParameter("paddress");
 		int ppostnum= Integer.parseInt(multi.getParameter("ppostnum"));
@@ -41,7 +40,6 @@ public class ProductWritePro implements Action {
 		String checkout=multi.getParameter("checkout");
 		int pprice= Integer.parseInt(multi.getParameter("pprice"));
 		int max_men= Integer.parseInt(multi.getParameter("max_men"));
-		int expiration= Integer.parseInt(multi.getParameter("expiration"));
 		Timestamp reser_date=new Timestamp(System.currentTimeMillis());
 		String ppic1= multi.getFilesystemName("ppic1");
 		String ppic2= multi.getFilesystemName("ppic2");
@@ -63,7 +61,6 @@ public class ProductWritePro implements Action {
 		dto.setCheckout(checkout);
 		dto.setPprice(pprice);
 		dto.setMax_men(max_men);
-		dto.setExpiration(expiration);
 		dto.setReser_date(reser_date);
 		dto.setPpic1(ppic1);
 		dto.setPpic2(ppic2);

@@ -273,4 +273,29 @@ public class ReviewDAO {
 		return count;
 	} // getReviewCount()
 	
+	// 별점 합산
+	public int sumStar(int pno) {
+		int sumstar = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			String sql = "select sum(rstar) from review where pno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pno);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				sumstar = rs.getInt("sum(rstar)");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(con != null) try {con.close();} catch (Exception e2) {}
+			if(pstmt != null) try {pstmt.close();} catch (SQLException e) {}
+			if(rs != null) try {rs.close();} catch (SQLException e) {}
+		}
+		return sumstar;
+	} // sumStar()
+	
 }

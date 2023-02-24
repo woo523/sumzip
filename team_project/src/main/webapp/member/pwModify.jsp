@@ -4,113 +4,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
- #wrap {
-  #rap {
-  width: 600px;
-  margin: 30px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  font-family: Arial, sans-serif;
-}
-
-legend {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="email"],
-select {
-  display: block;
-  width: 100%;
-  margin-bottom: 5px;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #99b19c;
-}
-
-select option {
-  font-size: 1rem;
-}
-
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-  display: inline-block;
-  padding: 10px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #fba45c;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-  input[type="button"]:hover,  
-  input[type="submit"]:hover,  
-  input[type="reset"]:hover {  
-    background-color: #fccc9c;  
-  }  */
-
-label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.clear {
-  clear: both;
-}
-
-#error-msg {
-  color: red;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.divresult {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.address-wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#sample4_postcode {
-  width: 150px;
-  margin-right: 10px;
-}
-
-#sample4_roadAddress {
-  flex: 1;
-  margin-right: 10px;
-}
-
-#sample4_detailAddress {
-  flex: 1;
- }
-</style>
-
+<title>섬집</title>
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  	// jQurery 준비 => 대상.함수()
@@ -143,13 +42,14 @@ label {
 <style>
 #rap {
   width: 600px;
-  margin: 10px auto;
+  margin: 30px auto;
   margin-bottom: 50px;
   background-color: #fff;
   padding: 20px;
+  padding-bottom: 60px; 
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  font-family: Arial, sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
 legend {
@@ -185,21 +85,22 @@ select option {
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  display: inline-block;
-  padding: 10px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #fba45c;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+  background-color: #99b19c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
 }
 
   input[type="button"]:hover,  
   input[type="submit"]:hover,  
   input[type="reset"]:hover {  
-    background-color: #fccc9c;  
-  }  */
+    background-color: #113000;  
+  } 
 
 label {
   display: block;
@@ -274,8 +175,8 @@ UserDTO dto=(UserDTO)request.getAttribute("dto");
 			<input type="password" name="pass2" class="pass2"><br>
 		</fieldset>
 		<div id="buttons">
-			<input type="submit" value="변경" class="submit" >
-			<input type="reset" value="취소" class="cancel">
+			<input type="submit" value="변경" class="btn btn-outline-success" >
+			<input type="reset" value="취소" class="btn btn-outline-success">
 		</div>
 	</form>
 

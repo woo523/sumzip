@@ -1,3 +1,6 @@
+<%@page import="member.UserDAO"%>
+<%@page import="member.UserDTO"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="products.ProductDAO"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="products.SalesDTO"%>
@@ -11,6 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 </head>
 <body>
@@ -22,9 +26,25 @@
     	<div class="row">
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
-                    <h1>AppointmentList</h1>
+                    <h1 class="taitoru">Appointment List</h1>
 					                    
 					<%
+					String id=(String)session.getAttribute("id");
+					
+					if(id==null){
+						response.sendRedirect("AdminLogin.ad");
+					}else if(id.equals("admin")){
+					
+					}else{
+						%>
+					<script type="text/javascript">
+					alert("접근 권한이 없습니다.");
+					history.back();
+					</script>
+					<%
+					}
+					
+					SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 					ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
 					
 					int startPage=(Integer)request.getAttribute("startPage");
@@ -32,20 +52,24 @@
 					int endPage=(Integer)request.getAttribute("endPage");
 					int pageCount=(Integer)request.getAttribute("pageCount");
 					
+					
+					
+					
 					%>
 					<form action="AdminAppointNowUpdate.ad" method="post">
-						<div class="tb2">
-							<table border="1">
-							<tr><td class="tb2">유저번호</td><td class="tb2">예약번호</td><td class="tb2">예약상태</td><td class="tb2">예약상태 변경</td><td class="tb2">예약일자</td><td class="tb2">예약취소</td></tr>
+						<div>
+							<table border="1" class="teeburu">
+							<tr><th>예약번호</th><th>작성자</th><th>예약상태</th><th>예약상태 변경</th><th>예약일자</th><th>예약취소</th></tr>
 							<%
 							 for(int i=0;i<AppointmentList.size();i++){
 							 	//배열 한칸에 내용 가져오기
 							 	AppointmentDTO dto=AppointmentList.get(i);
-							 	
+							 	UserDAO udao = new UserDAO();
+								UserDTO udto = udao.getUserNo(dto.getNo());
 							%>
-							<tr><td class="tb2"><%=dto.getNo()%></td>
-							    <td class="tb2"><%=dto.getAno()%></td>
-							    <td class="tb2"><%
+							<tr><td><%=dto.getAno()%></td>
+							    <td><%=udto.getId() %></td>
+							    <td><%
 							    if(dto.getAstatus()==1){
 							    	out.print("입금대기");
 							    }else if(dto.getAstatus()==2){
@@ -58,36 +82,37 @@
 							   	<%
 							    if(dto.getAstatus()!=3){
 							   	%>
-							    	<td class="tb2"><a href="AdminAppointNowUpdate.ad?Astatus=<%=dto.getAstatus()%>&ano=<%=dto.getAno()%>">다음 예약단계로 변경</a></td>
+							    	<td><a href="AdminAppointNowUpdate.ad?Astatus=<%=dto.getAstatus()%>&ano=<%=dto.getAno()%>">다음 예약단계로 변경</a></td>
 							    <%
 							    }else if(dto.getAstatus()==3){
 							    %>
-							    	<td class="tb2">이미 최종단계입니다.</td>
+							    	<td>이미 최종단계입니다.</td>
 							    <%
 							    }
 							   	%>	    
-							    <td class="tb2"><%=dto.getAdate()%></td>
-							    <td class="tb2"><a href="AdminAppointNowDelete.ad?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
+							    <td><%=dateFormat.format(dto.getAdate())%></td>
+							    <td><a href="AdminAppointNowDelete.ad?num=<%=dto.getAno()%>">예약취소</a></td></tr>    
 							   <%
 							   }
 								%>
 							</table>
 						</div>
 					</form>
+					<div class="pojisyonn">
 					<%
-					//10페이지 이전
+										//10페이지 이전
 					if(startPage > pageBlock){
 					%>
 						<a href="AdminAppointNow.ad?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 					<%
 					}
 					%>
-					<div class="room-pagination">
+					<div class="peigingu">
 					<%
 					for(int i=startPage;i<=endPage;i++){
 					%>
 						
-						<a href="AdminAppointNow.ad?pageNum=<%=i%>"><%=i%></a>
+						<a href="AdminAppointNow.ad?pageNum=<%=i%>" class="pp"><%=i%></a>
 					<%
 					}
 					%>
@@ -100,12 +125,10 @@
 					<%
 					}
 					 %> 
+					 </div>
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- 푸터 들어가는 곳 -->
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
-<!-- 푸터 들어가는 곳 -->
 </body>
 </html>

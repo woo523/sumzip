@@ -27,6 +27,9 @@ public class AdminBoardContent implements Action{
 		
 		BoardDTO dto=dao.getBoard(bno);
 		
+		// 조회수 증가
+		dao.bCount(bno);
+		
 		HttpSession session = request.getSession();
 		
 		request.setAttribute("dto", dto);

@@ -40,6 +40,9 @@
         <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
         <link rel="stylesheet" href="css1/style.css">
+        
+        <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+
 </head>
 
 <body>
@@ -250,7 +253,7 @@ String Date2=(String)request.getAttribute("Date2");
         <script src="js1/stellar.js"></script>
         <script src="vendors/lightbox/simpleLightbox.min.js"></script>
         <script src="js1/custom.js"></script>
-<%-- <jsp:include page="../inc/footer.jsp" /> --%>
+<jsp:include page="../inc/footerTest.jsp" />
 </div>
 </body>
 </html>

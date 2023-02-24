@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>섬집</title>
 <script type="text/javascript">
 function fun1() {
 	   if(document.ac.chk1.checked==false && document.ac.chk2.checked==false){

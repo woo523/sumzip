@@ -58,7 +58,7 @@ public class MemberMyList implements Action{
 		int endPage = (startPage+pageBlock)-1;
 		
 		ReviewDAO rdao = new ReviewDAO();
-		int count = rdao.getReviewCount();
+		int count = userappointmentlist.size();
 		
 		int pageCount = count/pageSize + (count%pageSize == 0 ? 0 : 1);
 		if(endPage > pageCount) {

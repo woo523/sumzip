@@ -1,4 +1,5 @@
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="board.BoardDTO"%>
 <%@page import="board.BoardDAO"%>
@@ -11,10 +12,28 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/admain.css" type="text/css" >
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <title>섬집 관리자 페이지</title>
 <%
+SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
+
 CountRegion c = new CountRegion();
 RegionDTO dto = c.getsalesproduct();
+
+String id=(String)session.getAttribute("id");
+
+if(id==null){
+	response.sendRedirect("AdminLogin.ad");
+}else if(id.equals("admin")){
+
+}else{
+	%>
+<script type="text/javascript">
+alert("접근 권한이 없습니다.");
+history.back();
+</script>
+<%
+}
 %>
 </head>
 <body>
@@ -39,9 +58,9 @@ RegionDTO dto = c.getsalesproduct();
 								%>
 								<tr>
 									<td>
-										<a href="AdminBoardContent.ad?bno=<%=dto1.getBno() %>""><%=dto1.getBtitle() %></a>
+										<a href="AdminBoardContent.ad?bno=<%=dto1.getBno() %>"><%=dto1.getBtitle()%></a>
 									</td> 
-								    <td><%=dto1.getBdate() %></td>
+								    <td><%=dateFormat.format(dto1.getBdate()) %></td>
 							    </tr>			
 								<%
 							}

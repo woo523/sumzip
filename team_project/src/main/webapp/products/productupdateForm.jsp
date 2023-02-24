@@ -6,86 +6,58 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>board/boardupdateForm.jsp</title>
+<title>섬집</title>
 <style>
 article{
 	font-family: 'NanumSquareNeo';
   	max-width: 1000px;
  	margin: 0 auto;
- 	padding: 20px;
  	margin-bottom: 50px;
 }
-#wrap{ 
-	max-width: 800px;
-	margin: 0 auto;
-	margin-bottom: 50px; 
+ #wrap{  
+ 	max-width: 800px; 
+ 	margin: 0 auto; 
+ 	margin-bottom: 50px; 
 
-} 
+ } 
 
-td.thead {
+.thead {
 	background: #99b19c;
-	font-weight: bold;
 	color: #FFFFFF;
 	text-align: center;
 	
 }
-/* td.tcontent{ */
-/* text-align: center; */
-/* background-color: white; */
-/* } */
+.tcontent{
+	text-align: center;
+}
 
 .heading-section {
-    font-size: 35px;
+    font-size: 30px;
     color: #393939;
     line-height: 1.5;
     font-weight: 400;
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: 'NanumSquareNeo';
     font-weight: bold;
     text-align: center;
     margin: 10px; 
      
 }
 
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #99b19c;
-    border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-input.form-control[readonly]{
-	background-color: #99b19c;
-	opacity: 1;
-    color: #fff;
-    font-weight: bold;
-}
-
 #table_search{
 	float: right;
    
 }
-textarea.form-control{
-	resize: none;  
-}
 
 input[type="text"],
 input[type="time"],
-input[type="file"], 
+input[type="file"],
+input[type="tel"],  
 select {
           width: 100%;
           padding: 15px;
-/*           margin-bottom: 10px; */
           font-size: 16px;
           border: 1px solid #ccc;
           border-radius: 5px;
@@ -109,11 +81,9 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 <div id="wrap">
 <h2 class="heading-section">등록펜션 수정</h2>
 
-<form action="ProductUpdatePro.pr" method="post" enctype="multipart/form-data">
+<form action="ProductUpdatePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
 <input type="hidden" name="pno" value="<%=dto.getPno()%>">
-<table border="1" class="table">
-<!-- <thead class="thead-primary"> -->
-<!-- <tr><td>유저번호</td> -->
+<table class="table">
 <%--     <td><input type="text" name="no" value="<%=dto.getNo()%>" readonly></td></tr> --%>
 <tr><td class="thead">펜션이름</td>
     <td class="tcontent"><input type="text" name="pname" value="<%=dto.getPname() %>"></td></tr>
@@ -125,8 +95,6 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
     <td class="tcontent"><input type="text" name="pprice" value="<%=dto.getPprice() %>"></td></tr>   
 <tr><td class="thead">최대숙박인원</td>
     <td class="tcontent"><input type="text" name="max_men" value="<%=dto.getMax_men() %>"></td></tr>    
-<tr><td class="thead">등록유효기간</td>
-    <td class="tcontent"><input type="text" name="expiration" value="<%=dto.getExpiration() %>"></td></tr>
 <tr><td class="thead">펜션사진1</td>
     <td class="tcontent"><input type="file" name="ppic1" value="<%=dto.getPpic1()%>">
     <input type="hidden" name="oldppic1" value="<%=dto.getPpic1()%>">

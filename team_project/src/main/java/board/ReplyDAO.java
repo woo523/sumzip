@@ -151,16 +151,23 @@ public class ReplyDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int countReply = 0;
+		int count1 = 0;
+		int count2 = 0;
 		try {
 			con = getConnection();
-			String sql = "select count(*) from reply where bno = ? union select count(*) from commend where bno = ?";
+			String sql = "select count(*) from reply where bno = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bno);
-			pstmt.setInt(2, bno);
 			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				countReply+=rs.getInt("count(*)");
+			if(rs.next()) {
+				count1 =rs.getInt("count(*)");
+			}
+			sql = "select count(*) from commend where bno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				count2 = rs.getInt("count(*)");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -169,7 +176,7 @@ public class ReplyDAO {
 		if(pstmt!=null)try {pstmt.close();} catch (Exception e2) {}
 		if(rs!=null)try {rs.close();} catch (Exception e2) {}
 		}
-		return countReply;
+		return count1+count2;
 	} // 댓글 갯수 계산
 
 }

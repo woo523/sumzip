@@ -47,6 +47,8 @@ article{
  	margin: 0 auto;
  	padding: 50px;
 }
+
+
  .table thead.thead-primary{
 	background: #99b19c;
 	font-weight: bold;
@@ -76,9 +78,21 @@ article{
 /*  	background-color: #98FD5D;  */ 
 	float: left;
 }
+a.tablelink:link {
+  color : black;
+}
+a.tablelink:visited {
+  color : black;
+}
+a.tablelink:hover {
+  color : black;
+}
+a.tablelink:active {
+  color : black;
+}
     </style>
   
-  <article>
+  <article style="width: 70%">
 <div class="wishlistContainer">
 	<h3 class="heading-section">Wish List</h3>
 	</div>
@@ -98,7 +112,7 @@ article{
 		int ppno=d.getPno();
 	%>
 		<tr>
-          <td><%=d.getPname()%></td><td><%=d.getPprice()%></td><td><%=d.getPaddress()%></td>
+          <td><a href="ProductContent.pr?pno=<%=d.getPno()%>" class="tablelink"><%=d.getPname()%></a></td><td><a href="ProductContent.pr?pno=<%=d.getPno()%>" class="tablelink"><%=d.getPprice()%></a></td><td><a href="ProductContent.pr?pno=<%=d.getPno()%>" class="tablelink"><%=d.getPaddress()%></a></td>
 
 <td id="button"><form action="MemberWishListPro.me">
 <input type="hidden" name="pno" value=<%=ppno%>>

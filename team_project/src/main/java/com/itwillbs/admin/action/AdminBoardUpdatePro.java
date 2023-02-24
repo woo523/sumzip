@@ -15,14 +15,14 @@ public class AdminBoardUpdatePro implements Action {
 		request.setCharacterEncoding("utf-8");
 
 		int bno=Integer.parseInt(request.getParameter("bno"));
-		int no=Integer.parseInt(request.getParameter("no"));
+//		int no=Integer.parseInt(request.getParameter("no"));
 		String btitle=request.getParameter("btitle");
 		String bcontent=request.getParameter("bcontent");
-
+		
 		BoardDTO dto=new BoardDTO();
 
 		dto.setBno(bno);
-		dto.setNo(no);
+//		dto.setNo(no);
 		dto.setBtitle(btitle);
 		dto.setBcontent(bcontent);
 

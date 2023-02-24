@@ -4,144 +4,101 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="kr">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Sona Template">
-    <meta name="keywords" content="Sona, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>섬집</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/table.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/list.css" type="text/css">
-    <link rel="stylesheet" href="css/insert.css" type="text/css">
-    <link rel="stylesheet" href="css/mainList.css" type="text/css">
-    
-    
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-    
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+<meta charset="UTF-8">
+<title>섬집</title>  
 </head>
+<style>
+#rap {
+  width: 600px;
+  margin: 50px auto;
+  margin-bottom: 100px;
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 60px; 
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  font-family: 'NanumSquareNeo';
+}
 
+legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #99b19c;
+}
+
+select option {
+  font-size: 1rem;
+}
+
+input[type="button"],
+input[type="submit"]{
+  background-color: #99b19c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+}
+
+  input[type="button"]:hover,  
+  input[type="submit"]:hover{  
+    background-color: #113000;  
+  } 
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+</style>
 <body>
-    <header class="header-section">
-	<div class="top-nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="tn-left">
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="tn-right">
-                            <%
-								String id=(String)session.getAttribute("id");
-                            	UserDAO dao = new UserDAO();
-                        		// MemberDTO dto = getMember(id) 메서드호출
-                        		UserDTO dto = dao.getUser(id);
+<jsp:include page="../inc/my_header.jsp" />
+<div id="rap">
+ <%
+	String id=(String)session.getAttribute("id");
+    UserDAO dao = new UserDAO();
+    // MemberDTO dto = getMember(id) 메서드호출
+    UserDTO dto = dao.getUser(id);
+   %>
 
-								if(id!=null){
-									if(dto.getUtype()==1){
-									%>
-										<div id="login">♥ <%=id %> 님 ♥ |
-										<a href="MemberLogout.me">Logout</a>	|
-										<a href="MemberMyPage_user.me">Mypage</a></div>
-										<% 
-									}else if(dto.getUtype()==2){
-										%> 
-										<div id="login">♥ <%=id %> 님 ♥ |
-										<a href="MemberLogout.me">Logout</a>	|
-										<a href="MemberMyPage_owner.me">Mypage</a></div>
-										<%
-									}
-									%>
-								 <%
-								}else{
-									%>
-									<div id="login"><a href="MemberLogin.me">Login</a> |
-													<a href="MemberAgree.me">Join</a></div>	
-									<%
-								}
-							%>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-	
-        <div class="menu-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="logo">
-                            <a href="Main.me">
-                                <img src="img/logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="nav-menu">
-                            <nav class="mainmenu">
-                                <ul> 
-                                    <li><a href="Region1.me">제주시 펜션</a></li>
-                                    <li><a href="Region2.me">서귀포시 펜션</a></li>
-                                    <li><a href="Recommend.me">추천 펜션</a></li>
-                                    <li><a href="BoardList.bo">공지사항</a></li>
-                                    <li><a href="QnaList.qa">Q&A</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header End -->
-
-
-
-<h1>회원탈퇴</h1>
-
-<section class="hero-section">
-    <div class="container">
-        <div class="row">
-            <form action="MemberDeletePro.me" method="post" id="delete" name="deleteform">
-			아이디 : <input type="text" name="id" value="<%=id%>" readonly><br>
-			비밀번호 : <input type="password" name="pass"><br>
-			<input type="submit" value="회원탈퇴">
-			</form>
-			<!-- 푸터 들어가는 곳 -->
-			<jsp:include page="../inc/footer.jsp" />
-			<!-- 푸터 들어가는 곳 -->
-        </div>
-    </div>
-    
-</section>
-
-
+  <form action="MemberDeletePro.me" method="post" id="delete" name="deleteform">
+	 <fieldset>	
+	 	<legend>회원 탈퇴</legend>
+			<label>아이디</label> : <input type="text" name="id" value="<%=id%>" readonly><br>
+			<label>비밀번호</label> : <input type="password" name="pass"><br>
+	</fieldset>
+	<div id="buttons">
+			<input type="submit" class="btn btn-outline-success" value="회원탈퇴">
+	</div>
+</form>
+</div>
+<!-- 푸터 들어가는 곳 -->
+<jsp:include page="../inc/footer.jsp" />
+<!-- 푸터 들어가는 곳 -->
 </body>
 </html> 

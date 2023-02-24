@@ -2,9 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>섬집</title>
 <style>
         /* 전체 레이아웃 스타일 */
         body {
@@ -17,7 +20,8 @@
             margin: 30px auto;
             margin-bottom: 50px;
             padding: 10px;
-            font-family: Arial, sans-serif;
+/*             font-family: Arial, sans-serif; */
+			font-family: 'NanumSquareNeo';
             border-radius: 10px;
         }
         .form-container {
@@ -34,6 +38,7 @@
         h2 {
             margin: 0;
             font-size: 24px;
+            font-family: 'NanumSquareNeo';
         }
         .header { 
      	display: flex; 
@@ -41,8 +46,20 @@
      	justify-content: center; 
      	background-color: white; 
      	color: #fff; 
-     	height: 80px; 
-  		 } 
+     	height: 80px;
+     	font-family: "Poppins", Arial, sans-serif;
+  		 }
+  		 
+   		.heading-section { 
+     	font-size: 40px; 
+    	color: #393939; 
+    	line-height: 1.5;     	
+    	font-weight: 400; 
+    	font-family: "Poppins", Arial, sans-serif;  
+     	font-weight: bold;  
+     	text-align: center; 
+     	margin: 10px;  
+        }  
 
         /* 폼 스타일 */
         form {
@@ -111,7 +128,7 @@ function id_search() {
 <form name="idfindscreen" method = "POST" >
 
 	<div class="header">
-		<h2>아이디찾기</h2>
+		<h2 class="heading-section">아이디찾기</h2>
 	</div>
 		<div class="form-container">
 		<section class = "form-search">

@@ -40,6 +40,8 @@
         <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
         <link rel="stylesheet" href="css1/style.css">
+		
+		<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 </head>
 <!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
@@ -97,7 +99,7 @@ String Date2=(String)request.getAttribute("Date2");
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="Main.me">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/islandzip3.png"; alt="">
                             </a>
                         </div>
                     </div>
@@ -173,7 +175,7 @@ String Date2=(String)request.getAttribute("Date2");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
-                                      <input type="submit" class="book_now_btn button_hover" value="검색">
+                                      <input type="submit" class="mainsearch_button" value="검색">
                                         </form>
                                      </div>
                                 </div>
@@ -262,7 +264,7 @@ String region=(String)request.getAttribute("region");
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
 						<%if(dto2.getPpic1()==null){%>
-                        <img src="img/room/room-6.jpg" width="370px" height="240px"> 
+                        <img src="upload/noimg.jpg" width="370px" height="240px"> 
                         <%}else{%>
                         	 <img src="<%=dto2.getPpic1()%>" width="370px" height="240px"> 
                       <% }%>
@@ -279,7 +281,7 @@ String region=(String)request.getAttribute("region");
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>
-                                        <td><%=dto2.getPaddress2() %></td>
+                                        <td><%=dto2.getPaddress() %></td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">체크인 :</td>

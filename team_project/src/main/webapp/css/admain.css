@@ -97,6 +97,7 @@
     font-size: 30px;
     color: black;
     border: 10px;
+    width: 80%;
 }
 
 .adminLogo{
@@ -106,6 +107,95 @@
 }
 
 .adminichi{
-	width: 1500px;
-    height: 500px;
+	width: 1000px;
+    height: 600px;
+}
+
+.teeburu{
+	margin: 0 auto;
+	width: 80%;
+    height: 80%;
+}
+
+.taitoru{
+	padding-top: 20px;
+	text-align:center;
+}
+.botann{
+	float:right;
+	border: none;
+    background-color: #113000;
+    color: white;
+    margin-right: 100px;
+    height: 40px;
+    font-weight: bolder;
+    font-size: 16px;
+    border-radius: 2px;
+    padding: 7px 7px 5px;
+    position:absolute;
+    right: 10px;
+    bottom: -10px;
+}
+.migi{
+	padding-left: 660px;
+    padding-bottom: 5px;
+}
+.kennsaku{
+    border: none;
+    background-color: #113000;
+    color: white;
+    box-shadow: none;
+    border-radius: 2px;
+    padding: 3px 10px;
+}
+.peigingu{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #113000;
+    border: none;
+    border-radius: 2px;
+    padding: 7px 13px 5px;
+    margin-right: 7px;
+    display:block;
+    
+}
+.teeburu tr th {
+	text-align: center;
+	background-color: #113000;
+	color: white;
+	padding: 7px 0;
+}
+.teeburu tr td {
+	text-align: center;
+	padding: 3px 0;
+}
+
+.peigingu .pp{
+	color: white;
+    background-color: #113000;
+    width:24px;
+    height:24px;
+    border-radius: 2px;
+    display:inline-block;
+    margin: px 5px;
+}
+.pojisyonn{
+	position:relative;
+}
+.peigingu .ppp{
+	color: white;
+    background-color: #113000;
+    height: 40px;
+    font-weight: bolder;
+    font-size: 16px;
+    border-radius: 2px;
+    padding: 7px 7px 5px;
+    border: none;
+}
+.iro label{
+	color: black;
+    font-size: 16px;
+    font-weight: 600;
+
 }

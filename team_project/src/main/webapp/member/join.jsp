@@ -3,8 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>섬집</title>
 
 <link rel="stylesheet" href="css/insert.css" type="text/css" >
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -144,7 +147,7 @@ $(document).ready(function(){
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  font-family: Arial, sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
 legend {
