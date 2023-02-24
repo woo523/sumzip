@@ -258,18 +258,19 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
 						<%if(dto2.getPpic1()==null){%>
-                        <a href="ProductContent.pr?pno=<%=dto2.getPno()%>"><img src="upload/noimg.jpg" width="370px" height="240px"></a> 
+                        <img src="upload/noimg.jpg" width="370px" height="240px"> 
                         <%}else{%>
-                        	  <a href="ProductContent.pr?pno=<%=dto2.getPno()%>"><img src="upload/<%=dto2.getPpic1()%>" width="370px" height="240px"></a> 
+                        	 <img src="<%=dto2.getPpic1()%>" width="370px" height="240px"> 
                       <% }%>
                         <div class="ri-text">
-                             <a href="ProductContent.pr?pno=<%=dto2.getPno()%>"><h4><%=dto2.getPname() %></h4></a>
-                            <a href="ProductContent.pr?pno=<%=dto2.getPno()%>"><h3>
+                            <h4><%=dto2.getPname() %></h4>
+                            <h3>
+                            
                             <script type="text/javascript">
                             var num = <%=dto2.getPprice()%>;
                             document.write(num.toLocaleString()+"원");
                             </script>
-                            <span>/1박</span></h3></a>
+                            <span>/1박</span></h3>
                             <table>
                                 <tbody>
                                     <tr>
