@@ -40,29 +40,29 @@ history.back();
     	<div class="row">
 			<div class="col-lg-12">
 				<div class="content-main adminichi">		
-					<h1 class="taitoru">Answer List</h1>
+					<h1 class="taitoru">Answer Detail</h1>
 					<div class="row mb-3">
 						<label for="colFormLabel" class="col-sm-2 col-form-label">글번호</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="colFormLabel" placeholder="<%=qdto.getQno() %>">
+							<input type="text" class="form-control" id="colFormLabel" placeholder="<%=qdto.getQno() %>">
 						</div>
 					</div>
 					<div class="row mb-3">
 						<label for="colFormLabel" class="col-sm-2 col-form-label">글쓴날짜</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="colFormLabel" placeholder="<%=dateFormat.format(qdto.getQadate()) %>">
+							<input type="text" class="form-control" id="colFormLabel" placeholder="<%=dateFormat.format(qdto.getQadate()) %>">
 						</div>
 					</div>
 					<div class="row mb-3">
 						<label for="colFormLabel" class="col-sm-2 col-form-label">글내용</label>
 						<div class="col-sm-10">
-							<input type="email" class="form-control" id="colFormLabel" placeholder="<%=qdto.getAnswer() %>">
+							<textarea type="text" class="form-control" id="colFormLabel" style="height: 300px;" rows="3" placeholder="<%=qdto.getAnswer() %>" readonly></textarea>
 						</div>
 					</div>
 					<div class="peigingu">
+						<input type="button" value="글목록" class="ppp" onclick="location.href='AdminQnaList.ad'"> 
 						<input type="button" value="글수정" class="ppp" onclick="location.href='AdminAnswerUpdateForm.ad?qno=<%=qdto.getQno() %>'">
 						<input type="button" value="글삭제" class="ppp" onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
-						<input type="button" value="글목록" class="ppp" onclick="location.href='AdminQnaList.ad'"> 
 					</div>
 					
 				</div>
