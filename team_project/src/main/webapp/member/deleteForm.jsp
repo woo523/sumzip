@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
 <title>섬집</title>  
 </head>

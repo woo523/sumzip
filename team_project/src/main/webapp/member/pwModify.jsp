@@ -6,9 +6,10 @@
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>섬집</title>
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
  <script type="text/javascript">
  	// jQurery 준비 => 대상.함수()
