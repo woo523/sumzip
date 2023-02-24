@@ -9,8 +9,13 @@
 <title>maindetail.jsp</title>
 
 <style type="text/css">
-.class{
-
+.container div .ri-text{
+	width: 360px;
+	height: 345px;
+}
+.container div .tableDetail {
+	width: 306px;
+	height: 150px;
 }
 </style>
 </head>
@@ -62,7 +67,7 @@ ProductDTO dto = productlist.get(i);
                             document.write(num.toLocaleString()+"원");
                             </script>
                             <span>/1박</span></h3></a>
-                            <table>
+                            <table class="tableDetail">
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>
