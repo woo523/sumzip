@@ -20,10 +20,6 @@
 <meta charset="UTF-8">
 <title>myList.JSP</title>
 <style type="text/css">
-	header {
-		padding-bottom: 50px;
-	}
-	
   	.wrap #myList {
  		font-family: 'NanumSquareNeo';
 		max-width: 800px;

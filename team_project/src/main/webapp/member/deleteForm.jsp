@@ -6,14 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <meta charset="UTF-8">
 <title>섬집</title>  
 </head>
 <style>
 #rap {
   width: 600px;
-  margin: 30px auto;
-  margin-bottom: 50px;
+  margin: 50px auto;
+  margin-bottom: 100px;
   background-color: #fff;
   padding: 20px;
   padding-bottom: 60px; 

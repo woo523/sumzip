@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>섬집 관리자 페이지</title>
+<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 </head>
 <body>
 <jsp:include page="../inc/ad_header.jsp" />
