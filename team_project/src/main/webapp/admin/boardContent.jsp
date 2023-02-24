@@ -71,22 +71,20 @@
 						<div class="row mb-3">
 							<label for="colFormLabel" class="col-sm-2 col-form-label">글내용</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=dto.getBcontent() %>">
+								<textarea type="text" class="form-control" id="exampleFormControlTextarea1" style="height: 150px;" rows="3" placeholder="<%=dto.getBcontent() %>"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="peigingu">
-					
-						<input type="button" value="글목록"onclick="location.href='AdminBoardList.ad'">
-						
+						<input type="button" value="글목록"onclick="location.href='AdminBoardList.ad'" class="ppp">
 						<% 
 						// 로그인 => 세션값 있음
 						if(id != null){
 							// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
 							if(id.equals("admin")){
 								%>
-						<input type="button" value="글수정" onclick="location.href='AdminBoardUpdateForm.ad?bno=<%=dto.getBno()%>'">
-						<input type="button" value="글삭제" onclick="location.href='AdminBoardDeletePro.ad?bno=<%=dto.getBno()%>'">
+						<input type="button" value="글수정" onclick="location.href='AdminBoardUpdateForm.ad?bno=<%=dto.getBno()%>'" class="ppp">
+						<input type="button" value="글삭제" onclick="location.href='AdminBoardDeletePro.ad?bno=<%=dto.getBno()%>'" class="ppp">
 						<%
 							}
 						}
