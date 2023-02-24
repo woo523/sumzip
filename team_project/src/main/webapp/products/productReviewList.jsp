@@ -103,7 +103,7 @@
 			LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 
 %>
-		총 후기 개수 <%=rdto.getRno() %>
+		총 후기 개수 <%=reviewList.size() %>
 		
 		<!-- 후기 리스트  -->
 		<ul id="reviewList">
