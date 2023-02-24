@@ -195,8 +195,15 @@ if(endPage < pageCount){
 <i class="fa fa-long-arrow-right"></i></a>
 	<%
 }
-
+%>
+</div>
+</div>
+<%
 }else{
+%>
+ <div class="col-lg-12">
+ <div class="room-pagination">
+<%
 	if(startPage > pageBlock){
 		%>
 	<a href="BoardList.bo?pageNum=<%=startPage-pageBlock%>&search=<%=search%>">[10페이지 이전]
@@ -216,8 +223,13 @@ if(endPage < pageCount){
 	<i class="fa fa-long-arrow-right"></i></a>
 		<%
 	}
+	%>
+	</div>
+	</div>
+	<%
 }
 %>
+
 </article>
 <!-- 푸터 들어가는 곳 -->
 <%-- <jsp:include page="../inc/footer.jsp" /> --%>
