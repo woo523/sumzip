@@ -112,8 +112,8 @@ no = rdto.getNo();
 	<table class="table table-hover">
 		<tbody>
 			<tr><td><input type="text" name="name" class="form-control" maxlength="40" value="<%=id %>" readonly></td></tr>
-			<tr><td><input type="text" name="qtitle" class="form-control" value=<%=dto.getQtitle() %>></td></tr>
-			<tr><td><textarea name="qcontent" class="form-control" maxlength="1024" style="height: 400px;"><%=dto.getQcontent() %></textarea></td></tr>
+			<tr><td><input type="text" name="qtitle" class="form-control" value=<%=dto.getQtitle() %> placeholder="제목을 작성하세요"></td></tr>
+			<tr><td><textarea name="qcontent" class="form-control" maxlength="1024" style="height: 400px;" placeholder="글 내용을 작성하세요"><%=dto.getQcontent() %></textarea></td></tr>
 		</tbody>
 	</table>
 	<div id="table_search">

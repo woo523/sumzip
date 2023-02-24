@@ -116,7 +116,7 @@ no = rdto.getNo();
 	 <tbody>
 <!-- 	<table border="1"> -->
 		<tr><td><input type="text" name="name" class="form-control" maxlength="40" value="<%=id %>" readonly></td></tr>
-		<tr><td><input type="text" name="qtitle" class="form-control" maxlength="40" placeholder="글 제목"></td></tr>
+		<tr><td><input type="text" name="qtitle" class="form-control" maxlength="40" placeholder="제목을 작성하세요"></td></tr>
 		<tr><td><textarea name="qcontent" class="form-control" maxlength="1024" style="height: 400px;" placeholder="글 내용을 작성하세요"></textarea></td></tr>
 		</tbody>
 	</table>
