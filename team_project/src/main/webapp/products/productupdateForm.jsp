@@ -14,26 +14,27 @@ article{
 	font-family: 'NanumSquareNeo';
   	max-width: 1000px;
  	margin: 0 auto;
- 	padding: 20px;
  	margin-bottom: 50px;
 }
-#wrap{ 
-	max-width: 800px;
-	margin: 0 auto;
-	margin-bottom: 50px; 
+ #wrap{  
+ 	max-width: 800px; 
+ 	margin: 0 auto; 
+ 	margin-bottom: 50px; 
 
-} 
+ } 
 
-td.thead {
+.thead {
 	background: #99b19c;
-	font-weight: bold;
 	color: #FFFFFF;
 	text-align: center;
 	
 }
+.tcontent{
+	text-align: center;
+}
 
 .heading-section {
-    font-size: 35px;
+    font-size: 30px;
     color: #393939;
     line-height: 1.5;
     font-weight: 400;
@@ -51,7 +52,8 @@ td.thead {
 
 input[type="text"],
 input[type="time"],
-input[type="file"], 
+input[type="file"],
+input[type="tel"],  
 select {
           width: 100%;
           padding: 15px;
@@ -80,9 +82,7 @@ ProductDTO dto=(ProductDTO)request.getAttribute("dto");
 
 <form action="ProductUpdatePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
 <input type="hidden" name="pno" value="<%=dto.getPno()%>">
-<table border="1" class="table">
-<!-- <thead class="thead-primary"> -->
-<!-- <tr><td>유저번호</td> -->
+<table class="table">
 <%--     <td><input type="text" name="no" value="<%=dto.getNo()%>" readonly></td></tr> --%>
 <tr><td class="thead">펜션이름</td>
     <td class="tcontent"><input type="text" name="pname" value="<%=dto.getPname() %>"></td></tr>

@@ -20,19 +20,16 @@
   padding-bottom: 60px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-/*   font-family: Arial, sans-serif; */
   font-family: 'NanumSquareNeo';
 }
-td.thead {
+.thead {
 	background: #99b19c;
-	font-weight: bold;
 	color: #FFFFFF;
-	text-align: center;
-	
+	text-align: center;	
 }
 
 .heading-section {
-    font-size: 35px;
+    font-size: 30px;
     color: #393939;
     line-height: 1.5;
     font-weight: 400;
@@ -50,7 +47,8 @@ td.thead {
 
 input[type="text"],
 input[type="time"],
-input[type="file"], 
+input[type="file"],
+input[type="tel"], 
 select {
           width: 100%;
           padding: 15px;
@@ -93,7 +91,7 @@ if(id==null){
 <h3 class="heading-section">상품등록</h3>
 
 <form action="ProductUpdatePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
-	<table border="1" class="table">
+	<table class="table">
 		<tr><td class="thead">아이디</td> 
 			<td class="tcontent"><input type="text" name="no" value="<%=id%>" readonly></td></tr>
 						
