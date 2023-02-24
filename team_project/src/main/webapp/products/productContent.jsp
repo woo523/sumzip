@@ -118,10 +118,8 @@ if(id != null){
 	// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
 	if(id.equals(pudto.getId())){
 		%>
-<input type="button" value="상품수정" 
- onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">
- <input type="button" value="상품삭제"
- onclick="location.href='ProductDeletePro.pr?pno=<%=dto.getPno() %>'">		
+ <button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductUpdateForm.pr?pno=<%=dto.getPno() %>'">상품수정</button>	
+ <button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductDeletePro.pr?pno=<%=dto.getPno() %>'">상품삭제</button>
 		<%
 	}
 }
