@@ -40,35 +40,58 @@
 					%>
 					<!-- 공지사항 내용 -->
 					<h1 class="taitoru">Board Detail</h1>
-					<table border="1">
-					<tr><td>공지사항 번호</td><td><%=dto.getBno() %></td></tr>
-					<tr><td>유저번호</td><td><%=dto.getNo() %></td></tr>
-					<tr><td>제목</td><td><%=dto.getBtitle() %></td></tr>
-					<tr><td>내용</td><td><%=dto.getBcontent() %></td></tr>
-					<tr><td>조회수</td><td><%=dto.getBcount() %></td></tr>
-					<tr><td>작성날짜</td><td><%=dateFormat.format(dto.getBdate()) %></td></tr>
-					<tr><td colspan="2">
+					<div class="iro">
+						<div class="row">
+						  <div class="col">
+						  	<label for="colFormLabel" class="col-sm-6 col-form-label">공지사항 번호</label>
+						    <input type="text" class="form-control" placeholder="<%=dto.getBno() %>" aria-label="First name">
+						  </div>
+						  <div class="col">
+						  	<label for="colFormLabel" class="col-sm-2 col-form-label">조회수</label>
+						    <input type="text" class="form-control" placeholder="<%=dto.getBcount() %>" aria-label="Last name">
+						  </div>
+						</div>
+						<div class="row" style="margin-top: 5px; margin-bottom: 20px;">
+						  <div class="col">
+						  	<label for="colFormLabel" class="col-sm-2 col-form-label">작성자</label>
+						    <input type="text" class="form-control" placeholder="관리자" aria-label="First name">
+						  </div>
+						  <div class="col">
+						  	<label for="colFormLabel" class="col-sm-3 col-form-label">작성날짜</label>
+						    <input type="text" class="form-control" placeholder="<%=dateFormat.format(dto.getBdate()) %>" aria-label="Last name">
+						  </div>
+						</div>
 					
-					<input type="button" value="글목록"
-					onclick="location.href='AdminBoardList.ad'">
+						<div class="row mb-3">
+							<label for="colFormLabel" class="col-sm-2 col-form-label">글제목</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=dto.getBtitle() %>">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="colFormLabel" class="col-sm-2 col-form-label">글내용</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=dto.getBcontent() %>">
+							</div>
+						</div>
+					</div>
+					<div class="peigingu">
 					
-					<% 
-					// 로그인 => 세션값 있음
-					if(id != null){
-						// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
-						if(id.equals("admin")){
-							%>
-					<input type="button" value="글수정"
-					 onclick="location.href='AdminBoardUpdateForm.ad?bno=<%=dto.getBno()%>'">
-					<input type="button" value="글삭제"
-					onclick="location.href='AdminBoardDeletePro.ad?bno=<%=dto.getBno()%>'">
-					<%
+						<input type="button" value="글목록"onclick="location.href='AdminBoardList.ad'">
+						
+						<% 
+						// 로그인 => 세션값 있음
+						if(id != null){
+							// 세션값  , 글쓴이  => 일치 => 자기자신 쓴 글(글수정, 글삭제 보이기)
+							if(id.equals("admin")){
+								%>
+						<input type="button" value="글수정" onclick="location.href='AdminBoardUpdateForm.ad?bno=<%=dto.getBno()%>'">
+						<input type="button" value="글삭제" onclick="location.href='AdminBoardDeletePro.ad?bno=<%=dto.getBno()%>'">
+						<%
+							}
 						}
-					}
-					%>
-					</td></tr>
-					</table>
-			
+						%>
+					</div>
 				<!-- 댓글 영역 들어가는 곳 -->
 				<jsp:include page="../board/replyForm.jsp" />
 				</div>

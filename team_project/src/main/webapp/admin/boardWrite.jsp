@@ -58,7 +58,7 @@
 								</div>
 							</div>
 							</table>
-							<input type="submit" class="botann" value="글쓰기">
+							<input type="submit" class="botann" style="right: 55px; bottom: 15px;" value="글쓰기">
 						</div>
 					</form>
 				</div>
