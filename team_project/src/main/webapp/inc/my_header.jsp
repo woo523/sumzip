@@ -13,7 +13,7 @@
   #wrap {
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 20px auto;
 /*   font-family: Arial, sans-serif; */
   font-family: 'NanumSquareNeo';
   border-radius: 10px;
