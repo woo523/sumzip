@@ -42,6 +42,17 @@
         <link rel="stylesheet" href="css1/style.css">
         
         <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+<style type="text/css">
+.container div .ri-text{
+	width: 360px;
+	height: 345px;
+}
+.container div .tableDetail {
+	width: 306px;
+	height: 150px;
+}
+</style>
+
 </head>
 
 <body>
@@ -284,7 +295,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
                             document.write(num.toLocaleString()+"원");
                             </script>
                             <span>/1박</span></h3></a>
-                            <table>
+                            <table class="tableDetail">
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>
