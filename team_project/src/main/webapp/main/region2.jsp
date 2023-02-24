@@ -39,6 +39,8 @@
         <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
         <link rel="stylesheet" href="css1/style.css">
+
+		 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 </head>
 <body><!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
@@ -96,7 +98,7 @@ String Date2=(String)request.getAttribute("Date2");
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="Main.me">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/islandzip3.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -120,7 +122,8 @@ String Date2=(String)request.getAttribute("Date2");
     <!-- Header End -->
 
 <!-- Breadcrumb Section Begin -->
-    <div class="breadcrumb-section">
+    <div class="productsearch-section">
+    <h3 class="search_name">서귀포시 펜션</h3><br>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -130,12 +133,11 @@ String Date2=(String)request.getAttribute("Date2");
        
             <div class="hotel_booking_area position">
                 <div class="container">
-                    <div class="hotel_booking_table">
+                    <div class="hotel_booking-table">
                         <div class="col-md-3">
-                            <h2>펜션<br> 검색하기</h2>
                         </div>
                         <div class="col-md-9">
-                            <div class="boking_table">
+                            <div class="boking-table">
                                 <div class="row">
                                     <div class="col-md-4">                                    
                                			 <form action="Result.me" method="post">
@@ -143,6 +145,7 @@ String Date2=(String)request.getAttribute("Date2");
                                              <div class="form-group">  
                                                     <input type='date' name="indate" class="form-control" value="<%=Date%>"/>
                                             </div>
+                                            <h5>∼</h5>
                                             <div class="form-group">
                                                     <input type='date' name="outdate" class="form-control" value="<%=Date2%>"/>
                                             </div>
@@ -163,6 +166,7 @@ String Date2=(String)request.getAttribute("Date2");
                                                     <option value="9">9명</option>
                                                 </select>
                                             </div>
+                                            <br>
                                             <div class="input-group">
                                                 <select class="wide" name="region">
                                                     <option value="서귀포시">서귀포시</option>
@@ -172,7 +176,8 @@ String Date2=(String)request.getAttribute("Date2");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
-                                      <input type="submit" class="book_now_btn button_hover" value="검색">
+                                    <br>
+                                      <input type="submit" class="mainsearch_button" value="검색">
                                    </form>
                                     </div>
                                   </div>
@@ -354,6 +359,9 @@ if(endPage < pageCount){
        		</div>
          </div>    
      </section>  
+
+     <div class=topBtn onclick="window.scrollTo(0,0);">TOP ⇡</div>
+     <jsp:include page="/inc/footer.jsp" />
 
 <!-- Optional JavaScript -->
 
