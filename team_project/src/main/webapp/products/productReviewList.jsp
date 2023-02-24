@@ -24,16 +24,16 @@
   		box-sizing: border-box;
  	}
  	.heading {
-    font-size: 28px;
-    color: #393939;
-    line-height: 1.5;
-    font-weight: 400;
-    font-family: "Poppins", Arial, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px; 
-     
-}
+	    font-size: 28px;
+	    color: #393939;
+	    line-height: 1.5;
+	    font-weight: 400;
+	    font-family: "Poppins", Arial, sans-serif;
+	    font-weight: bold;
+	    text-align: center;
+	    margin: 10px; 
+	     
+	}
  	#reviewList {
  		padding: 20px;
  	}
@@ -76,6 +76,10 @@
 	ArrayList<ReviewDTO> reviewList = (ArrayList<ReviewDTO>)request.getAttribute("reviewList");
 	
 	int pno = Integer.parseInt(request.getParameter("pno"));
+	
+	ReviewDAO dao = new ReviewDAO();
+	int getSumStar = dao.sumStar(pno);
+	System.out.println(getSumStar);
 
 	int currentPage = (Integer)request.getAttribute("currentPage");
 	int startPage = (Integer)request.getAttribute("startPage");
@@ -97,13 +101,15 @@
 		for(int i = 0; i < reviewList.size(); i++) {
 			ReviewDTO rdto = reviewList.get(i);
 			
+			double getAvgStar = getSumStar / reviewList.size(); 
+			
 			// 작성일자 포맷 변경
 			Timestamp getDate = rdto.getRdate();
 			LocalDate getDateFm =  getDate.toLocalDateTime().toLocalDate();
 
 %>
 		총 후기 개수 <%=reviewList.size() %>
-		
+		평균평점 <%=getAvgStar %>
 		<!-- 후기 리스트  -->
 		<ul id="reviewList">
 			<img src="img/review/quote-left.png"> <h4><%=rdto.getRtitle() %></h4> <img src="img/review/get-quote.png">
@@ -128,21 +134,21 @@
 			<li id="contents"><%=rdto.getRcontent() %></li>
 			
 			<!-- 사진 1이 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("null")) { %>
+			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("noimg.jpg")) { %>
 				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
 			<% } else { %>
 				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
-			<% } %>
+			<% } %> 
 			
 			<!-- 사진 2가 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("null")) { %>
+			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("noimg.jpg")) { %>
 				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
 			<% } else { %>
 				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
 			<% } %>
 			
 			<!-- 사진 3이 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("null")) { %>
+			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("noimg.jpg")) { %>
 				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
 			<% } else { %>
 				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
