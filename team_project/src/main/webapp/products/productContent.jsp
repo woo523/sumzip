@@ -52,10 +52,72 @@ background-color: white;
 }
 </style>
 <body>
-
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script>
+    $('.carousel').carousel({
+      interval: 2000 //기본 5초
+    })
+  </script>
+<div class="container"></div>
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner">
+      <!-- 슬라이드 쇼 -->
+      <div class="carousel-item active">
+        <!--가로-->
+        <img class="d-block w-100" 
+          src="../upload/d2.jpg"
+          alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+              
+              <p>섬집</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"
+          src="https://images.pexels.com/photos/2355519/pexels-photo-2355519.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+          alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"
+          src="https://images.pexels.com/photos/2544554/pexels-photo-2544554.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          alt="Third slide">
+      </div>
+    
+    <!-- / 슬라이드 쇼 끝 -->
+
+    <!-- 왼쪽 오른쪽 화살표 버튼 -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <!-- <span>Previous</span> -->
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <!-- <span>Next</span> -->
+    </a>
+    <!-- / 화살표 버튼 끝 -->
+    
+    <!-- 인디케이터 -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li> <!--0번부터시작-->
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <!-- 인디케이터 끝 -->
+  </div>
 
 <!-- 상품리스트 부분 -->
 <%
@@ -81,6 +143,10 @@ UserDTO udto=(UserDTO)request.getAttribute("udto");
 </form>
 <h3 class="heading-section"><%=dto.getPname() %> 펜션</h3>
 
+<img src="upload/<%=dto.getPpic1() %>" width="200" height="200">
+<img src="upload/<%=dto.getPpic2() %>" width="200" height="200">
+<img src="upload/<%=dto.getPpic3() %>" width="200" height="200">
+
 <table class="table">
 <tr><td class="tt">상품번호</td><td class="tt2"><%=dto.getPno() %></td></tr>
 <tr><td class="tt">펜션이름</td><td class="tt2"><%=dto.getPname() %></td></tr>
@@ -92,20 +158,7 @@ UserDTO udto=(UserDTO)request.getAttribute("udto");
 <tr><td class="tt">체크아웃시간</td><td class="tt2"><%=dto.getCheckout() %></td></tr>
 <tr><td class="tt">가격</td><td class="tt2"><%=dto.getPprice() %></td></tr>
 <tr><td class="tt">최대숙박인원</td><td class="tt2"><%=dto.getMax_men() %></td></tr>
-
 <tr><td class="tt">숙소등록일</td><td class="tt2"><%=dto.getReser_date() %></td></tr>
-<tr><td class="tt">펜션사진1</td>
-<td class="tt2">
-<img src="upload/<%=dto.getPpic1() %>" width="200" height="200">
-</td>
-<tr><td class="tt">펜션사진2</td>
-<td class="tt2">
-<img src="upload/<%=dto.getPpic2() %>" width="200" height="200">
-</td>
-<tr><td class="tt">펜션사진3</td>
-<td class="tt2">
-<img src="upload/<%=dto.getPpic3() %>" width="200" height="200">
-</td>
 <tr><td class="tt">주의사항</td><td class="tt2"><%=dto.getCaution() %>
 </td>
 <tr><td class="tt">펜션설명</td><td class="tt2"><%=dto.getPexplain() %></td></tr>

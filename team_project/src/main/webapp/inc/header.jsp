@@ -89,7 +89,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="Main.me">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/islandzip3.png" alt="">
                             </a>
                         </div>
                     </div>

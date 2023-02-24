@@ -135,23 +135,23 @@
 			
 			<!-- 사진 1이 없을 때 안보이게 하기 -->
 			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("noimg.jpg")) { %>
-				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="200"></li>
 			<% } else { %>
-				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="150" height="150"></li>
+				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="200"></li>
 			<% } %> 
 			
 			<!-- 사진 2가 없을 때 안보이게 하기 -->
 			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("noimg.jpg")) { %>
-				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 			<% } else { %>
-				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="150" height="150"></li>
+				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 			<% } %>
 			
 			<!-- 사진 3이 없을 때 안보이게 하기 -->
 			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("noimg.jpg")) { %>
-				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
+				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } else { %>
-				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="150" height="150"></li>
+				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } %>
 		</ul>
 		<%

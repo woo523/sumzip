@@ -13,8 +13,8 @@
 <style type="text/css">
  #rap {
   width: 600px;
-  margin: 30px auto;
-  margin-bottom: 60px;
+  margin: 50px auto;
+  margin-bottom: 70px;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
