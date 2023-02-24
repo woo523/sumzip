@@ -14,6 +14,9 @@
 <meta charset="UTF-8">
 <title>qna/qnaList.jsp</title>
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
+
+
+
 <style>
 article{
 	font-family: 'NanumSquareNeo';
@@ -49,6 +52,7 @@ article{
 
 </head>
 <body>
+
 <!-- 한페이지에 보여줄 글 개수 -->
 <%
 // //QnaDAO 객체 생성
