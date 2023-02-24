@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="member.UserDAO"%>
 <%@page import="member.UserDTO"%>
 <%@page import="board.BoardDTO"%>
@@ -19,6 +20,7 @@
 			<div class="col-lg-12">
 				<div class="content-main adminichi">			
 					<%
+					SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");
 					String id=(String)session.getAttribute("id");
 					
 					if(id==null){
@@ -43,7 +45,7 @@
 					<tr><td>제목</td><td><%=dto.getBtitle() %></td></tr>
 					<tr><td>내용</td><td><%=dto.getBcontent() %></td></tr>
 					<tr><td>조회수</td><td><%=dto.getBcount() %></td></tr>
-					<tr><td>작성날짜</td><td><%=dto.getBdate() %></td></tr>
+					<tr><td>작성날짜</td><td><%=dateFormat.format(dto.getBdate()) %></td></tr>
 					<tr><td colspan="2">
 					
 					<input type="button" value="글목록"
