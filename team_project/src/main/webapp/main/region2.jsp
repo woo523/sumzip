@@ -256,7 +256,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
 						<!--  펜션 사진들어 가는 곳 -->
 						<!-- 사진없으면 샘플사진 뜨게 설정 -->
 						<%if(dto2.getPpic1()==null){%>
-                        <img src="img/room/room-6.jpg" width="370px" height="240px"> 
+                        <img src="upload/noimg.jpg" width="370px" height="240px"> 
                         <%}else{%>
                         	 <img src="<%=dto2.getPpic1()%>" width="370px" height="240px"> 
                       <% }%>
