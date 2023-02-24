@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <head>
 <meta charset="UTF-8">
 <title>섬집</title>
@@ -50,14 +52,35 @@ background-color: white;
 .heart{
 	float: right;	
 }
+header.carousel {
+
+	height: 30%;
+
+}
+
+header.carousel .item, header.carousel .item.active, header.carousel .carousel-inner {
+
+	height: 100%;
+
+}
+
+header.carousel .fill {
+
+	width: 100%;
+
+	height: 100%;
+
+	background-position: center;
+
+	background-size: auto 100%;
+
+}
 </style>
 <body>
 <!-- 헤더파일들어가는 곳 -->
 <jsp:include page="../inc/header.jsp" />
 
-
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -78,21 +101,17 @@ background-color: white;
       <!-- 슬라이드 쇼 -->
       <div class="carousel-item active">
         <!--가로-->
-        <img class="d-block w-100" 
-          src="../upload/d2.jpg"
+        <img class="d-block w-30" 
+          src="https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
           alt="First slide">
           <div class="carousel-caption d-none d-md-block">
-              
-              <p>섬집</p>
+              <h5>TEST</h5>
+              <p>testtesttest</p>
         </div>
       </div>
+    
       <div class="carousel-item">
-        <img class="d-block w-100"
-          src="https://images.pexels.com/photos/2355519/pexels-photo-2355519.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-          alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100"
+        <img class="d-block w-30"
           src="https://images.pexels.com/photos/2544554/pexels-photo-2544554.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
           alt="Third slide">
       </div>
