@@ -26,9 +26,11 @@
 		text-align: center;
 	}
 	
-	#result {
-		font-family: 'NanumSquareNeo';
+	.result {
+		font-family: "Poppins", Arial, sans-serif;
 		font-size: 40px;
+		line-height: 1.5;     	
+    	font-weight: 400;
 		
 	}
 	
