@@ -35,6 +35,8 @@
 		font-family: 'NanumSquareNeo';
 		margin: 20px;
 		display: inline-block;
+		font-style: normal;
+		color: black;
 	}
 	#reviewList #stars {
 		float: right;

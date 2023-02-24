@@ -95,7 +95,6 @@
 %>
 <!-- header -->
 <header>
-	<jsp:include page="../inc/header.jsp" />
 	<jsp:include page="../inc/my_header.jsp" />
 </header>
 
