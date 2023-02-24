@@ -40,6 +40,8 @@
         <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
         <link rel="stylesheet" href="css1/style.css">
+		
+		<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 </head>
 <!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
@@ -97,7 +99,7 @@ String Date2=(String)request.getAttribute("Date2");
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="Main.me">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/islandzip3.png"; alt="">
                             </a>
                         </div>
                     </div>
@@ -173,7 +175,7 @@ String Date2=(String)request.getAttribute("Date2");
                                             </div>
                                     </div>
                                     <div class="col-md-4">
-                                      <input type="submit" class="book_now_btn button_hover" value="검색">
+                                      <input type="submit" class="mainsearch_button" value="검색">
                                         </form>
                                      </div>
                                 </div>

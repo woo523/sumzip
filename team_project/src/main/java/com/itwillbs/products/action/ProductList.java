@@ -15,8 +15,9 @@ public class ProductList implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("ProductList execute()");
-		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		
+		 HttpSession session = request.getSession();
+		 String id = (String)session.getAttribute("id");
 		
 		 ProductDAO dao= new ProductDAO();
 		 int pageSize=10;

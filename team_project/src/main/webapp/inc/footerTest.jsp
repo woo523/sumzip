@@ -16,25 +16,31 @@
                         </div>
                     </div>
 
-<!--                         <div class="ft-contact">                                                 -->
-<!--                             <div class="sns"> -->
-<!--                             <br> -->
-<!--                             <br> -->
-<!--                             <img src="img/sns-facebook.svg"  href="https://www.youtube.com/watch?v=1jQAuc06jAw"></a> -->
-<!--                             <img src="img/sns-youtube.svg"  href="https://www.youtube.com/watch?v=1jQAuc06jAw"></a> -->
-<!--                             <img src="img/sns-insta.svg"  href="https://www.youtube.com/watch?v=1jQAuc06jAw"></a> -->
-<!--                             </div> -->
-<!--                             <div class="copyright">Copyrightⓒislandhouse</div> -->
-<!--                         </div> -->
+                        <div class="ft-contact">                                                
+                            <div class="sns">
+                            <br>
+                            <br>
+                             <a href="https://www.facebook.com/allpension"><img src="img/sns-facebook.svg" width="40px"></a>
+                             <a href="https://www.youtube.com/watch?v=HfQyHXbVkoo"><img src="img/sns-youtube.svg" width="40px"></a>  
+                             <a href="https://www.instagram.com/explore/tags/%ED%8E%9C%EC%85%98/?hl=ko"><img src="img/sns-insta.svg" width="40px"></a>
+                            </div><br>
+                               <div class="copyright">Copyrightⓒislandhouse</div>
+                        </div>
                         
-<!--                         <p id="footer-sos">고객센터</p> -->
+                        <p id="footer-sos">고객센터</p>
                         
-<!--                         <p id="footer-qna"> -->
+                        <div id="footer-qna">
+                        <br>
+                        <br>
 <!--                         <button type="button" class="wh">1:1 문의</button> -->
 <!--                         <button type="button" class="wh">입점 문의</button> -->
 <!--                         <button type="button" class="wh">제휴 문의</button> -->
 <!--                         <button type="button" class="wh">컨설팅 문의</button> -->
-<!--                         </div> -->
+                        <p id="footer-tel"> Tel.1670-4123</p>
+                        <p>고객센터 영업시간 : 10:00am~18:00pm<br>
+                        계좌번호 : 3948203-254632 (국민은행 김삼조)</p>
+                        
+                        </div>
                         
 
             <p id="footer-line">┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈</p>

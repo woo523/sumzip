@@ -104,18 +104,6 @@ color: #7F7F7F;
 	height: 80px;
 }
 
-.facebook{
-    background-size: 30px;
-}
-
-.instagram{
-	 background-size: 30px;
-}
-
-.youtube{
-	 background-size: 30px;
-}
-
 .footer_logo{
 	width: 150px;
 	height: 80px;
@@ -132,8 +120,9 @@ color: #7F7F7F;
 
 .footer-section .footer-text .ft-about {
     margin-bottom: 30px;
-    padding-right: 5px;
+    padding-left: 70px;
 }
+
 
 #footer-info{
 	color: #969696;
@@ -146,11 +135,26 @@ color: #7F7F7F;
 
 #footer-sos{
 	padding-left: 50px;
+	font-size: 20px;
+	font-weight: bold;
+
 }
 
 #footer-qna{
 	font-weight: bold;
 	text-align: "center";
-	padding-left: 60px;
+	padding-left: 10px;
 }
 
+.row{
+/* 	display: flex; */
+/*     -ms-flex-wrap: wrap; */
+/*     flex-wrap: wrap; */
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#footer-tel{
+	font-size: 30px;
+	font-weight: bold;
+}
