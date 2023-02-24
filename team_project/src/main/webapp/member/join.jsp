@@ -282,20 +282,17 @@ label {
 		  		</div>
 		  		<div class="form-group">
 				<label>아이디</label> 
-				<div class="pojisyonn">
-					<input type="text" name="id" class="id" style="width:560px; float:left;">
-					<input type="button" value="중복확인" class="dup" style="float:right;">
-					<input type="hidden" name="idcheck" value="" id="idcheck">
-					<div class="divresult"> </div><br> 
-				</div>
-				<div class="divresult"> </div><br> 
+				<input type="text" name="id" class="id" >
+				<input type="button" value="중복확인" class="dup" >
+				<input type="hidden" name="idcheck" value="" id="idcheck">
+				<div class="divresult"> </div><br>
 				<label>비밀번호</label> 
 				<input type="password" name="pass" class="pass"><br> 
 				<label>비밀번호 재확인</label> 
 				<input type="password" name="pass2" class="pass2"><br> 
 				<label>이름</label>
 				<input type="text" name="uname" class="uname"><br> 
-				성별
+				<label>성별</label>
 				<select name="gender">
 					<option value="남">남</option>
 					<option value="여">여</option>
@@ -310,8 +307,7 @@ label {
 				<label>주소</label>
 				<div>
 					<input type="text" id="sample4_postcode" name="postnum" style="width:530px; float:left;" class="postnum" placeholder="우편번호">
-					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="float:right;"><br>
-					<div class="divresult"> </div><br> 
+					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="float:right;"><br> 
 				</div>
 				<input type="text" id="sample4_roadAddress" class="address1" placeholder="도로명주소" name="address1">				
 				<span id="guide" style="color:#999;display:none"></span><br>
