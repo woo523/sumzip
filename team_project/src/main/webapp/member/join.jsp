@@ -154,6 +154,7 @@ legend {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
+  float: center;
 }
 
 fieldset {
