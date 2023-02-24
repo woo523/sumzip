@@ -14,17 +14,9 @@
     </head>
 <div id="wrap">
 		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/header.jsp" />
+		<jsp:include page="../inc/my_header.jsp" />
 		<!-- 헤더들어가는 곳 -->
-		<nav id="sidebar">
-			<ul>
-				<li><a href="MemberMyPage_user.me">내 정보 조회</a></li>
-				<li><a href="MemberMyList.me">내 이용목록</a></li>
-				<li><a href="ProductAppointManage.pr">예약관리</a></li>
-				<li><a href="MemberWishList.me">찜 목록</a></li>
-				<li><a href="MemberDeleteForm.me">회원탈퇴</a></li>
-			</ul>
-		</nav>
+		
 	</div>
 
 <%
@@ -42,49 +34,13 @@ if(id!=null){
 	%>
 
     <style>
-      #wrap {
-  width: 100%;
-  max-width: 1100px;
-  margin: 20px auto;
-/*   font-family: Arial, sans-serif; */
-  font-family: 'NanumSquareNeo';
-  border-radius: 10px;
- }
- 
-#sidebar{ 
-  	width: 250px;  
-    height: 1000px;    
- 	float: left; 
- }
- 
-#sidebar ul{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	}
 
-#sidebar li {
-	margin-bottom: 10px;
-	}
-
-#sidebar li a {
-	display: block;
-	color: #333;
-/* 	font-weight: bocld; */
-	padding: 10px;
-	border-radius: 5px;
-	transition: background-color 0.3s ease;
-	}
-
-#sidebar li a:hover {
-	background-color: #99b19c;
-	color: #fff;
-	}
 article{
 	font-family: 'NanumSquareNeo';
-  	max-width: 1000px;
- 	margin: 0 auto;
- 	padding: 50px;
+  	width: 900px;
+ 	margin-left: 700;
+ 	margin-top: 40;
+ 	margin-bottom: 300;
 }
 
 
@@ -113,7 +69,7 @@ article{
   
   #sidebar{
  	width: 250px; 
-   	height: 1000px;   
+   	height: 500px;   
 /*  	background-color: #98FD5D;  */ 
 	float: left;
 }
@@ -131,7 +87,7 @@ a.tablelink:active {
 }
     </style>
   
-  <article style="width: 70%">
+  <article>
 <div class="wishlistContainer">
 	<h3 class="heading-section">Wish List</h3>
 	</div>
