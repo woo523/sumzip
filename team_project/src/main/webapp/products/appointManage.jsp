@@ -27,6 +27,7 @@
     width: 800px;
    padding-left: 100px;
     margin-bottom: 100px;
+    margin-left: 200;
  
 }
 .table thead.thead-primary{
@@ -81,7 +82,7 @@ height: 150px;
  	%>
 		
 
- 	
+ 	<div id="wrap">
  <article class="art">	
   <div class="res">  
                <div class="col-lg-12">           
@@ -190,7 +191,7 @@ if(endPage < pageCount){
  %>
 
 </article>
-
+</div>
 <!-- <!-- 푸터 들어가는 곳 --> 
 <jsp:include page="../inc/footer.jsp" />
 <!-- <!-- 푸터 들어가는 곳 -->
