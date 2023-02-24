@@ -51,24 +51,23 @@ select option {
   font-size: 1rem;
 }
 
-  input[type="button"],  
-  input[type="submit"],  
-  input[type="reset"] {  
-    display: inline-block;  
-    padding: 10px;  
-    font-size: 1rem;  
-    color: #fff;  
-    background-color: #99b19c;  
-    border-radius: 5px;  
-    border: none;  
-    cursor: pointer;  
-  }  
+input[type="button"],   
+input[type="submit"],   
+input[type="reset"] {   
+	display: inline-block;   
+	padding: 10px;   
+	font-size: 1rem;   
+	color: #fff;   
+    background-color: #99b19c;   
+    border-radius: 5px;   
+    border: none;   
+   }   
 
-  input[type="button"]:hover,  
-  input[type="submit"]:hover,  
-  input[type="reset"]:hover {  
-    background-color: #113000; 
-  }  
+input[type="button"]:hover,   
+input[type="submit"]:hover,   
+input[type="reset"]:hover {   
+     background-color: #113000;  
+   }   
 
 label {
   display: block;
