@@ -69,13 +69,13 @@
 						<div class="row mb-3">
 							<label for="colFormLabel" class="col-sm-2 col-form-label">글제목</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=qdto.getQno() %>">
+								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=qdto.getQtitle() %>">
 							</div>
 						</div>
 						<div class="row mb-3">
 							<label for="colFormLabel" class="col-sm-2 col-form-label">글내용</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=qdto.getQno() %>">
+								<input type="text" class="form-control" id="colFormLabel" placeholder="<%=qdto.getQcontent() %>">
 							</div>
 						</div>
 					</div>
