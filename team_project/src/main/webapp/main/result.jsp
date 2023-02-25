@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="css/list.css" type="text/css">
     <link rel="stylesheet" href="css/insert.css" type="text/css">
     <link rel="stylesheet" href="css/mainList.css" type="text/css">
-    
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
@@ -42,6 +42,16 @@
         <link rel="stylesheet" href="css1/style.css">
 		
 		<link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+<style type="text/css">
+.container div .ri-text{
+	width: 360px;
+	height: 345px;
+}
+.container div .tableDetail {
+	width: 306px;
+	height: 150px;
+}
+</style>
 </head>
 <!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
@@ -107,8 +117,8 @@ String Date2=(String)request.getAttribute("Date2");
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul> 
-                                    <li><a href="Region1.me">제주시 조회</a></li>
-                                    <li><a href="Region2.me">서귀포시 조회</a></li>
+                                    <li><a href="Region1.me">제주시 펜션</a></li>
+                                    <li><a href="Region2.me">서귀포시 펜션</a></li>
                                     <li><a href="Recommend.me">추천 펜션</a></li>
                                     <li><a href="BoardList.bo">공지사항</a></li>
                                     <li><a href="QnaList.qa">Q&A</a></li>
@@ -279,7 +289,7 @@ String region=(String)request.getAttribute("region");
                             document.write(num.toLocaleString()+"원");
                             </script>
                             <span>/1박</span></h3></a>
-                            <table>
+                            <table class="tableDetail">
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>

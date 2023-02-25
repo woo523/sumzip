@@ -12,6 +12,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>섬집</title>
 
 <!--         main css -->
         <link rel="stylesheet" href="css1/style.css">
@@ -41,6 +42,18 @@
         <link rel="stylesheet" href="css1/style.css">
  
         <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
+        
+        
+<style type="text/css">
+.container div .ri-text{
+	width: 360px;
+	height: 345px;
+}
+.container div .tableDetail {
+	width: 306px;
+	height: 150px;
+}
+</style>
         
 </head>
 <body><!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
@@ -274,7 +287,7 @@ int pageCount=(Integer)request.getAttribute("pageCount");
                             document.write(num.toLocaleString()+"원");
                             </script>
                             <span>/1박</span></h3></a>
-                            <table>
+                            <table class="tableDetail">
                                 <tbody>
                                     <tr>
                                         <td class="r-o">주소 :</td>
