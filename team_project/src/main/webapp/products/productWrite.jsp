@@ -72,8 +72,10 @@ ProductDTO dto=new ProductDTO();
 String id=(String)session.getAttribute("id");
 // String utype=(String)session.getAttribute("utype");
 
+
 UserDAO dao = new UserDAO();
 UserDTO udto = dao.getUser(id);
+
 if(id==null){
 	response.sendRedirect("MemberLogin.me");	
 }else if(udto.getUtype()==2){
@@ -91,14 +93,13 @@ if(id==null){
 <div id="rap">
 <h3 class="heading-section">상품등록</h3>
 
-<form action="ProductUpdatePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
+<form action="ProductWritePro.pr" method="post" class="produpdate" enctype="multipart/form-data">
+	<input type="hidden" name="no" value="<%=udto.getNo()%>">
 	<table class="table">
 		<tr><td class="thead">아이디</td> 
-			<td class="tcontent"><input type="text" name="no" value="<%=id%>" readonly></td></tr>
-						
+			<td class="tcontent"><input type="text" name="id" value="<%=id%>" readonly></td></tr>	
 		<tr><td class="thead">펜션이름</td>
 			<td class="tcontent"><input type="text" name="pname"></td></tr>
-
 		<tr><td class="thead">펜션주소</td> 
 		<td class="tcontent"><label>우편번호</label> <input type="text" name="ppostnum"><br>
 							 <label>주소</label> <input type="text" name="paddress" ><br>
