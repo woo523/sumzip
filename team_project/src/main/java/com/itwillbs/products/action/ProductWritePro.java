@@ -24,13 +24,13 @@ public class ProductWritePro implements Action {
 		System.out.println(uploadPath);
 
 		int maxSize=10*1024*1024;
-		
+
 		// 업로드 파일이름 동일할때 => 파일이름변경(DefaultFileRenamePolicy)
 		MultipartRequest multi=new MultipartRequest
 		(request, uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
 
 		// [all 컬럼] 변수에 저장
-		int no = Integer.parseInt(request.getParameter("no"));
+		int no = Integer.parseInt(multi.getParameter("no"));
 		String pname= multi.getParameter("pname");
 		String paddress= multi.getParameter("paddress");
 		int ppostnum= Integer.parseInt(multi.getParameter("ppostnum"));
