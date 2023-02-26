@@ -24,9 +24,9 @@
 }
 .art{
 	 font-family: 'NanumSquareNeo';
-    width: 800px;
+    width: 900px;
    padding-left: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 300px;
     margin-left: 200;
  
 }

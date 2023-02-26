@@ -15,11 +15,17 @@
 <meta charset="UTF-8">
 <title>섬집</title>
 <style>
-article{
+#sidebar{
+   width: 250px; 
+   height: 500px;   
+   float: left;
+}
+.prolist{
 	font-family: 'NanumSquareNeo';
-  	max-width: 1200px;
- 	margin: 0 auto;
- 	padding: 100px;
+  	width:850px;
+ 	margin-left: 500px;
+ 	margin-top: 30px;
+ 	margin-bottom: 250px;
 }
 
 .table thead.thead-pri{
@@ -38,7 +44,7 @@ article{
     font-family: "Poppins", Arial, sans-serif;
     font-weight: bold; 
     text-align: center;
-    margin: 25px;     
+    margin: 10px;
 }
 #table_search{
 	float: right;  
@@ -49,9 +55,12 @@ article{
 
 <body>
 
-<!-- 헤더파일들어가는 곳 -->
-<jsp:include page="../inc/header.jsp" />
-
+<div id="wrap">
+		<!-- 헤더들어가는 곳 -->
+		<jsp:include page="../inc/my_header.jsp" />
+		<!-- 헤더들어가는 곳 -->		
+	</div>
+	
 <!--  한페이지에 보여줄 글 개수 -->
 <%
 
@@ -65,7 +74,7 @@ int endPage =(Integer)request.getAttribute("endPage");
 int pageCount =(Integer)request.getAttribute("pageCount");
 
 %>
-<article>
+<article class="prolist">
 <div class="qnalistContainer">
 <!-- 글쓰기 버튼 부분 -->
 <h3 class="heading-section">My Pension List</h3>
