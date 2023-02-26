@@ -80,6 +80,16 @@
 	#sub_menu span {
 		color: #777;
 	}
+	.heading-section {
+    font-size: 30px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;     
+}
 </style>
 </head>
 <body>
@@ -89,7 +99,7 @@
 <!-- 헤더들어가는 곳 -->
 
 <div id="wrap">
-		<h1>Login</h1>
+		<h1 class="heading-section">Login</h1>
 		<form action="MemberLoginPro.me" id="join" method="post">
 			<fieldset>
 				

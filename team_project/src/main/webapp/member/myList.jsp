@@ -64,7 +64,7 @@
  	
  	#myList ul #btns {
  		width: 150px;
- 		display:block;
+ 		display:table-row-group;
         margin:0 auto;
  	}
  	
