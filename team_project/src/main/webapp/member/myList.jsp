@@ -45,7 +45,7 @@
  	}
  	
  	#myList ul {
- 		margin: 50px 0px 30px 0px;
+ 		margin: 40px 0px 30px 0px;
  	}
  	
  	#myList ul li {
