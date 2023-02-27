@@ -22,18 +22,16 @@
 <title>섬집</title>
 <style type="text/css">
 	.wrap {
-		height: 700px;
-	}
-	
-  	.wrap #myList {
- 		font-family: 'NanumSquareNeo';
+		font-family: 'NanumSquareNeo';
 		max-width: 800px;
-		height: 100%;
+		height: 800px;
 		margin: 0 auto;
-		margin-left: 670px;
 		padding: 20px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		box-sizing: border-box;
- 	}
+	}
  	
  	#myList h3 {
  		font-family: 'NanumSquareNeoBold';
@@ -51,7 +49,10 @@
  	
  	#myList ul li {
  		list-style: none;
- 		
+ 	}
+ 	
+ 	#myList ul li {
+ 		cursor: pointer;
  	}
  	
  	#myList #timecheck {
@@ -66,17 +67,13 @@
  	
  	#myList ul #btns {
  		width: 150px;
-        margin:0 auto;
+        margin: 0 auto;
  	}
  	
  	footer {
- 		clear: left;
  		padding-top: 50px;
  	}
  	
- 	#myList ul img {
- 		float: left;
- 	}
 </style>
 </head>
 
@@ -146,11 +143,12 @@
 	%>
 	<ul>
 		<hr>
+		<li><a href="ProductContent.pr?pno=<%=adto.getPno() %>"><img src="upload/<%=housePic %>" width="150" height="150"></a></li>
 		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
 		<li id="timecheck">체크인 <%=format.format(appointIndate) %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(3) %>분</li>
 		<li id="timecheck">체크아웃 <%=format.format(appointOutdate) %> <%=houseOutTime.substring(0, 2) %>시 <%=houseOutTime.substring(3) %>분</li>
-<%-- 		<li><img src="upload/<%=housePic %>" width="150" height="150"></li> --%>
+		
 		
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			

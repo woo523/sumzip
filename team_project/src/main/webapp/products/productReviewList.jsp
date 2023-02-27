@@ -14,7 +14,6 @@
 <head>
 <meta charset="UTF-8">
 <title>섬집</title>
-</head>
 <style>
   	article {
   		font-family: 'NanumSquareNeo';
@@ -69,6 +68,7 @@
 		padding-top: 50px;
 	}
 </style>
+</head>
 
 <body>
 <%
