@@ -23,7 +23,7 @@
 .prolist{
 	font-family: 'NanumSquareNeo';
   	width:850px;
- 	margin-left: 500px;
+ 	margin-left: 650px;
  	margin-top: 30px;
  	margin-bottom: 250px;
 }

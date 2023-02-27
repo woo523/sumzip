@@ -37,10 +37,10 @@ if(id!=null){
 
 article{
 	font-family: 'NanumSquareNeo';
-  	width: 900px;
- 	margin-left: 500;
- 	margin-top: 40;
- 	margin-bottom: 300;
+  	width: 800px;
+ 	margin-left: 650px;
+ 	margin-top: 40px;
+ 	margin-bottom: 300px;
 }
 
 
