@@ -80,6 +80,7 @@ int bno = (Integer)request.getAttribute("bno");
 int no = (Integer)request.getAttribute("no");
 int count = (Integer)request.getAttribute("count");
 ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replylist");
+UserDTO sudto =(UserDTO)request.getAttribute("udto"); // 세션에 있는 회원 정보
 %>
    <section class="blog-details-section">
         <div class="conainer">
@@ -113,14 +114,17 @@ ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replyl
 								<% for(int i=0;i<replylist.size();i++){ 
 									ReplyDTO rdto = replylist.get(i);
 									UserDAO udao = new UserDAO();
-									UserDTO udto = udao.getUserNo(rdto.getNo());
+									UserDTO udto = udao.getUserNo(rdto.getNo()); // 댓글 회원 정보
 									%>
 									<div><span><%=rdto.getRdate()%></span>
 	                                <h5><%=udto.getId()%></h5>
 	                                <p><%=rdto.getRiply()%></p>
 	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>&bno=<%=bno%>"class="comment-btn">답댓글</a>
 	                                <%if(no==rdto.getNo()){ %>
-	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">수정</a>
+	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">수정</a><%} %>
+	                                <%
+	                                if(no==rdto.getNo()||sudto.getUtype()==3){
+	                                %>
 	                                <a href="BoardReplyDeletePro.bo?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
 <!-- 대댓글 리스트 -->
 									<%	
@@ -138,7 +142,10 @@ ArrayList<ReplyDTO> replylist= (ArrayList<ReplyDTO>)request.getAttribute("replyl
                                     <h5><%=udto.getId()%></h5>
                                     <p><%=cdto.getCommend()%></p>
                                     <%if(no==cdto.getNo()){ %>
-                                    <a href="BoardCommendUpdateForm.bo?cno=<%=cdto.getCno()%>" class="comment-btn like-btn">수정</a>
+                                    <a href="BoardCommendUpdateForm.bo?cno=<%=cdto.getCno()%>" class="comment-btn like-btn">수정</a><%} %>
+                                    <%
+	                                if(no==cdto.getNo()||sudto.getUtype()==3){
+	                                %>
                                     <a href="BoardCommendDeletePro.bo?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
                                 </div>
                                 <%if(j==commendlist.size()-1){%>
