@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>products/appointManage</title>
+<title>섬집</title>
 <style type="text/css">
 #sidebar{
    width: 250px; 
