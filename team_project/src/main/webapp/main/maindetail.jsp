@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>maindetail.jsp</title>
+<title>섬집</title>
 
 <style type="text/css">
 .container div .ri-text{

@@ -139,6 +139,10 @@ public class ReplyDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rno);
 			pstmt.executeUpdate();
+			sql = "delete from commend where rno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rno);
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

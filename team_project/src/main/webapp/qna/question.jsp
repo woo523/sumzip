@@ -10,7 +10,7 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>qna/question.jsp</title>
+<title>섬집</title>
 <style>
 article{
 	font-family: 'NanumSquareNeo';
