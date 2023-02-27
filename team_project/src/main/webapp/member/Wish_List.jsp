@@ -70,8 +70,7 @@ article{
   
   #sidebar{
  	width: 250px; 
-   	height: 500px;   
-/*  	background-color: #98FD5D;  */ 
+   	height: 700px;   
 	float: left;
 }
 a.tablelink:link {

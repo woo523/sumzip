@@ -30,6 +30,7 @@
 		max-width: 800px;
 		height: 100%;
 		margin: 0 auto;
+		margin-left: 670px;
 		padding: 20px;
 		box-sizing: border-box;
  	}
