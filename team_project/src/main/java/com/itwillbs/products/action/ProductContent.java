@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import member.ReviewDAO;
 import member.ReviewDTO;
@@ -30,6 +31,11 @@ public class ProductContent implements Action{
 		request.setAttribute("udto", udto);
 		
 		// ProductReviewList
+		HttpSession session = request.getSession();
+		String id = (String)request.getAttribute("id");
+		
+		request.setAttribute("id", id);
+		
 		// 페이징
 		// db 데이터 가져오기
 		ReviewDAO rdao = new ReviewDAO();

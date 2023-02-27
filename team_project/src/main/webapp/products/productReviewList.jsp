@@ -72,6 +72,8 @@
 
 <body>
 <%
+	String id = (String)session.getAttribute("id");
+
 	// 	해당 펜션 리뷰 리스트 출력
 	ArrayList<ReviewDTO> reviewList = (ArrayList<ReviewDTO>)request.getAttribute("reviewList");
 	
@@ -126,34 +128,39 @@
 			<%
 			UserDAO rudao = new UserDAO();
 			UserDTO rudto = rudao.getUserNo(rdto.getNo());
-			
+			String writer = rudto.getId();
 			%>
-			<li>작성자 : <%=rudto.getId() %></li>
+			<li>작성자 : <%=writer %></li>
 			<li>작성일자 : <%=getDateFm %></li>
 			<li id="contents"><%=rdto.getRcontent() %></li>
 			
 			<!-- 사진 1이 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("noimg.jpg")) { %>
+			<% if(rdto.getRpic1() == null || rdto.getRpic1().equals("null") || rdto.getRpic1().equals("noimg.jpg")) { %>
 				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="200"></li>
 			<% } else { %>
 				<li class="img"><img src="upload/<%=rdto.getRpic1()%>" width="200" height="200"></li>
 			<% } %> 
 			
 			<!-- 사진 2가 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("noimg.jpg")) { %>
+			<% if(rdto.getRpic2() == null || rdto.getRpic2().equals("null") || rdto.getRpic2().equals("noimg.jpg")) { %>
 				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 			<% } else { %>
 				<li class="img"><img src="upload/<%=rdto.getRpic2()%>" width="200" height="200"></li>
 			<% } %>
 			
 			<!-- 사진 3이 없을 때 안보이게 하기 -->
-			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("noimg.jpg")) { %>
+			<% if(rdto.getRpic3() == null || rdto.getRpic3().equals("null") || rdto.getRpic3().equals("noimg.jpg")) { %>
 				<li class="hiddenImg"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } else { %>
 				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } %>
-		</ul>
-		<%
+		
+		<% if(id.equals(writer)) { %>
+			<li><button type="button" id="btns" class="btn btn-outline-success" onclick="location.href='MemberReviewModifyForm.me?ano=<%=rdto.getAno()%>'">후기 수정하기</button>
+				<button type="button" id="btns" class="btn btn-outline-secondary" onclick="location.href='MemberReviewDelete.me?ano=<%=rdto.getAno()%>'">후기 삭제하기</button></li>
+		<% } %>
+			</ul>
+			<%
 		} // for
 		
 		} // 작성리뷰 확인 if

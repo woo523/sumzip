@@ -153,6 +153,7 @@ public class ReviewDAO {
 				rdto.setNo(rs.getInt("no"));
 				rdto.setRno(rs.getInt("rno"));
 				rdto.setPno(rs.getInt("pno"));
+				rdto.setAno(rs.getInt("ano"));
 				rdto.setRtitle(rs.getString("rtitle"));
 				rdto.setRstar(rs.getString("rstar"));
 				rdto.setRcontent(rs.getString("rcontent"));

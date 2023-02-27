@@ -56,14 +56,17 @@
  		list-style: none;
  		text-align: center;
  	}
- 	
- 	#myList img {
- 		float: left;
- 	}
- 	#myList img:hover {
- 		background: #E1E1E1;
- 	}
- 	
+
+	#myList #hrefImg {
+		float: left;
+		opacity: 1;
+		-webkit-transition: .3s ease-in-out;
+		transition: .3s ease-in-out;
+	}
+	#myList #hrefImg:hover {
+	  	opacity: .5;
+	}
+	
  	#myList #timecheck {
  		margin: 10px 20px 15px 10px;
  	}
@@ -150,10 +153,8 @@
 	%>
 	<ul>
 		<hr>
-		<!-- HTML to write -->
-
-
-		<li><a href="ProductContent.pr?pno=<%=adto.getPno() %>" data-toggle="tooltip" title="후기 보러가기"><img src="upload/<%=housePic %>" width="150" height="150"></a></li>
+		<li id="hrefImg"><a href="ProductContent.pr?pno=<%=adto.getPno() %>" data-toggle="tooltip" title="후기 보러가기">
+			<img src="upload/<%=housePic %>" width="150" height="150"></a></li>
 		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
 		<li id="timecheck">체크인 <%=format.format(appointIndate) %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(3) %>분</li>
