@@ -219,6 +219,13 @@ public class AdminFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}else if(sPath.equals("/AdminBoardReplyInsert.ad")) {
+				action = new AdminBoardReplyInsert();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		 
 		//---------------------------------------------

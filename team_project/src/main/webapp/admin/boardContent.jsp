@@ -111,7 +111,7 @@
                        <div class="leave-comment">
 <!-- 댓글쓰기 폼 -->
                             <h3 class="heading-section" style="padding-top: 45px;">Comment</h3>
-                            <form action="BoardReplyInsert.bo" class="comment-form">
+                            <form action="AdminBoardReplyInsert.ad" class="comment-form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" value="<%=id%>" readonly>
