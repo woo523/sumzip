@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="products.OwnerAppointmentDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="products.SalesDTO"%>
@@ -100,22 +101,37 @@ height: 80px;
  	for(int i=0;i<OwnerAppointmentList.size();i++){
  		//배열 한칸에 내용 가져오기 
  		OwnerAppointmentDTO oadto=OwnerAppointmentList.get(i);
- 		System.out.println(oadto.getAuser());
  		UserDAO adao = new UserDAO();
         UserDTO audto = adao.getUserNo(oadto.getAuser());
- 		
+        
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+ 		Date Outdate = format.parse(oadto.getOutdate());
+ 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+ 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+ 		Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
+		int resultOut = Outdate.compareTo(today);
+
  		%> 
- 	<tr><td> <%=oadto.getPname()%> </td> 
+ 	<tr><td><a href="ProductContent.pr?pno=<%=oadto.getPno()%>"> <%=oadto.getPname()%></a> </td> 
 	    <td> <%=audto.getUname()%> </td> 
 	    <td> <%=audto.getTel()%> </td> 
 	        <td class="a"> <% 
+	 		
+		
 	    if(oadto.getAstatus()==1){
  	    	out.print("입금대기");
  	    }else if(oadto.getAstatus()==2){
  	    	out.print("입금확인");
  	    }else if(oadto.getAstatus()==3){
- 	    	out.print("예약완료");
-  	    }%> </td>
+ 	    	if(resultOut<0){
+ 	    		out.print("숙박완료");
+ 	    	}else{
+  	    	out.print("예약완료");
+ 	    	}
+ 	    }
+ 	    %> </td>
+ 	    
   	     <td> <%=oadto.getIndate()%> </td> 
   	     <td> <%=oadto.getOutdate()%> </td> 
   	     <td>

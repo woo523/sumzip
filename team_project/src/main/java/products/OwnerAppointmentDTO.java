@@ -9,7 +9,14 @@ public class OwnerAppointmentDTO {
 	String outdate; // 퇴실일
 	int sprice; // 총 가격
 	String sdate; // 예약일
+	int pno; // 숙소번호
 
+	public int getPno() {
+		return pno;
+	}
+	public void setPno(int pno) {
+		this.pno = pno;
+	}
 	public String getPname() {
 		return pname;
 	}

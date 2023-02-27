@@ -184,9 +184,10 @@ public class AppointmentDAO {
 			if(con!=null) try { con.close();} catch (Exception e2) {}
 		}
 		return AppointmentList;
+	
 	}//getAppointmentList()
 	
-	
+
 	// 사장님 펜션 예약 리스트
 	public ArrayList<OwnerAppointmentDTO> getownerAppointmentList(int no, int startRow,int pageSize){
 		ArrayList<OwnerAppointmentDTO> OwnerAppointmentList=new ArrayList<OwnerAppointmentDTO>();
@@ -195,7 +196,7 @@ public class AppointmentDAO {
 		ResultSet rs=null;
 		try {
 			con=getConnection();
-			String sql="select p.pname, a.no auser, a.astatus, p.no puser, s.indate indate, s.outdate outdate, s.sprice, s.sdate\r\n"
+			String sql="select p.pname, a.no auser, s.pno, a.astatus, p.no puser, s.indate indate, s.outdate outdate, s.sprice, s.sdate\r\n"
 					+ "from sales s join products p\r\n"
 					+ "on s.pno = p.pno\r\n"
 					+ "join appointment a\r\n"
@@ -210,6 +211,7 @@ public class AppointmentDAO {
 				OwnerAppointmentDTO dto=new OwnerAppointmentDTO();
 				dto.setPname(rs.getString("pname"));
 				dto.setAuser(rs.getInt("auser"));
+				dto.setPno(rs.getInt("pno"));
 				dto.setAstatus(rs.getInt("astatus"));
 				dto.setPuser(rs.getInt("puser"));
 				dto.setIndate(rs.getString("indate"));
