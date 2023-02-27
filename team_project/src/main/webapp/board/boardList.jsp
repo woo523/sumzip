@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>board/boardList.jsp</title>
+<title>섬집</title>
 <script type="text/javascript" src="script/jquery-3.6.3.js"></script>
 <style>
 article{

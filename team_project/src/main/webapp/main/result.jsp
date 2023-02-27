@@ -13,7 +13,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+<title>섬집</title>
 <!--         main css -->
         <link rel="stylesheet" href="css1/style.css">
 <!--    	 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->

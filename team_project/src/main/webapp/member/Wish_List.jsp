@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">  
     <head>
     <meta charset="UTF-8">
-    <title>Wish_List</title>
+    <title>섬집</title>
     </head>
 
 <!-- 헤더들어가는 곳 -->
