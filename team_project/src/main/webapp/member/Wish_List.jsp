@@ -12,12 +12,12 @@
     <meta charset="UTF-8">
     <title>Wish_List</title>
     </head>
-<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/my_header.jsp" />
-		<!-- 헤더들어가는 곳 -->
+
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/my_header.jsp" />
+<!-- 헤더들어가는 곳 -->
 		
-	</div>
+
 
 <%
 request.setCharacterEncoding("utf-8");

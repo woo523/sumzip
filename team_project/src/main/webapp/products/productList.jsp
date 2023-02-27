@@ -55,11 +55,11 @@
 
 <body>
 
-<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/my_header.jsp" />
-		<!-- 헤더들어가는 곳 -->		
-	</div>
+
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/my_header.jsp" />
+<!-- 헤더들어가는 곳 -->		
+
 	
 <!--  한페이지에 보여줄 글 개수 -->
 <%

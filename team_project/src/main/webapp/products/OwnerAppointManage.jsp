@@ -17,7 +17,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>products/appointManage</title>
+<title>섬집</title>
 <style type="text/css">
 #sidebar{
    width: 250px; 
@@ -61,12 +61,12 @@ height: 80px;
 </style>
 </head>
 <body>
-<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/my_header.jsp" />
-		<!-- 헤더들어가는 곳 -->
+
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/my_header.jsp" />
+<!-- 헤더들어가는 곳 -->
 		
-	</div>
+
     <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 

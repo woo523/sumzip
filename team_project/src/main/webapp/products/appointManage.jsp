@@ -62,12 +62,12 @@ height: 150px;
 </style>
 </head>
 <body>
-<div id="wrap">
-	<!-- 헤더들어가는 곳 -->
-	<jsp:include page="../inc/my_header.jsp" />
-	<!-- 헤더들어가는 곳 -->
+
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/my_header.jsp" />
+<!-- 헤더들어가는 곳 -->
 		
-	</div>
+
 <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 
