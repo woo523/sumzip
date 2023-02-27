@@ -23,10 +23,10 @@
    height: 500px;   
    float: left;
 }
-.art{
+.ownerart{
 	 font-family: 'NanumSquareNeo';
-    width: 900px;
-   padding-left: 100px;
+    width: 1000px;
+   padding-left: 50px;
     margin-bottom: 300px;
     margin-left: 200;
  
@@ -83,7 +83,7 @@ height: 80px;
 		
 
  	<div id="wrap">
- <article class="art">	
+ <article class="ownerart">	
   <div class="res">  
                <div class="col-lg-12">           
                      <h3 class="heading-section">My Pension Reservation</h3><br> 
