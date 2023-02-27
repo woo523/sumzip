@@ -45,22 +45,20 @@
  	}
  	
  	#myList ul {
- 		margin: 40px 0px 30px 0px;
+ 		margin: 50px 0px 40px 0px;
  	}
  	
  	#myList ul li {
  		list-style: none;
+ 		text-align: center;
  	}
  	
- 	#myList ul li {
- 		cursor: pointer;
- 		text-align: center;
+ 	#myList img {
+ 		float: left;
  	}
  	
  	#myList #timecheck {
  		margin: 10px 20px 15px 10px;
- 		color : black;
-
  	}
  	
  	#myList ul button {
@@ -75,9 +73,7 @@
  	footer {
  		padding-top: 50px;
  	}
- 	img{
- 	float: left;
- 	}
+ 	
 </style>
 </head>
 
