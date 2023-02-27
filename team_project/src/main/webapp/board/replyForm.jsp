@@ -7,6 +7,7 @@
 <%@page import="member.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,28 +31,24 @@
     <link rel="stylesheet" href="css/list.css" type="text/css">
     <link rel="stylesheet" href="css/insert.css" type="text/css">
     <link rel="stylesheet" href="css/mainList.css" type="text/css">
-    
+<style type="text/css">
 
-<!-- <script type="text/javascript" src="../script/jquery-3.6.3.js"></script> -->
-<!-- <script type="text/javascript"> -->
+@font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
-<!--   $(document).ready(function(){ -->
-<!--  	 $.ajax({ -->
-<!--  			url:"replyJsonarr.jsp", -->
-<!--  			dataType:"json", -->
-<!--  			success:function(arr){ -->
-<!--  				$.each(arr,function(index,item){ -->
-<!--  					$('.comment1').append('<div><span>'+item.rdate+'</span><h5>'+item.id+'</h5><p>'+item.riply+ -->
-<!--  					'</p><a href="replyUpdateForm.jsp?rno='+item.rno+ -->
-<!--  					'"class="comment-btn">수정</a><a href="replyDeletePro.jsp?rno='+item.rno+'" class="comment-btn">삭제</a></div>'); -->
+#me{
+    font-family: 'Dovemayo_gothic';
+	color:white;
+	font-size: 11pt;
+	background-color: #96A695;
 
-<!--  				});// each -->
-<!--  			}// success -->
-<!--  		}); //ajax	// 댓글 리스트 -->
-
-<!--   }); // ready -->
-
-<!--  </script> -->
+	
+}
+</style>
 
 
 
@@ -117,7 +114,12 @@ UserDTO sudto =(UserDTO)request.getAttribute("udto"); // 세션에 있는 회원
 									UserDTO udto = udao.getUserNo(rdto.getNo()); // 댓글 회원 정보
 									%>
 									<div><span><%=rdto.getRdate()%></span>
-	                                <h5><%=udto.getId()%></h5>
+	                                <h5><%=udto.getId()%>
+	                                <%if(udto.getUtype()==2){ %>
+	                                <span id="me">&nbsp;사장님&nbsp;</span><%
+	                                }else if(udto.getUtype()==3){ %>
+	                                <span id="me">&nbsp;관리자&nbsp;</span><%} %> 
+	                                </h5>
 	                                <p><%=rdto.getRiply()%></p>
 	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>&bno=<%=bno%>"class="comment-btn">답댓글</a>
 	                                <%if(no==rdto.getNo()){ %>
@@ -139,7 +141,12 @@ UserDTO sudto =(UserDTO)request.getAttribute("udto"); // 세션에 있는 회원
 								<Br><div class="single-comment-item reply-comment"><%}%>
                                 <div class="sc-text">
                                     <span><%=cdto.getCdate()%></span>
-                                    <h5><%=udto.getId()%></h5>
+                                    <h5><%=udto.getId()%>
+                                    <%if(udto.getUtype()==2){ %>
+	                                <span id="me">&nbsp;사장님&nbsp;</span><%
+	                                }else if(udto.getUtype()==3){ %>
+	                                <span id="me">&nbsp;관리자&nbsp;</span><%} %> 
+	                                </h5>
                                     <p><%=cdto.getCommend()%></p>
                                     <%if(no==cdto.getNo()){ %>
                                     <a href="BoardCommendUpdateForm.bo?cno=<%=cdto.getCno()%>" class="comment-btn like-btn">수정</a><%} %>
