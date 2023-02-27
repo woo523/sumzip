@@ -13,6 +13,7 @@
 <style type="text/css">
  #rap {
   width: 600px;
+  height: 700px;
   margin: 50px auto;
   margin-bottom: 70px;
   background-color: #fff;
@@ -27,8 +28,6 @@ legend {
   font-weight: bold;
   margin-bottom: 20px;
 }
-
-
 
 input[type="text"],
 input[type="password"],
