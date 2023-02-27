@@ -32,6 +32,10 @@
 		justify-content: center;
 		box-sizing: border-box;
 	}
+	
+	#myList {
+		margin-left: 130px;
+	}
  	
  	#myList h3 {
  		font-family: 'NanumSquareNeoBold';
