@@ -38,6 +38,7 @@ if(id!=null){
 article{
 	font-family: 'NanumSquareNeo';
   	width: 850px;
+  	height: 700px;
  	margin-left: 650px;
  	margin-top: 40px;
  	margin-bottom: 300px;

@@ -19,14 +19,15 @@
 <style type="text/css">
 #sidebar{
    width: 250px; 
-   height: 500px;   
+   height: 700px;   
    float: left;
 }
 .art{
-	 font-family: 'NanumSquareNeo';
+ 	font-family: 'NanumSquareNeo';
     width: 900px;
-   padding-left: 100px;
-    margin-bottom: 300px;
+    height: 700px;
+  	padding-left: 100px;
+/*     margin-bottom: 300px; */
     margin-left: 200;
  
 }
@@ -62,12 +63,12 @@ height: 150px;
 </head>
 <body>
 <div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/my_header.jsp" />
-		<!-- 헤더들어가는 곳 -->
+	<!-- 헤더들어가는 곳 -->
+	<jsp:include page="../inc/my_header.jsp" />
+	<!-- 헤더들어가는 곳 -->
 		
 	</div>
-    <%
+<%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 
  ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
@@ -79,17 +80,17 @@ height: 150px;
 	
  SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 	
- 	%>
+%>
 		
 
- 	<div id="wrap">
+<div id="wrap">
  <article class="art">	
   <div class="res">  
-               <div class="col-lg-12">           
-                     <h3 class="heading-section">Reservation</h3><br> 
-                     <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
-                     	예금주 : (주)섬집</a>
-        		 </div> 
+       <div class="col-lg-12">           
+             <h3 class="heading-section">Reservation</h3><br> 
+             <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
+             	예금주 : (주)섬집</a>
+	   </div> 
     </div>
 	<div><table class="table">
 	<thead class="thead-primary"> 
