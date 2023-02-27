@@ -20,7 +20,6 @@ public class QuestionDelete implements Action{
 		// list.jsp 이동
 		ActionForward forward = new ActionForward();
 		forward.setPath("QnaList.qa");
-		forward.setRedirect(true);
 		
 		return forward;
 	}

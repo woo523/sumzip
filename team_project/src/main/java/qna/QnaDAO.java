@@ -237,7 +237,7 @@ public class QnaDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			String sql = "delete from qna where qno=?";
+			String sql = "update qna set answer=null, qstatus=1  where qno=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qno);
 			pstmt.executeUpdate();
