@@ -26,9 +26,9 @@
 	}
 
 	#wrap {
-		margin: 40px auto;
+		margin: 60px auto;
 		width: 90%;
-		margin-bottom: 60px;
+		margin-bottom: 207px;
 		max-width: 600px;
 		padding: 20px;
 		background-color: #fff;

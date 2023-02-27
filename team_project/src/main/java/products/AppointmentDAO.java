@@ -201,7 +201,7 @@ public class AppointmentDAO {
 					+ "on s.pno = p.pno\r\n"
 					+ "join appointment a\r\n"
 					+ "on a.pno = p.pno\r\n"
-					+ "where p.no = ? order by p.pname asc limit ?, ?";
+					+ "where p.no = ? order by s.sdate desc limit ?, ?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, no);
 			pstmt.setInt(2, startRow-1);
