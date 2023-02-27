@@ -102,6 +102,7 @@
 						%>
 					</div>
 				<!-- 댓글 영역 들어가는 곳 -->
+							
 				<section class="blog-details-section">
         <div class="conainer">
             <div class="row">
@@ -141,8 +142,8 @@
 	                                <p><%=rdto.getRiply()%></p>
 	                                <a href="BoardCommendForm.bo?rno=<%=rdto.getRno()%>&bno=<%=bno%>"class="comment-btn">답댓글</a>
 	                                <%if(no==rdto.getNo()){ %>
-	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">수정</a>
-	                                <a href="BoardReplyDeletePro.bo?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a><%} %></div>				
+	                                <a href="BoardReplyUpdateForm.bo?rno=<%=rdto.getRno()%>"class="comment-btn">수정</a><%} %>
+	                                <a href="AdminBoardReplyDeletePro.ad?rno=<%=rdto.getRno()%>" class="comment-btn">삭제</a></div>				
 <!-- 대댓글 리스트 -->
 									<%	
 									CommendDAO cdao = new CommendDAO();
@@ -159,8 +160,8 @@
                                     <h5><%=udto.getId()%></h5>
                                     <p><%=cdto.getCommend()%></p>
                                     <%if(no==cdto.getNo()){ %>
-                                    <a href="BoardCommendUpdateForm.bo?cno=<%=cdto.getCno()%>" class="comment-btn like-btn">수정</a>
-                                    <a href="BoardCommendDeletePro.bo?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a><%} %>
+                                    <a href="BoardCommendUpdateForm.bo?cno=<%=cdto.getCno()%>" class="comment-btn like-btn">수정</a><%} %>
+                                    <a href="AdminBoardCommendDeletePro.ad?cno=<%=cdto.getCno()%>" class="comment-btn reply-btn">삭제</a>
                                 </div>
                                 <%if(j==commendlist.size()-1){%>
                                 </div>

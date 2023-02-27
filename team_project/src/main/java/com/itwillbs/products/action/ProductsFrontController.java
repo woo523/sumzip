@@ -117,6 +117,14 @@ public class ProductsFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 				
+			}else if(sPath.equals("/ProductOwnerAppointManage.pr")) {
+				action=new ProductOwnerAppointManage();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
 			}
 			
 	
