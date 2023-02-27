@@ -41,10 +41,11 @@
  	#myList h5 {
  		font-family: 'NanumSquareNeoBold';
 		margin: 10px;
+		text-align: center;
  	}
  	
  	#myList ul {
- 		margin: 30px 0px 30px 0px;
+ 		margin: 50px 0px 30px 0px;
  	}
  	
  	#myList ul li {
@@ -53,12 +54,13 @@
  	
  	#myList ul li {
  		cursor: pointer;
+ 		text-align: center;
  	}
  	
  	#myList #timecheck {
- 		margin: 0px 20px 10px 0px;
+ 		margin: 10px 20px 15px 10px;
  		color : black;
-        display: inline-block;
+
  	}
  	
  	#myList ul button {
@@ -73,7 +75,9 @@
  	footer {
  		padding-top: 50px;
  	}
- 	
+ 	img{
+ 	float: left;
+ 	}
 </style>
 </head>
 
