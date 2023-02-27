@@ -21,7 +21,7 @@
  
 #sidebar{ 
   	width: 250px;  
-    height: 500px;    
+    height: 1000px;    
  	float: left; 
  }
  

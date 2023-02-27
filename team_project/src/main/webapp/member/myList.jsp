@@ -58,13 +58,10 @@
  	
  	#myList ul button {
  		margin-top: 10px;
- 		display:block;
-        margin:auto;
  	}
  	
  	#myList ul #btns {
  		width: 150px;
- 		display:table-row-group;
         margin:0 auto;
  	}
  	
