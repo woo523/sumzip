@@ -60,7 +60,7 @@ public class BoardContent implements Action{
 		request.setAttribute("count", count);
 		request.setAttribute("no", no);
 		request.setAttribute("bno", bno);
-		
+		request.setAttribute("udto", udto);
 		
 		
 		ActionForward forward = new ActionForward();

@@ -10,14 +10,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">  
     <head>
     <meta charset="UTF-8">
-    <title>Wish_List</title>
+    <title>섬집</title>
     </head>
-<div id="wrap">
-		<!-- 헤더들어가는 곳 -->
-		<jsp:include page="../inc/my_header.jsp" />
-		<!-- 헤더들어가는 곳 -->
+
+<!-- 헤더들어가는 곳 -->
+<jsp:include page="../inc/my_header.jsp" />
+<!-- 헤더들어가는 곳 -->
 		
-	</div>
+
 
 <%
 request.setCharacterEncoding("utf-8");
@@ -37,10 +37,11 @@ if(id!=null){
 
 article{
 	font-family: 'NanumSquareNeo';
-  	width: 900px;
- 	margin-left: 500;
- 	margin-top: 40;
- 	margin-bottom: 300;
+  	width: 850px;
+  	height: 700px;
+ 	margin-left: 650px;
+ 	margin-top: 40px;
+ 	margin-bottom: 300px;
 }
 
 
@@ -69,8 +70,7 @@ article{
   
   #sidebar{
  	width: 250px; 
-   	height: 500px;   
-/*  	background-color: #98FD5D;  */ 
+   	height: 700px;   
 	float: left;
 }
 a.tablelink:link {

@@ -21,15 +21,21 @@
 <meta charset="UTF-8">
 <title>섬집</title>
 <style type="text/css">
-  	.wrap #myList {
- 		font-family: 'NanumSquareNeo';
+	.wrap {
+		font-family: 'NanumSquareNeo';
 		max-width: 800px;
-		height: 100%;
+		height: 800px;
 		margin: 0 auto;
-		height: 100%;
 		padding: 20px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		box-sizing: border-box;
- 	}
+	}
+	
+	#myList {
+		margin-left: 130px;
+	}
  	
  	#myList h3 {
  		font-family: 'NanumSquareNeoBold';
@@ -39,39 +45,42 @@
  	#myList h5 {
  		font-family: 'NanumSquareNeoBold';
 		margin: 10px;
+		text-align: center;
  	}
  	
  	#myList ul {
- 		margin: 30px 0px 30px 0px;
+ 		margin: 50px 0px 40px 0px;
  	}
  	
  	#myList ul li {
  		list-style: none;
- 		
+ 		text-align: center;
+ 	}
+ 	
+ 	#myList img {
+ 		float: left;
+ 	}
+ 	#myList img:hover {
+ 		background: #E1E1E1;
  	}
  	
  	#myList #timecheck {
- 		margin: 0px 20px 10px 0px;
- 		color : black;
-        display: inline-block;
+ 		margin: 10px 20px 15px 10px;
  	}
  	
  	#myList ul button {
  		margin-top: 10px;
- 		display:block;
-        margin:auto;
  	}
  	
  	#myList ul #btns {
  		width: 150px;
- 		display:block;
-        margin:0 auto;
+        margin: 0 auto;
  	}
  	
  	footer {
- 		clear: left;
  		padding-top: 50px;
  	}
+ 	
 </style>
 </head>
 
@@ -96,7 +105,7 @@
 </header>
 
 <div class="wrap">
-	<form name="myListForm.me" action="" id="myList" method="get">
+	<form name="myListForm.me" id="myList" method="get">
 	<h3>내 이용 내역</h3>
 <% 
 	// 예약 내역 확인
@@ -113,6 +122,7 @@
 		ProductDAO pdao = new ProductDAO();
 		ProductDTO pdto = pdao.getProduct(adto.getPno());
 		
+		String housePic = pdto.getPpic1();	// 펜션 대표 이미지
 		String houseName = pdto.getPname(); // 펜션 이름
 		String houseInTime = pdto.getCheckin(); // 체크인 시간
 		String houseOutTime = pdto.getCheckout(); // 체크아웃 시간
@@ -139,11 +149,17 @@
 		
 	%>
 	<ul>
-		<hr><li>예약일자 : <%=appointdate %></li>
+		<hr>
+		<!-- HTML to write -->
+
+
+		<li><a href="ProductContent.pr?pno=<%=adto.getPno() %>" data-toggle="tooltip" title="후기 보러가기"><img src="upload/<%=housePic %>" width="150" height="150"></a></li>
+		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
 		<li id="timecheck">체크인 <%=format.format(appointIndate) %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(3) %>분</li>
 		<li id="timecheck">체크아웃 <%=format.format(appointOutdate) %> <%=houseOutTime.substring(0, 2) %>시 <%=houseOutTime.substring(3) %>분</li>
-
+		
+		
 		<!-- 후기 작성 여부 확인 후 버튼 활성화 -->
 		<%			
 		ReviewDAO rdao = new ReviewDAO();

@@ -12,6 +12,9 @@
 </head>
 <style>
 #rap {
+	height: 700px;
+}
+#delete {
   width: 600px;
   margin: 50px auto;
   margin-bottom: 200px;
@@ -54,14 +57,14 @@ select option {
 input[type="button"],
 input[type="submit"]{
   background-color: #99b19c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-right: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            float: right;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  float: right;
 }
 
   input[type="button"]:hover,  

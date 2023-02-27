@@ -184,7 +184,54 @@ public class AppointmentDAO {
 			if(con!=null) try { con.close();} catch (Exception e2) {}
 		}
 		return AppointmentList;
+	
 	}//getAppointmentList()
+	
+
+	// 사장님 펜션 예약 리스트
+	public ArrayList<OwnerAppointmentDTO> getownerAppointmentList(int no, int startRow,int pageSize){
+		ArrayList<OwnerAppointmentDTO> OwnerAppointmentList=new ArrayList<OwnerAppointmentDTO>();
+		Connection con =null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select p.pname, a.no auser, s.pno, a.astatus, p.no puser, s.indate indate, s.outdate outdate, s.sprice, s.sdate\r\n"
+					+ "from sales s join products p\r\n"
+					+ "on s.pno = p.pno\r\n"
+					+ "join appointment a\r\n"
+					+ "on a.pno = p.pno\r\n"
+					+ "where p.no = ? order by s.sdate desc limit ?, ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, startRow-1);
+			pstmt.setInt(3, pageSize);
+			rs=pstmt.executeQuery();	
+			while(rs.next()) {
+				OwnerAppointmentDTO dto=new OwnerAppointmentDTO();
+				dto.setPname(rs.getString("pname"));
+				dto.setAuser(rs.getInt("auser"));
+				dto.setPno(rs.getInt("pno"));
+				dto.setAstatus(rs.getInt("astatus"));
+				dto.setPuser(rs.getInt("puser"));
+				dto.setIndate(rs.getString("indate"));
+				dto.setOutdate(rs.getString("outdate"));
+				dto.setSprice(rs.getInt("sprice"));
+				dto.setSdate(rs.getString("sdate"));
+				
+				OwnerAppointmentList.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(rs!=null) try { rs.close();} catch (Exception e2) {}
+			if(pstmt!=null) try { pstmt.close();} catch (Exception e2) {}
+			if(con!=null) try { con.close();} catch (Exception e2) {}
+		}
+		return OwnerAppointmentList;
+	}//getAppointmentList()
+	
+	
 			
 	// 예약리스트 조회
 	public ArrayList<AppointmentDTO> getAppointmentList2(int startRow,int pageSize){

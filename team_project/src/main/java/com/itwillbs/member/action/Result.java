@@ -50,6 +50,18 @@ public class Result implements Action {
         String Date5=Date2.substring(4, 6);
         String Date6=Date2.substring(6);
         Date2=Date4+"-"+Date5+"-"+Date6;
+        // 입실일이 과거면 안되게 하는 기능
+        LocalDate nowDate = LocalDate.parse(Date);
+        if(startDate.isBefore(nowDate)) {
+        	response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('입실일이 과거입니다.')");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+        }
+        
 		//페이징
 		int pageSize=9;// 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");

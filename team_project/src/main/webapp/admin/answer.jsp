@@ -63,11 +63,9 @@ history.back();
 						</div>
 					</div>
 					<div class="peigingu">
-						<input type="button" value="글목록" class="ppp" onclick="location.href='AdminQnaList.ad'"> 
-						
+						<input type="button" value="글목록" class="ppp" onclick="location.href='AdminQnaList.ad'"> 	
 						<input type="button" value="글수정" class="ppp" onclick="location.href='AdminAnswerUpdateForm.ad?qno=<%=qdto.getQno() %>'">
-						
-						<input type="button" value="글삭제" class="ppp" onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
+						<input type="button" value="답변삭제" class="ppp" onclick="location.href='AdminAnswerDelete.ad?qno=<%=qdto.getQno() %>'">
 					</div>
 					
 				</div>

@@ -81,7 +81,7 @@
 					</div>
 					<div class="peigingu" role="group" aria-label="Basic example">
 						<button type="button" class="ppp"onclick="location.href='AdminQnaList.ad'">글목록</button>
-						
+						<input type="button" value="글전체삭제" class="ppp" onclick="location.href='AdminQuestionDelete.ad?qno=<%=qdto.getQno() %>'">
 						<!-- 답변이 있을때만 답변확인버튼 보이게 -->
 						<%
 						if(qdto.getAnswer() != null){ 

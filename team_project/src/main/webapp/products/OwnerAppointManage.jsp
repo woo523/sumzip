@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="products.OwnerAppointmentDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="products.SalesDTO"%>
 <%@page import="products.SalesDAO"%>
@@ -19,15 +21,14 @@
 <style type="text/css">
 #sidebar{
    width: 250px; 
-   height: 700px;   
+   height: 500px;   
    float: left;
 }
-.art{
- 	font-family: 'NanumSquareNeo';
-    width: 900px;
-    height: 700px;
-  	padding-left: 100px;
-/*     margin-bottom: 300px; */
+.ownerart{
+	 font-family: 'NanumSquareNeo';
+    width: 1000px;
+   padding-left: 50px;
+    margin-bottom: 300px;
     margin-left: 200;
  
 }
@@ -51,11 +52,9 @@ color: #22741C;
 font-weight: bold;
 }
 
-.count{
-float: right;	
-}
+
 .res{
-height: 150px;
+height: 80px;
 
 }
 
@@ -68,65 +67,80 @@ height: 150px;
 <!-- 헤더들어가는 곳 -->
 		
 
-<%
+    <%
  String id=(String)session.getAttribute("id"); //id 세션값 불러오기 
 
- ArrayList<AppointmentDTO> AppointmentList=(ArrayList<AppointmentDTO>)request.getAttribute("AppointmentList");
+ ArrayList<OwnerAppointmentDTO> OwnerAppointmentList=(ArrayList<OwnerAppointmentDTO>)request.getAttribute("OwnerAppointmentList");
 
  int startPage=(Integer)request.getAttribute("startPage");
  int pageBlock=(Integer)request.getAttribute("pageBlock");
  int endPage=(Integer)request.getAttribute("endPage");
  int pageCount=(Integer)request.getAttribute("pageCount");
+ UserDTO udto = (UserDTO)request.getAttribute("udto"); // 로그인 한 사람 정보
+
+//  SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
 	
- SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy.MM.dd");	
-	
-%>
+ 	%>
 		
 
-<div id="wrap">
- <article class="art">	
+ 	<div id="wrap">
+ <article class="ownerart">	
   <div class="res">  
-       <div class="col-lg-12">           
-             <h3 class="heading-section">Reservation</h3><br> 
-             <a class="count">계좌번호 : 아이티윌뱅크 72402170917<br>
-             	예금주 : (주)섬집</a>
-	   </div> 
+               <div class="col-lg-12">           
+                     <h3 class="heading-section">My Pension Reservation</h3><br> 
+
+        		 </div> 
     </div>
 	<div><table class="table">
 	<thead class="thead-primary"> 
-<!-- 	 로그인한 사용자의 예약 리스트와 예약취소 --> 
- 	<tr><td> 예약번호 </td><td> 펜션명 </td><td> 예약상태 </td> 
- 	<td> 예약일자 </td><td>총 금액</td><td> 예약취소 </td></tr> 
+<!-- 	 내 펜션 예약 리스트 --> 
+ 	<tr><td> 펜션명 </td><td> 예약자명 </td><td> 연락처 </td><td> 예약상태 </td> 
+ 	<td> 입실일 </td><td> 퇴실일 </td><td> 총금액 </td><td> 예약일 </td></tr> 
  	</thead>
  	<% 
- 	for(int i=0;i<AppointmentList.size();i++){
+ 	for(int i=0;i<OwnerAppointmentList.size();i++){
  		//배열 한칸에 내용 가져오기 
- 		AppointmentDTO adto=AppointmentList.get(i);
- 		
-		ProductDAO pdao = new ProductDAO();
-		ProductDTO pdto = pdao.getProduct(adto.getPno());
- 		SalesDAO sdao = new SalesDAO();
- 		SalesDTO sdto = sdao.getSalesAno(adto.getAno());
+ 		OwnerAppointmentDTO oadto=OwnerAppointmentList.get(i);
+ 		UserDAO adao = new UserDAO();
+        UserDTO audto = adao.getUserNo(oadto.getAuser());
+        
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+ 		Date Outdate = format.parse(oadto.getOutdate());
+ 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+ 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+ 		Date today = new Date(formatter.parse(todayfm).getTime()); // 오늘 날짜
+		int resultOut = Outdate.compareTo(today);
+
  		%> 
- 	<tr><td> <%=adto.getAno()%> </td> 
-	    <td> <%=pdto.getPname()%> </td> 
+ 	<tr><td><a href="ProductContent.pr?pno=<%=oadto.getPno()%>"> <%=oadto.getPname()%></a> </td> 
+	    <td> <%=audto.getUname()%> </td> 
+	    <td> <%=audto.getTel()%> </td> 
 	        <td class="a"> <% 
-	    if(adto.getAstatus()==1){
+	 		
+		
+	    if(oadto.getAstatus()==1){
  	    	out.print("입금대기");
- 	    }else if(adto.getAstatus()==2){
+ 	    }else if(oadto.getAstatus()==2){
  	    	out.print("입금확인");
- 	    }else if(adto.getAstatus()==3){
- 	    	out.print("예약완료");
-  	    }%> </td>
-	    <td> <%=dateFormat.format(adto.getAdate())%> </td> 
-	    <td>
-	     <script type="text/javascript">
-          var num = <%=sdto.getSprice()%>;
+ 	    }else if(oadto.getAstatus()==3){
+ 	    	if(resultOut<0){
+ 	    		out.print("숙박완료");
+ 	    	}else{
+  	    	out.print("예약완료");
+ 	    	}
+ 	    }
+ 	    %> </td>
+ 	    
+  	     <td> <%=oadto.getIndate()%> </td> 
+  	     <td> <%=oadto.getOutdate()%> </td> 
+  	     <td>
+  	     <script type="text/javascript">
+          var num = <%=oadto.getSprice()%>;
           document.write(num.toLocaleString()+"원");
          </script>
-         /<%=sdto.getSprice()/pdto.getPprice()%>박
-	    </td>
-	    <td><button type="button" class="btn btn-outline-secondary" onclick="location.href='ProductAppointManagePro.pr?ano=<%=adto.getAno()%>'">Cancel</button></td></tr>
+         </td>
+	    <td> <%=oadto.getSdate()%> </td></tr>
 		<%
  	}
  	%> 
@@ -167,7 +181,7 @@ height: 150px;
 
 if(startPage > pageBlock){
 	%>
-	<a href="ProductAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
+	<a href="ProductOwnerAppointManage.pr?pageNum=<%=startPage-pageBlock%>">[10페이지 이전]</a>
 	<%
 }
  %>
@@ -176,7 +190,7 @@ if(startPage > pageBlock){
  for(int i=startPage;i<=endPage;i++){
 	%>
 	
-	<a href="ProductAppointManage.pr?pageNum=<%=i%>"><%=i%></a>
+	<a href="ProductOwnerAppointManage.pr?pageNum=<%=i%>"><%=i%></a>
 	<%
 }
  %> 

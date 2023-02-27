@@ -10,7 +10,7 @@
 <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>qna/question.jsp</title>
+<title>섬집</title>
 <style>
 article{
 	font-family: 'NanumSquareNeo';
@@ -118,14 +118,13 @@ int qno=(Integer)request.getAttribute("qno");
 <!-- 답변이 있을때만 답변확인버튼 보이게 -->
 	<%
 	if(qdto.getQstatus()==0){
-		if(id.equals(udto.getId())){
+		
 	%>
 <div id="table_search">
 	<button type="button" class="btn btn-success" onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">답변확인</button>
 </div>	
 	<%
-		}
-	}
+		}	
 	%>
 
 	</td></tr>

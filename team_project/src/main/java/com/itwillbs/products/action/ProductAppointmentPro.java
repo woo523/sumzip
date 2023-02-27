@@ -52,6 +52,19 @@ public class ProductAppointmentPro implements Action {
 				ProductDTO pdto = pdao.getProduct(pno);
 				int sprice = pdto.getPprice()*daycount;
 				
+				 // 입실일이 과거면 안되게 하는 기능
+				String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+		        LocalDate nowDate = LocalDate.parse(Date);
+		        if(startDate.isBefore(nowDate)) {
+		        	response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script type='text/javascript'>");
+					out.println("alert('입실일이 과거입니다.')");
+					out.println("history.back();");
+					out.println("</script>");
+					out.close();
+		        }
+				
 					if(guest>pdto.getMax_men()) { // 입실 가능 인원 초과인 경우 
 						response.setContentType("text/html; charset=UTF-8");
 						PrintWriter out = response.getWriter();

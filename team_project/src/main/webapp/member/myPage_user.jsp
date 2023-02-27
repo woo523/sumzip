@@ -13,6 +13,7 @@
 <style type="text/css">
  #rap {
   width: 600px;
+  height: 700px;
   margin: 50px auto;
   margin-bottom: 70px;
   background-color: #fff;
@@ -27,8 +28,6 @@ legend {
   font-weight: bold;
   margin-bottom: 20px;
 }
-
-
 
 input[type="text"],
 input[type="password"],
@@ -107,6 +106,17 @@ label {
 #sample4_detailAddress {
   flex: 1;
 }
+
+.heading-section {
+    font-size: 28px;
+    color: #393939;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;     
+}
 </style>
 </head>
 <body>
@@ -126,7 +136,7 @@ label {
 <div id="rap">
 		<div class="row">
 			<div class="col-sm-12">
-				<h1>My Page</h1>
+				<h2 class="heading-section">My Page</h2>
 				<hr>
 					<form method="POST" action="updateAction" name="updateForm"
 						onsubmit="return updateValidate();" class="form-horizontal"

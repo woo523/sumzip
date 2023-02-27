@@ -37,7 +37,7 @@ public class MemberMyList implements Action{
 		// 페이징
 		AppointmentDAO adao = new AppointmentDAO();
 		
-		int pageSize = 5;
+		int pageSize = 2;
 		
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null) {

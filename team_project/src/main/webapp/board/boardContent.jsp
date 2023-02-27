@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="img/faviconF.png">
 <head>
 <meta charset="UTF-8">
-<title>board/boardContent.jsp</title>
+<title>섬집</title>
 <link rel="stylesheet" href="css/insert.css" type="text/css" >
 <style>
 article{

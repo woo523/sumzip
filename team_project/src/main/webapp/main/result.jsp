@@ -13,7 +13,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+<title>섬집</title>
 <!--         main css -->
         <link rel="stylesheet" href="css1/style.css">
 <!--    	 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
@@ -75,21 +75,11 @@ String Date2=(String)request.getAttribute("Date2");
                         		UserDTO dto = dao.getUser(id);
 
 								if(id!=null){
-									if(dto.getUtype()==1){
 									%>
 										<div id="login">♥ <%=id %> 님 ♥ |
 										<a href="MemberLogout.me">Logout</a>	|
 										<a href="MemberMyPage_user.me">Mypage</a></div>
-										<% 
-									}else if(dto.getUtype()==2){
-										%> 
-										<div id="login">♥ <%=id %> 님 ♥ |
-										<a href="MemberLogout.me">Logout</a>	|
-										<a href="MemberMyPage_owner.me">Mypage</a></div>
-										<%
-									}
-									%>
-								 <%
+								 	<%
 								}else{
 									%>
 									<div id="login"><a href="MemberLogin.me">Login</a> |

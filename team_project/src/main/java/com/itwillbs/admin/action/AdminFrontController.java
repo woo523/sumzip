@@ -198,6 +198,34 @@ public class AdminFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}else if(sPath.equals("/AdminQuestionDelete.ad")) {
+				action = new AdminQuestionDelete();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardCommendDeletePro.ad")) {
+				action = new AdminBoardCommendDeletePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardReplyDeletePro.ad")) {
+				action = new AdminBoardReplyDeletePro();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(sPath.equals("/AdminBoardReplyInsert.ad")) {
+				action = new AdminBoardReplyInsert();
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		 
 		//---------------------------------------------
