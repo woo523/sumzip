@@ -60,6 +60,9 @@
  	#myList img {
  		float: left;
  	}
+ 	#myList img:hover {
+ 		background: #E1E1E1;
+ 	}
  	
  	#myList #timecheck {
  		margin: 10px 20px 15px 10px;
@@ -147,7 +150,10 @@
 	%>
 	<ul>
 		<hr>
-		<li><a href="ProductContent.pr?pno=<%=adto.getPno() %>"><img src="upload/<%=housePic %>" width="150" height="150"></a></li>
+		<!-- HTML to write -->
+
+
+		<li><a href="ProductContent.pr?pno=<%=adto.getPno() %>" data-toggle="tooltip" title="후기 보러가기"><img src="upload/<%=housePic %>" width="150" height="150"></a></li>
 		<li>예약일자 : <%=appointdate %></li>
 		<h5><%=houseName %></h5>
 		<li id="timecheck">체크인 <%=format.format(appointIndate) %> <%=houseInTime.substring(0, 2) %>시 <%=houseInTime.substring(3) %>분</li>
