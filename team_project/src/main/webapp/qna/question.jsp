@@ -118,14 +118,13 @@ int qno=(Integer)request.getAttribute("qno");
 <!-- 답변이 있을때만 답변확인버튼 보이게 -->
 	<%
 	if(qdto.getQstatus()==0){
-		if(id.equals(udto.getId())){
+		
 	%>
 <div id="table_search">
 	<button type="button" class="btn btn-success" onclick="location.href='QnaAnswer.qa?qno=<%=qdto.getQno() %>'">답변확인</button>
 </div>	
 	<%
-		}
-	}
+		}	
 	%>
 
 	</td></tr>
