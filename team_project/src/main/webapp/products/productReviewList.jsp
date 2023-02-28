@@ -155,10 +155,16 @@
 				<li class="img"><img src="upload/<%=rdto.getRpic3()%>" width="200" height="200"></li>
 			<% } %>
 		
-		<% if(id.equals(writer)) { %>
+		<% 
+		try {
+			if(id.equals(writer)) { %>
 			<li><button type="button" id="btns" class="btn btn-outline-success" onclick="location.href='MemberReviewModifyForm.me?ano=<%=rdto.getAno()%>'">후기 수정하기</button>
 				<button type="button" id="btns" class="btn btn-outline-secondary" onclick="location.href='MemberReviewDelete.me?ano=<%=rdto.getAno()%>'">후기 삭제하기</button></li>
-		<% } %>
+		<% }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}%>
+		
 			</ul>
 			<%
 		} // for
