@@ -9,7 +9,7 @@ public class MyAuthenticator  extends Authenticator{
 		private PasswordAuthentication pa;
 		
 		public MyAuthenticator() { //기본생성자
-			pa = new PasswordAuthentication("sj.itwillteam3@gmail.com", "fcepuwvifmwousou"); //각자의 계정과 비밀번호 입력
+			pa = new PasswordAuthentication("gmail아이디", "비밀번호"); //각자의 계정과 비밀번호 입력
 		}//end
 		
 		@Override
