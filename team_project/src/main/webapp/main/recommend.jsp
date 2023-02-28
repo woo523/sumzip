@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDate"%>
 <%@page import="products.ProductDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="member.UserDTO"%>
@@ -60,7 +61,7 @@
 <!-- 헤더들어가는 곳 (오류때문에 헤더에 있는거 직접 가져와서 수정함.) -->
 <%
 String Date=(String)request.getAttribute("Date");
-String Date2=(String)request.getAttribute("Date2");
+LocalDate NDate =(LocalDate)request.getAttribute("NDate");
 %>
 <header class="header-section">
 	<div class="top-nav">
@@ -158,7 +159,7 @@ String Date2=(String)request.getAttribute("Date2");
                                             </div>
                                             <h5>~</h5>
                                             <div class="form-group">
-                                                    <input type='date' name="outdate" class="form-control" value="<%=Date2%>"/>
+                                                    <input type='date' name="outdate" class="form-control" value="<%=NDate%>"/>
                                             </div>
                                         </div>
                                     </div>

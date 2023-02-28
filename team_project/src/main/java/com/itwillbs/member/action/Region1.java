@@ -1,5 +1,6 @@
 package com.itwillbs.member.action;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +18,8 @@ public class Region1 implements Action{
 		ProductDAO dao=new ProductDAO();
 		// 검색 기본날짜 설정
 		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-		String Date2 = Date.replaceAll("[-]", "");
-        int Date3=Integer.parseInt(Date2);
-        Date3+=1;
-        Date2=Integer.toString(Date3);
-        String Date4=Date2.substring(0, 4);
-        String Date5=Date2.substring(4, 6);
-        String Date6=Date2.substring(6);
-        Date2=Date4+"-"+Date5+"-"+Date6;
+		LocalDate NDate = LocalDate.parse(Date);
+        NDate=NDate.plusDays(1);
 		//페이징
 		int pageSize=9;// 한페이지에 몇개 펜션 보이게 할건지
 		String pageNum=request.getParameter("pageNum");
@@ -75,7 +70,7 @@ public class Region1 implements Action{
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("Date", Date);
-		request.setAttribute("Date2", Date2);
+		request.setAttribute("NDate", NDate);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/region1.jsp");

@@ -42,14 +42,8 @@ public class Result implements Action {
 		
 		// 검색 기본날짜 설정
 		String Date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-		String Date2 = Date.replaceAll("[-]", "");
-        int Date3=Integer.parseInt(Date2);
-        Date3+=1;
-        Date2=Integer.toString(Date3);
-        String Date4=Date2.substring(0, 4);
-        String Date5=Date2.substring(4, 6);
-        String Date6=Date2.substring(6);
-        Date2=Date4+"-"+Date5+"-"+Date6;
+		LocalDate NDate = LocalDate.parse(Date);
+        NDate=NDate.plusDays(1);
         // 입실일이 과거면 안되게 하는 기능
         LocalDate nowDate = LocalDate.parse(Date);
         if(startDate.isBefore(nowDate)) {
@@ -122,7 +116,7 @@ public class Result implements Action {
 		request.setAttribute("guest", guest);
 		request.setAttribute("region", region);
 		request.setAttribute("Date", Date);
-		request.setAttribute("Date2", Date2);
+		request.setAttribute("NDate", NDate);
 		
 		ActionForward forward=new ActionForward();
 		forward.setPath("main/result.jsp");
