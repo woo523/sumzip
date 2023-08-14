@@ -45,12 +45,12 @@
   * 답댓글 DAO [CommendDAO.java](team_project/src/main/java/board/CommendDAO.java)
   * 댓글 입력 [BoardReplyInsert.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyInsert.java)
   * 댓글 수정 [BoardReplyUpdateForm.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyUpdateForm.java)
-             [BoardReplyUpdatePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyUpdatePro.java)
+     / [BoardReplyUpdatePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyUpdatePro.java)
   * 댓글 삭제 [BoardReplyDeletePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyDeletePro.java)
-  * 답댓글 입력폼 [BoardCommendForm.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendForm.java)
-  * [BoardCommentInsert.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommentInsert.java)
+  * 답댓글 입력 [BoardCommendForm.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendForm.java)
+  / [BoardCommentInsert.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommentInsert.java)
   * 답댓글 수정 [BoardCommendUpdateForm.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendUpdateForm.java)
-  * [BoardCommendUpdatePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendUpdatePro.java)
+   / [BoardCommendUpdatePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendUpdatePro.java)
   * 답댓글 삭제 [BoardCommendDeletePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendDeletePro.java)
     
 * View  
