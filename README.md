@@ -45,7 +45,7 @@
   * 답댓글 DAO [CommendDAO.java](team_project/src/main/java/board/CommendDAO.java)
   * 댓글 입력 [BoardReplyInsert.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyInsert.java)
   * 댓글 수정 [BoardReplyUpdateForm.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyUpdateForm.java)
-  * [BoardReplyUpdatePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyUpdatePro.java)
+             [BoardReplyUpdatePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyUpdatePro.java)
   * 댓글 삭제 [BoardReplyDeletePro.java](team_project/src/main/java/com/itwillbs/board/action/BoardReplyDeletePro.java)
   * 답댓글 입력폼 [BoardCommendForm.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommendForm.java)
   * [BoardCommentInsert.java](team_project/src/main/java/com/itwillbs/board/action/BoardCommentInsert.java)
@@ -68,7 +68,7 @@
 
 * Model
   * 사장님예약 DTO [OwnerAppointmentDTO.java](team_project/src/main/java/products/OwnerAppointmentDTO.java)
-  * 예약 DAO [AppointmentDAO.java](team_project/src/main/java/products/AppointmentDAO.java#L191-232)
+  * 예약 DAO [AppointmentDAO.java](team_project/src/main/java/products/AppointmentDAO.java#L191-L232)
   * 팬션 예약 조회 [ProductOwnerAppointManage.java](team_project/src/main/java/com/itwillbs/products/action/ProductOwnerAppointManage.java)
 
 * View
