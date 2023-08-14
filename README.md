@@ -1,6 +1,6 @@
 # 섬집🏡
 제주도 펜션 예약사이트
-
+<img width="976" alt="image" src="https://github.com/woo523/sumzip/assets/124018409/08b49d0f-f845-4d08-9ba4-0ad5a8af2c03">
 
 ## 호스팅 사이트 : http://itwillbs8.cafe24.com/sumzip/Main.me 
 - 관리자 (ID : admin, PW : 123)
