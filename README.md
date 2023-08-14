@@ -2,7 +2,7 @@
 제주도 펜션 예약사이트
 
 
-## 호스팅 사이트 : http://itwillbs19.cafe24.com/sumzip/Main.me 
+## 호스팅 사이트 : http://itwillbs8.cafe24.com/sumzip/Main.me 
 - 관리자 (ID : admin, PW : 123)
 - 일반회원 (ID : jung123, PW : 234)
 - 사장님회원 (ID : jungjy123, PW : 123)
