@@ -75,7 +75,7 @@
   * 펜션 예약 조회 [OwnerAppointManage.jsp](team_project/src/main/webapp/products/OwnerAppointManage.jsp)
   
 * Controller
-  * 컨트롤러 [ProductsFrontController.java](team_project/src/main/java/com/itwillbs/products/action/ProductsFrontController.java#L120-126)
+  * 컨트롤러 [ProductsFrontController.java](team_project/src/main/java/com/itwillbs/products/action/ProductsFrontController.java#L120-L126)
 
 
 ### 💡 지역별 예약 통계
@@ -88,7 +88,7 @@
   * 관리자 페이지 메인 [adminMain.jsp](team_project/src/main/webapp/admin/adminMain.jsp#L78-119)
   
 * Controller
-  * 컨트롤러 [AdminFrontController.java](team_project/src/main/java/com/itwillbs/admin/action/AdminFrontController.java#L64-67)
+  * 컨트롤러 [AdminFrontController.java](team_project/src/main/java/com/itwillbs/admin/action/AdminFrontController.java#L64-L67)
 
 
 ---
