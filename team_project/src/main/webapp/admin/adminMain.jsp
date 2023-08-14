@@ -75,7 +75,7 @@ history.back();
 		
 			<div class="col-lg-5">
 				<div class="content-main" style="width:1000; height:1000;">	
-				<div id="chart_div" ></div> 	
+				<div id="chart_div" > 	
 					<!--Load the AJAX API-->
 					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 					<script type="text/javascript">
@@ -116,6 +116,7 @@ history.back();
 					  chart.draw(data, options);
 					}
 					</script>
+					</div>
 				</div>		
 			</div>
 		</div>
